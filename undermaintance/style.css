@@ -1,0 +1,24 @@
+*,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.card-img-overlay {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.link i:hover {
+  color: #e5c511 !important;
+}
+
+img {
+  filter: brightness(20%);
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+}
