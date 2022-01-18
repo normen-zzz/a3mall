@@ -15,14 +15,18 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>css/style.css">
     <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>css/components.css">
+
+    <!-- Datatables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
 </head>
 
 <body>
     <div id="app">
         <div class="main-wrapper">
-            <div class="navbar-bg">
-                <?php $this->load->view('admin/templates/navbar') ?>
-            </div>
+            <div class="navbar-bg"></div>
+            <?php $this->load->view('admin/templates/navbar') ?>
+
 
             <?php $this->load->view('admin/templates/sidebar') ?>
 
@@ -46,7 +50,13 @@
     <script src="<?= base_url('assets/admin/') ?>js/scripts.js"></script>
     <script src="<?= base_url('assets/admin/') ?>js/custom.js"></script>
 
-    <!-- Page Specific JS File -->
+    <!-- datatables -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table_id').DataTable();
+        });
+    </script>
 </body>
 
 </html>
