@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fbfbfb;
+}
+
+/* All Tag */
+.yellow-text {
+  color: var(--primary);
+}
+
+.yellow-button {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.yellow-button:hover {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background-color: #fff;
+}
+/* All Tag */
+
+:root {
+  --primary: #e5c511;
+}
+
+/* Navbar */
+nav .nav-link.active {
+  color: var(--primary) !important;
+}
+/* Navbar */
+
+/* Keranjang */
+#keranjang .hapus:hover {
+  color: red;
+}
+
+/* #keranjang .img {
+  width: 100%;
+  height: 100%;
+} */
+
+#keranjang img {
+  width: 100%;
+  height: 100%;
+}
+/* Keranjang */
+
+/* Produk Serupa */
+#proser .judul {
+  font-weight: 600;
+}
+
+#proser .card-proser {
+  border-radius: 30px;
+  transition: 0.4s;
+}
+
+#proser .card-proser:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/* Produk Serupa */
+
+/* RESPONSIVE */
+@media only screen and (max-width: 700px) {
+  /* Keranjang */
+  #keranjang .keranjang-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  #keranjang .isi-keranjang {
+    display: flex;
+    text-align: start;
+  }
+  /* Keranjang */
+
+  /* Produk Serupa */
+  #proser .proser-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  /* Produk Serupa */
+}
