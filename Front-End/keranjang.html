@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">A3MALL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-5 me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produk</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Sofa</a></li>
+                <li><a class="dropdown-item" href="#">Spring Bed</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item my-auto me-3">
+              <form class="input-group">
+                <span class="input-group-text border-0 bg-white" id="basic-addon1"><i class="bi bi-search"></i></span>
+                <input class="form-control border-0" type="search" placeholder="Search" aria-label="Search" />
+              </form>
+            </li>
+            <li class="nav-item my-auto me-3">
+              <a class="nav-link h5" href="#"><i class="bi bi-cart3"></i></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="rounded-circle shadow" src="./assets/img/profile/img-profile.png" width="30" height="30" alt="" />
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Breadcrumb -->
+    <section id="breadcrumb" class="bg-white py-5">
+      <div class="container">
+        <div class="row">
+          <divc class="col">
+            <p class="text-secondary fw-light">Home / <span class="yellow-text">Keranjang</span></p>
+          </divc>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Breadcrumb -->
+
+    <!-- Keranjang -->
+    <section id="keranjang" class="bg-white py-5 my-5">
+      <div class="container">
+        <div class="row mb-5 keranjang-grid">
+          <div class="col-md-2">
+            <div class="img text-center">
+              <img src="./assets/img/produk/Rectangle 47.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-md my-auto">
+            <div class="row">
+              <div class="col-md py-1">
+                <p>Louis Vuitton</p>
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <p class="fw-light text-secondary my-auto">Variasi: Pola biru</p>
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <p class="my-auto">Rp. 999.999</p>
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <input class="my-auto border-1" type="number" id="quantity" name="quantity" min="1" max="5" />
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <p class="yellow-text my-auto">Rp. 999.999</p>
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <button class="btn my-auto hapus">Hapus</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5 keranjang-grid">
+          <div class="col-md-2">
+            <div class="img text-center">
+              <img src="./assets/img/produk/Rectangle 47.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-md my-auto">
+            <div class="row">
+              <div class="col-md py-1">
+                <p>Louis Vuitton</p>
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <p class="fw-light text-secondary my-auto">Variasi: Pola biru</p>
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <p class="my-auto">Rp. 999.999</p>
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <input class="my-auto border-1" type="number" id="quantity" name="quantity" min="1" max="5" />
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <p class="yellow-text my-auto">Rp. 999.999</p>
+              </div>
+              <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <button class="btn my-auto hapus">Hapus</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Keranjang -->
+
+    <!-- Check -->
+    <section class="bg-white py-5" id="check">
+      <div class="container">
+        <div class="row">
+          <div class="col my-auto">
+            <h5 class="fw-bold">Produk (3)</h5>
+          </div>
+          <div class="col my-auto justify-content-end d-flex">
+            <p class="my-auto me-5">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp.9999.9999</span></p>
+            <a href="#" class="btn px-5 py-2 yellow-button">Pesan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Check -->
+
+    <!-- Produk Serupa -->
+    <section class="py-5" id="proser">
+      <div class="container py-5">
+        <div class="row">
+          <dov class="col">
+            <h2 class="judul">Produk Serupa</h2>
+          </dov>
+        </div>
+        <div class="row pt-3 proser-grid">
+          <div class="col py-2">
+            <div class="bg-white card-proser">
+              <img src="./assets/img/produk/MH-103.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="fw-light text-secondary small">Sofa</p>
+                <h5 class="card-title fw-bold">Sakarias Armchair</h5>
+                <p class="card-text yellow-text">Rp. 999.9999</p>
+                <div class="text-center">
+                  <a href="#" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col py-2">
+            <div class="bg-white card-proser">
+              <img src="./assets/img/produk/MH-103.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="fw-light text-secondary small">Sofa</p>
+                <h5 class="card-title fw-bold">Sakarias Armchair</h5>
+                <p class="card-text yellow-text">Rp. 999.9999</p>
+                <div class="text-center">
+                  <a href="#" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col py-2">
+            <div class="bg-white card-proser">
+              <img src="./assets/img/produk/MH-103.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="fw-light text-secondary small">Sofa</p>
+                <h5 class="card-title fw-bold">Sakarias Armchair</h5>
+                <p class="card-text yellow-text">Rp. 999.9999</p>
+                <div class="text-center">
+                  <a href="#" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col py-2">
+            <div class="bg-white card-proser">
+              <img src="./assets/img/produk/MH-103.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="fw-light text-secondary small">Sofa</p>
+                <h5 class="card-title fw-bold">Sakarias Armchair</h5>
+                <p class="card-text yellow-text">Rp. 999.9999</p>
+                <div class="text-center">
+                  <a href="#" class="btn rounded-pill yellow-button px-5 py-2">Pesan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Produk Serupa -->
+
+    <!-- Footer -->
+    <footer class="bg-white">
+      <div class="container">
+        <div class="row py-5">
+          <div class="col-lg py-2">
+            <h5 class="yellow-text fw-bold">A3MALL</h5>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+          <div class="col-lg py-2">
+            <p class="fw-bold">About Us</p>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Portofolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg py-2">
+            <p class="fw-bold">Contact Us</p>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <p class="small">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col text-end mt-auto">
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a>
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row border-top">
+          <div class="col text-center">
+            <p class="py-3 m-0">Copyright ® 2021 Lorem All rights Rcerved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
