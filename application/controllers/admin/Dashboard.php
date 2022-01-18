@@ -10,6 +10,11 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         //Do your magic here
+        $this->load->library(['ion_auth', 'form_validation']);
+        if (!$this->ion_auth->is_admin()) {
+            $this->session->set_flashdata('message', 'You must be an admin to view this page');
+            redirect('dashboard');
+        }
     }
 
     public function index()

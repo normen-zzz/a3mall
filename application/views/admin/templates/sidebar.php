@@ -7,17 +7,36 @@
             <a href="index.html">St</a>
         </div>
         <ul class="sidebar-menu">
+            <!-- Dashboard -->
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item dropdown">
+            <li class="<?php if ($this->uri->segment(2) == "dashboard") {
+                            echo "active";
+                        } ?>"><a class="nav-link" href="credits.html"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+            <!-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
                     <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
                 </ul>
+            </li> -->
+
+            <li class="menu-header">Data Barang</li>
+            <li class="<?php if ($this->uri->segment(2) == "Barang") {
+                            echo "active";
+                        } ?> nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Data Barang</span></a>
+                <ul class="dropdown-menu">
+                    <li class="<?php if ($this->uri->segment(3) == "springbed") {
+                                    echo "active";
+                                } ?>"><a class="nav-link" href="<?= base_url('admin/Barang/springbed') ?>">Spring Bed</a></li>
+                    <li class="<?php if ($this->uri->segment(3) == "sofa") {
+                                    echo "active";
+                                } ?>"><a class="nav-link" href="<?= base_url('admin/Barang/sofa') ?>">Sofa</a></li>
+                </ul>
             </li>
-            <li class="menu-header">Starter</li>
+            <li class="menu-header">Data Transaksi</li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-shopping-cart"></i> <span>Layout</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
                     <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
