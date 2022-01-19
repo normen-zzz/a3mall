@@ -30,6 +30,29 @@ body {
 nav .nav-link.active {
   color: var(--primary) !important;
 }
+
+#navbar {
+  padding: 20px 0px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 100%;
+}
+
+#navbar .bt {
+  color: #fff;
+}
+
+#navbar .bt.scrolled {
+  color: #000;
+}
+
+#navbar.scrolled {
+  background-color: #fbfbfb;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 /* Navbar */
 
 /* Landing Page - Hero */
@@ -38,9 +61,10 @@ nav .nav-link.active {
 }
 
 #hero .carousel img {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   filter: brightness(20%);
+  object-fit: cover;
 }
 
 #hero .card-img-overlay {
@@ -48,6 +72,57 @@ nav .nav-link.active {
   align-items: center;
 }
 /* Akhir Landing Page Hero */
+
+/* Landing Page New Arival */
+#arival .judul {
+  font-weight: 600;
+}
+
+#arival .card-arival {
+  border-radius: 30px;
+  transition: 0.4s;
+}
+
+#arival .card-arival:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/* Akhir Landing Page New Arival */
+
+/* Landing Page Kontak */
+#kontak .kontak-isi {
+  background-color: var(--primary);
+}
+/* Akhir Landing Page Kontak */
+
+/* Landing Page Testimoni */
+#testimoni .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+#testimoni .swiper-slide {
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+#testimoni .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Landing Page Testimoni */
 
 /* Keranjang */
 #keranjang .hapus:hover {
@@ -122,9 +197,28 @@ nav .nav-link.active {
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 991px) {
+  #testimoni img {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  /* Landing Page Navbar */
+  #navbar {
+    background-color: #fbfbfb;
+  }
+
+  #navbar .bt {
+    color: #000;
+  }
+  /* Landing Page Navbar */
+
   /* Keranjang */
-  #keranjang .keranjang-grid {
+  #keranjang .keranjang-grid,
+  #arival .arival-grid {
     display: grid;
     grid-template-columns: auto auto;
   }
@@ -141,7 +235,8 @@ nav .nav-link.active {
     grid-template-columns: auto auto;
   }
 
-  #proser .btn-foto {
+  #proser .btn-foto,
+  #arival .btn-foto {
     display: none;
   }
   /* Produk Serupa */
