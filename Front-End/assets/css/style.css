@@ -32,6 +32,23 @@ nav .nav-link.active {
 }
 /* Navbar */
 
+/* Landing Page - Hero */
+#hero .carousel {
+  height: 100vh;
+}
+
+#hero .carousel img {
+  height: 100%;
+  width: 100%;
+  filter: brightness(20%);
+}
+
+#hero .card-img-overlay {
+  display: flex;
+  align-items: center;
+}
+/* Akhir Landing Page Hero */
+
 /* Keranjang */
 #keranjang .hapus:hover {
   color: red;
@@ -81,7 +98,7 @@ nav .nav-link.active {
   transition: 0.3s;
 }
 
-#deskfotok .img-desk1:hover {
+#deskfoto .img-desk1:hover {
   transform: scale(110%);
 }
 
@@ -123,11 +140,23 @@ nav .nav-link.active {
     display: grid;
     grid-template-columns: auto auto;
   }
+
+  #proser .btn-foto {
+    display: none;
+  }
   /* Produk Serupa */
 
   /* Desk Foto */
-  #deskfoto {
+  #deskfoto,
+  #deskfoto .padding-foto {
     padding: 0 !important;
+  }
+
+  #deskfoto .img-desk2 {
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    object-fit: cover;
   }
   /* Desk Foto */
 }
