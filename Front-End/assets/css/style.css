@@ -37,15 +37,21 @@ nav .nav-link.active {
   color: red;
 }
 
-/* #keranjang .img {
-  width: 100%;
-  height: 100%;
-} */
+#keranjang .inline-group {
+  max-width: 12rem;
+}
+
+#keranjang .inline-group .form-control[type='number']::-webkit-inner-spin-button,
+#keranjang .inline-group .form-control[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 #keranjang img {
   width: 100%;
   height: 100%;
 }
+
 /* Keranjang */
 
 /* Produk Serupa */

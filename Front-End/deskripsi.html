@@ -132,7 +132,19 @@
                 </div>
                 <p class="fw-light text-secondary">Read reviews (267)</p>
               </div>
-              <input class="mb-3 border-1" type="number" id="quantity" name="quantity" min="1" max="5" />
+              <div class="input-group inline-group border-1 border border-dark">
+                <div class="input-group-prepend">
+                  <button class="btn text-dark btn-minus">
+                    <i class="bi bi-dash"></i>
+                  </button>
+                </div>
+                <input class="form-control quantity border-0 text-center" min="0" name="quantity" value="1" type="number" />
+                <div class="input-group-append">
+                  <button class="btn text-dark btn-plus">
+                    <i class="bi bi-plus"></i>
+                  </button>
+                </div>
+              </div>
               <div class="text mb-3">
                 <p class="m-0">Total:</p>
                 <h2>Rp 999.999</h2>
@@ -298,6 +310,10 @@
       </div>
     </footer>
     <!-- Akhir Footer -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+    <script src="./assets/js/script.js"></script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
