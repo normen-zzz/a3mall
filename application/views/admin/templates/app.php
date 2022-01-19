@@ -19,6 +19,7 @@
     <!-- Datatables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 
+
 </head>
 
 <body>
@@ -55,6 +56,11 @@
     <script>
         $(document).ready(function() {
             $('#table_id').DataTable();
+        });
+    </script>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            <?= $modal; ?>
         });
     </script>
 </body>
