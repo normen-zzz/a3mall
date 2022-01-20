@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #fbfbfb;
+  background-color: #f8f8f8;
 }
 
 /* All Tag */
@@ -52,6 +52,10 @@ nav .nav-link.active {
   transition: 0.5s ease;
   -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#navbar .search.scrolled {
+  border: 1px solid #000 !important;
 }
 /* Navbar */
 
@@ -193,6 +197,13 @@ nav .nav-link.active {
 }
 /* Desk */
 
+/* Checkout */
+#checkout .nav-link.active {
+  background-color: var(--primary);
+  color: #fff !important;
+}
+/* Checkout */
+
 /* RESPONSIVE */
 @media only screen and (max-width: 1200px) {
   #desk ul {
@@ -221,6 +232,12 @@ nav .nav-link.active {
 }
 
 @media only screen and (max-width: 750px) {
+  /* Navbar */
+  #navbar .navb {
+    margin: 0 !important;
+  }
+  /* Navbar */
+
   /* Landing Page Navbar */
   #navbar {
     background-color: #fbfbfb;

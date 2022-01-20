@@ -80,6 +80,10 @@
     </section>
     <!-- Akhir Breadcrumb -->
 
+    <!-- Alamat -->
+    <section></section>
+    <!-- Akhir Alamat -->
+
     <!-- Keranjang -->
     <section id="keranjang" class="bg-white py-5 my-5">
       <div class="container">
@@ -101,25 +105,7 @@
                 <p class="my-auto">Rp. 999.999</p>
               </div>
               <div class="col-md py-1 text-center isi-keranjang my-auto">
-                <div class="input-group inline-group border-1 border border-dark">
-                  <div class="input-group-prepend">
-                    <button class="btn text-dark btn-minus">
-                      <i class="bi bi-dash"></i>
-                    </button>
-                  </div>
-                  <input class="form-control quantity border-0 text-center" min="0" name="quantity" value="1" type="number" />
-                  <div class="input-group-append">
-                    <button class="btn text-dark btn-plus">
-                      <i class="bi bi-plus"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md py-1 text-center isi-keranjang my-auto">
                 <p class="yellow-text my-auto">Rp. 999.999</p>
-              </div>
-              <div class="col-md py-1 text-center isi-keranjang my-auto">
-                <button class="btn my-auto hapus">Hapus</button>
               </div>
             </div>
           </div>
@@ -142,25 +128,7 @@
                 <p class="my-auto">Rp. 999.999</p>
               </div>
               <div class="col-md py-1 text-center isi-keranjang my-auto">
-                <div class="input-group inline-group border-1 border border-dark">
-                  <div class="input-group-prepend">
-                    <button class="btn text-dark btn-minus">
-                      <i class="bi bi-dash"></i>
-                    </button>
-                  </div>
-                  <input class="form-control quantity border-0 text-center" min="0" name="quantity" value="1" type="number" />
-                  <div class="input-group-append">
-                    <button class="btn text-dark btn-plus">
-                      <i class="bi bi-plus"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md py-1 text-center isi-keranjang my-auto">
                 <p class="yellow-text my-auto">Rp. 999.999</p>
-              </div>
-              <div class="col-md py-1 text-center isi-keranjang my-auto">
-                <button class="btn my-auto hapus">Hapus</button>
               </div>
             </div>
           </div>
@@ -178,86 +146,85 @@
           </div>
           <div class="col my-auto justify-content-end d-flex">
             <p class="my-auto me-5">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp.9999.9999</span></p>
-            <a href="#" class="btn px-5 py-2 yellow-button">Pesan</a>
           </div>
         </div>
       </div>
     </section>
     <!-- Akhir Check -->
 
-    <!-- Produk Serupa -->
-    <section class="py-5" id="proser">
-      <div class="container py-5">
+    <!-- Checkout -->
+    <section class="bg-white" id="checkout">
+      <div class="container py-5 my-5">
         <div class="row">
-          <dov class="col">
-            <h2 class="judul">Produk Serupa</h2>
-          </dov>
-        </div>
-        <div class="row pt-3 proser-grid">
-          <div class="col py-2">
-            <a href="#" style="text-decoration: none">
-              <div class="bg-white card-proser">
-                <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                <div class="card-body">
-                  <p class="fw-light text-secondary small">Sofa</p>
-                  <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                  <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                  <div class="text-center btn-foto">
-                    <a href="#" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
+          <div class="col-lg">
+            <ul class="nav nav-pills mb-5 mx-auto justify-content-center" id="pills-tab" role="tablist">
+              <li class="nav-item my-2" role="presentation">
+                <button class="nav-link text-dark active" id="desk1-tab" data-bs-toggle="pill" data-bs-target="#desk1" type="button" role="tab" aria-controls="desk1" aria-selected="true">Pembayaran Website</button>
+              </li>
+              <li class="nav-item my-2" role="presentation">
+                <button class="nav-link text-dark" id="desk2-tab" data-bs-toggle="pill" data-bs-target="#desk2" type="button" role="tab" aria-controls="desk2" aria-selected="false">Pembayaran Manual</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show p-0 active" id="desk1" role="tabpanel" aria-labelledby="desk1-tab">
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <h1>PEMBAYARAN LEWAT MITRANS</h1>
+                    </div>
                   </div>
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col py-2">
-            <a href="#" style="text-decoration: none">
-              <div class="bg-white card-proser">
-                <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                <div class="card-body">
-                  <p class="fw-light text-secondary small">Sofa</p>
-                  <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                  <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                  <div class="text-center btn-foto">
-                    <a href="#" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
+              <div class="tab-pane fade p-0" id="desk2" role="tabpanel" aria-labelledby="desk2-tab">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-5 border-end">
+                      <div class="row">
+                        <div class="col-lg-3">
+                          <img src="./assets/img/checkout/BCA.png" height="50" alt="" />
+                        </div>
+                        <div class="col">
+                          <p>Bank Central Asia</p>
+                          <p>22206 1234</p>
+                          <p>Tesla Inc.</p>
+                        </div>
+                      </div>
+                      <div class="row pt-3">
+                        <div class="col-lg-3">
+                          <img src="./assets/img/checkout/mandiri.png" height="50" alt="" />
+                        </div>
+                        <div class="col">
+                          <p>Mandiri</p>
+                          <p>22206 1234</p>
+                          <p>Tesla Inc.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg pt-4">
+                      <form>
+                        <div class="mb-3">
+                          <label for="formFile" class="form-label">Upload Transfer Proof</label>
+                          <input class="form-control" type="file" id="formFile" />
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Bank Origin</label>
+                          <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Sender Name</label>
+                          <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
-            </a>
-          </div>
-          <div class="col py-2">
-            <a href="#" style="text-decoration: none">
-              <div class="bg-white card-proser">
-                <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                <div class="card-body">
-                  <p class="fw-light text-secondary small">Sofa</p>
-                  <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                  <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                  <div class="text-center btn-foto">
-                    <a href="#" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col py-2">
-            <a href="#" style="text-decoration: none">
-              <div class="bg-white card-proser">
-                <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                <div class="card-body">
-                  <p class="fw-light text-secondary small">Sofa</p>
-                  <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                  <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                  <div class="text-center btn-foto">
-                    <a href="#" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
-                  </div>
-                </div>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Akhir Produk Serupa -->
+    <!-- Akhir Checkout -->
 
     <!-- Footer -->
     <footer class="bg-white">
