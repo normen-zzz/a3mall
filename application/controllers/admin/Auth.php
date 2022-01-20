@@ -28,7 +28,7 @@ class Auth extends CI_Controller
 
 		if (!$this->ion_auth->logged_in()) {
 			// redirect them to the login page
-			redirect('admin/auth/', 'refresh');
+			redirect('admin/auth/login', 'refresh');
 		} else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
 		{
 			// redirect them to the home page because they must be an administrator to view this
@@ -50,7 +50,7 @@ class Auth extends CI_Controller
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
-			$this->_render_page('admin' . DIRECTORY_SEPARATOR . 'dashboard/dashboard', $this->data);
+			$this->_render_page('admin' . DIRECTORY_SEPARATOR . 'login', $this->data);
 		}
 	}
 
