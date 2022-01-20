@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- Icon Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- Swipper JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">A3MALL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-5 me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produk</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Sofa</a></li>
+                <li><a class="dropdown-item" href="#">Spring Bed</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item my-auto me-3">
+              <form class="input-group">
+                <span class="input-group-text border-0 bg-white" id="basic-addon1"><i class="bi bi-search"></i></span>
+                <input class="form-control border-0" type="search" placeholder="Search" aria-label="Search" />
+              </form>
+            </li>
+            <li class="nav-item my-auto me-3">
+              <a class="nav-link h5" href="#"><i class="bi bi-cart3"></i></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="rounded-circle shadow" src="./assets/img/profile/img-profile.png" width="30" height="30" alt="" />
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Breadcrumb -->
+    <section id="breadcrumb" class="bg-white py-5">
+      <div class="container">
+        <div class="row">
+          <divc class="col-lg py-3">
+            <p class="text-secondary fw-light">Home / Sofas / <span class="yellow-text">Produk</span></p>
+          </divc>
+          <div class="col-lg text-center">
+            <h3 class="fw-bold">Produk</h3>
+            <p class="fw-light small text-secondary">Lorem ipsum</p>
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Breadcrumb -->
+
+    <!-- Produk -->
+    <section id="produk">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col">
+            <ul class="nav nav-pills mb-5 mx-auto justify-content-center rounded-pill" style="background-color: #eeeeee; width: 19%" id="pills-tab" role="tablist">
+              <li class="nav-item my-2" role="presentation">
+                <button class="nav-link rounded-pill text-dark active" id="desk1-tab" data-bs-toggle="pill" data-bs-target="#desk1" type="button" role="tab" aria-controls="desk1" aria-selected="true">Sofa</button>
+              </li>
+              <li class="nav-item my-2" role="presentation">
+                <button class="nav-link rounded-pill text-dark" id="desk2-tab" data-bs-toggle="pill" data-bs-target="#desk2" type="button" role="tab" aria-controls="desk2" aria-selected="false">Spring Bed</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show container p-0 active" id="desk1" role="tabpanel" aria-labelledby="desk1-tab">
+                <div class="row pt-3 produk-grid">
+                  <div class="col-lg py-2">
+                    <a href="#" style="text-decoration: none">
+                      <div class="bg-white card-proser">
+                        <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="fw-light text-secondary small">Sofa</p>
+                          <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                          <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                          <div class="text-center btn-foto">
+                            <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-lg py-2">
+                    <a href="#" style="text-decoration: none">
+                      <div class="bg-white card-proser">
+                        <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="fw-light text-secondary small">Sofa</p>
+                          <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                          <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                          <div class="text-center btn-foto">
+                            <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-lg py-2">
+                    <a href="#" style="text-decoration: none">
+                      <div class="bg-white card-proser">
+                        <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="fw-light text-secondary small">Sofa</p>
+                          <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                          <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                          <div class="text-center btn-foto">
+                            <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-lg py-2">
+                    <a href="#" style="text-decoration: none">
+                      <div class="bg-white card-proser">
+                        <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="fw-light text-secondary small">Sofa</p>
+                          <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                          <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                          <div class="text-center btn-foto">
+                            <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade container p-0" id="desk2" role="tabpanel" aria-labelledby="desk2-tab">
+                <div class="row pt-3 produk-grid">
+                  <div class="col-lg py-2">
+                    <a href="#" style="text-decoration: none">
+                      <div class="bg-white card-proser">
+                        <img src="./assets/img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="fw-light text-secondary small">Sofa</p>
+                          <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                          <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                          <div class="text-center btn-foto">
+                            <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-lg py-2">
+                    <a href="#" style="text-decoration: none">
+                      <div class="bg-white card-proser">
+                        <img src="./assets/img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="fw-light text-secondary small">Sofa</p>
+                          <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                          <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                          <div class="text-center btn-foto">
+                            <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-lg py-2">
+                    <a href="#" style="text-decoration: none">
+                      <div class="bg-white card-proser">
+                        <img src="./assets/img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="fw-light text-secondary small">Sofa</p>
+                          <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                          <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                          <div class="text-center btn-foto">
+                            <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-lg py-2">
+                    <a href="#" style="text-decoration: none">
+                      <div class="bg-white card-proser">
+                        <img src="./assets/img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                          <p class="fw-light text-secondary small">Sofa</p>
+                          <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                          <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                          <div class="text-center btn-foto">
+                            <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Produk -->
+
+    <!-- Footer -->
+    <footer class="bg-white">
+      <div class="container">
+        <div class="row py-5">
+          <div class="col-lg py-2">
+            <h5 class="yellow-text fw-bold">A3MALL</h5>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+          <div class="col-lg py-2">
+            <p class="fw-bold">About Us</p>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Portofolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg py-2">
+            <p class="fw-bold">Contact Us</p>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <p class="small">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col text-end mt-auto">
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a>
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row border-top">
+          <div class="col text-center">
+            <p class="py-3 m-0">Copyright ® 2021 Lorem All rights Rcerved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Akhir Footer -->
+  </body>
+
+  <script src="./assets/js/jquery-3.3.1.slim.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <!-- My JS -->
+  <script src="./assets/js/script.js"></script>
+</html>

@@ -151,12 +151,14 @@ nav .nav-link.active {
   font-weight: 600;
 }
 
-#proser .card-proser {
+#proser .card-proser,
+#produk .card-proser {
   border-radius: 30px;
   transition: 0.4s;
 }
 
-#proser .card-proser:hover {
+#proser .card-proser:hover,
+#produk .card-proser:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 /* Produk Serupa */
@@ -185,7 +187,8 @@ nav .nav-link.active {
 /* Deskripsi Foto */
 
 /* Desk */
-#desk .nav-link.active {
+#desk .nav-link.active,
+#produk .nav-link.active {
   background-color: #fff;
 }
 /* Desk */
@@ -194,6 +197,13 @@ nav .nav-link.active {
 @media only screen and (max-width: 1200px) {
   #desk ul {
     width: 100% !important;
+    border-radius: 10px !important;
+  }
+
+  #produk ul {
+    width: 100% !important;
+    border-radius: 10px !important;
+    margin: 0 !important;
   }
 }
 
@@ -202,6 +212,11 @@ nav .nav-link.active {
     height: 100vh;
     width: 100%;
     object-fit: cover;
+  }
+
+  #produk .produk-grid {
+    display: grid;
+    grid-template-columns: auto auto;
   }
 }
 
@@ -236,7 +251,8 @@ nav .nav-link.active {
   }
 
   #proser .btn-foto,
-  #arival .btn-foto {
+  #arival .btn-foto,
+  #produk .btn-foto {
     display: none;
   }
   /* Produk Serupa */
