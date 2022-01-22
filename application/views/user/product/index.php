@@ -31,130 +31,44 @@
                  <div class="tab-content" id="pills-tabContent">
                      <div class="tab-pane fade show container p-0 active" id="desk1" role="tabpanel" aria-labelledby="desk1-tab">
                          <div class="row pt-3 produk-grid">
-                             <div class="col-lg py-2">
-                                 <a href="#" style="text-decoration: none">
-                                     <div class="bg-white card-proser">
-                                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                                         <div class="card-body">
-                                             <p class="fw-light text-secondary small">Sofa</p>
-                                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                                             <div class="text-center btn-foto">
-                                                 <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                             <?php foreach ($sofa as $sofa) { ?>
+                                 <div class="col-lg py-2">
+                                     <a href="#" style="text-decoration: none">
+                                         <div class="bg-white card-proser">
+                                             <img src="<?= base_url('assets/user/img/produk/' . $sofa['photo']) ?>" class="card-img-top p-3" alt="..." />
+                                             <div class="card-body">
+                                                 <p class="fw-light text-secondary small">Sofa</p>
+                                                 <h5 class="card-title fw-bold text-dark"><?= $sofa['name_product'] ?></h5>
+                                                 <p class="card-text yellow-text mb-3">Rp. <?= $sofa['price_product'] ?></p>
+                                                 <div class="text-center btn-foto">
+                                                     <a href="" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                                                 </div>
                                              </div>
                                          </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-lg py-2">
-                                 <a href="#" style="text-decoration: none">
-                                     <div class="bg-white card-proser">
-                                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                                         <div class="card-body">
-                                             <p class="fw-light text-secondary small">Sofa</p>
-                                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                                             <div class="text-center btn-foto">
-                                                 <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-lg py-2">
-                                 <a href="#" style="text-decoration: none">
-                                     <div class="bg-white card-proser">
-                                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                                         <div class="card-body">
-                                             <p class="fw-light text-secondary small">Sofa</p>
-                                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                                             <div class="text-center btn-foto">
-                                                 <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-lg py-2">
-                                 <a href="#" style="text-decoration: none">
-                                     <div class="bg-white card-proser">
-                                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                                         <div class="card-body">
-                                             <p class="fw-light text-secondary small">Sofa</p>
-                                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                                             <div class="text-center btn-foto">
-                                                 <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
+                                     </a>
+                                 </div>
+                             <?php } ?>
                          </div>
                      </div>
                      <div class="tab-pane fade container p-0" id="desk2" role="tabpanel" aria-labelledby="desk2-tab">
                          <div class="row pt-3 produk-grid">
-                             <div class="col-lg py-2">
-                                 <a href="#" style="text-decoration: none">
-                                     <div class="bg-white card-proser">
-                                         <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
-                                         <div class="card-body">
-                                             <p class="fw-light text-secondary small">Sofa</p>
-                                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                                             <div class="text-center btn-foto">
-                                                 <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                             <?php foreach ($springbed as $springbed) { ?>
+                                 <div class="col-lg py-2">
+                                     <a href="#" style="text-decoration: none">
+                                         <div class="bg-white card-proser">
+                                             <img src="<?= base_url('assets/user/img/produk/' . $springbed['photo_product']) ?>" class="card-img-top p-3" alt="..." />
+                                             <div class="card-body">
+                                                 <p class="fw-light text-secondary small">Spring Bed</p>
+                                                 <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
+                                                 <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p>
+                                                 <div class="text-center btn-foto">
+                                                     <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                                                 </div>
                                              </div>
                                          </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-lg py-2">
-                                 <a href="#" style="text-decoration: none">
-                                     <div class="bg-white card-proser">
-                                         <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
-                                         <div class="card-body">
-                                             <p class="fw-light text-secondary small">Sofa</p>
-                                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                                             <div class="text-center btn-foto">
-                                                 <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-lg py-2">
-                                 <a href="#" style="text-decoration: none">
-                                     <div class="bg-white card-proser">
-                                         <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
-                                         <div class="card-body">
-                                             <p class="fw-light text-secondary small">Sofa</p>
-                                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                                             <div class="text-center btn-foto">
-                                                 <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
-                             <div class="col-lg py-2">
-                                 <a href="#" style="text-decoration: none">
-                                     <div class="bg-white card-proser">
-                                         <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
-                                         <div class="card-body">
-                                             <p class="fw-light text-secondary small">Sofa</p>
-                                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                                             <div class="text-center btn-foto">
-                                                 <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </a>
-                             </div>
+                                     </a>
+                                 </div>
+                             <?php } ?>
                          </div>
                      </div>
                  </div>

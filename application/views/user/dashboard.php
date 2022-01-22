@@ -8,37 +8,37 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="<?= base_url('assets/user/') ?>img/landingpage/bg.jpg" class="d-block w-100" alt="..." />
+                <img src="<?= base_url('assets/user/') ?>img/landingpage/1.jpg" class="d-block w-100" alt="..." />
                 <div class="card-img-overlay container justify-content-center">
                     <div class="row">
                         <div class="col text-center">
                             <h5 class="card-title yellow-text fw-light">Valencia</h5>
                             <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
-                            <a href="#" class="btn yellow-button rounded-pill">Go somewhere</a>
+                            <a href="#" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="<?= base_url('assets/user/') ?>img/landingpage/bg2.jpg" class="d-block w-100" alt="..." />
+                <img src="<?= base_url('assets/user/') ?>img/landingpage/2.jpg" class="d-block w-100" alt="..." />
                 <div class="card-img-overlay container justify-content-center">
                     <div class="row">
                         <div class="col text-center">
                             <h5 class="card-title yellow-text fw-light">Valencia</h5>
                             <p class="card-text display-3 text-white">TERLARIS</p>
-                            <a href="#" class="btn yellow-button rounded-pill">Go somewhere</a>
+                            <a href="#" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="<?= base_url('assets/user/') ?>img/landingpage/bg.jpg" class="d-block w-100" alt="..." />
+                <img src="<?= base_url('assets/user/') ?>img/landingpage/3.jpg" class="d-block w-100" alt="..." />
                 <div class="card-img-overlay container justify-content-center">
                     <div class="row">
                         <div class="col text-center">
                             <h5 class="card-title yellow-text fw-light">Valencia</h5>
-                            <p class="card-text display-3 text-white">PRMOMO 20%</p>
-                            <a href="#" class="btn yellow-button rounded-pill">Go somewhere</a>
+                            <p class="card-text display-3 text-white">PROMO 20%</p>
+                            <a href="#" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -116,122 +116,136 @@
                 <h2>Baru Datang</h2>
             </div>
         </div>
-        <div class="row pt-3 arival-grid">
+        <div class="row">
+            <div class="col">
+                <div class="judul pb-3">
+                    <h3>Sofa</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row arival-grid">
             <div class="col-lg-3 py-2">
-                <a href="#" style="text-decoration: none">
+                <a href="./deskripsi.html" style="text-decoration: none">
                     <div class="bg-white card-arival">
-                        <img src="./assets/img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
                         <div class="card-body">
                             <p class="fw-light text-secondary small">Sofa</p>
                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
                             <div class="text-center btn-foto">
-                                <a href="#" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 py-2">
-                <a href="#" style="text-decoration: none">
+                <a href="./deskripsi.html" style="text-decoration: none">
                     <div class="bg-white card-arival">
-                        <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
                         <div class="card-body">
                             <p class="fw-light text-secondary small">Sofa</p>
                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
                             <div class="text-center btn-foto">
-                                <a href="#" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 py-2">
-                <a href="#" style="text-decoration: none">
+                <a href="./deskripsi.html" style="text-decoration: none">
                     <div class="bg-white card-arival">
-                        <img src="./assets/img/produk//DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
                         <div class="card-body">
                             <p class="fw-light text-secondary small">Sofa</p>
                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
                             <div class="text-center btn-foto">
-                                <a href="#" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 py-2">
-                <a href="#" style="text-decoration: none">
+                <a href="./deskripsi.html" style="text-decoration: none">
                     <div class="bg-white card-arival">
-                        <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
                         <div class="card-body">
                             <p class="fw-light text-secondary small">Sofa</p>
                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
                             <div class="text-center btn-foto">
-                                <a href="#" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="judul pb-3">
+                <h3>Spring Bed</h3>
+            </div>
+        </div>
+        <div class="row arival-grid">
+            <div class="col-lg-3 py-2">
+                <a href="./deskripsi.html" style="text-decoration: none">
+                    <div class="bg-white card-arival">
+                        <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <div class="card-body">
+                            <p class="fw-light text-secondary small">Sofa</p>
+                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
+                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
+                            <div class="text-center btn-foto">
+                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 py-2">
-                <a href="#" style="text-decoration: none">
+                <a href="./deskripsi.html" style="text-decoration: none">
                     <div class="bg-white card-arival">
-                        <img src="./assets/img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
                         <div class="card-body">
                             <p class="fw-light text-secondary small">Sofa</p>
                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
                             <div class="text-center btn-foto">
-                                <a href="#" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 py-2">
-                <a href="#" style="text-decoration: none">
+                <a href="./deskripsi.html" style="text-decoration: none">
                     <div class="bg-white card-arival">
-                        <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                        <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
                         <div class="card-body">
                             <p class="fw-light text-secondary small">Sofa</p>
                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
                             <div class="text-center btn-foto">
-                                <a href="#" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 py-2">
-                <a href="#" style="text-decoration: none">
+                <a href="./deskripsi.html" style="text-decoration: none">
                     <div class="bg-white card-arival">
-                        <img src="./assets/img/produk//DYNASTY (1).png" class="card-img-top p-3" alt="..." />
+                        <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
                         <div class="card-body">
                             <p class="fw-light text-secondary small">Sofa</p>
                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
                             <div class="text-center btn-foto">
-                                <a href="#" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 py-2">
-                <a href="#" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="./assets/img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="#" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                             </div>
                         </div>
                     </div>
@@ -269,13 +283,13 @@
         </div>
         <div class="row">
             <div class="col card border-0 bg-transparent">
-                <img src="./assets/img/landingpage/bg-testi.png" alt="" />
+                <img src="<?= base_url('assets/user/') ?>img/landingpage/bg-testi.png" alt="" />
                 <div class="card-img-overlay">
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="card shadow p-3" style="border-radius: 20px">
-                                    <img class="rounded-circle shadow bg-danger mx-auto" src="./assets/img/profile/img-profile.png" style="width: 50px; height: 50px" alt="" />
+                                    <img class="rounded-circle shadow bg-danger mx-auto" src="<?= base_url('assets/user/') ?>img/profile/img-profile.png" style="width: 50px; height: 50px" alt="" />
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Bang Upin</h5>
                                         <p class="card-text fw-light text-secondary small">Pedagan Asongan</p>
@@ -288,7 +302,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="card shadow p-3" style="border-radius: 20px">
-                                    <img class="rounded-circle shadow bg-danger mx-auto" src="./assets/img/profile/img-profile.png" style="width: 50px; height: 50px" alt="" />
+                                    <img class="rounded-circle shadow bg-danger mx-auto" src="<?= base_url('assets/user/') ?>img/profile/img-profile.png" style="width: 50px; height: 50px" alt="" />
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Bang Upin</h5>
                                         <p class="card-text fw-light text-secondary small">Pedagan Asongan</p>
@@ -301,7 +315,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="card shadow p-3" style="border-radius: 20px">
-                                    <img class="rounded-circle shadow bg-danger mx-auto" src="./assets/img/profile/img-profile.png" style="width: 50px; height: 50px" alt="" />
+                                    <img class="rounded-circle shadow bg-danger mx-auto" src="<?= base_url('assets/user/') ?>img/profile/img-profile.png" style="width: 50px; height: 50px" alt="" />
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Bang Upin</h5>
                                         <p class="card-text fw-light text-secondary small">Pedagan Asongan</p>
@@ -314,7 +328,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="card shadow p-3" style="border-radius: 20px">
-                                    <img class="rounded-circle shadow bg-danger mx-auto" src="./assets/img/profile/img-profile.png" style="width: 50px; height: 50px" alt="" />
+                                    <img class="rounded-circle shadow bg-danger mx-auto" src="<?= base_url('assets/user/') ?>img/profile/img-profile.png" style="width: 50px; height: 50px" alt="" />
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Bang Upin</h5>
                                         <p class="card-text fw-light text-secondary small">Pedagan Asongan</p>

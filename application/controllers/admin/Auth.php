@@ -50,7 +50,7 @@ class Auth extends CI_Controller
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
-			$this->_render_page('admin' . DIRECTORY_SEPARATOR . 'login', $this->data);
+			$this->_render_page('admin' . DIRECTORY_SEPARATOR . 'auth/login', $this->data);
 		}
 	}
 
@@ -114,7 +114,7 @@ class Auth extends CI_Controller
 		$this->ion_auth->logout();
 
 		// redirect them to the login page
-		redirect('auth/login', 'refresh');
+		redirect('Dashboard', 'refresh');
 	}
 
 	/**

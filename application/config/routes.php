@@ -58,3 +58,7 @@ $route['Dashboard'] = 'user/dashboard';
 
 //Product
 $route['Product'] = 'user/Product';
+
+//Auth
+$route['Login'] = 'user/Auth/login';
+$route['Register'] = 'user/Auth/create_user';

@@ -72,6 +72,10 @@
             });
         });
     </script>
+
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <?php echo "<script>" . $this->session->flashdata('message') . "</script>" ?>
 </body>
 
 </html>

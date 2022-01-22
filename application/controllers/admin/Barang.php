@@ -15,6 +15,10 @@ class Barang extends CI_Controller
             $this->session->set_flashdata('message', 'You must be an admin to view this page');
             redirect('admin/Auth');
         }
+        if (!$this->ion_auth->is_admin()) {
+            $this->session->set_flashdata('message', 'You must be an admin to view this page');
+            redirect('Dashboard');
+        }
     }
 
     public function springbed($modal = "")
@@ -114,7 +118,7 @@ class Barang extends CI_Controller
             // }
 
             $this->db->insert('product', $data);
-            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Karyawan Berhasil Ditambahkan!", "success");');
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Ditambahkan!", "success");');
 
             redirect('admin/barang/' . $jenis);
         }
@@ -166,7 +170,7 @@ class Barang extends CI_Controller
                 'date_arrived' => $this->input->post('date'),
             ];
             $this->barang->editBarang($this->input->post('code'), $data);
-            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Unit Berhasil Diubah!", "success");');
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Diubah!", "success");');
 
             redirect(base_url('admin/Barang/' . $jenis));
         }
@@ -212,7 +216,7 @@ class Barang extends CI_Controller
         }
 
 
-        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Karyawan Berhasil Ditambahkan!", "success");');
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Photo Barang Berhasil Ditambahkan!", "success");');
 
         redirect('admin/barang/photoBarang/' . $code);
     }
@@ -229,8 +233,8 @@ class Barang extends CI_Controller
         $this->db->delete('unit_product', ['kd_product' => $code]);
         $this->db->delete('photo_product', ['kd_product' => $code]);
         $this->db->delete('product', ['kd_product' => $code]);
-        $this->session->set_flashdata('user-delete', 'berhasil');
-        redirect('/' . $code);
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Dihapus!", "success");');
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function deletePhotoBarang($id)
@@ -239,7 +243,7 @@ class Barang extends CI_Controller
         $gambar_lama = $foto['photo'];
         unlink(FCPATH . 'assets/images/produk/' . $gambar_lama);
         $this->db->delete('photo_product', ['id_photoproduct' => $id]);
-        $this->session->set_flashdata('user-delete', 'berhasil');
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Photo Barang Berhasil Dihapus!", "success");');
         redirect('admin/Barang/photoBarang/' . $foto['kd_product']);
     }
 
@@ -315,7 +319,7 @@ class Barang extends CI_Controller
             }
 
 
-            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Karyawan Berhasil Ditambahkan!", "success");');
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Unit Berhasil Ditambahkan!", "success");');
 
             redirect('admin/barang/unitProduct/' . $this->input->post('code'));
         }
@@ -382,7 +386,7 @@ class Barang extends CI_Controller
         $gambar_lama = $foto['photo_unit'];
         unlink(FCPATH . 'assets/images/unitproduk/' . $gambar_lama);
         $this->db->delete('unit_product', ['id_unit' => $id]);
-        $this->session->set_flashdata('user-delete', 'berhasil');
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Unit Berhasil Dihapus!", "success");');
         redirect('admin/Barang/unitProduct/' . $foto['kd_product']);
     }
 }
