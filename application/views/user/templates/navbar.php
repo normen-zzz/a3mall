@@ -1,4 +1,4 @@
- <?php if ($this->uri->segment(1) == 'Dashboard') { ?>
+ <?php if ($this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) == NULL) { ?>
      <!-- Navbar Dashboard -->
      <nav class="navbar navbar-expand-md navbar-light fixed-top my-auto" id="navbar">
          <div class="container">
@@ -25,15 +25,8 @@
                      <li class="nav-item my-auto me-3">
                          <a class="nav-link h5 my-auto bt" href="./keranjang.html"><i class="bi bi-cart3"></i></a>
                      </li>
-                     <?php if (!$this->session->userdata('email')) { ?>
-                         <li class="nav-item dropdown my-auto">
-                             <a class="nav-link dropdown-toggle small bt" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Selamat datang, Tamu</a>
-                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                 <li><a class="dropdown-item" href="<?= base_url('Login') ?>">Masuk</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Register') ?>">Daftar</a></li>
-                             </ul>
-                         </li>
-                     <?php } else { ?>
+                     <!-- Jika Login Manual -->
+                     <?php if ($this->session->userdata('email')) { ?>
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                  <img class="rounded-circle shadow" src="<?= base_url('assets/user/img/profile/' . $user['photo']) ?>" width="30" height="30" alt="" />
@@ -41,6 +34,34 @@
                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                  <li><a class="dropdown-item" href="#">Profile</a></li>
                                  <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
+                             </ul>
+                         </li>
+                         <!-- Jika Login Google -->
+                     <?php } elseif ($this->session->userdata('user_data')) {
+
+                            $user_data = $this->session->userdata('user_data');
+
+                        ?>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 <img class="rounded-circle shadow" src="<?= $user_data['picture'] ?>" width="30" height="30" alt="" />
+                             </a>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <li><a class="dropdown-item" href="#">Profile</a></li>
+
+                                 <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
+                             </ul>
+                         </li>
+
+
+
+
+                     <?php } else { ?>
+                         <li class="nav-item dropdown my-auto">
+                             <a class="nav-link dropdown-toggle small bt" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Selamat datang, Tamu</a>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <li><a class="dropdown-item" href="<?= base_url('Login') ?>">Masuk</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Register') ?>">Daftar</a></li>
                              </ul>
                          </li>
                      <?php } ?>
@@ -63,7 +84,7 @@
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav ms-5 me-auto">
                      <li class="nav-item">
-                         <a class="nav-link <?php if ($this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) == '') {
+                         <a class="nav-link <?php if ($this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) === FALSE) {
                                                 echo 'active';
                                             } ?>" href="<?= base_url('Dashboard') ?>">Home</a>
                      </li>
@@ -81,15 +102,38 @@
                      <li class="nav-item my-auto me-3">
                          <a class="nav-link h5" href="#"><i class="bi bi-cart3"></i></a>
                      </li>
-                     <li class="nav-item dropdown">
-                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                             <img class="rounded-circle shadow" src="<?= base_url('assets/user/') ?>img/profile/img-profile.png" width="30" height="30" alt="" />
-                         </a>
-                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                             <li><a class="dropdown-item" href="#">Profile</a></li>
-                             <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
-                         </ul>
-                     </li>
+                     <?php if ($this->session->userdata('email')) { ?>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 <img class="rounded-circle shadow" src="<?= base_url('assets/user/') ?>img/profile/img-profile.png" width="30" height="30" alt="" />
+                             </a>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <li><a class="dropdown-item" href="#">Profile</a></li>
+                                 <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
+                             </ul>
+                         </li>
+                     <?php } elseif ($this->session->userdata('user_data')) {
+                            $user_data = $this->session->userdata('user_data'); ?>
+
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                 <img class="rounded-circle shadow" src="<?= $user_data['picture'] ?>" width="30" height="30" alt="" />
+                             </a>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <li><a class="dropdown-item" href="#">Profile</a></li>
+                                 <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
+                             </ul>
+                         </li>
+                     <?php } else { ?>
+                         <li class="nav-item dropdown my-auto">
+                             <a class="nav-link dropdown-toggle small bt" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Selamat datang, Tamu</a>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <li><a class="dropdown-item" href="<?= base_url('Login') ?>">Masuk</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Register') ?>">Daftar</a></li>
+                             </ul>
+                         </li>
+                     <?php } ?>
+
                  </ul>
              </div>
          </div>

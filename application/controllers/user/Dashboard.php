@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller
 	{
 		parent::__construct();
 		//Do your magic here
+
 	}
 
 	public function index()

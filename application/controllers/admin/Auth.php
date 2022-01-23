@@ -103,6 +103,8 @@ class Auth extends CI_Controller
 		}
 	}
 
+
+
 	/**
 	 * Log the user out
 	 */

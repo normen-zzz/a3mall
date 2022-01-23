@@ -53,7 +53,7 @@
                 </form>
                 <p class="pt-3 text-center">or</p>
                 <div class="d-grid">
-                    <button class="btn btn-danger" type="submit"><i class="text-white bi-google"></i>+ Continue with Google</button>
+                    <a href="<?= base_url('user/Auth/google') ?>" class="btn btn-danger" type="submit"><i class="text-white bi-google"></i>+ Continue with Google</a>
                 </div>
                 <hr />
                 <a class="text-dark" href="./regist.html">Create a new account</a>
