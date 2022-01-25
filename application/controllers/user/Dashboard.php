@@ -16,7 +16,7 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$data = [
-			"title" => "Dashboard",
+			"title" => "A3MALL | Dashboard",
 			"page" => "user/dashboard",
 			"user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
 		];

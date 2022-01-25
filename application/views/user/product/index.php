@@ -54,19 +54,20 @@
                          <div class="row pt-3 produk-grid">
                              <?php foreach ($springbed as $springbed) { ?>
                                  <div class="col-lg py-2">
-                                     <a href="#" style="text-decoration: none">
-                                         <div class="bg-white card-proser">
-                                             <img src="<?= base_url('assets/user/img/produk/' . $springbed['photo_product']) ?>" class="card-img-top p-3" alt="..." />
-                                             <div class="card-body">
-                                                 <p class="fw-light text-secondary small">Spring Bed</p>
-                                                 <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
-                                                 <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p>
-                                                 <div class="text-center btn-foto">
-                                                     <a href="#" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
-                                                 </div>
+
+                                     <div class="bg-white card-proser">
+                                         <img src="<?= base_url('assets/user/img/produk/' . $springbed['photo_product']) ?>" class="card-img-top p-3" alt="..." />
+                                         <div class="card-body">
+                                             <p class="fw-light text-secondary small">Spring Bed</p>
+                                             <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
+                                             <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p>
+                                             <div class="text-center btn-foto">
+                                                 <input type="number" name="quantity" id="<?php echo $springbed['kd_product']; ?>" value="1" class="quantity form-control" hidden>
+                                                 <button id="add_cart" class="btn rounded-pill px-5 py-2 btn-foto yellow-button" data-kdproduct="<?php echo $springbed['kd_product'] ?>" data-nameproduct="<?php echo $springbed['name_product'] ?>" data-priceproduct="<?php echo $springbed['price_product'] ?>" data-photoproduct="<?php echo $springbed['photo_product'] ?>">Pesan</button>
                                              </div>
                                          </div>
-                                     </a>
+                                     </div>
+
                                  </div>
                              <?php } ?>
                          </div>
@@ -77,3 +78,34 @@
      </div>
  </section>
  <!-- Akhir Produk -->
+
+ <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+ <script type="text/javascript">
+     $(document).ready(function() {
+         $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
+         $('#add_cart').click(function() {
+             var kd_product = $(this).data("kdproduct");
+             var name_product = $(this).data("nameproduct");
+             var price_product = $(this).data("priceproduct");
+             var quantity = $('#' + kd_product).val();
+             var photo_product = $(this).data("photoproduct");
+             $.ajax({
+                 url: "<?= base_url(); ?>user/cart/add_to_cart",
+                 method: "POST",
+                 data: {
+                     kd_product: kd_product,
+                     name_product: name_product,
+                     price_product: price_product,
+                     quantity: quantity,
+                     photo_product: photo_product
+                 },
+                 success: function(data) {
+                     $('#detail_cart').html(data);
+                     $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
+                 }
+
+
+             });
+         });
+     });
+ </script>

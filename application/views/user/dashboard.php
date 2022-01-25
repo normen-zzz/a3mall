@@ -79,7 +79,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 mt-auto">
-                <h1 class="display-4 fw-bold">Kenapa memlih kita?</h1>
+                <h1 class="display-4 fw-bold">Kenapa memilih kita?</h1>
             </div>
             <div class="col-lg">
                 <div class="row">

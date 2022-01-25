@@ -22,7 +22,7 @@
   <!-- Swipper JS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-  <title>Hello, world!</title>
+  <title><?= $title ?></title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
 
 </body>
 
-<script src="<?= base_url('assets/user/') ?>js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -45,5 +45,12 @@
 
 <!-- My JS -->
 <script src="<?= base_url('assets/user/') ?>js/script.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
+  });
+</script>
+
+
 
 </html>

@@ -56,7 +56,7 @@
                     <a href="<?= base_url('user/Auth/google') ?>" class="btn btn-danger" type="submit"><i class="text-white bi-google"></i>+ Continue with Google</a>
                 </div>
                 <hr />
-                <a class="text-dark" href="./regist.html">Create a new account</a>
+                <a class="text-dark" href="<?= base_url('Register') ?>">Create a new account</a>
             </div>
         </div>
     </div>

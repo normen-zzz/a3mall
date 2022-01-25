@@ -32,34 +32,54 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-7">
-                <form>
+            <div class="col-lg-7 shadow p-5">
+                <form method="POST" action="<?= base_url('user/Auth/create_user')  ?>">
                     <div class="mb-3">
-                        <label class="form-label">Nama Panjang</label>
-                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+                        <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <label class="form-label">Nama Depan</label>
+                        <input type="text" name="first_name" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+                        <?= form_error('first_name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nama Belakang</label>
+                        <input type="text" name="last_name" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+                        <?= form_error('last_name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">No Telp</label>
+                        <input type="number" name="phone" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
+                        <?= form_error('phone', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" />
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" />
+                        <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Reset your passowrd</label>
-                        <input type="Reset your passowrd" class="form-control" id="exampleInputPassword1" />
+                        <label for="exampleInputPassword1" class="form-label">Konfirmasi password</label>
+                        <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword1" />
+                        <?= form_error('password_confirm', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="button">Log In</button>
+                        <button class="btn btn-primary" type="submit">Daftar</button>
                     </div>
                 </form>
                 <p class="pt-3 text-center">or</p>
                 <div class="d-grid">
-                    <button class="btn btn-danger" type="button"><i class="text-white bi-google"></i>+ Continue with Google</button>
+                    <a class="btn btn-danger" href="<?= base_url('user/Auth/google')  ?>"><i class="text-white bi-google"></i>+ Daftar Dengan Google</a>
                 </div>
                 <hr />
-                <p>Sudah punya akun? | <a class="text-dark" href="./login.html">Login disini</a></p>
+                <p>Sudah punya akun? | <a class="text-dark" href="<?= base_url('Login') ?>">Login disini</a></p>
             </div>
         </div>
     </div>

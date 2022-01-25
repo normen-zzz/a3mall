@@ -33,6 +33,16 @@ class Barang_model extends CI_Model
         // }
     }
 
+    public function getProductJoinPhotoByKd($where)
+    {
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->join('photo_product', 'photo_product.kd_product=product.kd_product');
+        $this->db->where('kd_product', $where);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function getBarangAjax($id)
     {
         $this->db->select('*');

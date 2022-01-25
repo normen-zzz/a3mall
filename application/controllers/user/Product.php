@@ -15,10 +15,11 @@ class Product extends CI_Controller
     public function index()
     {
         $data = [
-            "title" => "Product",
+            "title" => "A3MALL | Product",
             "page" => "user/product/index",
             "sofa" => $this->barang->getProductByCategory("2"),
-            "springbed" => $this->barang->getProductByCategory("1")
+            "springbed" => $this->barang->getProductByCategory("1"),
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);
