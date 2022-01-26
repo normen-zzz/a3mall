@@ -59,6 +59,7 @@ $route['Dashboard'] = 'user/dashboard';
 
 //Product
 $route['Product'] = 'user/Product';
+$route['Deskripsi/(:any)'] = 'user/Product/deskripsi';
 
 //Auth
 $route['Login'] = 'user/Auth/login';

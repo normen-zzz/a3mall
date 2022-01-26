@@ -33,7 +33,7 @@
                                         <tbody>
                                             <tr>
                                                 <td><?= $no ?></td>
-                                                <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/images/produk/' . $photo['photo']) ?>" alt=""></a></td>
+                                                <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/images/produk/' . $photo['photo_product']) ?>" alt=""></a></td>
                                                 <td><?= $photo['describe_photoproduct'] ?></td>
                                                 <td><?= $photo['users'] ?></td>
                                                 <td><?= $photo['created_photoproduct'] ?></td>

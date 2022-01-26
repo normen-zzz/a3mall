@@ -128,6 +128,7 @@
              success: function(data) {
                  $('#detail_cart').html(data);
                  $('#total_cart').load("<?php echo base_url(); ?>user/cart/load_total");
+                 $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
              }
          });
      });
@@ -145,6 +146,7 @@
              success: function(data) {
                  $('#detail_cart').html(data);
                  $('#total_cart').load("<?php echo base_url(); ?>user/cart/load_total");
+                 $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
              }
          });
      });

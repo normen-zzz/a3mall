@@ -27,7 +27,7 @@ class Barang extends CI_Controller
             "title" => "Data Spring Bed",
             "title2" => "Spring Bed",
             "page" => "admin/barang/index",
-            "barang" => $this->barang->getProductByCategory('product', '1'),
+            "barang" => $this->barang->getProductByCategory('1'),
             "modal" => $modal
         ];
 
@@ -40,7 +40,7 @@ class Barang extends CI_Controller
             "title" => "Data Sofa",
             "title2" => "Sofa",
             "page" => "admin/barang/index",
-            "barang" => $this->barang->getProductByCategory('product', '2'),
+            "barang" => $this->barang->getProductByCategory('2'),
             "modal" => $modal
         ];
 
@@ -210,7 +210,7 @@ class Barang extends CI_Controller
                 $this->photoBarang($this->input->post('code'), "$('#tambahPhotoBarangModal').modal('show');");
             } else {
                 $img = $this->upload->data();
-                $data['photo'] = $img['file_name'];
+                $data['photo_product'] = $img['file_name'];
                 $this->db->insert('photo_product', $data);
             }
         }

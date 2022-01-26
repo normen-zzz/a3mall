@@ -3,7 +3,7 @@
      <div class="container">
          <div class="row">
              <divc class="col">
-                 <p class="text-secondary fw-light">Home / Sofas / Valencia / <span class="yellow-text">Deskripsi</span></p>
+                 <p class="text-secondary fw-light">Home / <?= ucfirst($produk->name_category) ?> / <?= ucfirst($produk->brand_product) ?> / <span class="yellow-text">Deskripsi</span></p>
              </divc>
          </div>
      </div>
@@ -17,44 +17,33 @@
              <div class="col-lg-7 p-5 padding-foto">
                  <div class="align-items-start">
                      <div class="tab-content pt-2" id="v-pills-tabContent">
-                         <div class="tab-pane fade show active" id="tabs-1" role="tabpanel" aria-labelledby="tabs-1-tab">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 47.jpg" class="img-fluid img-desk1" alt="Foto1" />
-                         </div>
-                         <div class="tab-pane fade" id="tabs-2" role="tabpanel" aria-labelledby="tabs-2-tab">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 48.jpg" class="img-fluid img-desk1" alt="Foto2" />
-                         </div>
-                         <div class="tab-pane fade" id="tabs-3" role="tabpanel" aria-labelledby="tabs-3-tab">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 49.jpg" class="img-fluid img-desk1" alt="Foto3" />
-                         </div>
-                         <div class="tab-pane fade show" id="tabs-4" role="tabpanel" aria-labelledby="tabs-4-tab">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 50.jpg" class="img-fluid img-desk1" alt="Foto1" />
-                         </div>
-                         <div class="tab-pane fade" id="tabs-5" role="tabpanel" aria-labelledby="tabs-5-tab">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 51.jpg" class="img-fluid img-desk1" alt="Foto2" />
-                         </div>
+                         <?php $no = 0;
+                            foreach ($photo_produk as $photo) {
+                                $no++; ?>
+                             <div class="tab-pane fade show <?php if ($no == 1) {
+                                                                echo 'active';
+                                                            } ?>" id="tabs-<?= $no ?>" role="tabpanel" aria-labelledby="tabs-<?= $no ?>-tab">
+                                 <img src="<?= base_url('assets/images/produk/' . $photo['photo_product']) ?>" class="img-fluid img-desk1" alt="Foto<?= $no ?>" />
+                             </div>
+                         <?php } ?>
                      </div>
                      <div class="row nav d-flex nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                         <button class="col nav-link active" id="tabs-1-tab" data-bs-toggle="pill" data-bs-target="#tabs-1" type="button" role="tab" aria-controls="tabs-1" aria-selected="true">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 47.jpg" class="img-fluid img-desk2" alt="Foto1" />
-                         </button>
-                         <button class="col nav-link" id="tabs-2-tab" data-bs-toggle="pill" data-bs-target="#tabs-2" type="button" role="tab" aria-controls="tabs-2" aria-selected="false">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 48.jpg" class="img-fluid img-desk2" alt="Foto2" />
-                         </button>
-                         <button class="col nav-link" id="tabs-3-tab" data-bs-toggle="pill" data-bs-target="#tabs-3" type="button" role="tab" aria-controls="tabs-3" aria-selected="false">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 49.jpg" class="img-fluid img-desk2" alt="Foto3" />
-                         </button>
-                         <button class="col nav-link m" id="tabs-4-tab" data-bs-toggle="pill" data-bs-target="#tabs-4" type="button" role="tab" aria-controls="tabs-4" aria-selected="true">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 50.jpg" class="img-fluid img-desk2" alt="Foto1" />
-                         </button>
-                         <button class="col nav-link" id="tabs-5-tab" data-bs-toggle="pill" data-bs-target="#tabs-5" type="button" role="tab" aria-controls="tabs-5" aria-selected="false">
-                             <img src="<?= base_url('assets/user/') ?>img/produk/Rectangle 51.jpg" class="img-fluid img-desk2" alt="Foto2" />
-                         </button>
+                         <?php $no = 0;
+                            foreach ($photo_produk as $photo) {
+                                $no++; ?>
+                             <button class="col nav-link <?php if ($no == 1) {
+                                                                echo 'active';
+                                                            } ?>" id="tabs-<?= $no ?>-tab" data-bs-toggle="pill" data-bs-target="#tabs-<?= $no ?>" type="button" role="tab" aria-controls="tabs-<?= $no ?>" aria-selected="true">
+                                 <img src="<?= base_url('assets/images/produk/' . $photo['photo_product']) ?>" class="img-fluid img-desk2" alt="Foto1" />
+                             </button>
+                         <?php } ?>
+
                      </div>
                  </div>
              </div>
              <div class="col-lg p-5 padding-foto">
                  <div class="card p-5 bg-transparent">
-                     <h5 class="fw-bold">Green 2-seater velvet sofa</h5>
+                     <h5 class="fw-bold"><?= $produk->name_product ?></h5>
                      <div class="d-flex">
                          <div class="star yellow-text me-2">
                              <i class="bi bi-star-fill"></i>
@@ -84,7 +73,7 @@
                      </div>
                      <div class="d-grid gap-2">
                          <a href="#" class="btn yellow-button shadow" type="button">Beli Full Set</a>
-                         <a href="#" class="btn yellow-button shadow" type="button">Belu Per Item</a>
+                         <a href="#" class="btn yellow-button shadow" type="button">Beli Per Item</a>
                      </div>
                  </div>
              </div>
@@ -111,7 +100,7 @@
                  </ul>
                  <div class="tab-content" id="pills-tabContent">
                      <div class="tab-pane fade show active" id="desk1" role="tabpanel" aria-labelledby="desk1-tab">
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto iste, porro beatae a aliquid quidem tempora ab accusantium id sit placeat neque sapiente magni ipsum? Nostrum suscipit molestiae ipsam sunt!
+                         <?= $produk->describe_product ?>
                      </div>
                      <div class="tab-pane fade" id="desk2" role="tabpanel" aria-labelledby="desk2-tab">
                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem iusto, officia ullam vitae odit ex ea molestiae corrupti recusandae. Doloribus error necessitatibus fugit! Voluptas ea enim dolor voluptatem ut recusandae.
