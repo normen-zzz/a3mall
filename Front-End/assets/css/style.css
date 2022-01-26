@@ -198,7 +198,8 @@ nav .nav-link.active {
 /* Desk */
 
 /* Checkout */
-#checkout .nav-link.active {
+#checkout .nav-link.active,
+#status .nav-link.active {
   background-color: var(--primary);
   color: #fff !important;
 }
@@ -264,6 +265,12 @@ ul li a.cart .cart-basket {
   #produk .produk-grid {
     display: grid;
     grid-template-columns: auto auto;
+  }
+
+  #status .grid-status {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center !important;
   }
 }
 
