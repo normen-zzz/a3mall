@@ -183,12 +183,28 @@
                 <input type="number" class="form-control" required />
               </div>
               <div class="col-md-6">
-                <label for="validationCustom03" class="form-label">City</label>
+                <label for="validationCustom03" class="form-label">Provinsi</label>
                 <input type="text" class="form-control" id="validationCustom03" required />
                 <div class="invalid-feedback">Please provide a valid city.</div>
               </div>
               <div class="col-md-3">
-                <label for="validationCustom04" class="form-label">State</label>
+                <label for="validationCustom04" class="form-label">Kabupaten</label>
+                <select class="form-select" id="validationCustom04" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option>...</option>
+                </select>
+                <div class="invalid-feedback">Please select a valid state.</div>
+              </div>
+              <div class="col-md-3">
+                <label for="validationCustom04" class="form-label">Kecamatan</label>
+                <select class="form-select" id="validationCustom04" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option>...</option>
+                </select>
+                <div class="invalid-feedback">Please select a valid state.</div>
+              </div>
+              <div class="col-md-3">
+                <label for="validationCustom04" class="form-label">Kelurahan</label>
                 <select class="form-select" id="validationCustom04" required>
                   <option selected disabled value="">Choose...</option>
                   <option>...</option>
@@ -199,6 +215,12 @@
                 <label for="validationCustom05" class="form-label">Zip</label>
                 <input type="text" class="form-control" id="validationCustom05" required />
                 <div class="invalid-feedback">Please provide a valid zip.</div>
+              </div>
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Alamat Lengkap</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
               </div>
               <div class="col-12">
                 <button class="btn btn-primary" type="submit">Submit form</button>
