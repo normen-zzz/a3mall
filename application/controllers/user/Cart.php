@@ -16,7 +16,7 @@ class Cart extends CI_Controller
     public function index()
     {
         $data = [
-            "title" => "Cart",
+            "title" => "A3Mall | Cart",
             "page" => "user/transaction/cart/index",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "keranjang" => $this->cart->contents()
@@ -36,6 +36,7 @@ class Cart extends CI_Controller
         );
         $this->cart->insert($data);
         // echo $this->show_cart(); //tampilkan cart setelah added
+        var_dump($data);
     }
 
     public function total_cart()
@@ -71,7 +72,7 @@ class Cart extends CI_Controller
         <div class="row mb-5 keranjang-grid">
         <div class="col-md-2">
             <div class="img text-center">
-                <img src="' . base_url("assets/user/img/produk/" . $keranjang['photo']) . '"alt="" />
+                <img src="' . base_url("assets/images/produk/" . $keranjang['photo']) . '"alt="" />
             </div>
         </div>
         <div class="col-md my-auto">
@@ -92,7 +93,7 @@ class Cart extends CI_Controller
                                 <i class="bi bi-dash"></i>
                             </button>
                         </div>
-                        <input class="form-control quantity border-0 text-center" min="0" name="quantity" value="' . $keranjang['qty'] . '" type="number" />
+                        <input class="form-control quantity border-0 text-center" min="0" name="quantity" value="' . $keranjang['qty'] . '" type="number" readonly />
                         <div class="input-group-append">
                             <button data-qty="' . $keranjang['qty'] . '" id="' . $keranjang['rowid'] . '" class="tambah_qty btn text-dark btn-plus">
                                 <i class="bi bi-plus"></i>
@@ -104,7 +105,7 @@ class Cart extends CI_Controller
                     <p class="yellow-text my-auto">Rp.' . number_format($keranjang['price'] * $keranjang['qty'], '0', ',', '.') . '</p>
                 </div>
                 <div class="col-md py-1 text-center isi-keranjang my-auto">
-                    <button id="' . $keranjang['rowid'] . '"  class="hapus_cart btn my-auto hapus">Hapus</button>
+                    <button id="' . $keranjang['rowid'] . '"  class="hapus_cart btn my-auto hapus" >Hapus</button>
                 </div>
             </div>
         </div>

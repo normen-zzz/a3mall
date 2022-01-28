@@ -124,66 +124,23 @@
             </div>
         </div>
         <div class="row arival-grid">
-            <div class="col-lg-3 py-2">
-                <a href="./deskripsi.html" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+            <?php foreach ($sofa as $sofa) { ?>
+                <div class="col-lg-3 py-2">
+                    <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" style="text-decoration: none">
+                        <div class="bg-white card-arival">
+                            <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                            <div class="card-body">
+                                <p class="fw-light text-secondary small">Sofa</p>
+                                <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
+                                <p class="card-text yellow-text mb-3">Rp. <?= $sofa->price_product ?></p>
+                                <div class="text-center btn-foto">
+                                    <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 py-2">
-                <a href="./deskripsi.html" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 py-2">
-                <a href="./deskripsi.html" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 py-2">
-                <a href="./deskripsi.html" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <?php } ?>
         </div>
         <div class="row pt-5">
             <div class="judul pb-3">
@@ -191,66 +148,23 @@
             </div>
         </div>
         <div class="row arival-grid">
-            <div class="col-lg-3 py-2">
-                <a href="./deskripsi.html" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+            <?php foreach ($springbed as $springbed) { ?>
+                <div class="col-lg-3 py-2">
+                    <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" style="text-decoration: none">
+                        <div class="bg-white card-arival">
+                            <img src="<?= base_url('assets/images/produk/' . $springbed->photo_product) ?>" class="card-img-top p-3" alt="..." />
+                            <div class="card-body">
+                                <p class="fw-light text-secondary small">Spring Bed</p>
+                                <h5 class="card-title fw-bold text-dark"><?= $springbed->name_product ?></h5>
+                                <p class="card-text yellow-text mb-3">Rp. <?= $springbed->price_product ?></p>
+                                <div class="text-center btn-foto">
+                                    <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 py-2">
-                <a href="./deskripsi.html" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 py-2">
-                <a href="./deskripsi.html" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 py-2">
-                <a href="./deskripsi.html" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/DYNASTY (1).png" class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                            <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                            <div class="text-center btn-foto">
-                                <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </section>

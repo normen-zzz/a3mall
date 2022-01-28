@@ -51,6 +51,11 @@
   });
 </script>
 
+<script type="text/javascript">
+  $(window).on('load', function() {
+    <?= $modal; ?>
+  });
+</script>
 
 
 </html>

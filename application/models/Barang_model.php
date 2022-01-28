@@ -12,6 +12,7 @@ class Barang_model extends CI_Model
         $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
         $this->db->join('users c', 'c.id=a.users', 'left');
         $this->db->where('a.category_product', $where);
+        $this->db->order_by('a.id_product', 'desc');
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result_array();
@@ -29,6 +30,7 @@ class Barang_model extends CI_Model
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
         $this->db->where('a.category_product', $where);
         $this->db->group_by('d.kd_product');
+        $this->db->order_by('a.id_product', 'desc');
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result_array();
@@ -143,6 +145,36 @@ class Barang_model extends CI_Model
     {
         $this->db->update('unit_product', $data, ['id_unit' => $id]);
         return $this->db->affected_rows();
+    }
+
+    //Untuk User
+
+    public function getSejenis($like)
+    {
+        $this->db->select('*');
+        $this->db->from('product a');
+        $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
+        $this->db->join('users c', 'c.id=a.users', 'left');
+        $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
+        $this->db->like('a.brand_product', $like);
+        $query = $this->db->get();
+        // if ($query->num_rows() != 0) {
+        return $query->result();
+    }
+
+    public function getNewArrival($where)
+    {
+        $this->db->select('*');
+        $this->db->from('product a');
+        $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
+        $this->db->join('users c', 'c.id=a.users', 'left');
+        $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
+        $this->db->limit(4);
+        $this->db->order_by('a.date_arrived', 'desc');
+        $this->db->where('a.category_product', $where);
+        $query = $this->db->get();
+        // if ($query->num_rows() != 0) {
+        return $query->result();
     }
 }
 

@@ -24,7 +24,7 @@
                      </li>
                      <li class="nav-item cartres my-auto me-4">
                          <div id="cart" class="d-none"></div>
-                         <a href="./keranjang.html" class="cart h5 bt position-relative d-inline-flex" aria-label="View your shopping cart">
+                         <a href="<?= base_url('Cart') ?>" class="cart h5 bt position-relative d-inline-flex" aria-label="View your shopping cart">
                              <i class="bi bi-cart3"></i>
                              <div id="total_items"></div>
                          </a>
@@ -42,28 +42,29 @@
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                                  <li><a class="dropdown-item" href="#">Status Pesanan</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                                  <hr />
-                                 <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
+                                 <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
                              </ul>
                          </li>
                          <!-- Jika Login Google -->
                      <?php } elseif ($this->session->userdata('user_data')) {
 
-                            $user_data = $this->session->userdata('user_data');
                         ?>
                          <li class="nav-item dropdown my-auto">
                              <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img class="rounded-circle shadow bg-danger" src="<?= $user_data['picture'] ?>" width="30" height="30" alt="" />
+                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $usergoogle['photo']) ?>" width="30" height="30" alt="" />
                              </a>
                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                  <li>
-                                     <p class="fw-light text-secondary small text-center">Hai, <?= $user_data['name'] ?></p>
+                                     <p class="fw-light text-secondary small text-center">Hai, <?= $usergoogle['first_name'] ?></p>
                                  </li>
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                                  <li><a class="dropdown-item" href="#">Status Pesanan</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                                  <hr />
-                                 <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
+                                 <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
                              </ul>
                          </li>
                      <?php } else { ?>
@@ -128,6 +129,7 @@
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                                  <li><a class="dropdown-item" href="#">Status Pesanan</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
                              </ul>
@@ -146,8 +148,9 @@
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                                  <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                                  <hr />
-                                 <li><a class="dropdown-item" onclick="alert('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
+                                 <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
                              </ul>
                          </li>
                      <?php } else { ?>

@@ -60,7 +60,7 @@
                                  <i class="bi bi-dash"></i>
                              </button>
                          </div>
-                         <input class="form-control quantity border-0 text-center" min="0" name="quantity" value="1" type="number" />
+                         <input class="form-control quantity border-0 text-center" id="<?php echo $produk->kd_product; ?>" min="0" name="quantity" value="1" type="number" />
                          <div class="input-group-append">
                              <button class="btn text-dark btn-plus">
                                  <i class="bi bi-plus"></i>
@@ -72,7 +72,7 @@
                          <h2>Rp 999.999</h2>
                      </div>
                      <div class="d-grid gap-2">
-                         <a href="#" class="btn yellow-button shadow" type="button">Beli Full Set</a>
+                         <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>">Beli Full Set</button>
                          <a href="#" class="btn yellow-button shadow" type="button">Beli Per Item</a>
                      </div>
                  </div>
@@ -125,67 +125,61 @@
              </dov>
          </div>
          <div class="row pt-3 proser-grid">
-             <div class="col py-2">
-                 <a href="./deskripsi.html" style="text-decoration: none">
-                     <div class="bg-white card-proser">
-                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                         <div class="card-body">
-                             <p class="fw-light text-secondary small">Sofa</p>
-                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                             <div class="text-center btn-foto">
-                                 <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
+             <?php foreach ($sejenis as $sejenis) { ?>
+                 <div class="col py-2">
+                     <a href="<?= base_url('Deskripsi/' . $sejenis->kd_product) ?>" style="text-decoration: none">
+                         <div class="bg-white card-proser">
+                             <img src="<?= base_url('assets/images/produk/' . $sejenis->photo_product) ?>" class="card-img-top p-3" alt="..." />
+                             <div class="card-body">
+                                 <p class="fw-light text-secondary small"><?= $sejenis->name_category ?></p>
+                                 <h5 class="card-title fw-bold text-dark"><?= $sejenis->name_product ?></h5>
+                                 <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p>
+                                 <div class="text-center btn-foto">
+                                     <a href="<?= base_url('Deskripsi/' . $sejenis->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button">Detail</a>
+                                 </div>
                              </div>
                          </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="col py-2">
-                 <a href="./deskripsi.html" style="text-decoration: none">
-                     <div class="bg-white card-proser">
-                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                         <div class="card-body">
-                             <p class="fw-light text-secondary small">Sofa</p>
-                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                             <div class="text-center btn-foto">
-                                 <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
-                             </div>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="col py-2">
-                 <a href="./deskripsi.html" style="text-decoration: none">
-                     <div class="bg-white card-proser">
-                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                         <div class="card-body">
-                             <p class="fw-light text-secondary small">Sofa</p>
-                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                             <div class="text-center btn-foto">
-                                 <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
-                             </div>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="col py-2">
-                 <a href="./deskripsi.html" style="text-decoration: none">
-                     <div class="bg-white card-proser">
-                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                         <div class="card-body">
-                             <p class="fw-light text-secondary small">Sofa</p>
-                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                             <div class="text-center btn-foto">
-                                 <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
-                             </div>
-                         </div>
-                     </div>
-                 </a>
-             </div>
+                     </a>
+                 </div>
+             <?php } ?>
+
          </div>
      </div>
  </section>
  <!-- Akhir Produk Serupa -->
+
+ <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+ <script type="text/javascript">
+     $(document).ready(function() {
+         $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
+         $('#add_cart').click(function() {
+
+             var kd_product = $(this).data("kdproduct");
+             var name_product = $(this).data("nameproduct");
+             var price_product = $(this).data("priceproduct");
+             var quantity = $('#' + kd_product).val();
+             var photo_product = $(this).data("photoproduct");
+             $.ajax({
+                 url: "<?= base_url(); ?>user/cart/add_to_cart",
+                 method: "POST",
+                 data: {
+                     kd_product: kd_product,
+                     name_product: name_product,
+                     price_product: price_product,
+                     quantity: quantity,
+                     photo_product: photo_product
+                 },
+                 success: function(data) {
+                     $('#detail_cart').html(data);
+                     $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
+                     alert("success");
+                 },
+                 error: function(error) {
+                     alert("Error");
+                 }
+
+
+             });
+         });
+     });
+ </script>

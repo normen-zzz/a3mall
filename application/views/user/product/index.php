@@ -31,28 +31,23 @@
                  <div class="tab-content" id="pills-tabContent">
                      <div class="tab-pane fade show container p-0 active" id="desk1" role="tabpanel" aria-labelledby="desk1-tab">
                          <div class="row pt-3 produk-grid">
-                             <?php foreach ($sofa as $sofa) {
-                                    foreach ($photo_produk as $photo_produk) {
-                                        if ($photo_produk['kd_product'] == $springbed['kd_product']) { ?>
-                                         <div class="col-lg py-2">
-                                             <a href="<?= base_url('Deskripsi/' . $sofa['kd_product']) ?>" style="text-decoration: none">
-                                                 <div class="bg-white card-proser">
-                                                     <img src="<?= base_url('assets/user/img/produk/' . $photo_produk['photo_product']) ?>" class="card-img-top p-3" alt="..." />
-                                                     <div class="card-body">
-                                                         <p class="fw-light text-secondary small">Sofa</p>
-                                                         <h5 class="card-title fw-bold text-dark"><?= $sofa['name_product'] ?></h5>
-                                                         <p class="card-text yellow-text mb-3">Rp. <?= $sofa['price_product'] ?></p>
-                                                         <div class="text-center btn-foto">
-                                                             <a href="" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
-                                                         </div>
-                                                     </div>
+                             <?php foreach ($sofa as $sofa) { ?>
+                                 <div class="col-lg py-2">
+                                     <a href="<?= base_url('Deskripsi/' . $sofa['kd_product']) ?>" style="text-decoration: none">
+                                         <div class="bg-white card-proser">
+                                             <img src="<?= base_url('assets/user/img/produk/' . $photo_produk['photo_product']) ?>" class="card-img-top p-3" alt="..." />
+                                             <div class="card-body">
+                                                 <p class="fw-light text-secondary small">Sofa</p>
+                                                 <h5 class="card-title fw-bold text-dark"><?= $sofa['name_product'] ?></h5>
+                                                 <p class="card-text yellow-text mb-3">Rp. <?= $sofa['price_product'] ?></p>
+                                                 <div class="text-center btn-foto">
+                                                     <a href="<?= base_url('Deskripsi/' . $sofa['kd_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                                  </div>
-                                             </a>
+                                             </div>
                                          </div>
+                                     </a>
+                                 </div>
                              <?php }
-                                    }
-                                }
-
                                 ?>
                          </div>
                      </div>
@@ -71,16 +66,14 @@
                                                  <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p>
                                                  <div class="text-center btn-foto">
                                                      <input type="number" name="quantity" id="<?php echo $springbed['kd_product']; ?>" value="1" class="quantity form-control" hidden>
-                                                     <button id="add_cart" class="btn rounded-pill px-5 py-2 btn-foto yellow-button" data-kdproduct="<?php echo $springbed['kd_product'] ?>" data-nameproduct="<?php echo $springbed['name_product'] ?>" data-priceproduct="<?php echo $springbed['price_product'] ?>" data-photoproduct="<?php echo $springbed['photo_product'] ?>">Pesan</button>
+                                                     <!-- <button id="add_cart" class="btn rounded-pill px-5 py-2 btn-foto yellow-button" data-kdproduct="<?php echo $springbed['kd_product'] ?>" data-nameproduct="<?php echo $springbed['name_product'] ?>" data-priceproduct="<?php echo $springbed['price_product'] ?>" data-photoproduct="<?php echo $springbed['photo_product'] ?>">Pesan</button> -->
+                                                     <a href="<?= base_url('Deskripsi/' . $springbed['kd_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                                  </div>
                                              </div>
                                          </div>
                                      </a>
                                  </div>
                              <?php }
-
-
-
 
                                 ?>
                          </div>
@@ -97,6 +90,7 @@
      $(document).ready(function() {
          $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
          $('#add_cart').click(function() {
+
              var kd_product = $(this).data("kdproduct");
              var name_product = $(this).data("nameproduct");
              var price_product = $(this).data("priceproduct");
@@ -115,6 +109,10 @@
                  success: function(data) {
                      $('#detail_cart').html(data);
                      $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
+                     alert("success");
+                 },
+                 error: function(error) {
+                     alert("Error");
                  }
 
 

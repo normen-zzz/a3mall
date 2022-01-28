@@ -9,9 +9,9 @@
         <ul class="sidebar-menu">
             <!-- Dashboard -->
             <li class="menu-header">Dashboard</li>
-            <li class="<?php if ($this->uri->segment(2) == "dashboard") {
+            <li class="<?php if ($this->uri->segment(2) == "dashboard" || $this->uri->segment(2) == "Dashboard") {
                             echo "active";
-                        } ?>"><a class="nav-link" href="credits.html"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+                        } ?>"><a class="nav-link" href="<?= base_url('admin/Dashboard') ?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
             <!-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">

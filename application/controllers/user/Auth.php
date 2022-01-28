@@ -143,15 +143,24 @@ class Auth extends CI_Controller
 		} else {
 			// uncomentar kode dibawah untuk melihat data session email
 			// echo json_encode($this->session->userdata('access_token')); 
-			// echo json_encode($this->session->userdata('user_data'));
+			// $session = $this->session->userdata('user_data');
+			// var_dump($session);
 			$session = $this->session->userdata('user_data');
 			$email = $session['email'];
-			$password = $this->db->query("SELECT password FROM users where email = '$email'");
-			if (empty($password)) {
+			$data = $this->db->query("SELECT * FROM users where email = '$email'")->row_array();
+			$url = $session['picture'];
+			$img = './assets/user/img/profile/' . $session['name'] . '.jpg';
+			if (empty($data['password'])) {
 				redirect('set-password');
 			} else {
-				redirect($_SERVER['HTTP_REFERER']);
+				if (empty($password['photo'])) {
+					file_put_contents($img, file_get_contents($url));
+					$this->db->update('users', array('photo' => $session['name'] . '.jpg'), ['email' => $email]);
+				}
+				redirect('Dashboard');
 			}
+
+			// var_dump($password);
 		}
 	}
 
@@ -199,7 +208,7 @@ class Auth extends CI_Controller
 		$this->session->unset_userdata('user_data');
 
 		// redirect them to the login page
-		redirect('user/auth/login', 'refresh');
+		redirect('Dashboard', 'refresh');
 	}
 
 	/**
