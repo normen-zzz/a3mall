@@ -140,6 +140,26 @@
                 </div>
                 <p class="fw-light text-secondary">Read reviews (267)</p>
               </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label p-3 rounded-3" style="background-color: red" for="flexRadioDefault1"></label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                    <label class="form-check-label p-3 rounded-3" style="background-color: yellow" for="flexRadioDefault2"></label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked />
+                    <label class="form-check-label p-3 rounded-3" style="background-color: green" for="flexRadioDefault3"></label>
+                  </div>
+                </div>
+              </div>
               <div class="input-group inline-group border-1 border border-dark">
                 <div class="input-group-prepend">
                   <button class="btn text-dark btn-minus">
@@ -159,7 +179,7 @@
               </div>
               <div class="d-grid gap-2">
                 <a href="#" class="btn yellow-button shadow" type="button">Beli Full Set</a>
-                <a href="#" class="btn yellow-button shadow" type="button">Belu Per Item</a>
+                <button type="button" class="btn yellow-button shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">Beli Per Item</button>
               </div>
             </div>
           </div>
@@ -326,6 +346,118 @@
       </div>
     </footer>
     <!-- Akhir Footer -->
+
+    <!-- Modal Per Item -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Beli Per Item</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container border-bottom">
+              <div class="row mb-5">
+                <div class="col-md-2">
+                  <div class="img text-center">
+                    <img src="./assets/img/produk/Rectangle 47.jpg" class="img-fluid" alt="" />
+                  </div>
+                </div>
+                <div class="col-md my-auto">
+                  <div class="row">
+                    <div class="col-md py-1">
+                      <p>Louis Vuitton</p>
+                    </div>
+                    <div class="col-md py-1 text-center isi-keranjang my-auto">
+                      <p class="my-auto">Rp. 999.999</p>
+                    </div>
+                    <div class="col-md py-1 text-center isi-keranjang my-auto">
+                      <div class="input-group inline-group border-1 border border-dark">
+                        <div class="input-group-prepend">
+                          <button class="btn text-dark btn-minus">
+                            <i class="bi bi-dash"></i>
+                          </button>
+                        </div>
+                        <input class="form-control quantity border-0 text-center" min="0" name="quantity" value="1" type="number" />
+                        <div class="input-group-append">
+                          <button class="btn text-dark btn-plus">
+                            <i class="bi bi-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md py-1 text-center isi-keranjang my-auto">
+                      <p class="yellow-text my-auto">Rp. 999.999</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-5">
+                <div class="col-md-2">
+                  <div class="img text-center">
+                    <img src="./assets/img/produk/Rectangle 47.jpg" class="img-fluid" alt="" />
+                  </div>
+                </div>
+                <div class="col-md my-auto">
+                  <div class="row">
+                    <div class="col-md py-1">
+                      <p>Louis Vuitton</p>
+                    </div>
+                    <div class="col-md py-1 text-center isi-keranjang my-auto">
+                      <p class="my-auto">Rp. 999.999</p>
+                    </div>
+                    <div class="col-md py-1 text-center isi-keranjang my-auto">
+                      <div class="input-group inline-group border-1 border border-dark">
+                        <div class="input-group-prepend">
+                          <button class="btn text-dark btn-minus">
+                            <i class="bi bi-dash"></i>
+                          </button>
+                        </div>
+                        <input class="form-control quantity border-0 text-center" min="0" name="quantity" value="1" type="number" />
+                        <div class="input-group-append">
+                          <button class="btn text-dark btn-plus">
+                            <i class="bi bi-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md py-1 text-center isi-keranjang my-auto">
+                      <p class="yellow-text my-auto">Rp. 999.999</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container mt-3">
+              <div class="row">
+                <div class="col-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label p-3 rounded-3" style="background-color: red" for="flexRadioDefault1"></label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                    <label class="form-check-label p-3 rounded-3" style="background-color: yellow" for="flexRadioDefault2"></label>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked />
+                    <label class="form-check-label p-3 rounded-3" style="background-color: green" for="flexRadioDefault3"></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+            <button type="button" class="btn btn-warning text-white">Pesan</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 
   <script src="./assets/js/jquery-3.3.1.slim.min.js"></script>
