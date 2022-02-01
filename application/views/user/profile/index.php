@@ -4,8 +4,8 @@
     <section class="py-5 bg-light" id="profile">
         <div class="container py-5">
             <div class="row bg-white p-5 shadow">
-                <div class="col-lg-2 me-5 bg-danger mb-3">
-                    <img src="./assets/img/profile/img-profile.png" class="card-img-top" alt="..." />
+                <div class="col-lg-2 me-5 mb-3">
+                    <img src="./assets/img/profile/img-profile.png" class="card-img-top bg-danger" alt="..." />
                 </div>
                 <div class="col-lg">
                     <div class="row">
@@ -118,7 +118,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Mengubah Profil?')" class="btn btn-primary">Save changes</button>
             </div>
             </form>
         </div>

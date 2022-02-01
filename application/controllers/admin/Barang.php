@@ -70,6 +70,10 @@ class Barang extends CI_Controller
             'required' => 'Password tidak boleh kosong.'
         ]);
 
+        $this->form_validation->set_rules('beforeprice', 'Before Price', 'required', [
+            'required' => 'Password tidak boleh kosong.'
+        ]);
+
         $this->form_validation->set_rules('brand', 'Brand', 'required', [
             'required' => 'Brand tidak boleh kosong.'
         ]);
@@ -99,6 +103,7 @@ class Barang extends CI_Controller
                 'status_product' => $this->input->post('status'),
                 'users' => $user['id'],
                 'date_arrived' => $this->input->post('date'),
+                'beforeprice_product' => $this->input->post('beforeprice')
             ];
 
             // if (isset($_FILES['photo']['name'])) {
@@ -139,6 +144,10 @@ class Barang extends CI_Controller
             'required' => 'Password tidak boleh kosong.'
         ]);
 
+        $this->form_validation->set_rules('beforeprice', 'Price', 'required', [
+            'required' => 'Password tidak boleh kosong.'
+        ]);
+
         $this->form_validation->set_rules('brand', 'Brand', 'required', [
             'required' => 'Brand tidak boleh kosong.'
         ]);
@@ -168,6 +177,7 @@ class Barang extends CI_Controller
                 'users' => $user['id'],
                 'status_product' => $this->input->post('status'),
                 'date_arrived' => $this->input->post('date'),
+                'beforeprice_product' => $this->input->post('beforeprice')
             ];
             $this->barang->editBarang($this->input->post('code'), $data);
             $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Diubah!", "success");');
@@ -183,6 +193,7 @@ class Barang extends CI_Controller
             "title2" => "$code",
             "page" => "admin/barang/photobarang",
             "photo" => $this->barang->getPhotoBarang($code),
+            "variation" => $this->db->get_where('variation_product', array('kd_product' => $code))->result_array(),
             "modal" => $modal
         ];
 
@@ -196,6 +207,7 @@ class Barang extends CI_Controller
             'kd_product' => $code,
             'describe_photoproduct' => $this->input->post('describe'),
             'users' => $user['id'],
+            'variation_product' => $this->input->post('variation')
         ];
 
         if (isset($_FILES['photo']['name'])) {
@@ -233,6 +245,7 @@ class Barang extends CI_Controller
         $this->db->delete('unit_product', ['kd_product' => $code]);
         $this->db->delete('photo_product', ['kd_product' => $code]);
         $this->db->delete('product', ['kd_product' => $code]);
+        $this->db->delete('variation_product', ['kd_product' => $code]);
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Dihapus!", "success");');
         redirect($_SERVER['HTTP_REFERER']);
     }
@@ -388,6 +401,81 @@ class Barang extends CI_Controller
         $this->db->delete('unit_product', ['id_unit' => $id]);
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Unit Berhasil Dihapus!", "success");');
         redirect('admin/Barang/unitProduct/' . $foto['kd_product']);
+    }
+
+    //Variation
+    public function variationBarang($code, $modal = "")
+    {
+        $data = [
+            "title" => "Variation Barang",
+            "title2" => "$code",
+            "page" => "admin/barang/variationbarang",
+            "variation" => $this->barang->getVariationBarang($code),
+            "modal" => $modal
+        ];
+
+        $this->load->view('admin/templates/app', $data);
+    }
+
+    public function addVariation()
+    {
+
+        $this->form_validation->set_rules('name', 'Name', 'required', [
+            'required' => 'Name tidak boleh kosong.'
+        ]);
+
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->variationBarang($this->uri->segment(4), "$('#tambahVariationModal').modal('show');");
+        } else {
+            $data = [
+                'kd_product' => $this->input->post('code'),
+                'name_product' => $this->input->post('name'),
+            ];
+
+
+
+            $this->db->insert('variation_product', $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Ditambahkan!", "success");');
+
+            redirect('admin/barang/variationBarang/' . $this->input->post('code'));
+        }
+    }
+
+    public function editVariation()
+    {
+        $this->form_validation->set_rules('name', 'Name', 'required', [
+            'required' => 'Name tidak boleh kosong.'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->variationBarang($this->uri->segment(4), "$('#editVariationModal').modal('show');");
+        } else {
+            $data = [
+                'name_variation' => $this->input->post('name'),
+            ];
+            $this->barang->editVariation($this->input->post('id'), $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Variation Berhasil Diubah!", "success");');
+
+            redirect(base_url('admin/Barang/variationBarang/' . $this->input->post('code')));
+        }
+    }
+
+    public function deleteVariationBarang($id)
+    {
+
+        $this->db->delete('variation_product', ['id_variation' => $this->uri->segment(5)]);
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Photo Barang Berhasil Dihapus!", "success");');
+        redirect('admin/Barang/variationBarang/' . $this->uri->segment(4));
+    }
+
+    //For AJax
+    public function getVariation()
+    {
+        $code = $this->input->get('id_variation');
+        $result = $this->barang->getVariationAjax($code);
+        echo json_encode($result);
     }
 }
 

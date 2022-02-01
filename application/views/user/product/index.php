@@ -3,11 +3,11 @@
      <div class="container">
          <div class="row">
              <divc class="col-lg py-3">
-                 <p class="text-secondary fw-light">Home / Sofas / <span class="yellow-text">Produk</span></p>
+                 <p class="text-secondary fw-light">Home / <span class="yellow-text">Produk</span></p>
              </divc>
              <div class="col-lg text-center">
                  <h3 class="fw-bold">Produk</h3>
-                 <p class="fw-light small text-secondary">Lorem ipsum</p>
+                 <p class="fw-light small text-secondary"></p>
              </div>
              <div class="col"></div>
          </div>
@@ -39,7 +39,8 @@
                                              <div class="card-body">
                                                  <p class="fw-light text-secondary small">Sofa</p>
                                                  <h5 class="card-title fw-bold text-dark"><?= $sofa['name_product'] ?></h5>
-                                                 <p class="card-text yellow-text mb-3">Rp. <?= $sofa['price_product'] ?></p>
+                                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sofa['price_product'] ?></p> -->
+                                                 <p class="card-text yellow-text mb-3">Coming Soon</p>
                                                  <div class="text-center btn-foto">
                                                      <a href="<?= base_url('Deskripsi/' . $sofa['kd_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                                  </div>
@@ -63,7 +64,8 @@
                                              <div class="card-body">
                                                  <p class="fw-light text-secondary small">Spring Bed</p>
                                                  <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
-                                                 <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p>
+                                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p> -->
+                                                 <p class="card-text yellow-text mb-3">Coming Soon</p>
                                                  <div class="text-center btn-foto">
                                                      <input type="number" name="quantity" id="<?php echo $springbed['kd_product']; ?>" value="1" class="quantity form-control" hidden>
                                                      <!-- <button id="add_cart" class="btn rounded-pill px-5 py-2 btn-foto yellow-button" data-kdproduct="<?php echo $springbed['kd_product'] ?>" data-nameproduct="<?php echo $springbed['name_product'] ?>" data-priceproduct="<?php echo $springbed['price_product'] ?>" data-photoproduct="<?php echo $springbed['photo_product'] ?>">Pesan</button> -->
@@ -109,7 +111,7 @@
                  success: function(data) {
                      $('#detail_cart').html(data);
                      $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
-                     alert("success");
+
                  },
                  error: function(error) {
                      alert("Error");

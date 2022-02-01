@@ -10,44 +10,52 @@
  </section>
  <!-- Akhir Breadcrumb -->
 
- <!-- Belum ada alamat -->
- <section class="my-5">
-     <div class="container">
-         <div class="row">
-             <div class="col">
-                 <h5>Alamat</h5>
+ <?php if ($alamat == '') {
+        if ($this->session->userdata('user_data') || $this->session->userdata('email')) {
+    ?>
+         <!-- Belum ada alamat -->
+         <section class="my-5">
+             <div class="container">
+                 <div class="row">
+                     <div class="col">
+                         <h5>Alamat</h5>
+                     </div>
+                 </div>
+                 <div class="row bg-white p-5">
+                     <div class="col text-center">
+                         <a href="./alamat.html" class="btn yellow-button px-5 py-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">Buat Alamat</a>
+                     </div>
+                 </div>
              </div>
-         </div>
-         <div class="row bg-white p-5">
-             <div class="col text-center">
-                 <a href="./alamat.html" class="btn yellow-button px-5 py-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">Buat Alamat</a>
-             </div>
-         </div>
-     </div>
- </section>
- <!-- Akhir Belum ada alamat -->
+         </section>
+         <!-- Akhir Belum ada alamat -->
+     <?php }
+    } else { ?>
 
- <!-- Alamat -->
- <section class="bg-white p-5 mt-5 " id="alamat">
-     <div class="container">
-         <div class="row border-bottom">
-             <div class="col">
-                 <h5>Alamat</h5>
+     <!-- Alamat -->
+     <!-- Profile -->
+     <section class="py-5 bg-light" id="profile">
+         <div class="container py-5">
+             <div class="row pb-3">
+                 <div class="col">
+                     <h2>Alamat Saya</h2>
+                 </div>
+             </div>
+             <div class="row bg-white p-5 shadow">
+                 <div class="col">
+                     <p><?= $alamat['nama_alamat'] ?></p>
+                     <p><?= $alamat['telp_alamat'] ?></p>
+                     <p><?= $alamat['detail_alamat'] ?> - <?= $alamatongkir->subdistrict_name ?>, <?= $alamatongkir->city ?>, <?= $alamatongkir->province ?> ID <?= $alamat['pos_alamat'] ?>
+                 </div>
+                 <div class="col-2 text-end mb-auto">
+                     <a href="<?= base_url('user/Profile/deleteAlamat/' . $alamat['id_alamat']) ?>" class="btn" onclick="return confirm('Apakah Yakin ingin Menghapus Alamat?')" style="text-decoration: underline">hapus</a>
+                 </div>
              </div>
          </div>
-         <div class="row pt-3">
-             <div class="col">
-                 <p>Wildan</p>
-                 <p>0851572763</p>
-                 <p>Komplek Setneg, Blok g No.10, RT.3/RW.6, Kel Pondok Kacang Barat, Pondok Aren (Blok G-10) KOTA TANGERANG SELATAN - PONDOK AREN BANTEN ID 15226</p>
-             </div>
-             <div class="col-2 text-end mb-auto">
-                 <a href="./alamat.html" class="text-dark">Ubah</a>
-             </div>
-         </div>
-     </div>
- </section>
- <!-- Akhir Alamat -->
+     </section>
+     <!-- ./Profile -->
+     <!-- Akhir Alamat -->
+ <?php } ?>
 
  <!-- Keranjang -->
  <section id="keranjang" class="bg-white py-5 my-5">

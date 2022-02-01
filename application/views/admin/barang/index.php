@@ -23,6 +23,7 @@
                                             <th>Code</th>
                                             <th>Name</th>
                                             <th>Price</th>
+                                            <th>Before Price</th>
                                             <th>Describe</th>
                                             <th>Category</th>
                                             <th>Last Edited By</th>
@@ -36,7 +37,8 @@
                                             <tr>
                                                 <td><?= $barang['kd_product'] ?></td>
                                                 <td><?= $barang['name_product'] ?></td>
-                                                <td><?= $barang['price_product'] ?></td>
+                                                <td><?= number_format($barang['price_product'], '0', ',', '.') ?></td>
+                                                <td><?= number_format($barang['beforeprice_product'], '0', ',', '.') ?></td>
                                                 <td><?= $barang['describe_product'] ?></td>
                                                 <td><?= $barang['name_category'] ?></td>
                                                 <td><?= $barang['username'] ?></td>
@@ -50,7 +52,7 @@
                                                 </td>
                                                 <td><?= $barang['created_product'] ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('admin/Barang/unitProduct/' . $barang['kd_product']) ?>" class="btn btn-secondary mt-1">Unit</a>
+                                                    <a href="<?= base_url('admin/Barang/variationBarang/' . $barang['kd_product']) ?>" class="btn btn-secondary mt-1">Variation</a>
                                                     <a href="javascript:;" class="btn btn-primary mt-1 item-detail" data="<?php echo $barang['kd_product'] ?>">Ubah</a>
                                                     <a href="<?= base_url('admin/Barang/photoBarang/' . $barang['kd_product']) ?>" class="btn btn-warning mt-1">Photo</a>
                                                     <a href="<?= base_url('admin/Barang/deleteBarang/' . $barang['kd_product']) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>
@@ -135,6 +137,11 @@
                         <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
+                        <label>Before Price</label>
+                        <input type="text" id="tanpa-rupiah" name="beforeprice" class="form-control">
+                        <?= form_error('beforeprice', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
                         <label>Price</label>
                         <input type="text" id="tanpa-rupiah" name="price" class="form-control">
                         <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
@@ -215,6 +222,11 @@
                         <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
+                        <label>Before Price</label>
+                        <input type="text" id="tanpa-rupiah" name="beforeprice" class="form-control">
+                        <?= form_error('beforeprice', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
                         <label>Price</label>
                         <input type="text" id="tanpa-rupiah" name="price" class="form-control">
                         <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
@@ -268,6 +280,7 @@
                 $('textarea[name=describe]').val(data.describe_product);
                 $('select[name=category]').val(data.category_product);
                 $('input[name=price]').val(data.price_product);
+                $('input[name=beforeprice]').val(data.beforeprice_product);
                 $('input[name=brand]').val(data.brand_product);
                 $('select[name=status]').val(data.status_product);
                 $('input[name=date]').val(data.date_arrived);

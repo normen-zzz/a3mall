@@ -9,17 +9,41 @@ class Cart extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        //Do your magic here
-
+        $this->load->model('User_model', 'user');
+        $this->load->model('Ongkir_model', 'ongkir');
     }
 
     public function index()
     {
+        $google = $this->session->userdata('user_data');
+        if ($google) {
+            $alamat = $this->user->getAlamatByEmail($google['email']);
+            if (!$alamat->num_rows()) {
+                $alamat = '';
+                $alamatongkir = '';
+            } else {
+                $alamat = $this->user->getAlamatByEmail($google['email'])->row_array();
+                $getAlamat = $this->ongkir->getAlamatOngkir($alamat['kabupaten_alamat'], $alamat['kecamatan_alamat']);
+                $alamatongkir = $getAlamat->rajaongkir->results;
+            }
+        } else {
+            $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'));
+            if (!$alamat->num_rows()) {
+                $alamat = '';
+                $alamatongkir = '';
+            } else {
+                $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'))->row_array();
+                $getAlamat = $this->ongkir->getAlamatOngkir($alamat['kabupaten_alamat'], $alamat['kecamatan_alamat']);
+                $alamatongkir = $getAlamat->rajaongkir->results;
+            }
+        }
         $data = [
             "title" => "A3Mall | Cart",
             "page" => "user/transaction/cart/index",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
-            "keranjang" => $this->cart->contents()
+            "keranjang" => $this->cart->contents(),
+            "alamat" => $alamat,
+            "alamatongkir" => $alamatongkir,
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);
@@ -28,15 +52,17 @@ class Cart extends CI_Controller
     public function add_to_cart()
     {
         $data = array(
-            'id' => $this->input->post('kd_product'),
+            'id' => $this->input->post('variation'),
             'name' => $this->input->post('name_product'),
             'price' => $this->input->post('price_product'),
             'qty' => $this->input->post('quantity'),
-            'photo' => $this->input->post('photo_product')
+            'photo' => $this->input->post('photo_product'),
+            'kd_product' => $this->input->post('kd_product'),
+            'weight' => $this->input->post('weight_product')
         );
         $this->cart->insert($data);
         // echo $this->show_cart(); //tampilkan cart setelah added
-        var_dump($data);
+        // var_dump($data);
     }
 
     public function total_cart()
@@ -49,7 +75,7 @@ class Cart extends CI_Controller
                     </div>
                     <div class="col my-auto justify-content-end d-flex">
                         <p class="my-auto me-5">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp.' . number_format($this->cart->total(), '0', ',', '.')  . '</span></p>
-                        <a href="./checkout.html" class="btn px-5 py-2 yellow-button">Pesan</a>
+                        <a href="' . base_url('user/Checkout/addToCheckout') . '" class="btn px-5 py-2 yellow-button">Pesan</a>
                     </div>
                 </div>
             </div>
@@ -57,6 +83,16 @@ class Cart extends CI_Controller
        ';
         return $total;
     }
+
+    // public function cobacart()
+    // {
+    //     $keranjang = $this->cart->contents();
+
+    //     foreach ($keranjang as $keranjang) {
+
+    //         var_dump($variation['name_variation']);
+    //     }
+    // }
 
     public function getCart()
     {
@@ -67,6 +103,7 @@ class Cart extends CI_Controller
         // $foto = $this->barang->getProductByKd($keranjang['id']);
         foreach ($keranjang as $keranjang) {
             // $fotproduk = $foto['photo_product'];
+            $variation = $this->db->get_where('variation_product', array('id_variation' => $keranjang['id']))->row_array();
             $no++;
             $output .= '
         <div class="row mb-5 keranjang-grid">
@@ -80,9 +117,9 @@ class Cart extends CI_Controller
                 <div class="col-md py-1">
                     <p>' . $keranjang['name'] . '</p>
                 </div>
-                <!-- <div class="col-md py-1 text-center isi-keranjang my-auto">
-                <p class="fw-light text-secondary my-auto">Variasi: Pola biru</p>
-            </div> -->
+                <div class="col-md py-1 text-center isi-keranjang my-auto">
+                <p class="fw-light text-secondary my-auto">Variasi:' . $variation['name_variation'] . '</p>
+            </div>
                 <div class="col-md py-1 text-center isi-keranjang my-auto">
                     <p class="my-auto">Rp.' . number_format($keranjang['price'], '0', ',', '.') . '</p>
                 </div>

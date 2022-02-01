@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Transaksi Sudah Bayar</h1>
+            <h1>Data Variation Barang</h1>
         </div>
 
         <div class="section-body">
@@ -9,10 +9,11 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h4><?= $title ?></h4>
+                            <h4><?= $title2 ?></h4>
                         </div>
+
                         <div class="col">
-                            <!-- <button data-toggle="modal" data-target="#tambahPhotoBarangModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Photo</button> -->
+                            <button data-toggle="modal" data-target="#tambahVariationModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Variation</button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -20,39 +21,27 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Pelanggan</th>
-                                            <th>Kode</th>
-                                            <th>Tanggal</th>
-                                            <th>Yang Harus Dibayarkan</th>
-                                            <th>Status Bayar</th>
+                                            <th>Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <?php $no = 0;
-                                    foreach ($transaksi as $transaksi) {
-                                        $no++ ?>
-                                        <tbody>
+                                    <tbody id="showdata">
+                                        <?php $no = 1;
+                                        foreach ($variation as $variation) { ?>
                                             <tr>
                                                 <td><?= $no ?></td>
-                                                <td><?php echo $transaksi->name_customers ?>
-                                                    <br><small>
-                                                        Telepon: <?php echo $transaksi->telp_customers ?>
-                                                        <br>Email: <?php echo $transaksi->email_users ?>
-                                                        <br>Alamat Kirim:
-                                                        <br><?php echo nl2br($transaksi->address_customers) ?>
-                                                    </small>
-                                                </td>
-                                                <td><?php echo $transaksi->kd_transaction ?></td>
-                                                <td><?php echo date('d-m-Y', strtotime($transaksi->date_transaction)) ?></td>
-                                                <td><?php echo number_format($transaksi->total_transaction) ?></td>
-                                                <td>Menunggu Konfirmasi</td>
+                                                <td><?= $variation['name_variation'] ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('admin/Transaksi/updateTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-success mt-1" onclick="return confirm('Anda Yakin Ingin Konfirmasi?')"><i class="fa fa-check"></i> Konfirmasi</a>
-                                                    <a href="<?= base_url('admin/Transaksi/deleteTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')"><i class="fa fa-times"></i> Hapus</a>
+
+                                                    <a href="javascript:;" class="btn btn-primary mt-1 item-detail" data="<?php echo $variation['id_variation'] ?>">Ubah</a>
+                                                    <!-- <a href="<?= base_url('admin/Barang/photoBarang/' . $variation['id_variation']) ?>" class="btn btn-warning mt-1">Photo</a> -->
+                                                    <a href="<?= base_url('admin/Barang/deleteVariationBarang/' . $variation['kd_product'] . '/' . $variation['id_variation']) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>
                                                 </td>
                                             </tr>
-                                        </tbody>
-                                    <?php } ?>
+
+                                        <?php $no++;
+                                        } ?>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -81,7 +70,8 @@
     </section>
 </div>
 
-<!-- <div class="modal fade" tabindex="-1" role="dialog" id="tambahPhotoBarangModal">
+<!-- modal tambah barang -->
+<div class="modal fade" tabindex="-1" role="dialog" id="tambahVariationModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -91,17 +81,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/Barang/addPhotoBarang/' . $this->uri->segment('4')) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url('admin/Barang/addVariation') ?>" method="post">
+                    <input type="text" name="code" value="<?= $this->uri->segment(4) ?>">
                     <div class="form-group">
-                        <label>Photo</label>
-                        <input type="file" name="photo" class="form-control">
+                        <label>Name Variation</label>
+                        <input type="text" name="name" class="form-control">
+                        <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                     </div>
-                    <div class="form-group">
-                        <label>Describe</label>
-                        <textarea class="form-control" name="describe"></textarea>
-                        <?= form_error('describe', '<small class="text-danger">', '</small>'); ?>
-                    </div>
-
 
             </div>
             <div class="modal-footer bg-whitesmoke br">
@@ -111,23 +97,66 @@
             </form>
         </div>
     </div>
-</div> -->
+</div>
 
-<!-- modal Image -->
-<!-- <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+<!-- modal ubah barang  -->
+<div class="modal fade" tabindex="-1" role="dialog" id="editVariationModal">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <img src="" class="imagepreview" style="width: 95%;">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Barang</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+
+                <form action="<?= base_url('admin/Barang/editVariation/' . $this->uri->segment(4)) ?>" method="post">
+                    <input type="text" name="id" hidden>
+                    <input type="text" name="code" hidden>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control">
+                        <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
         </div>
     </div>
-</div> -->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#showdata').on('click', '.item-detail', function() {
+        var id_variation = $(this).attr('data');
+        $('#editVariationModal').modal('show');
+        $.ajax({
+            type: 'ajax',
+            method: 'get',
+            url: '<?php echo base_url() ?>admin/Barang/getVariation',
+            data: {
+                id_variation: id_variation,
+            },
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                $('input[name=id]').val(data.id_variation);
+                $('input[name=name]').val(data.name_variation);
+                $('input[name=code]').val(data.kd_product);
+            },
+            error: function() {
+                alert('Could not displaying data');
+            }
+        });
+    });
+</script>
 
 
-
-<!-- <script>
+<script>
     /* Tanpa Rupiah */
     var tanpa_rupiah = document.getElementById('tanpa-rupiah');
     tanpa_rupiah.addEventListener('keyup', function(e) {
@@ -150,4 +179,4 @@
         rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
         return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
     }
-</script> -->
+</script>

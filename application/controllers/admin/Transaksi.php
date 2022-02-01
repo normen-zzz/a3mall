@@ -24,7 +24,7 @@ class Transaksi extends CI_Controller
         $data = [
             "title" => "Pesanan Belum Bayar",
             "page" => "admin/transaksi/belumbayar/index",
-            "transaksi" => $this->transaksi->getTransaksi("belum")
+            "transaksi" => $this->transaksi->getTransaksi("1")
         ];
 
         $this->load->view('admin/templates/app', $data, FALSE);
@@ -35,7 +35,7 @@ class Transaksi extends CI_Controller
         $data = [
             "title" => "Pesanan Sudah Bayar",
             "page" => "admin/transaksi/sudahbayar/index",
-            "transaksi" => $this->transaksi->getTransaksi("Menunggu Konfirmasi")
+            "transaksi" => $this->transaksi->getTransaksi("2")
         ];
 
         $this->load->view('admin/templates/app', $data, FALSE);
@@ -46,7 +46,7 @@ class Transaksi extends CI_Controller
         $data = [
             "title" => "Pesanan Terkonfirmasi",
             "page" => "admin/transaksi/onprogress/index",
-            "transaksi" => $this->transaksi->getTransaksi("Konfirmasi")
+            "transaksi" => $this->transaksi->getTransaksi("3")
         ];
 
         $this->load->view('admin/templates/app', $data, FALSE);
@@ -57,10 +57,28 @@ class Transaksi extends CI_Controller
         $data = [
             "title" => "Pesanan Selesai",
             "page" => "admin/transaksi/done/index",
-            "transaksi" => $this->transaksi->getTransaksi("Selesai")
+            "transaksi" => $this->transaksi->getTransaksi("4")
         ];
 
         $this->load->view('admin/templates/app', $data, FALSE);
+    }
+
+    public function updateTransaction($code)
+
+    {
+        $detail = $this->transaksi->getDetailTransactionWhereCode($code);
+        $data = [
+            "status" => $detail->status + 1
+        ];
+
+        $this->transaksi->updateStatus($data, $code);
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function deleteTransaction($code)
+    {
+        $this->db->delete('detail_transaction', array('kd_transaction' => $code));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }
 

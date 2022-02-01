@@ -36,7 +36,8 @@ class Product extends CI_Controller
             "produk" => $this->barang->getProductByKd($this->uri->segment(2)),
             "photo_produk" => $this->barang->getPhotoBarang($this->uri->segment(2)),
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
-            "sejenis" => $this->barang->getSejenis($produk->brand_product)
+            "sejenis" => $this->barang->getSejenis($produk->brand_product),
+            "variation" => $this->db->get_where('variation_product', array('kd_product' => $this->uri->segment(2)))->result()
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);

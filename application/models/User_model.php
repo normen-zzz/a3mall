@@ -27,14 +27,19 @@ class User_model extends CI_Model
     public function getAlamatByEmail($email)
     {
         $this->db->select('*');
-        $this->db->from('alamat a');
-        $this->db->join('provinsi b', 'b.id=a.provinsi_alamat', 'left');
-        $this->db->join('kabupaten c', 'c.id=a.kabupaten_alamat', 'left');
-        $this->db->join('kecamatan d', 'd.id=a.kecamatan_alamat', 'left');
-        $this->db->join('kelurahan e', 'e.id=a.kelurahan_alamat', 'left');
-        $this->db->where('a.email', $email);
-        $this->db->order_by('a.id_alamat', 'desc');
+        $this->db->from('alamat');
+        $this->db->where('email', $email);
+        $this->db->order_by('id_alamat', 'desc');
         return $this->db->get();
+    }
+
+    public function getAlamatAjax($id)
+    {
+        $this->db->select('*');
+        $this->db->from('alamat');
+        $this->db->where('email', $id);
+        $query = $this->db->get();
+        return $query->row();
     }
 }
 

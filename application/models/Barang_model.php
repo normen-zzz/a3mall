@@ -108,7 +108,8 @@ class Barang_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('photo_product');
-        $this->db->where('kd_product', $where);
+        $this->db->join('variation_product', 'variation_product.id_variation=photo_product.variation_product');
+        $this->db->where('photo_product.kd_product', $where);
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result_array();
@@ -147,6 +148,35 @@ class Barang_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    //Variation
+    public function getVariationBarang($where)
+    {
+        $this->db->select('*');
+        $this->db->from('variation_product');
+        $this->db->where('kd_product', $where);
+        $query = $this->db->get();
+        // if ($query->num_rows() != 0) {
+        return $query->result_array();
+        // } else {
+        //     return false;
+        // }
+    }
+
+    public function getVariationAjax($code)
+    {
+        $this->db->select('*');
+        $this->db->from('variation_product');
+        $this->db->where('id_variation', $code);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function editVariation($id, $data)
+    {
+        $this->db->update('variation_product', $data, ['id_variation' => $id]);
+        return $this->db->affected_rows();
+    }
+
     //Untuk User
 
     public function getSejenis($like)
@@ -157,6 +187,7 @@ class Barang_model extends CI_Model
         $this->db->join('users c', 'c.id=a.users', 'left');
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
         $this->db->like('a.brand_product', $like);
+        $this->db->group_by('a.kd_product');
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result();
@@ -172,6 +203,7 @@ class Barang_model extends CI_Model
         $this->db->limit(4);
         $this->db->order_by('a.date_arrived', 'desc');
         $this->db->where('a.category_product', $where);
+        $this->db->group_by('a.kd_product');
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result();

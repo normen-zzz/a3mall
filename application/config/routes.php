@@ -73,3 +73,9 @@ $route['set-password'] = 'user/Auth/set_password';
 
 //Cart
 $route['Cart'] = 'user/Cart';
+
+//Checkout
+$route['Checkout/(:any)'] = 'user/Checkout/index';
+
+//Status
+$route['Status'] = 'user/Status/index';

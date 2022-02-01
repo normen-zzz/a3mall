@@ -41,7 +41,7 @@
                                  </li>
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                                 <li><a class="dropdown-item" href="#">Status Pesanan</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                                  <hr />
                                  <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
@@ -61,7 +61,7 @@
                                  </li>
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                                 <li><a class="dropdown-item" href="#">Status Pesanan</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                                  <hr />
                                  <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
@@ -102,12 +102,12 @@
                      </li>
                  </ul>
                  <ul class="navbar-nav">
-                     <li class="nav-item my-auto me-3">
+                     <!-- <li class="nav-item my-auto me-3">
                          <form class="input-group">
                              <span class="input-group-text border-0 bg-white" id="basic-addon1"><i class="bi bi-search"></i></span>
                              <input class="form-control border-0" type="search" placeholder="Search" aria-label="Search" />
                          </form>
-                     </li>
+                     </li> -->
                      <li class="nav-item cartres my-auto me-4">
                          <div id="cart" class="d-none"></div>
                          <a href="<?= base_url('Cart') ?>" class="cart text-dark h5 position-relative d-inline-flex" aria-label="View your shopping cart">
@@ -128,7 +128,7 @@
                                  </li>
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                                 <li><a class="dropdown-item" href="#">Status Pesanan</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
@@ -147,7 +147,7 @@
                                  </li>
                                  <hr />
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                                 <li><a class="dropdown-item" href="#">Staus Pesanan</a></li>
+                                 <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                                  <hr />
                                  <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>

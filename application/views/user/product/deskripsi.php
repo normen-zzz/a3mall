@@ -44,17 +44,17 @@
              <div class="col-lg p-5 padding-foto">
                  <div class="card p-5 bg-transparent">
                      <h5 class="fw-bold"><?= $produk->name_product ?></h5>
-                     <div class="d-flex">
-                         <div class="star yellow-text me-2">
-                             <i class="bi bi-star-fill"></i>
-                             <i class="bi bi-star-fill"></i>
-                             <i class="bi bi-star-fill"></i>
-                             <i class="bi bi-star-fill"></i>
-                             <i class="bi bi-star-half"></i>
-                         </div>
-                         <p class="fw-light text-secondary">Read reviews (267)</p>
-                     </div>
-                     <div class="input-group inline-group border-1 border border-dark">
+                     <!-- <div class="row">
+                         <?php foreach ($variation as $variation) { ?>
+                             <div class="col">
+                                 <div class="form-check">
+                                     <input class="form-check-input" type="radio" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" />
+                                     <label class="p-3 rounded-3" style="background-color: grey" for="flexRadioDefault1"><?= $variation->name_variation ?></label>
+                                 </div>
+                             </div>
+                         <?php } ?>
+                     </div> -->
+                     <!-- <div class="input-group inline-group border-1 border border-dark">
                          <div class="input-group-prepend">
                              <button class="btn text-dark btn-minus">
                                  <i class="bi bi-dash"></i>
@@ -66,14 +66,19 @@
                                  <i class="bi bi-plus"></i>
                              </button>
                          </div>
+                     </div> -->
+                     <div class="text mb-3 pt-3">
+                         <!-- <p class="m-0">Total:</p>
+                         <h5 class="mb-0 fw-light text-secondary"><s>Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s></h5> -->
+                         <!-- <h2 class="yellow-text">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h2> -->
+                         <h2 class="yellow-text">Coming Soon</h2>
                      </div>
-                     <div class="text mb-3">
-                         <p class="m-0">Total:</p>
-                         <h2>Rp 999.999</h2>
+                     <div class="col">
+
                      </div>
                      <div class="d-grid gap-2">
-                         <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>">Beli Full Set</button>
-                         <a href="#" class="btn yellow-button shadow" type="button">Beli Per Item</a>
+                         <!-- <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" data-weightproduct="<?php echo $produk->weight_product ?>">Masukan Ke Keranjang</button>
+                         <a href="#" class="btn yellow-button shadow" type="button">Beli Per Item</a> -->
                      </div>
                  </div>
              </div>
@@ -91,12 +96,12 @@
                      <li class="nav-item my-2" role="presentation">
                          <button class="nav-link rounded-pill text-dark active" id="desk1-tab" data-bs-toggle="pill" data-bs-target="#desk1" type="button" role="tab" aria-controls="desk1" aria-selected="true">Deskripsi</button>
                      </li>
-                     <li class="nav-item my-2" role="presentation">
+                     <!-- <li class="nav-item my-2" role="presentation">
                          <button class="nav-link rounded-pill text-dark" id="desk2-tab" data-bs-toggle="pill" data-bs-target="#desk2" type="button" role="tab" aria-controls="desk2" aria-selected="false">Dimention</button>
                      </li>
                      <li class="nav-item my-2" role="presentation">
                          <button class="nav-link rounded-pill text-dark" id="desk3-tab" data-bs-toggle="pill" data-bs-target="#desk3" type="button" role="tab" aria-controls="desk3" aria-selected="false">Details</button>
-                     </li>
+                     </li> -->
                  </ul>
                  <div class="tab-content" id="pills-tabContent">
                      <div class="tab-pane fade show active" id="desk1" role="tabpanel" aria-labelledby="desk1-tab">
@@ -133,7 +138,8 @@
                              <div class="card-body">
                                  <p class="fw-light text-secondary small"><?= $sejenis->name_category ?></p>
                                  <h5 class="card-title fw-bold text-dark"><?= $sejenis->name_product ?></h5>
-                                 <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p>
+                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
+                                 <p class="card-text yellow-text mb-3">Coming Soon</p>
                                  <div class="text-center btn-foto">
                                      <a href="<?= base_url('Deskripsi/' . $sejenis->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button">Detail</a>
                                  </div>
@@ -154,32 +160,44 @@
          $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
          $('#add_cart').click(function() {
 
-             var kd_product = $(this).data("kdproduct");
-             var name_product = $(this).data("nameproduct");
-             var price_product = $(this).data("priceproduct");
-             var quantity = $('#' + kd_product).val();
-             var photo_product = $(this).data("photoproduct");
-             $.ajax({
-                 url: "<?= base_url(); ?>user/cart/add_to_cart",
-                 method: "POST",
-                 data: {
-                     kd_product: kd_product,
-                     name_product: name_product,
-                     price_product: price_product,
-                     quantity: quantity,
-                     photo_product: photo_product
-                 },
-                 success: function(data) {
-                     $('#detail_cart').html(data);
-                     $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
-                     alert("success");
-                 },
-                 error: function(error) {
-                     alert("Error");
-                 }
+             if ($("input[name='variation']:checked").val()) {
+                 var kd_product = $(this).data("kdproduct");
+                 var name_product = $(this).data("nameproduct");
+                 var price_product = $(this).data("priceproduct");
+                 var quantity = $('#' + kd_product).val();
+                 var photo_product = $(this).data("photoproduct");
+                 var variation = $('input[name="variation"]:checked').val();
+                 var weight_product = $(this).data("weightproduct");
+
+                 $.ajax({
+                     url: "<?= base_url(); ?>user/cart/add_to_cart",
+                     method: "POST",
+                     data: {
+                         kd_product: kd_product,
+                         name_product: name_product,
+                         price_product: price_product,
+                         quantity: quantity,
+                         photo_product: photo_product,
+                         variation: variation,
+                         weight_product: weight_product
+                     },
+                     success: function(data) {
+                         $('#detail_cart').html(data);
+                         $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
+                         alert("success");
+                     },
+                     error: function(error) {
+                         alert("Error");
+                     }
 
 
-             });
+                 });
+             } else {
+                 alert('Tolong Pilih Varian');
+                 return false;
+             }
+
+
          });
      });
  </script>

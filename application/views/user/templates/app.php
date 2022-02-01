@@ -6,6 +6,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Midtrans -->
+  <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key='SB-Mid-client-BdEPTlj-ggTcbDTr'></script>
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
@@ -54,6 +57,125 @@
 <script type="text/javascript">
   $(window).on('load', function() {
     <?= $modal; ?>
+  });
+</script>
+
+<!-- midtrans -->
+<script type="text/javascript">
+  $('#pay-button').click(function(event) {
+    event.preventDefault();
+    $(this).attr("disabled", "disabled");
+
+    var jumlah = $("#jumlah").val();
+    var nama = $("#nama").val();
+    var kd_transaction = $("#kd_transaction").val();
+
+    $.ajax({
+      type: 'POST',
+      url: '<?= base_url() ?>user/Checkout/token',
+      data: {
+        jumlah: jumlah,
+        nama: nama,
+        kd_transaction: kd_transaction
+
+      },
+      cache: false,
+
+      success: function(data) {
+        //location = data;
+
+        console.log('token = ' + data);
+
+        var resultType = document.getElementById('result-type');
+        var resultData = document.getElementById('result-data');
+
+        function changeResult(type, data) {
+          $("#result-type").val(type);
+          $("#result-data").val(JSON.stringify(data));
+          // resultType.innerHTML = type;
+          // resultData.innerHTML = JSON.stringify(data);
+        }
+
+        snap.pay(data, {
+
+          onSuccess: function(result) {
+            changeResult('success', result);
+            console.log(result.status_message);
+            console.log(result);
+            $("#payment-form").submit();
+          },
+          onPending: function(result) {
+            changeResult('pending', result);
+            console.log(result.status_message);
+            $("#payment-form").submit();
+          },
+          onError: function(result) {
+            changeResult('error', result);
+            console.log(result.status_message);
+            $("#payment-form").submit();
+          }
+        });
+      }
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $('.midtrans').click(function(event) {
+    event.preventDefault();
+    $(this).attr("disabled", "disabled");
+    var id = $(this).attr('data-id');
+    var jumlah = $('#jumlah_' + id).val();
+    var nama = $("#nama_" + id).val();
+    var kd_transaction = $("#kd_transaction_" + id).val();
+
+    $.ajax({
+      type: 'POST',
+      url: '<?= base_url() ?>user/Checkout/token',
+      data: {
+        jumlah: jumlah,
+        nama: nama,
+        kd_transaction: kd_transaction
+
+      },
+      cache: false,
+
+      success: function(data) {
+        //location = data;
+
+        console.log('token = ' + data);
+
+        var resultType = document.getElementById('result-type');
+        var resultData = document.getElementById('result-data');
+
+        function changeResult(type, data) {
+          $("#result-type").val(type);
+          $("#result-data").val(JSON.stringify(data));
+          // resultType.innerHTML = type;
+          // resultData.innerHTML = JSON.stringify(data);
+        }
+
+        snap.pay(data, {
+
+          onSuccess: function(result) {
+            changeResult('success', result);
+            console.log(result.status_message);
+            console.log(result);
+            $("#payment-form").submit();
+          },
+          onPending: function(result) {
+            changeResult('pending', result);
+            console.log(result.status_message);
+            $("#payment-form").submit();
+          },
+          onError: function(result) {
+            changeResult('error', result);
+            console.log(result.status_message);
+            $("#payment-form").submit();
+          }
+        });
+      }
+    });
   });
 </script>
 

@@ -62,10 +62,10 @@
         <div class="row">
             <div class="col text-center">
                 <h5>Tersedia juga di</h5>
-                <a href="#">
+                <a href="https://shopee.co.id/shop/654899565/" target="_blank">
                     <img src="<?= base_url('assets/user/') ?>img/landingpage/shopee-logo-40477 1.svg" class="img-fluid mx-5" alt="" />
                 </a>
-                <a href="#">
+                <a href="https://tokopedia.link/a3mall" target="_blank">
                     <img src="<?= base_url('assets/user/') ?>img/landingpage/tokopedia-38840 1.svg" class="img-fluid mx-5" alt="" />
                 </a>
             </div>
@@ -86,20 +86,17 @@
                     <div class="col-lg">
                         <h5 class="fw-bold yellow-text">Gratis Ongkir</h5>
                         <p class="fw-light small">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ex autem vel vero recusandae natus mollitia veniam quidem saepe, excepturi sint et, atque tempore dolorum rem ipsa aliquam quaerat? Placeat.
-                        </p>
+                            Kami Menyediakan gratis ongkir khususnya daerah jabodetabek </p>
                     </div>
                     <div class="col-lg">
                         <h5 class="fw-bold yellow-text">Banyak Pilihan</h5>
                         <p class="fw-light small">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ex autem vel vero recusandae natus mollitia veniam quidem saepe, excepturi sint et, atque tempore dolorum rem ipsa aliquam quaerat? Placeat.
-                        </p>
+                            Produk yang kami sediakan mulai dari Spring Bed hingga Sofa dengan berbagai macam tipe dan juga warna yang bervarian </p>
                     </div>
                     <div class="col-lg">
                         <h5 class="fw-bold yellow-text">Mudah Dipasang</h5>
                         <p class="fw-light small">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ex autem vel vero recusandae natus mollitia veniam quidem saepe, excepturi sint et, atque tempore dolorum rem ipsa aliquam quaerat? Placeat.
-                        </p>
+                            Kami memikirkan bahwa produk yang kami berikan kepada pembeli agar mudah dipasang </p>
                     </div>
                 </div>
             </div>
@@ -113,7 +110,7 @@
     <div class="container py-5">
         <div class="row">
             <div class="col text-center">
-                <h2>Baru Datang</h2>
+                <h2>New Arrival</h2>
             </div>
         </div>
         <div class="row">
@@ -132,7 +129,8 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Sofa</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
-                                <p class="card-text yellow-text mb-3">Rp. <?= $sofa->price_product ?></p>
+                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sofa->price_product ?></p> -->
+                                <p class="card-text yellow-text mb-3">Coming Soon</p>
                                 <div class="text-center btn-foto">
                                     <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                                 </div>
@@ -156,7 +154,8 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Spring Bed</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $springbed->name_product ?></h5>
-                                <p class="card-text yellow-text mb-3">Rp. <?= $springbed->price_product ?></p>
+                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= $springbed->price_product ?></p> -->
+                                <p class="card-text yellow-text mb-3">Coming Soon</p>
                                 <div class="text-center btn-foto">
                                     <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
                                 </div>
@@ -187,7 +186,7 @@
 <!-- Akhir Contact -->
 
 <!-- Testimoni -->
-<section class="py-5" id="testimoni">
+<!-- <section class="py-5" id="testimoni">
     <div class="container py-5">
         <div class="row">
             <div class="col text-center">
@@ -260,5 +259,5 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Akhir Testimoni -->

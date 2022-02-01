@@ -11,7 +11,17 @@
 <!-- Akhir Breadcrumb -->
 
 <!-- Alamat -->
-<section></section>
+<section class="bg-white p-5 mt-5" id="alamat">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>Wildan</p>
+                <p>0851572763</p>
+                <p>Komplek Setneg, Blok g No.10, RT.3/RW.6, Kel Pondok Kacang Barat, Pondok Aren (Blok G-10) KOTA TANGERANG SELATAN - PONDOK AREN BANTEN ID 15226</p>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Akhir Alamat -->
 
 <!-- Keranjang -->

@@ -37,7 +37,7 @@
                                                 <td><?php echo $transaksi->name_customers ?>
                                                     <br><small>
                                                         Telepon: <?php echo $transaksi->telp_customers ?>
-                                                        <br>Email: <?php echo $transaksi->email_customers ?>
+                                                        <br>Email: <?php echo $transaksi->email_users ?>
                                                         <br>Alamat Kirim:
                                                         <br><?php echo nl2br($transaksi->address_customers) ?>
                                                     </small>
@@ -45,10 +45,10 @@
                                                 <td><?php echo $transaksi->kd_transaction ?></td>
                                                 <td><?php echo date('d-m-Y', strtotime($transaksi->date_transaction)) ?></td>
                                                 <td><?php echo number_format($transaksi->total_transaction) ?></td>
-                                                <td><?php echo $transaksi->status_bayar ?></td>
+                                                <td>Dalam Proses</td>
                                                 <td>
-                                                    <a href="" class="btn btn-success mt-1" onclick="return confirm('Anda Yakin Pesanan telah Selesai?')"><i class="fa fa-check"></i> Selesaikan Pesanan</a>
-                                                    <a href="" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')"><i class="fa fa-times"></i> Hapus</a>
+                                                    <a href="<?= base_url('admin/Transaksi/updateTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-success mt-1" onclick="return confirm('Anda Yakin Pesanan telah Selesai?')"><i class="fa fa-check"></i> Selesaikan Pesanan</a>
+                                                    <a href="<?= base_url('admin/Transaksi/deleteTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')"><i class="fa fa-times"></i> Hapus</a>
                                                 </td>
                                             </tr>
                                         </tbody>

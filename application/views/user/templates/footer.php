@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row py-5">
             <div class="col-lg py-2">
-                <h5 class="yellow-text fw-light">A3MALL</h5>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h5 class="card-text yellow-text fw-light">A3MALL</h5>
+                <p>Menyediakan Spring Bed Dan Sofa berkualitas.</p>
             </div>
             <div class="col-lg py-2">
                 <p class="fw-bold">About Us</p>
@@ -24,11 +24,11 @@
                 <p class="fw-bold">Contact Us</p>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <p class="small">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <p class="small">Jangan ragu menghubungi kami jika ada pertanyaan :)</p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
-                        <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
+                        <a class="nav-link text-dark p-0 my-1 small" href="tel:+6281388912929">Phone: 081388912929</a>
+
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
     <div class="container-fluid">
         <div class="row border-top">
             <div class="col text-center">
-                <p class="py-3 m-0">Copyright ® 2021 Lorem All rights Rcerved</p>
+                <p class="py-3 m-0">Copyright 2022 @ A3Mall</p>
             </div>
         </div>
     </div>
