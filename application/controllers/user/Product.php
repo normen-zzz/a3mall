@@ -32,7 +32,7 @@ class Product extends CI_Controller
         $produk = $this->barang->getProductByKd($this->uri->segment(2));
         $data = [
             "title" => "A3MALL | Deskripsi",
-            "page" => "user/product/Deskripsi",
+            "page" => "user/product/deskripsi",
             "produk" => $this->barang->getProductByKd($this->uri->segment(2)),
             "photo_produk" => $this->barang->getPhotoBarang($this->uri->segment(2)),
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
