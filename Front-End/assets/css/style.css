@@ -168,8 +168,37 @@ nav .nav-link.active {
 /* Produk Serupa */
 
 /* Deskripsi Foto */
-#deskfoto .nav-pills .nav-link.active {
-  background-color: transparent;
+#deskfoto .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+#deskfoto .mySwiper3 {
+  width: 100%;
+  height: 50%;
+}
+
+#deskfoto .mySwiper2 {
+  height: 15%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+#deskfoto .mySwiper2 .swiper-slide {
+  width: 25%;
+  height: 100%;
+  filter: brightness(50%);
+}
+
+#deskfoto .mySwiper2 .swiper-slide-thumb-active {
+  filter: brightness(100%);
+}
+
+#deskfoto .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 #deskfoto .img-desk1 {
