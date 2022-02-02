@@ -16,7 +16,7 @@
      <div class="container">
          <div class="row">
              <div class="col-lg-7 p-5 padding-foto">
-                 <div class="align-items-start">
+                 <div class="align-items-start p-4">
                      <div class="tab-content pt-2" id="v-pills-tabContent">
                          <?php $no = 0;
                             foreach ($photo_produk as $photo) {
