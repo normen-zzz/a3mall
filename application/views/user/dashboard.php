@@ -10,14 +10,14 @@
             <div class="carousel-item active">
                 <img src="<?= base_url('assets/user/') ?>img/landingpage/1.jpg" class="d-block w-100" alt="..." />
                 <div class="card-img-overlay container justify-content-center">
-                    <div class="row">
-                        <div class="col text-center">
-                            <h5 class="card-title yellow-text fw-light">Valencia</h5>
-                            <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
-                            <a href="#" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
-                        </div>
-                    </div>
+              <div class="row">
+                <div class="col text-center">
+                  <h5 class="card-title yellow-text fw-light">Spring Bed & Sofa Bed</h5>
+                  <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
+                  <a href="#arival" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
                 </div>
+              </div>
+            </div>
             </div>
             <div class="carousel-item">
                 <img src="<?= base_url('assets/user/') ?>img/landingpage/2.jpg" class="d-block w-100" alt="..." />
