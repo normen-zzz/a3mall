@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-white">
+<footer class="bg-white" id="footer">
     <div class="container">
         <div class="row py-5">
             <div class="col-lg py-2">
@@ -33,9 +33,9 @@
                 </ul>
             </div>
             <div class="col text-end mt-auto">
-                <a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a>
-                <a href="#"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
-                <a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a>
+                <!-- <a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a> -->
+                <a target="_blank" href="https://www.instagram.com/atigamall/"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
+                <!-- <a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a> -->
             </div>
         </div>
     </div>

@@ -179,7 +179,7 @@ class Barang_model extends CI_Model
 
     //Untuk User
 
-    public function getSejenis($like)
+    public function getSejenis($like, $except)
     {
         $this->db->select('*');
         $this->db->from('product a');
@@ -187,6 +187,7 @@ class Barang_model extends CI_Model
         $this->db->join('users c', 'c.id=a.users', 'left');
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
         $this->db->like('a.brand_product', $like);
+        $this->db->where_not_in('a.kd_product', $except);
         $this->db->group_by('a.kd_product');
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {

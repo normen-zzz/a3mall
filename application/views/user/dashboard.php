@@ -11,11 +11,18 @@
             <div class="carousel-item active">
                 <img src="<?= base_url('assets/user/') ?>img/landingpage/1.jpg" class="d-block w-100" alt="..." />
                 <div class="card-img-overlay container justify-content-center">
+<<<<<<< Updated upstream
                     <div class="row">
                         <div class="col text-center">
                             <h5 class="card-title yellow-text fw-light">Spring Bed & Sofa Bed</h5>
                             <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
                             <a href="#arival" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
+=======
+                    <div class="row">
+                        <div class="col text-center">
+                            <h5 class="card-title yellow-text fw-light">Spring Bed & Sofa Bed</h5>
+                            <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
+                            <a href="<?= base_url('Product') ?>" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
                         </div>
                     </div>
                 </div>
@@ -25,9 +32,28 @@
                 <div class="card-img-overlay container justify-content-center">
                     <div class="row">
                         <div class="col text-center">
+                            <h5 class="card-title yellow-text fw-light">Valencia</h5>
+                            <p class="card-text display-3 text-white">TERLARIS</p>
+                            <a href="<?= base_url('Product') ?>" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
+>>>>>>> Stashed changes
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="<?= base_url('assets/user/') ?>img/landingpage/2.jpg" class="d-block w-100" alt="..." />
+                <div class="card-img-overlay container justify-content-center">
+                    <div class="row">
+                        <div class="col text-center">
+<<<<<<< Updated upstream
                             <h5 class="card-title yellow-text fw-light">Promo 20%</h5>
                             <p class="card-text display-3 text-white">Tahun Baru Imlek</p>
                             <a href="#" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
+=======
+                            <h5 class="card-title yellow-text fw-light">Valencia</h5>
+                            <p class="card-text display-3 text-white">PROMO 20%</p>
+                            <a href="<?= base_url('Product') ?>" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
@@ -176,7 +202,7 @@
             </div>
             <div class="col-lg my-auto p-5">
                 <h1 class="display-4 fw-bold text-white pb-3">Ada pertanyaan terkait produk?</h1>
-                <a href="#" class="btn btn-light px-5 py-2 yellow-text shadow">Contact Us</a>
+                <a href="tel:+6281388912929" class="btn btn-light px-5 py-2 yellow-text shadow">Contact Us</a>
             </div>
         </div>
     </div>

@@ -103,7 +103,7 @@ class Barang extends CI_Controller
                 'status_product' => $this->input->post('status'),
                 'users' => $user['id'],
                 'date_arrived' => $this->input->post('date'),
-                'beforeprice_product' => $this->input->post('beforeprice')
+                'beforeprice_product' => preg_replace("/[^0-9]/", "", $this->input->post('beforeprice')),
             ];
 
             // if (isset($_FILES['photo']['name'])) {
@@ -431,7 +431,7 @@ class Barang extends CI_Controller
         } else {
             $data = [
                 'kd_product' => $this->input->post('code'),
-                'name_product' => $this->input->post('name'),
+                'name_variation' => $this->input->post('name'),
             ];
 
 
