@@ -2,27 +2,20 @@
 <section class="overflow-hidden" id="hero">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="<?= base_url('assets/user/') ?>img/landingpage/1.jpg" class="d-block w-100" alt="..." />
                 <div class="card-img-overlay container justify-content-center">
-<<<<<<< Updated upstream
-                    <div class="row">
-                        <div class="col text-center">
-                            <h5 class="card-title yellow-text fw-light">Spring Bed & Sofa Bed</h5>
-                            <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
-                            <a href="#arival" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
-=======
                     <div class="row">
                         <div class="col text-center">
                             <h5 class="card-title yellow-text fw-light">Spring Bed & Sofa Bed</h5>
                             <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
                             <a href="<?= base_url('Product') ?>" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
+
+
                         </div>
                     </div>
                 </div>
@@ -32,40 +25,21 @@
                 <div class="card-img-overlay container justify-content-center">
                     <div class="row">
                         <div class="col text-center">
-                            <h5 class="card-title yellow-text fw-light">Valencia</h5>
-                            <p class="card-text display-3 text-white">TERLARIS</p>
-                            <a href="<?= base_url('Product') ?>" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
->>>>>>> Stashed changes
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="<?= base_url('assets/user/') ?>img/landingpage/2.jpg" class="d-block w-100" alt="..." />
-                <div class="card-img-overlay container justify-content-center">
-                    <div class="row">
-                        <div class="col text-center">
-<<<<<<< Updated upstream
                             <h5 class="card-title yellow-text fw-light">Promo 20%</h5>
                             <p class="card-text display-3 text-white">Tahun Baru Imlek</p>
-                            <a href="#" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
-=======
-                            <h5 class="card-title yellow-text fw-light">Valencia</h5>
-                            <p class="card-text display-3 text-white">PROMO 20%</p>
                             <a href="<?= base_url('Product') ?>" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
->>>>>>> Stashed changes
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -80,12 +54,10 @@
             <div class="col text-center">
                 <h5>Tersedia juga di</h5>
                 <a href="https://shopee.co.id/shop/654899565/" target="_blank">
-                    <img src="<?= base_url('assets/user/') ?>img/landingpage/shopee-logo-40477 1.svg"
-                        class="img-fluid mx-5" alt="" />
+                    <img src="<?= base_url('assets/user/') ?>img/landingpage/shopee-logo-40477 1.svg" class="img-fluid mx-5" alt="" />
                 </a>
                 <a href="https://tokopedia.link/a3mall" target="_blank">
-                    <img src="<?= base_url('assets/user/') ?>img/landingpage/tokopedia-38840 1.svg"
-                        class="img-fluid mx-5" alt="" />
+                    <img src="<?= base_url('assets/user/') ?>img/landingpage/tokopedia-38840 1.svg" class="img-fluid mx-5" alt="" />
                 </a>
             </div>
         </div>
@@ -142,24 +114,22 @@
         </div>
         <div class="row arival-grid">
             <?php foreach ($sofa as $sofa) { ?>
-            <div class="col-lg-3 py-2">
-                <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3"
-                            alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Sofa</p>
-                            <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
-                            <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sofa->price_product ?></p> -->
-                            <p class="card-text yellow-text mb-3">Coming Soon</p>
-                            <div class="text-center btn-foto">
-                                <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>"
-                                    class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                <div class="col-lg-3 py-2">
+                    <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" style="text-decoration: none">
+                        <div class="bg-white card-arival">
+                            <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                            <div class="card-body">
+                                <p class="fw-light text-secondary small">Sofa</p>
+                                <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
+                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sofa->price_product ?></p> -->
+                                <p class="card-text yellow-text mb-3">Coming Soon</p>
+                                <div class="text-center btn-foto">
+                                    <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             <?php } ?>
         </div>
         <div class="row pt-5">
@@ -169,24 +139,22 @@
         </div>
         <div class="row arival-grid">
             <?php foreach ($springbed as $springbed) { ?>
-            <div class="col-lg-3 py-2">
-                <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" style="text-decoration: none">
-                    <div class="bg-white card-arival">
-                        <img src="<?= base_url('assets/images/produk/' . $springbed->photo_product) ?>"
-                            class="card-img-top p-3" alt="..." />
-                        <div class="card-body">
-                            <p class="fw-light text-secondary small">Spring Bed</p>
-                            <h5 class="card-title fw-bold text-dark"><?= $springbed->name_product ?></h5>
-                            <!-- <p class="card-text yellow-text mb-3">Rp. <?= $springbed->price_product ?></p> -->
-                            <p class="card-text yellow-text mb-3">Coming Soon</p>
-                            <div class="text-center btn-foto">
-                                <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>"
-                                    class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                <div class="col-lg-3 py-2">
+                    <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" style="text-decoration: none">
+                        <div class="bg-white card-arival">
+                            <img src="<?= base_url('assets/images/produk/' . $springbed->photo_product) ?>" class="card-img-top p-3" alt="..." />
+                            <div class="card-body">
+                                <p class="fw-light text-secondary small">Spring Bed</p>
+                                <h5 class="card-title fw-bold text-dark"><?= $springbed->name_product ?></h5>
+                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= $springbed->price_product ?></p> -->
+                                <p class="card-text yellow-text mb-3">Coming Soon</p>
+                                <div class="text-center btn-foto">
+                                    <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             <?php } ?>
         </div>
     </div>
