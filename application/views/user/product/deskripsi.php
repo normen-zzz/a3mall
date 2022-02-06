@@ -45,7 +45,7 @@
              <div class="col-lg p-5 padding-foto">
                  <div class="card p-5 bg-transparent">
                      <h5 class="fw-bold"><?= $produk->name_product ?></h5>
-                     <!-- <div class="row">
+                     <div class="row">
                          <?php foreach ($variation as $variation) { ?>
                              <div class="col">
                                  <div class="form-check">
@@ -54,32 +54,32 @@
                                  </div>
                              </div>
                          <?php } ?>
-                     </div> -->
-                     <!-- <div class="input-group inline-group border-1 border border-dark">
-                         <div class="input-group-prepend">
+                     </div>
+                     <div class="input-group inline-group border-1 border border-dark">
+                         <!-- <div class="input-group-prepend">
                              <button class="btn text-dark btn-minus">
                                  <i class="bi bi-dash"></i>
                              </button>
-                         </div>
-                         <input class="form-control quantity border-0 text-center" id="<?php echo $produk->kd_product; ?>" min="0" name="quantity" value="1" type="number" />
-                         <div class="input-group-append">
+                         </div> -->
+                         <input class="form-control quantity border-0 text-center" id="<?php echo $produk->kd_product; ?>" min="0" name="quantity" value="1" type="number" hidden />
+                         <!-- <div class="input-group-append">
                              <button class="btn text-dark btn-plus">
                                  <i class="bi bi-plus"></i>
                              </button>
-                         </div>
-                     </div> -->
+                         </div> -->
+                     </div>
                      <div class="text mb-3 pt-3">
-                         <!-- <p class="m-0">Total:</p>
-                         <h5 class="mb-0 fw-light text-secondary"><s>Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s></h5> -->
-                         <!-- <h2 class="yellow-text">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h2> -->
-                         <h2 class="yellow-text">Coming Soon</h2>
+                         <p class="m-0">Harga:</p>
+                         <h5 class="mb-0 fw-light text-secondary"><s>Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s></h5>
+                         <h2 class="yellow-text">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h2>
+                         <!-- <h2 class="yellow-text">Coming Soon</h2> -->
                      </div>
                      <div class="col">
 
                      </div>
                      <div class="d-grid gap-2">
-                         <!-- <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" data-weightproduct="<?php echo $produk->weight_product ?>">Masukan Ke Keranjang</button>
-                         <a href="#" class="btn yellow-button shadow" type="button">Beli Per Item</a> -->
+                         <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" data-weightproduct="<?php echo $produk->weight_product ?>">Masukan Ke Keranjang</button>
+                         <a href="#" class="btn yellow-button shadow" type="button">Beli Per Item</a>
                      </div>
                  </div>
              </div>

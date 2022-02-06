@@ -23,7 +23,9 @@
                              <div class="container">
                                  <div class="row border-bottom">
                                      <div class="col">
-                                         <h5 class="text-end">Perlu dibayar : <?= $unpaid['kd_transaction'] ?></h5>
+                                         <a href="" class="text-decoration: none">
+                                             <h5 class="text-end">Perlu dibayar : <?= $unpaid['kd_transaction'] ?></h5>
+                                         </a>
                                      </div>
                                  </div>
                                  <div class="row mb-3">

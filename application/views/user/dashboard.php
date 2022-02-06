@@ -121,10 +121,10 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Sofa</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
-                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sofa->price_product ?></p> -->
-                                <p class="card-text yellow-text mb-3">Coming Soon</p>
+                                <p class="card-text yellow-text mb-3">Rp. <?= $sofa->price_product ?></p>
+                                <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
-                                    <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                    <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -146,10 +146,10 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Spring Bed</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $springbed->name_product ?></h5>
-                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= $springbed->price_product ?></p> -->
-                                <p class="card-text yellow-text mb-3">Coming Soon</p>
+                                <p class="card-text yellow-text mb-3">Rp. <?= $springbed->price_product ?></p>
+                                <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
-                                    <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Pesan</a>
+                                    <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>
                                 </div>
                             </div>
                         </div>

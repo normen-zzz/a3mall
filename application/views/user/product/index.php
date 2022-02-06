@@ -64,8 +64,8 @@
                                              <div class="card-body">
                                                  <p class="fw-light text-secondary small">Spring Bed</p>
                                                  <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
-                                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p> -->
-                                                 <p class="card-text yellow-text mb-3">Coming Soon</p>
+                                                 <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p>
+                                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                                  <div class="text-center btn-foto">
                                                      <input type="number" name="quantity" id="<?php echo $springbed['kd_product']; ?>" value="1" class="quantity form-control" hidden>
                                                      <!-- <button id="add_cart" class="btn rounded-pill px-5 py-2 btn-foto yellow-button" data-kdproduct="<?php echo $springbed['kd_product'] ?>" data-nameproduct="<?php echo $springbed['name_product'] ?>" data-priceproduct="<?php echo $springbed['price_product'] ?>" data-photoproduct="<?php echo $springbed['photo_product'] ?>">Pesan</button> -->
