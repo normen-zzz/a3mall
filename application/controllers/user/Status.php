@@ -74,6 +74,26 @@ class Status extends CI_Controller
 
         $this->load->view('user/templates/app', $data, FALSE);
     }
+
+    public function detailStatus($code)
+    {
+        if ($this->session->userdata('user_data')) {
+            $google = $this->session->userdata('user_data');
+            $usergoogle = $this->db->get_where('users', ['email' => $google['email']])->row_array();
+        } else {
+            $usergoogle = '';
+        }
+
+        $data = [
+            "title" => "A3MALL | Dashboard",
+            "page" => "user/dashboard",
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
+            "usergoogle" => $usergoogle,
+            "transaksi" => $this->barang->getNewArrival(1),
+        ];
+
+        $this->load->view('user/templates/app', $data, FALSE);
+    }
 }
 
 /* End of file Dashboard.php */
