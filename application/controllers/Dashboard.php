@@ -22,7 +22,7 @@ class Dashboard extends CI_Controller
 		}
 
 		$data = [
-			"title" => "A3MALL | Dashboard",
+			"title" => "A3MALL | Belanja kebutuhan mu disini",
 			"page" => "user/dashboard",
 			"user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
 			"usergoogle" => $usergoogle,
