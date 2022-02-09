@@ -16,29 +16,22 @@
      <div class="container">
          <div class="row">
              <div class="col-lg-7 p-5 padding-foto">
-                 <div class="align-items-start p-4">
-                     <div class="tab-content pt-2" id="v-pills-tabContent">
-                         <?php $no = 0;
-                            foreach ($photo_produk as $photo) {
-                                $no++; ?>
-                             <div class="tab-pane fade show <?php if ($no == 1) {
-                                                                echo 'active';
-                                                            } ?>" id="tabs-<?= $no ?>" role="tabpanel" aria-labelledby="tabs-<?= $no ?>-tab">
-                                 <img src="<?= base_url('assets/images/produk/' . $photo['photo_product']) ?>" class="img-fluid img-desk1" alt="Foto<?= $no ?>" />
+                 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper3">
+                     <div class="swiper-wrapper">
+                         <?php foreach ($photo_produk as $photo) { ?>
+                             <div class="swiper-slide">
+                                 <img class="img-desk1" src="<?= base_url('assets/images/produk/' . $photo['photo_product']) ?>" />
                              </div>
                          <?php } ?>
                      </div>
-                     <div class="row nav d-flex nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                         <?php $no = 0;
-                            foreach ($photo_produk as $photo) {
-                                $no++; ?>
-                             <button class="col-2 nav-link <?php if ($no == 1) {
-                                                                echo 'active';
-                                                            } ?>" id="tabs-<?= $no ?>-tab" data-bs-toggle="pill" data-bs-target="#tabs-<?= $no ?>" type="button" role="tab" aria-controls="tabs-<?= $no ?>" aria-selected="true">
-                                 <img src="<?= base_url('assets/images/produk/' . $photo['photo_product']) ?>" class="img-fluid img-desk2" alt="Foto1" />
-                             </button>
+                 </div>
+                 <div thumbsSlider="" class="swiper mySwiper2">
+                     <div class="swiper-wrapper">
+                         <?php foreach ($photo_produk as $photo) { ?>
+                             <div class="swiper-slide">
+                                 <img src="<?= base_url('assets/images/produk/' . $photo['photo_product']) ?>" />
+                             </div>
                          <?php } ?>
-
                      </div>
                  </div>
              </div>

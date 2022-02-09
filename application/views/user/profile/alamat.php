@@ -91,14 +91,14 @@
                         </select>
                         <div class="invalid-feedback">Please select a valid state.</div>
                     </div>
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         <label for="validationCustom04" class="form-label">Kelurahan</label>
                         <select class="form-select" name="kelurahan" id="kelurahan" required>
                             <option selected disabled value="">Choose...</option>
                             <option>...</option>
                         </select>
                         <div class="invalid-feedback">Please select a valid state.</div>
-                    </div>
+                    </div> -->
                     <div class="col-md-3">
                         <label for="validationCustom05" class="form-label">Kode Pos</label>
                         <input type="text" name="pos" class="form-control" id="validationCustom05" required />

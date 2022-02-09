@@ -86,7 +86,7 @@
                     <input type="hidden" name="result_data" id="result-data" value="">
                     <input type="number" id="jumlah" value="<?= $detail_transaksi['total_transaction'] ?>" hidden>
                     <input type="text" id="nama" value="<?= $detail_transaksi['name_customers'] ?>" hidden>
-                    <input type="text" id="kd_transaction" value="<?= $detail_transaksi['kd_transaction'] ?>" hidden>
+                    <input type="text" name="kd_transaction" id="kd_transaction" value="<?= $detail_transaksi['kd_transaction'] ?>" hidden>
 
                     <button type="button" data-id="<?php echo $detail_transaksi['id_detail_transaction']; ?>" class=" btn yellow-button px-5 py-2" id="pay-button">Bayar</button>
             </div>
