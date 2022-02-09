@@ -13,7 +13,7 @@
                         <div class="col text-center">
                             <h5 class="card-title yellow-text fw-light">Spring Bed & Sofa Bed</h5>
                             <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
-                            <a href="<?= base_url('Product') ?>" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
+                            <a href="#arival" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
 
 
                         </div>
