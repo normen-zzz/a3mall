@@ -45,12 +45,13 @@
              <div class="col-lg p-5 padding-foto">
                  <div class="card p-5 bg-transparent">
                      <h5 class="fw-bold"><?= $produk->name_product ?></h5>
-                     <div class="row">
+                     <div class="row mb-3">
                          <?php foreach ($variation as $variation) { ?>
-                             <div class="col">
+
+                             <div class="col-4">
                                  <div class="form-check">
                                      <input class="form-check-input" type="radio" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" />
-                                     <label class="p-3 rounded-3" style="background-color: grey" for="flexRadioDefault1"><?= $variation->name_variation ?></label>
+                                     <label class="form-check-label" for="flexRadioDefault1"><?= $variation->name_variation ?></label>
                                  </div>
                              </div>
                          <?php } ?>

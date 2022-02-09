@@ -54,9 +54,9 @@
                                             </div>
                                         </div>
                                     </div>
-                        </div>
-                <?php }
+                            <?php }
                             } ?>
+                        </div>
                     </div>
                     <div class="tab-pane fade p-0" id="status2" role="tabpanel" aria-labelledby="status2-tab">
                         <div class="container">
@@ -75,7 +75,7 @@
                                                 </div>
                                                 <div class="col my-auto text-end">
                                                     <h5><span class="fw-light text-secondary">Kode Pesanan</span> <?= $paid['kd_transaction'] ?></h5>
-                                                    <p class="my-auto">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($paid['total_transaction'], '0', ',', '.') ?></span></p>
+                                                    <p class="my-auto">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($paid['total_transaction'], '0', ',', '.')  ?></span></p>
                                                 </div>
                                             </div>
                                             <div class="row border-bottom pb-3">
@@ -100,13 +100,15 @@
                                 foreach ($onprogress as $onprogress) { ?>
                                     <div class="row">
                                         <div class="col">
+
+
                                             <div class="row my-3">
                                                 <div class="col my-auto">
                                                     <h5 class="fw-bold">Produk (<?= $onprogress['total_quantity'] ?>)</h5>
                                                 </div>
                                                 <div class="col my-auto text-end">
                                                     <h5><span class="fw-light text-secondary">Kode Pesanan</span> <?= $onprogress['kd_transaction'] ?></h5>
-                                                    <p class="my-auto">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($paid['total_transaction'], '0', ',', '.') ?></span></p>
+                                                    <p class="my-auto">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($onprogress['total_transaction'], '0', ',', '.')  ?></span></p>
                                                 </div>
                                             </div>
                                             <div class="row border-bottom pb-3">
@@ -137,7 +139,7 @@
                                                 </div>
                                                 <div class="col my-auto text-end">
                                                     <h5><span class="fw-light text-secondary">Kode Pesanan</span> <?= $done['kd_transaction'] ?></h5>
-                                                    <p class="my-auto">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($done['total_transaction'], '0', ',', '.') ?></span></p>
+                                                    <p class="my-auto">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($done['total_transaction'], '0', ',', '.')  ?></span></p>
                                                 </div>
                                             </div>
                                             <div class="row border-bottom pb-3">

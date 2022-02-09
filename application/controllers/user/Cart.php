@@ -37,6 +37,8 @@ class Cart extends CI_Controller
                 $alamatongkir = $getAlamat->rajaongkir->results;
             }
         }
+        $getProvince = $this->ongkir->getProvinceOngkir();
+        $province = $getProvince->rajaongkir->results;
         $data = [
             "title" => "A3Mall | Cart",
             "page" => "user/transaction/cart/index",
@@ -44,6 +46,7 @@ class Cart extends CI_Controller
             "keranjang" => $this->cart->contents(),
             "alamat" => $alamat,
             "alamatongkir" => $alamatongkir,
+            "province" => $province
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);
@@ -67,6 +70,34 @@ class Cart extends CI_Controller
 
     public function total_cart()
     {
+        $google = $this->session->userdata('user_data');
+        if ($google) {
+            $alamat = $this->user->getAlamatByEmail($google['email']);
+            if (!$alamat->num_rows()) {
+                $alamat = '';
+                $alamatongkir = '';
+            } else {
+                $alamat = $this->user->getAlamatByEmail($google['email'])->row_array();
+                $getAlamat = $this->ongkir->getAlamatOngkir($alamat['kabupaten_alamat'], $alamat['kecamatan_alamat']);
+                $alamatongkir = $getAlamat->rajaongkir->results;
+            }
+        } else {
+            $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'));
+            if (!$alamat->num_rows()) {
+                $alamat = '';
+                $alamatongkir = '';
+            } else {
+                $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'))->row_array();
+                $getAlamat = $this->ongkir->getAlamatOngkir($alamat['kabupaten_alamat'], $alamat['kecamatan_alamat']);
+                $alamatongkir = $getAlamat->rajaongkir->results;
+            }
+        }
+        if ($alamat == '') {
+            $tombol = '<button class="btn px-5 py-2 yellow-button" disabled>Pesan</button>';
+        } else {
+            $tombol = '<a href="' . base_url('user/Checkout/addToCheckout') . '" class="btn px-5 py-2 yellow-button">Pesan</a>';
+        }
+
         $total = '
             <div class="container">
                 <div class="row">
@@ -75,7 +106,7 @@ class Cart extends CI_Controller
                     </div>
                     <div class="col my-auto justify-content-end d-flex">
                         <p class="my-auto me-5">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp.' . number_format($this->cart->total(), '0', ',', '.')  . '</span></p>
-                        <a href="' . base_url('user/Checkout/addToCheckout') . '" class="btn px-5 py-2 yellow-button">Pesan</a>
+                        ' . $tombol . '
                     </div>
                 </div>
             </div>

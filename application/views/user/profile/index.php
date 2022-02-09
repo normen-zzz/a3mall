@@ -4,16 +4,24 @@
     <section class="py-5 bg-light" id="profile">
         <div class="container py-5">
             <div class="row bg-white p-5 shadow">
-                <div class="col-lg-2 me-5 mb-3">
-                    <img src="./assets/img/profile/img-profile.png" class="card-img-top bg-danger" alt="..." />
+                <div class="col-lg-2 me-5 bg-danger mb-3">
+                    <img src="<?= base_url('assets/user/img/profile/' . $user['photo']) ?>" class="card-img-top" alt="..." />
                 </div>
-                <div class="col-lg">
+                <div class="col-lg" id="showdata">
                     <div class="row">
                         <div class="col-lg-2">
-                            <p class="fw-light text-secondary">username</p>
+                            <p class="fw-light text-secondary">Nama Depan</p>
                         </div>
                         <div class="col">
-                            <p>Nama Lengkap</p>
+                            <p><?= $user['first_name'] ?></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <p class="fw-light text-secondary">Nama Belakang</p>
+                        </div>
+                        <div class="col">
+                            <p><?= $user['last_name'] ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -21,16 +29,16 @@
                             <p class="fw-light text-secondary">No Telp</p>
                         </div>
                         <div class="col">
-                            <p>0878126317</p>
+                            <p><?= $user['phone'] ?></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-2">
                             <p class="fw-light text-secondary">Email</p>
                         </div>
-                        <div class="col">admin@admin.com</div>
+                        <div class="col"><?= $user['email'] ?></div>
                     </div>
-                    <button type="button" class="btn px-5 yellow-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                    <button type="button" id="ubah" class="btn px-5 yellow-button item-detail" data-email="<?= $user['email'] ?>" data-first_name="<?= $user['first_name'] ?>" data-last_name="<?= $user['last_name'] ?>" data-phone="<?= $user['phone'] ?>" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
                 </div>
             </div>
         </div>

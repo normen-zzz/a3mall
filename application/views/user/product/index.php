@@ -33,16 +33,17 @@
                          <div class="row pt-3 produk-grid">
                              <?php foreach ($sofa as $sofa) { ?>
                                  <div class="col-lg py-2">
-                                     <a href="<?= base_url('Deskripsi/' . $sofa['kd_product']) ?>" style="text-decoration: none">
+                                     <a href="<?= base_url('Deskripsi/' . $sofa['slug_product']) ?>" style="text-decoration: none">
                                          <div class="bg-white card-proser">
                                              <img src="<?= base_url('assets/user/img/produk/' . $photo_produk['photo_product']) ?>" class="card-img-top p-3" alt="..." />
                                              <div class="card-body">
                                                  <p class="fw-light text-secondary small">Sofa</p>
                                                  <h5 class="card-title fw-bold text-dark"><?= $sofa['name_product'] ?></h5>
-                                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sofa['price_product'] ?></p> -->
-                                                 <p class="card-text yellow-text mb-3">Coming Soon</p>
+                                                 <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa['beforeprice_product'], '0', ',', '.') ?></s></p>
+                                                 <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa['price_product'], '0', ',', '.') ?></p>
+                                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                                  <div class="text-center btn-foto">
-                                                     <a href="<?= base_url('Deskripsi/' . $sofa['kd_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
+                                                     <a href="<?= base_url('Deskripsi/' . $sofa['slug_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                                  </div>
                                              </div>
                                          </div>
@@ -58,18 +59,19 @@
                                 foreach ($springbed as $springbed) {
                                 ?>
                                  <div class="col-lg-3 py-2">
-                                     <a href="<?= base_url('Deskripsi/' . $springbed['kd_product']) ?>" style="text-decoration: none">
+                                     <a href="<?= base_url('Deskripsi/' . $springbed['slug_product']) ?>" style="text-decoration: none">
                                          <div class="bg-white card-proser">
                                              <img src="<?= base_url('assets/images/produk/' . $springbed['photo_product']) ?>" class="card-img-top p-3" alt="..." />
                                              <div class="card-body">
                                                  <p class="fw-light text-secondary small">Spring Bed</p>
                                                  <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
-                                                 <p class="card-text yellow-text mb-3">Rp. <?= $springbed['price_product'] ?></p>
+                                                 <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed['beforeprice_product'], '0', ',', '.')  ?></s></p>
+                                                 <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed['price_product'], '0', ',', '.') ?></p>
                                                  <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                                  <div class="text-center btn-foto">
                                                      <input type="number" name="quantity" id="<?php echo $springbed['kd_product']; ?>" value="1" class="quantity form-control" hidden>
                                                      <!-- <button id="add_cart" class="btn rounded-pill px-5 py-2 btn-foto yellow-button" data-kdproduct="<?php echo $springbed['kd_product'] ?>" data-nameproduct="<?php echo $springbed['name_product'] ?>" data-priceproduct="<?php echo $springbed['price_product'] ?>" data-photoproduct="<?php echo $springbed['photo_product'] ?>">Pesan</button> -->
-                                                     <a href="<?= base_url('Deskripsi/' . $springbed['kd_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
+                                                     <a href="<?= base_url('Deskripsi/' . $springbed['slug_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                                  </div>
                                              </div>
                                          </div>

@@ -17,6 +17,11 @@ class Profile extends CI_Controller
     {
 
         $google = $this->session->userdata('user_data');
+        if ($google) {
+            $usergoogle = $this->db->get_where('users', ['email' => $google['email']])->row_array();
+        } else {
+            $usergoogle = '';
+        }
 
 
 
@@ -24,7 +29,7 @@ class Profile extends CI_Controller
             "title" => "A3MALL | Profile",
             "page" => "user/profile/index",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
-            "usergoogle" => $this->db->get_where('users', ['email' => $google['email']])->row_array(),
+            "usergoogle" => $usergoogle,
             "modal" => $modal,
 
         ];
@@ -87,6 +92,7 @@ class Profile extends CI_Controller
         $google = $this->session->userdata('user_data');
         if ($google) {
             $alamat = $this->user->getAlamatByEmail($google['email']);
+            $usergoogle = $this->db->get_where('users', ['email' => $google['email']])->row_array();
             if (!$alamat->num_rows()) {
                 $alamat = '';
                 $alamatongkir = '';
@@ -97,6 +103,7 @@ class Profile extends CI_Controller
             }
         } else {
             $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'));
+            $usergoogle = '';
             if (!$alamat->num_rows()) {
                 $alamat = '';
                 $alamatongkir = '';
@@ -114,7 +121,7 @@ class Profile extends CI_Controller
             "title" => "A3MALL | Alamat",
             "page" => "user/profile/alamat",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
-            "usergoogle" => $this->db->get_where('users', ['email' => $google['email']])->row_array(),
+            "usergoogle" => $usergoogle,
             "modal" => $modal,
             "alamat" => $alamat,
             "alamatongkir" => $alamatongkir,
@@ -203,7 +210,7 @@ class Profile extends CI_Controller
             $this->db->insert('alamat', $data);
             $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Ditambahkan!", "success");');
 
-            redirect('Alamat');
+            redirect($_SERVER['HTTP_REFERER']);
         }
     }
 

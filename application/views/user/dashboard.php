@@ -115,16 +115,16 @@
         <div class="row arival-grid">
             <?php foreach ($sofa as $sofa) { ?>
                 <div class="col-lg-3 py-2">
-                    <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" style="text-decoration: none">
+                    <a href="<?= base_url('Deskripsi/' . $sofa->slug_product) ?>" style="text-decoration: none">
                         <div class="bg-white card-arival">
                             <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Sofa</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
-                                <p class="card-text yellow-text mb-3">Rp. <?= $sofa->price_product ?></p>
+                                <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product, '0', ',', '.') ?></p>
                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
-                                    <a href="<?= base_url('Deskripsi/' . $sofa->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>
+                                    <a href="<?= base_url('Deskripsi/' . $sofa->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -140,16 +140,16 @@
         <div class="row arival-grid">
             <?php foreach ($springbed as $springbed) { ?>
                 <div class="col-lg-3 py-2">
-                    <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" style="text-decoration: none">
+                    <a href="<?= base_url('Deskripsi/' . $springbed->slug_product) ?>" style="text-decoration: none">
                         <div class="bg-white card-arival">
                             <img src="<?= base_url('assets/images/produk/' . $springbed->photo_product) ?>" class="card-img-top p-3" alt="..." />
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Spring Bed</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $springbed->name_product ?></h5>
-                                <p class="card-text yellow-text mb-3">Rp. <?= $springbed->price_product ?></p>
+                                <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product, '0', ',', '.') ?></p>
                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
-                                    <a href="<?= base_url('Deskripsi/' . $springbed->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>
+                                    <a href="<?= base_url('Deskripsi/' . $springbed->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>
                                 </div>
                             </div>
                         </div>

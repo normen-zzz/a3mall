@@ -66,8 +66,6 @@
 
  <!-- Check -->
  <section class="bg-white py-5 " id="total_cart">
-
-
  </section>
  <!-- Akhir Check -->
 
@@ -145,62 +143,64 @@
  </section>
 
  <!-- Modal -->
- <!-- Modal edit -->
+ <!-- Modal tambah -->
  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
          <div class="modal-content">
              <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Ubah Alamat</h5>
+                 <h5 class="modal-title" id="exampleModalLabel">Tambah Alamat</h5>
                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
              </div>
              <div class="modal-body">
-                 <form class="row g-3 needs-validation" novalidate>
+                 <form class="row g-3 needs-validation" method="POST" action="<?= base_url('user/Profile/addAlamat') ?>" novalidate>
                      <div class="col-md-6">
                          <label for="validationCustom01" class="form-label">Nama</label>
-                         <input type="text" class="form-control" id="validationCustom01" required />
+                         <input type="text" name="name" class="form-control" id="validationCustom01" required />
                      </div>
                      <div class="col-md-6">
                          <label for="validationCustomUsername" class="form-label">No Telepon</label>
-                         <input type="number" class="form-control" required />
+                         <input type="number" name="phone" class="form-control" required />
                      </div>
                      <div class="col-md-6">
                          <label for="validationCustom03" class="form-label">Provinsi</label>
-                         <input type="text" class="form-control" id="validationCustom03" required />
-                         <div class="invalid-feedback">Please provide a valid city.</div>
+                         <select class="form-select" name="provinsi" id="provinsi" required>
+                             <option selected disabled value="">Choose...</option>
+                             <?php
+                                foreach ($province as $province) {
+                                    echo '<option value="' . $province->province_id . '">' . $province->province . '</option>';
+                                }
+                                ?>
+                         </select>
                      </div>
                      <div class="col-md-3">
                          <label for="validationCustom04" class="form-label">Kabupaten</label>
-                         <select class="form-select" id="validationCustom04" required>
+                         <select class="form-select" name="kabupaten" id="kabupaten" required>
                              <option selected disabled value="">Choose...</option>
-                             <option>...</option>
+                             <?php
+
+                                ?>
                          </select>
                          <div class="invalid-feedback">Please select a valid state.</div>
                      </div>
                      <div class="col-md-3">
                          <label for="validationCustom04" class="form-label">Kecamatan</label>
-                         <select class="form-select" id="validationCustom04" required>
+                         <select class="form-select" name="kecamatan" id="kecamatan" required>
                              <option selected disabled value="">Choose...</option>
-                             <option>...</option>
+                             <?php
+                                ?>
                          </select>
                          <div class="invalid-feedback">Please select a valid state.</div>
                      </div>
+
                      <div class="col-md-3">
-                         <label for="validationCustom04" class="form-label">Kelurahan</label>
-                         <select class="form-select" id="validationCustom04" required>
-                             <option selected disabled value="">Choose...</option>
-                             <option>...</option>
-                         </select>
-                         <div class="invalid-feedback">Please select a valid state.</div>
-                     </div>
-                     <div class="col-md-3">
-                         <label for="validationCustom05" class="form-label">Zip</label>
-                         <input type="text" class="form-control" id="validationCustom05" required />
+                         <label for="validationCustom05" class="form-label">Kode Pos</label>
+                         <input type="text" name="pos" class="form-control" id="validationCustom05" required />
                          <div class="invalid-feedback">Please provide a valid zip.</div>
                      </div>
                      <div class="col-md-12">
                          <div class="mb-3">
-                             <label for="exampleFormControlTextarea1" class="form-label">Alamat Lengkap</label>
-                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                             <label for="exampleFormControlTextarea1" class="form-label"> Detail Alamat </label>
+                             <textarea class="form-control" name="detail" id="exampleFormControlTextarea1" rows="3"></textarea>
                          </div>
                      </div>
                      <div class="col-12">
@@ -302,5 +302,41 @@
                  $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
              }
          });
+     });
+ </script>
+
+ <script>
+     $('#provinsi').change(function() {
+         var provinsi_id = $('#provinsi').val(); //ambil value id dari provinsi
+
+         if (provinsi_id != '') {
+             $.ajax({
+                 url: '<?= base_url(); ?>user/Checkout/getCityOngkir',
+                 method: 'POST',
+                 data: {
+                     provinsi_id: provinsi_id
+                 },
+                 success: function(data) {
+                     $('#kabupaten').html(data)
+                 }
+             });
+         }
+     });
+
+     $('#kabupaten').change(function() {
+         var kabupaten_id = $('#kabupaten').val(); //ambil value id dari provinsi
+
+         if (kabupaten_id != '') {
+             $.ajax({
+                 url: '<?= base_url(); ?>user/Checkout/getSubDistrictOngkir',
+                 method: 'POST',
+                 data: {
+                     kabupaten_id: kabupaten_id
+                 },
+                 success: function(data) {
+                     $('#kecamatan').html(data)
+                 }
+             });
+         }
      });
  </script>

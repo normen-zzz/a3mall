@@ -29,15 +29,15 @@ class Product extends CI_Controller
 
     public function deskripsi()
     {
-        $produk = $this->barang->getProductByKd($this->uri->segment(2));
+        $produk = $this->barang->getProductBySlug($this->uri->segment(2));
         $data = [
             "title" => "A3MALL | Deskripsi",
             "page" => "user/product/deskripsi",
-            "produk" => $this->barang->getProductByKd($this->uri->segment(2)),
-            "photo_produk" => $this->barang->getPhotoBarang($this->uri->segment(2)),
+            "produk" => $this->barang->getProductBySlug($this->uri->segment(2)),
+            "photo_produk" => $this->barang->getPhotoBarangBySlug($this->uri->segment(2)),
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "sejenis" => $this->barang->getSejenis($produk->brand_product, $this->uri->segment(2)),
-            "variation" => $this->db->get_where('variation_product', array('kd_product' => $this->uri->segment(2)))->result()
+            "variation" => $this->db->get_where('variation_product', array('kd_product' => $produk->kd_product))->result()
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);
