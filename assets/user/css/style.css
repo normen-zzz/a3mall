@@ -185,8 +185,6 @@ nav .nav-link.active {
 }
 
 #deskfoto .mySwiper2 .swiper-slide {
-  width: 25%;
-  height: 100%;
   filter: brightness(50%);
 }
 

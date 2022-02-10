@@ -54,5 +54,10 @@
                                 } ?>"><a class="nav-link " href="<?= base_url('admin/Transaksi/done') ?>">Selesai</a></li>
                 </ul>
             </li>
+            <li class="menu-header">Pembayaran</li>
+            <li class="<?php if ($this->uri->segment(2) == "pembayaran" || $this->uri->segment(2) == "Pembayaran") {
+                            echo "active";
+                        } ?>"><a class="nav-link" href="<?= base_url('admin/Dashboard') ?>"><i class="fas fa-fire"></i> <span>Pembayaran</span></a></li>
+
     </aside>
 </div>
