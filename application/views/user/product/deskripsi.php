@@ -43,7 +43,7 @@
 
                              <div class="col-4">
                                  <div class="form-check">
-                                     <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" checked />
+                                     <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" />
                                      <label class="form-check-label" for="flexRadioDefault1"><?= $variation->name_variation ?></label>
                                  </div>
                              </div>
@@ -376,12 +376,4 @@
 
 
      });
- </script>
-
- <script>
-     setInterval(function() {
-         $('input')
-             .eq(($('input:checked').index() + 1) % 3)
-             .prop('checked', true);
-     }, 2000);
  </script>

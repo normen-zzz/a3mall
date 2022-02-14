@@ -39,8 +39,8 @@
                                              <div class="card-body">
                                                  <p class="fw-light text-secondary small">Sofa</p>
                                                  <h5 class="card-title fw-bold text-dark"><?= $sofa['name_product'] ?></h5>
-                                                 <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa['beforeprice_product'], '0', ',', '.') ?></s></p>
-                                                 <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa['price_product'], '0', ',', '.') ?></p>
+                                                 <!-- <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa['beforeprice_product'], '0', ',', '.') ?></s></p> -->
+                                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa['price_product'], '0', ',', '.') ?></p> -->
                                                  <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                                  <div class="text-center btn-foto">
                                                      <a href="<?= base_url('Deskripsi/' . $sofa['slug_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
@@ -65,8 +65,8 @@
                                              <div class="card-body">
                                                  <p class="fw-light text-secondary small">Spring Bed</p>
                                                  <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
-                                                 <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed['beforeprice_product'], '0', ',', '.')  ?></s></p>
-                                                 <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed['price_product'], '0', ',', '.') ?></p>
+                                                 <!-- <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed['beforeprice_product'], '0', ',', '.')  ?></s></p> -->
+                                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed['price_product'], '0', ',', '.') ?></p> -->
                                                  <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                                  <div class="text-center btn-foto">
                                                      <input type="number" name="quantity" id="<?php echo $springbed['kd_product']; ?>" value="1" class="quantity form-control" hidden>
