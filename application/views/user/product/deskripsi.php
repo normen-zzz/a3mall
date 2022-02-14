@@ -43,10 +43,12 @@
 
                              <div class="col-4">
                                  <div class="form-check">
-                                     <input class="form-check-input" type="radio" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" />
+                                     <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" />
                                      <label class="form-check-label" for="flexRadioDefault1"><?= $variation->name_variation ?></label>
                                  </div>
                              </div>
+                             <input class="form-control quantity border-0 text-center" id="pricevariasi" name="pricevariasi" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="beforepricevariasi" name="beforepricevariasi" type="number" hidden />
                          <?php } ?>
                      </div>
                      <div class="input-group inline-group border-1 border border-dark">
@@ -64,8 +66,8 @@
                      </div>
                      <div class="text mb-3 pt-3">
                          <p class="m-0">Harga:</p>
-                         <h5 class="mb-0 fw-light text-secondary"><s>Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s></h5>
-                         <h2 class="yellow-text">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h2>
+                         <h5 class="mb-0 fw-light text-secondary"><s id="beforetarget">Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s></h5>
+                         <h2 class="yellow-text" id="target">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h2>
                          <!-- <h2 class="yellow-text">Coming Soon</h2> -->
                      </div>
                      <div class="col">
@@ -73,7 +75,7 @@
                      </div>
                      <div class="d-grid gap-2">
                          <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" data-weightproduct="<?php echo $produk->weight_product ?>">Masukan Ke Keranjang</button>
-                         <a href="#" class="btn yellow-button shadow" type="button">Beli Per Item</a>
+                         <button href="#" class="btn yellow-button shadow" type="button" data-bs-toggle="modal" data-bs-target="#modalPerItem">Beli Per Item</button>
                      </div>
                  </div>
              </div>
@@ -153,7 +155,106 @@
  </section>
  <!-- Akhir Produk Serupa -->
 
+ <!-- Modal Per Item -->
+ <div class="modal fade" id="modalPerItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Beli Per Item</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 <div class="container">
+                     <?php foreach ($unit as $unit) { ?>
+                         <?php $variationunitwhere = $this->barang->getVariationUnit($unit['kd_unit']); ?>
+                         <div class="row py-3 border border-1">
+                             <div class="col-md-2">
+                                 <div class="img text-center">
+                                     <img src="<?= base_url('assets/images/produk/' . $unit['photo_unit']) ?>" class="img-fluid" alt="" />
+                                 </div>
+                             </div>
+                             <div class="col-md my-auto">
+                                 <div class="row">
+                                     <div class="col-md py-1">
+                                         <p><?= $unit['name_unit'] ?></p>
+                                     </div>
+                                     <div class="col-md py-1 text-center isi-keranjang my-auto">
+                                         <p class="my-auto">Rp. <?= number_format($unit['price_unit'], '0', ',', '.') ?></p>
+                                     </div>
+                                 </div>
+
+                                 <div class="row border-top pt-3">
+                                     <?php foreach ($variationunitwhere as $variationunitwhere) {
+                                            if ($variationunitwhere['kd_product'] == $unit['kd_unit']) { ?>
+                                             <div class="col-4">
+                                                 <div class="form-check">
+                                                     <input class="form-check-input <?= $variationunitwhere['kd_product'] ?>" type="checkbox" name="unitvariation[]" id="flexRadioDefault1" onClick="toggle(this,'<?= $variationunitwhere['kd_product'] ?>')" value="<?= $variationunitwhere['id_variation'] ?>" data-priceunitproduk="<?= $unit['price_unit'] ?>" data-unitkdproduk="<?= $unit['kd_unit'] ?>" data-priceunitvariation="<?= $variationunitwhere['price_variation'] ?>" />
+                                                     <label class="form-check-label" for="flexRadioDefault1"><?= $variationunitwhere['name_variation'] ?></label>
+                                                 </div>
+                                             </div>
+                                     <?php }
+                                        } ?>
+                                     <input class="form-control quantity border-0 text-center" id="<?= $unit['kd_unit'] ?>" name="<?= $unit['kd_unit'] ?>" type="number" hidden />
+                                 </div>
+                             </div>
+                             <div class="col-2">
+                                 <button type="button" id="add_unitcart" class="btn btn-warning text-white add_unitcart" data-unitkdproduct="<?php echo $unit['kd_unit'] ?>" data-unitnameproduct="<?php echo $unit['name_unit'] ?>" data-unitpriceproduct="<?php echo $unit['price_unit'] ?>" data-unitphotoproduct="<?php echo $unit['photo_unit'] ?>">Pesan</button>
+                             </div>
+                         </div>
+                     <?php } ?>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+ <script>
+     function convertToRupiah(angka) {
+         var rupiah = '';
+         var angkarev = angka.toString().split('').reverse().join('');
+         for (var i = 0; i < angkarev.length; i++)
+             if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + '.';
+         return 'Rp. ' + rupiah.split('', rupiah.length - 1).reverse().join('');
+     }
+     var html = "";
+     var value = "New Text "
+     $('input:radio[name="variation"]').change(function() {
+         var hargaVariasi = $(this).data("pricevariation");
+         var hargaProduk = $(this).data("priceproduk");
+         var hargaBeforeProduk = $(this).data("beforepriceproduk");
+         var newHarga = hargaVariasi + hargaProduk;
+         var newBeforeHarga = hargaVariasi + hargaBeforeProduk;
+
+         value = convertToRupiah(newHarga);
+         beforeValue = convertToRupiah(newBeforeHarga);
+         $('input[name=pricevariasi]').val(hargaVariasi);
+         $("#target").html(value);
+         $("#beforetarget").html(beforeValue);
+
+
+     });
+ </script>
+ <script>
+     $(document).ready(function() {
+         if ($("input[name='variation']:checked").val()) {
+             $("input[name='variation']:checked").val(function() {
+                 var hargaVariasi = $(this).data("pricevariation");
+                 var hargaProduk = $(this).data("priceproduk");
+                 var hargaBeforeProduk = $(this).data("beforepriceproduk");
+                 var newHarga = hargaVariasi + hargaProduk;
+                 var newBeforeHarga = hargaVariasi + hargaBeforeProduk;
+
+                 value = convertToRupiah(newHarga);
+                 beforeValue = convertToRupiah(newBeforeHarga);
+                 $('input[name=pricevariasi]').val(hargaVariasi);
+                 $("#target").html(value);
+                 $("#beforetarget").html(beforeValue);
+             })
+
+         }
+     });
+ </script>
  <script type="text/javascript">
      $(document).ready(function() {
          $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
@@ -162,6 +263,7 @@
              if ($("input[name='variation']:checked").val()) {
                  var kd_product = $(this).data("kdproduct");
                  var name_product = $(this).data("nameproduct");
+                 var pricevariasi = $('#pricevariasi').val()
                  var price_product = $(this).data("priceproduct");
                  var quantity = $('#' + kd_product).val();
                  var photo_product = $(this).data("photoproduct");
@@ -174,7 +276,7 @@
                      data: {
                          kd_product: kd_product,
                          name_product: name_product,
-                         price_product: price_product,
+                         price_product: parseInt(price_product) + parseInt(pricevariasi),
                          quantity: quantity,
                          photo_product: photo_product,
                          variation: variation,
@@ -199,5 +301,79 @@
 
 
          });
+     });
+ </script>
+ <script>
+     function toggle(which, theClass) {
+         var checkbox = document.getElementsByClassName(theClass);
+         for (var i = 0; i < checkbox.length; i++) {
+             if (checkbox[i] == which) {
+
+             } else {
+                 checkbox[i].checked = false;
+             }
+         }
+     }
+ </script>
+
+ <script type="text/javascript">
+     $(document).ready(function() {
+         $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
+         $('.add_unitcart').click(function() {
+
+             if ($("input[name='unitvariation[]']:checked").val()) {
+                 var kd_product = $(this).data("unitkdproduct");
+                 var name_product = $(this).data("unitnameproduct");
+                 var pricevariasi = $(`#${kd_product}`).val()
+                 var price_product = $(this).data("unitpriceproduct");
+                 var quantity = 1;
+                 var photo_product = $(this).data("unitphotoproduct");
+                 var variation = $('input[name="unitvariation[]"]:checked').val();
+                 var weight_product = 1;
+
+                 $.ajax({
+                     url: "<?= base_url(); ?>user/cart/add_to_cart_unit",
+                     method: "POST",
+                     data: {
+                         kd_product: kd_product,
+                         name_product: name_product,
+                         price_product: parseInt(price_product) + parseInt(pricevariasi),
+                         quantity: quantity,
+                         photo_product: photo_product,
+                         variation: variation,
+                         weight_product: weight_product
+                     },
+                     success: function(data) {
+                         $('#detail_cart').html(data);
+                         $('#total_items').load(
+                             "<?php echo base_url(); ?>user/cart/load_items");
+                         alert("success");
+                     },
+                     error: function(error) {
+                         alert("Error");
+                     }
+
+
+                 });
+             } else {
+                 alert('Tolong Pilih Varian');
+                 return false;
+             }
+
+
+         });
+     });
+ </script>
+
+ <script>
+     $('input:checkbox[name="unitvariation[]"]').change(function() {
+         var kd_unitProduk = $(this).data("unitkdproduk");
+         var hargaVariasi = $(this).data("priceunitvariation");
+         var hargaProduk = $(this).data("priceunitproduk");
+         var newHarga = hargaVariasi + hargaProduk;
+
+         $(`input[name=${kd_unitProduk}]`).val(hargaVariasi);
+
+
      });
  </script>

@@ -194,6 +194,31 @@ class Barang_model extends CI_Model
         // }
     }
 
+    public function getVariationUnit()
+    {
+        $this->db->select('*');
+        $this->db->from('variation_product');
+        $query = $this->db->get();
+        // if ($query->num_rows() != 0) {
+        return $query->result_array();
+        // } else {
+        //     return false;
+        // }
+    }
+
+    public function getVariationUnitWhere($where)
+    {
+        $this->db->select('*');
+        $this->db->from('variation_product');
+        $this->db->where('kd_product', $where);
+        $query = $this->db->get();
+        // if ($query->num_rows() != 0) {
+        return $query->result_array();
+        // } else {
+        //     return false;
+        // }
+    }
+
     public function getVariationAjax($code)
     {
         $this->db->select('*');
@@ -220,7 +245,7 @@ class Barang_model extends CI_Model
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
         $this->db->like('a.brand_product', $like);
         $this->db->where_not_in('a.slug_product', $except);
-        $this->db->group_by('a.kd_product');
+        $this->db->group_by('rand()');
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result();

@@ -28,10 +28,11 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <?php $no = 0;
-                                    foreach ($transaksi as $transaksi) {
-                                        $no++ ?>
-                                        <tbody>
+
+                                    <tbody>
+                                        <?php $no = 0;
+                                        foreach ($transaksi as $transaksi) {
+                                            $no++ ?>
                                             <tr>
                                                 <td><?= $no ?></td>
                                                 <td><?php echo $transaksi->name_customers ?>
@@ -51,8 +52,9 @@
                                                     <a href="<?= base_url('admin/Transaksi/deleteTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')"><i class="fa fa-times"></i> Hapus</a>
                                                 </td>
                                             </tr>
-                                        </tbody>
-                                    <?php } ?>
+                                        <?php } ?>
+                                    </tbody>
+
                                 </table>
                             </div>
                         </div>

@@ -37,6 +37,16 @@ class Transaksi_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    //Midtrans
+
+    public function getAllMidtrans()
+    {
+        $this->db->select('*');
+        $this->db->from('midtrans');
+        $this->db->order_by('transaction_time', 'desc');
+        return $this->db->get();
+    }
+
 
     //User
 

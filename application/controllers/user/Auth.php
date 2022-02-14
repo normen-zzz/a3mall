@@ -119,12 +119,14 @@ class Auth extends CI_Controller
 				$data = $google_service->userinfo->get();
 				$current_datetime = date('Y-m-d H:i:s');
 				$user_data = array(
+					'username' => $data['given_name'],
 					'first_name' => $data['given_name'],
 					'last_name'  => $data['family_name'],
 					'email' => $data['email'],
 					'ip_address' => $this->input->ip_address(),
 					'created_on' => time(),
-					'active' => 1
+					'active' => 1,
+					'group' => 2,
 
 				);
 				$email = $data['email'];
@@ -579,6 +581,7 @@ class Auth extends CI_Controller
 				'last_name' => $this->input->post('last_name'),
 				'company' => $this->input->post('company'),
 				'phone' => $this->input->post('phone'),
+				'group' => 2
 			];
 		}
 		if ($this->form_validation->run() === TRUE && $this->ion_auth->register($identity, $password, $email, $additional_data)) {

@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Transaksi Sudah Bayar</h1>
+            <h1>Data Administrator</h1>
         </div>
 
         <div class="section-body">
@@ -20,36 +20,31 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Pelanggan</th>
-                                            <th>Kode</th>
-                                            <th>Tanggal</th>
-                                            <th>Yang Harus Dibayarkan</th>
-                                            <th>Status Bayar</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Phone</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody id="showdata">
                                         <?php $no = 0;
-                                        foreach ($transaksi as $transaksi) {
+                                        foreach ($admin as $admin) {
                                             $no++ ?>
                                             <tr>
                                                 <td><?= $no ?></td>
-                                                <td><?php echo $transaksi->name_customers ?>
-                                                    <br><small>
-                                                        Telepon: <?php echo $transaksi->telp_customers ?>
-                                                        <br>Email: <?php echo $transaksi->email_users ?>
-                                                        <br>Alamat Kirim:
-                                                        <br><?php echo nl2br($transaksi->address_customers) ?>
-                                                    </small>
-                                                </td>
-                                                <td><?php echo $transaksi->kd_transaction ?></td>
-                                                <td><?php echo date('d-m-Y', strtotime($transaksi->date_transaction)) ?></td>
-                                                <td><?php echo number_format($transaksi->total_transaction) ?></td>
-                                                <td>Menunggu Konfirmasi</td>
+                                                <td><?= $admin['username'] ?></td>
+                                                <td><?= $admin['email'] ?></td>
+                                                <td><?= $admin['first_name'] ?></td>
+                                                <td><?= $admin['last_name'] ?></td>
+                                                <td><?= $admin['phone'] ?></td>
+                                                <td><?= $admin['name'] ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('admin/Transaksi/updateTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-success mt-1" onclick="return confirm('Anda Yakin Ingin Konfirmasi?')"><i class="fa fa-check"></i> Konfirmasi</a>
-                                                    <a href="<?= base_url('admin/Transaksi/deleteTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')"><i class="fa fa-times"></i> Hapus</a>
+                                                    <a href="javascript:;" class="btn btn-primary mt-1 item-detail" data="<?php echo $admin['email'] ?>">Ubah</a>
+                                                    <a href="<?= base_url('admin/Barang/deleteBarang/' . $admin['email']) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -82,6 +77,99 @@
         </div>
     </section>
 </div>
+<!-- modal ubah Admin  -->
+<div class="modal fade" tabindex="-1" role="dialog" id="editAdminModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ubah Admin</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php
+                $url = $this->uri->segment(3);
+                if ($url == 'editBarang') {
+                    $url = $this->uri->segment(4);
+                }
+                ?>
+                <form action="<?= base_url('admin/Administrator/editAdmin') ?>" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" class="form-control">
+                        <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" class="form-control" readonly>
+                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>password (Isi Jika Ingin Mengubah Password)</label>
+                        <input type="text" name="password" class="form-control">
+                        <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" class="form-control">
+                        <?= form_error('first_name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" class="form-control">
+                        <?= form_error('last_name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" name="phone" class="form-control">
+                        <?= form_error('phone', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Photo (Isi Jika Ingin Mengubah Photo)</label>
+                        <input type="file" name="photo" class="form-control">
+                        <?= form_error('photo', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#showdata').on('click', '.item-detail', function() {
+        var email = $(this).attr('data');
+        $('#editAdminModal').modal('show');
+        $.ajax({
+            type: 'ajax',
+            method: 'get',
+            url: '<?php echo base_url() ?>admin/Administrator/getAdmin',
+            data: {
+                email: email,
+            },
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                $('input[name=username]').val(data.username);
+                $('input[name=email]').val(data.email);
+                $('input[name=first_name]').val(data.first_name);
+                $('input[name=last_name]').val(data.last_name);
+                $('input[name=phone]').val(data.phone);
+            },
+            error: function() {
+                alert('Could not displaying data');
+            }
+        });
+    });
+</script>
 
 <!-- <div class="modal fade" tabindex="-1" role="dialog" id="tambahPhotoBarangModal">
     <div class="modal-dialog" role="document">

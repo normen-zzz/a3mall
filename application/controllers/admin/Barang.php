@@ -24,6 +24,7 @@ class Barang extends CI_Controller
     public function springbed($modal = "")
     {
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Data Spring Bed",
             "title2" => "Spring Bed",
             "page" => "admin/barang/index",
@@ -37,6 +38,7 @@ class Barang extends CI_Controller
     public function sofa($modal = "")
     {
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Data Sofa",
             "title2" => "Sofa",
             "page" => "admin/barang/index",
@@ -189,6 +191,7 @@ class Barang extends CI_Controller
     public function photoBarang($code, $modal = "")
     {
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Photo Barang",
             "title2" => "$code",
             "page" => "admin/barang/photobarang",
@@ -204,6 +207,7 @@ class Barang extends CI_Controller
     {
         $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $data = [
+
             'kd_product' => $code,
             'describe_photoproduct' => $this->input->post('describe'),
             'users' => $user['id'],
@@ -265,6 +269,7 @@ class Barang extends CI_Controller
     {
         $product = $this->db->get_where('product', array('kd_product' => $code))->row();
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Data Unit " . $product->name_product,
             "page" => "admin/barang/unit/index",
             "unit" => $this->barang->getUnitByCodeProduct($code),
@@ -286,8 +291,12 @@ class Barang extends CI_Controller
     public function addUnit()
     {
 
-        $this->form_validation->set_rules('code', 'Code', 'required|trim', [
+        $this->form_validation->set_rules('kd_product', 'Kd_product', 'required|trim', [
             'required'  => 'Code tidak boleh kosong.',
+        ]);
+        $this->form_validation->set_rules('kd_unit', 'Kd_unit', 'required|trim|is_unique[unit_product.kd_unit]', [
+            'required'  => 'Code tidak boleh kosong.',
+            'is_unique' => 'Kode Ini sudah Ada di Unit Lain'
         ]);
 
         $this->form_validation->set_rules('name', 'Name', 'required', [
@@ -304,17 +313,18 @@ class Barang extends CI_Controller
             $code = $this->input->post('code');
             $this->unitProduct($code, "$('#tambahUnitModal').modal('show');");
         } else {
-            $code = $this->input->post('code');
+            $code = $this->input->post('kd_product');
             $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
             $data = [
                 'kd_product' => $code,
+                'kd_unit' => $this->input->post('kd_unit'),
                 'name_unit' => $this->input->post('name'),
                 'price_unit' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'users' => $user['id'],
             ];
 
             if (isset($_FILES['photo']['name'])) {
-                $config['upload_path']         = './assets/images/unitproduk/';
+                $config['upload_path']         = './assets/images/produk/';
                 $config['allowed_types']     = 'gif|jpg|png|jpeg';
                 $config['overwrite']          = true;
 
@@ -334,7 +344,7 @@ class Barang extends CI_Controller
 
             $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Unit Berhasil Ditambahkan!", "success");');
 
-            redirect('admin/barang/unitProduct/' . $this->input->post('code'));
+            redirect('admin/barang/unitProduct/' . $code);
         }
     }
 
@@ -407,6 +417,7 @@ class Barang extends CI_Controller
     public function variationBarang($code, $modal = "")
     {
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Variation Barang",
             "title2" => "$code",
             "page" => "admin/barang/variationbarang",

@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Transaksi Sudah Bayar</h1>
+            <h1>Data Pembayaran</h1>
         </div>
 
         <div class="section-body">
@@ -20,36 +20,35 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Pelanggan</th>
-                                            <th>Kode</th>
-                                            <th>Tanggal</th>
-                                            <th>Yang Harus Dibayarkan</th>
-                                            <th>Status Bayar</th>
+                                            <th>Order Id</th>
+                                            <th>Kode Transaksi</th>
+                                            <th>Jumlah</th>
+                                            <th>Tipe Pembayaran</th>
+                                            <th>Tanggal Pembayaran</th>
+                                            <th>bank</th>
+                                            <th>Va Number</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <?php $no = 0;
-                                        foreach ($transaksi as $transaksi) {
+                                        foreach ($midtrans as $midtrans) {
                                             $no++ ?>
                                             <tr>
                                                 <td><?= $no ?></td>
-                                                <td><?php echo $transaksi->name_customers ?>
-                                                    <br><small>
-                                                        Telepon: <?php echo $transaksi->telp_customers ?>
-                                                        <br>Email: <?php echo $transaksi->email_users ?>
-                                                        <br>Alamat Kirim:
-                                                        <br><?php echo nl2br($transaksi->address_customers) ?>
-                                                    </small>
-                                                </td>
-                                                <td><?php echo $transaksi->kd_transaction ?></td>
-                                                <td><?php echo date('d-m-Y', strtotime($transaksi->date_transaction)) ?></td>
-                                                <td><?php echo number_format($transaksi->total_transaction) ?></td>
-                                                <td>Menunggu Konfirmasi</td>
+                                                <td><?= $midtrans['order_id'] ?></td>
+                                                <td><?= $midtrans['kd_transaction'] ?></td>
+                                                <td><?= number_format($midtrans['gross_amount']) ?></td>
+                                                <td><?= $midtrans['payment_type'] ?></td>
+                                                <td><?= $midtrans['transaction_time'] ?></td>
+                                                <td><?= $midtrans['bank'] ?></td>
+                                                <td><?= $midtrans['va_number'] ?></td>
+                                                <td><?= $midtrans['status_code'] ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('admin/Transaksi/updateTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-success mt-1" onclick="return confirm('Anda Yakin Ingin Konfirmasi?')"><i class="fa fa-check"></i> Konfirmasi</a>
-                                                    <a href="<?= base_url('admin/Transaksi/deleteTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')"><i class="fa fa-times"></i> Hapus</a>
+                                                    <!-- <a href="<?= base_url('admin/Transaksi/updateTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-success mt-1" onclick="return confirm('Anda Yakin Ingin Konfirmasi?')"><i class="fa fa-check"></i> Konfirmasi</a>
+                                                    <a href="" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')"><i class="fa fa-times"></i> Hapus</a> -->
                                                 </td>
                                             </tr>
                                         <?php } ?>

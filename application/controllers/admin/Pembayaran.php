@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller
+class Pembayaran extends CI_Controller
 {
 
 
@@ -15,14 +15,16 @@ class Dashboard extends CI_Controller
             $this->session->set_flashdata('message', 'You must be an admin to view this page');
             redirect('admin/Auth');
         }
+        $this->load->model('Transaksi_model', 'transaksi');
     }
 
     public function index()
     {
         $data = [
-            "title" => "A3Mall|Dashboard",
-            "page" => "admin/dashboard/dashboard",
+            "title" => "A3Mall|Pembayaran",
+            "page" => "admin/transaksi/midtrans/pembayaran",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
+            "midtrans" => $this->transaksi->getAllMidtrans()->result_array()
         ];
 
         $this->load->view('admin/templates/app', $data, FALSE);

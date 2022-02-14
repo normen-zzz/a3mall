@@ -57,7 +57,12 @@
             <li class="menu-header">Pembayaran</li>
             <li class="<?php if ($this->uri->segment(2) == "pembayaran" || $this->uri->segment(2) == "Pembayaran") {
                             echo "active";
-                        } ?>"><a class="nav-link" href="<?= base_url('admin/Dashboard') ?>"><i class="fas fa-fire"></i> <span>Pembayaran</span></a></li>
+                        } ?>"><a class="nav-link" href="<?= base_url('admin/Pembayaran') ?>"><i class="fas fa-fire"></i> <span>Pembayaran</span></a></li>
+
+            <li class="menu-header">Administrator</li>
+            <li class="<?php if ($this->uri->segment(2) == "administrator" || $this->uri->segment(2) == "Administrator") {
+                            echo "active";
+                        } ?>"><a class="nav-link" href="<?= base_url('admin/Administrator') ?>"><i class="fas fa-fire"></i> <span>Administrator</span></a></li>
 
     </aside>
 </div>

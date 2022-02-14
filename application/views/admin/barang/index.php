@@ -53,6 +53,7 @@
                                                 <td><?= $barang['created_product'] ?></td>
                                                 <td>
                                                     <a href="<?= base_url('admin/Barang/variationBarang/' . $barang['kd_product']) ?>" class="btn btn-secondary mt-1">Variation</a>
+                                                    <a href="<?= base_url('admin/Barang/unitProduct/' . $barang['kd_product']) ?>" class="btn btn-secondary mt-1">Unit</a>
                                                     <a href="javascript:;" class="btn btn-primary mt-1 item-detail" data="<?php echo $barang['kd_product'] ?>">Ubah</a>
                                                     <a href="<?= base_url('admin/Barang/photoBarang/' . $barang['kd_product']) ?>" class="btn btn-warning mt-1">Photo</a>
                                                     <a href="<?= base_url('admin/Barang/deleteBarang/' . $barang['kd_product']) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>

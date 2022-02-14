@@ -22,6 +22,7 @@ class Transaksi extends CI_Controller
     public function unPaid()
     {
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Pesanan Belum Bayar",
             "page" => "admin/transaksi/belumbayar/index",
             "transaksi" => $this->transaksi->getTransaksi("1")
@@ -33,6 +34,7 @@ class Transaksi extends CI_Controller
     public function paid()
     {
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Pesanan Sudah Bayar",
             "page" => "admin/transaksi/sudahbayar/index",
             "transaksi" => $this->transaksi->getTransaksi("2")
@@ -44,6 +46,7 @@ class Transaksi extends CI_Controller
     public function onProgress()
     {
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Pesanan Terkonfirmasi",
             "page" => "admin/transaksi/onprogress/index",
             "transaksi" => $this->transaksi->getTransaksi("3")
@@ -55,6 +58,7 @@ class Transaksi extends CI_Controller
     public function done()
     {
         $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "title" => "Pesanan Selesai",
             "page" => "admin/transaksi/done/index",
             "transaksi" => $this->transaksi->getTransaksi("4")

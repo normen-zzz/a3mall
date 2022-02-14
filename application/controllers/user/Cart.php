@@ -68,6 +68,22 @@ class Cart extends CI_Controller
         // var_dump($data);
     }
 
+    public function add_to_cart_unit()
+    {
+        $data = array(
+            'id' => $this->input->post('variation'),
+            'name' => $this->input->post('name_product'),
+            'price' => $this->input->post('price_product'),
+            'qty' => $this->input->post('quantity'),
+            'photo' => $this->input->post('photo_product'),
+            'kd_product' => $this->input->post('kd_product'),
+            'weight' => $this->input->post('weight_product')
+        );
+        $this->cart->insert($data);
+        // echo $this->show_cart(); //tampilkan cart setelah added
+        // var_dump($data);
+    }
+
     public function total_cart()
     {
         $google = $this->session->userdata('user_data');

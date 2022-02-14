@@ -16,10 +16,11 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="table_id" class="table table-striped text-center">
+                                <table id="table_id" class="table text-center table-striped">
                                     <thead>
                                         <tr>
-                                            <th>id_unit</th>
+                                            <th>No</th>
+                                            <th>Kode Unit</th>
                                             <th>Name</th>
                                             <th>Price</th>
                                             <th>Photo</th>
@@ -28,21 +29,24 @@
                                         </tr>
                                     </thead>
                                     <tbody id="showdata">
-                                        <?php foreach ($unit as $unit) { ?>
+                                        <?php $no = 1;
+                                        foreach ($unit as $unit) { ?>
                                             <tr>
-                                                <td><?= $unit['id_unit'] ?></td>
+                                                <td><?= $no ?></td>
+                                                <td><?= $unit['kd_unit'] ?></td>
                                                 <td><?= $unit['name_unit'] ?></td>
                                                 <td><?= $unit['price_unit'] ?></td>
-                                                <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/images/unitproduk/' . $unit['photo_unit']) ?>"></a></td>
+                                                <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/images/produk/' . $unit['photo_unit']) ?>"></a></td>
                                                 <td><?= $unit['username'] ?></td>
                                                 <td><a href="javascript:;" class="btn btn-primary item-detail" data="<?php echo $unit['id_unit'] ?>">Ubah</a>
                                                     <a href="<?= base_url('admin/Barang/deleteUnit/' . $unit['id_unit']) ?>" class="btn btn-danger" onclick="return confirm('Anda Yakin Ingin Menghapus?')">Hapus</a>
                                                 </td>
-
                                             </tr>
-                                        <?php } ?>
+                                        <?php $no++;
+                                        } ?>
                                     </tbody>
                                 </table>
+                                <lastmod></lastmod>
                             </div>
                         </div>
                         <div class="card-footer text-right">
@@ -83,7 +87,13 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Barang/addUnit/' . $this->uri->segment(4)) ?>" method="post" enctype='multipart/form-data'>
-                    <input type="text" name="code" class="form-control" hidden value="<?= $this->uri->segment(4) ?>">
+                    <input type="text" name="kd_product" class="form-control" hidden value="<?= $this->uri->segment(4) ?>">
+
+                    <div class="form-group">
+                        <label>Kode Unit</label>
+                        <input type="text" name="kd_unit" class="form-control">
+                        <?= form_error('kd_unit', '<small class="text-danger">', '</small>'); ?>
+                    </div>
 
                     <div class="form-group">
                         <label>Name Unit</label>
