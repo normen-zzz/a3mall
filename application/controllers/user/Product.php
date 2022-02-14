@@ -15,6 +15,15 @@ class Product extends CI_Controller
 
     public function index()
     {
+
+        $google = $this->session->userdata('user_data');
+        if ($google) {
+            $alamat = $this->user->getAlamatByEmail($google['email']);
+            $usergoogle = $this->db->get_where('users', ['email' => $google['email']])->row_array();
+        } else {
+            $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'));
+            $usergoogle = '';
+        }
         $data = [
             "title" => "A3MALL | Product",
             "page" => "user/product/index",
@@ -22,6 +31,7 @@ class Product extends CI_Controller
             "springbed" => $this->barang->getProductByCategoryJoinPhoto("1"),
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "photo" => $this->barang->getPhoto()->result(),
+            "usergoogle" => $usergoogle
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);
@@ -29,6 +39,14 @@ class Product extends CI_Controller
 
     public function deskripsi()
     {
+        $google = $this->session->userdata('user_data');
+        if ($google) {
+            $alamat = $this->user->getAlamatByEmail($google['email']);
+            $usergoogle = $this->db->get_where('users', ['email' => $google['email']])->row_array();
+        } else {
+            $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'));
+            $usergoogle = '';
+        }
         $produk = $this->barang->getProductBySlug($this->uri->segment(2));
         $data = [
             "title" => "A3MALL | Deskripsi",
@@ -40,6 +58,7 @@ class Product extends CI_Controller
             "variation" => $this->db->get_where('variation_product', array('kd_product' => $produk->kd_product))->result(),
             "unit" => $this->barang->getUnitByCodeProduct($produk->kd_product),
             "variationunit" => $this->barang->getVariationUnit(),
+            "usergoogle" => $usergoogle
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);

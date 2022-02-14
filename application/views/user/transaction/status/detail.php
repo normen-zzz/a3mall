@@ -21,13 +21,20 @@
                             <p>x1</p>
                         </div>
                         <div class="col-md py-1 text-end my-auto">
-                            <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($transaksi->beforeprice_product, '0', ',', '.') ?></s></p>
-                            <p class="my-auto">Rp. <?= number_format($transaksi->price_product, '0', ',', '.') ?></p>
+                            <p class="my-auto">Rp. <?= number_format($transaksi->price, '0', ',', '.') ?></p>
                         </div>
                     </div>
                 </div>
             </div>
         <?php } ?>
+        <div class="row">
+            <div class="col">
+                <p>Ongkir :</p>
+            </div>
+            <div class="col text-end">
+                <p>Rp. <?= number_format($transaksi->ongkir, '0', ',', '.') ?></p>
+            </div>
+        </div>
         <div class="row mb-3">
             <div class="col my-auto">
                 <h5 class="fw-bold">Produk (<?= $detail_transaksi['total_quantity'] ?>)</h5>

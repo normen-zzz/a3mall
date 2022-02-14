@@ -79,6 +79,23 @@ class Profile extends CI_Controller
                 'last_name' => $last_name,
                 'phone' => $phone,
             ];
+
+            if (isset($_FILES['photo']['name'])) {
+                $config['upload_path']         = './assets/user/img/profile/';
+                $config['allowed_types']     = 'gif|jpg|png|jpeg';
+                $config['overwrite']          = true;
+                $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+                $this->load->library('upload', $config);
+
+                if (!$this->upload->do_upload('photo')) {
+                    $this->session->set_flashdata('message', 'swal("Ops!", "photo gagal diupload", "error");');
+                    $this->index("$('#exampleModal').modal('show');");
+                } else {
+                    $img = $this->upload->data();
+                    $data['photo'] = $img['file_name'];
+                }
+            }
             $this->user->editUser($email, $data);
             $this->session->set_flashdata('message', 'swal("Berhasil!", "Data User Berhasil Diubah!", "success");');
 

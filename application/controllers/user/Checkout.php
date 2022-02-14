@@ -93,7 +93,9 @@ class Checkout extends CI_Controller
                 'quantity' => $keranjang['qty'],
                 'total_price' => $keranjang['price'] * $keranjang['qty'],
                 'date_transaction' => date('Y-m-d H:i:s'),
-                'ongkir' => $harga[0]->costs[1]->cost[0]->value
+                'ongkir' => $harga[0]->costs[1]->cost[0]->value,
+                'name_product' => $keranjang['name'],
+                'photo_product' => $keranjang['photo']
             ];
 
             $ongkir += $data['ongkir'];
@@ -110,7 +112,7 @@ class Checkout extends CI_Controller
             'date_transaction' => date('Y-m-d H:i:s'),
             'total_transaction' => $this->cart->total() + $ongkir,
             'total_quantity' => $this->cart->total_items(),
-            'status' => 1
+            'status' => 1,
         ];
         $this->db->insert('detail_transaction', $detail);
         $this->cart->destroy();

@@ -125,7 +125,6 @@ class Barang_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('photo_product');
-        $this->db->join('variation_product', 'variation_product.id_variation=photo_product.variation_product');
         $this->db->where('photo_product.kd_product', $where);
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
@@ -139,7 +138,6 @@ class Barang_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('photo_product');
-        $this->db->join('variation_product', 'variation_product.id_variation=photo_product.variation_product');
         $this->db->join('product', 'product.kd_product=photo_product.kd_product');
         $this->db->where('product.slug_product', $where);
         $query = $this->db->get();
@@ -245,7 +243,7 @@ class Barang_model extends CI_Model
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
         $this->db->like('a.brand_product', $like);
         $this->db->where_not_in('a.slug_product', $except);
-        $this->db->group_by('rand()');
+        $this->db->group_by('a.kd_product');
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result();

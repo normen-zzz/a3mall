@@ -4,7 +4,7 @@
     <section class="py-5 bg-light" id="profile">
         <div class="container py-5">
             <div class="row bg-white p-5 shadow">
-                <div class="col-lg-2 me-5 bg-danger mb-3">
+                <div class="col-lg-2 me-5 mb-3">
                     <img src="<?= base_url('assets/user/img/profile/' . $user['photo']) ?>" class="card-img-top" alt="..." />
                 </div>
                 <div class="col-lg" id="showdata">
@@ -47,7 +47,7 @@
     <section class="py-5 bg-light" id="profile">
         <div class="container py-5">
             <div class="row bg-white p-5 shadow">
-                <div class="col-lg-2 me-5 bg-danger mb-3">
+                <div class="col-lg-2 me-5  mb-3">
                     <img src="<?= base_url('assets/user/img/profile/' . $usergoogle['photo']) ?>" class="card-img-top" alt="..." />
                 </div>
                 <div class="col-lg" id="showdata">
@@ -98,7 +98,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?= base_url('user/Profile/ubahProfile') ?>">
+                <form method="POST" action="<?= base_url('user/Profile/ubahProfile') ?>" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label class="form-label">Nama Depan</label>
                         <input type="text" name="first_name" class="form-control" />
@@ -112,7 +112,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">No Telp</label>
-                        <input type="number" name="phone" class="form-control" />
+                        <input type="number" name="phone" class="form-control" required />
                         <?= form_error('phone', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
@@ -120,6 +120,12 @@
                         <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" readonly />
                         <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Foto (Isi Jika Ingin Mengubah Foto)</label>
+                        <input type="file" name="photo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <?= form_error('photo', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
 

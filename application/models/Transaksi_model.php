@@ -55,8 +55,6 @@ class Transaksi_model extends CI_Model
         $this->db->select('*');
         $this->db->from('transaction a');
         $this->db->join('users b', 'b.email=a.users', 'left');
-        $this->db->join('photo_product c', 'c.kd_product=a.code_product');
-        $this->db->join('product d', 'd.kd_product=a.code_product');
         $this->db->join('variation_product e', 'e.id_variation=a.variation');
         $this->db->where('a.kd_transaction', $where);
         $this->db->group_by('a.id_transaction');
@@ -128,6 +126,7 @@ class Transaksi_model extends CI_Model
         $this->db->join('product c', 'c.kd_product=a.code_product', 'left');
         $this->db->join('photo_product d', 'd.variation_product=a.variation', 'left');
         $this->db->join('variation_product e', 'e.id_variation=a.variation', 'left');
+        $this->db->join('unit_product f', 'f.kd_unit=a.code_product', 'left');
         $this->db->where('a.users', $user);
         return $this->db->get();
         // } else {

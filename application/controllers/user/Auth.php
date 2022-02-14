@@ -153,9 +153,13 @@ class Auth extends CI_Controller
 			$url = $session['picture'];
 			$img = './assets/user/img/profile/' . $session['name'] . '.jpg';
 			if (empty($data['password'])) {
+				if (empty($data['photo'])) {
+					file_put_contents($img, file_get_contents($url));
+					$this->db->update('users', array('photo' => $session['name'] . '.jpg'), ['email' => $email]);
+				}
 				redirect('set-password');
 			} else {
-				if (empty($password['photo'])) {
+				if (empty($data['photo'])) {
 					file_put_contents($img, file_get_contents($url));
 					$this->db->update('users', array('photo' => $session['name'] . '.jpg'), ['email' => $email]);
 				}

@@ -133,7 +133,7 @@
          <div class="row pt-3 proser-grid">
              <?php foreach ($sejenis as $sejenis) { ?>
                  <div class="col py-2">
-                     <a href="<?= base_url('Deskripsi/' . $sejenis->kd_product) ?>" style="text-decoration: none">
+                     <a href="<?= base_url('Deskripsi/' . $sejenis->slug_product) ?>" style="text-decoration: none">
                          <div class="bg-white card-proser">
                              <img src="<?= base_url('assets/images/produk/' . $sejenis->photo_product) ?>" class="card-img-top p-3" alt="..." />
                              <div class="card-body">
@@ -142,7 +142,7 @@
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
                                  <p class="card-text yellow-text mb-3">Coming Soon</p>
                                  <div class="text-center btn-foto">
-                                     <a href="<?= base_url('Deskripsi/' . $sejenis->kd_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button">Detail</a>
+                                     <a href="<?= base_url('Deskripsi/' . $sejenis->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button">Detail</a>
                                  </div>
                              </div>
                          </div>
@@ -166,42 +166,45 @@
              <div class="modal-body">
                  <div class="container">
                      <?php foreach ($unit as $unit) { ?>
-                         <?php $variationunitwhere = $this->barang->getVariationUnit($unit['kd_unit']); ?>
-                         <div class="row py-3 border border-1">
-                             <div class="col-md-2">
-                                 <div class="img text-center">
-                                     <img src="<?= base_url('assets/images/produk/' . $unit['photo_unit']) ?>" class="img-fluid" alt="" />
-                                 </div>
-                             </div>
-                             <div class="col-md my-auto">
-                                 <div class="row">
-                                     <div class="col-md py-1">
-                                         <p><?= $unit['name_unit'] ?></p>
-                                     </div>
-                                     <div class="col-md py-1 text-center isi-keranjang my-auto">
-                                         <p class="my-auto">Rp. <?= number_format($unit['price_unit'], '0', ',', '.') ?></p>
-                                     </div>
-                                 </div>
+                         <?php $variationunitwhere = $this->barang->getVariationUnit($unit['kd_unit']);
+                            if ($variationunitwhere != '') { ?>
 
-                                 <div class="row border-top pt-3">
-                                     <?php foreach ($variationunitwhere as $variationunitwhere) {
-                                            if ($variationunitwhere['kd_product'] == $unit['kd_unit']) { ?>
-                                             <div class="col-4">
-                                                 <div class="form-check">
-                                                     <input class="form-check-input cek <?= $variationunitwhere['kd_product'] ?>" type="checkbox" name="unitvariation[]" id="flexRadioDefault1" onClick="toggle(this,'<?= $variationunitwhere['kd_product'] ?>')" value="<?= $variationunitwhere['id_variation'] ?>" data-priceunitproduk="<?= $unit['price_unit'] ?>" data-unitkdproduk="<?= $unit['kd_unit'] ?>" data-priceunitvariation="<?= $variationunitwhere['price_variation'] ?>" />
-                                                     <label class="form-check-label" for="flexRadioDefault1"><?= $variationunitwhere['name_variation'] ?></label>
+                             <div class="row py-3 border border-1">
+                                 <div class="col-md-2">
+                                     <div class="img text-center">
+                                         <img src="<?= base_url('assets/images/produk/' . $unit['photo_unit']) ?>" class="img-fluid" alt="" />
+                                     </div>
+                                 </div>
+                                 <div class="col-md my-auto">
+                                     <div class="row">
+                                         <div class="col-md py-1">
+                                             <p><?= $unit['name_unit'] ?></p>
+                                         </div>
+                                         <div class="col-md py-1 text-center isi-keranjang my-auto">
+                                             <p class="my-auto">Rp. <?= number_format($unit['price_unit'], '0', ',', '.') ?></p>
+                                         </div>
+                                     </div>
+
+                                     <div class="row border-top pt-3">
+                                         <?php foreach ($variationunitwhere as $variationunitwhere) {
+                                                if ($variationunitwhere['kd_product'] == $unit['kd_unit']) { ?>
+                                                 <div class="col-4">
+                                                     <div class="form-check">
+                                                         <input class="form-check-input cek <?= $variationunitwhere['kd_product'] ?>" type="checkbox" name="unitvariation[]" id="flexRadioDefault1" onClick="toggle(this,'<?= $variationunitwhere['kd_product'] ?>')" value="<?= $variationunitwhere['id_variation'] ?>" data-priceunitproduk="<?= $unit['price_unit'] ?>" data-unitkdproduk="<?= $unit['kd_unit'] ?>" data-priceunitvariation="<?= $variationunitwhere['price_variation'] ?>" />
+                                                         <label class="form-check-label" for="flexRadioDefault1"><?= $variationunitwhere['name_variation'] ?></label>
+                                                     </div>
                                                  </div>
-                                             </div>
-                                     <?php }
-                                        } ?>
-                                     <input class="form-control quantity border-0 text-center" id="<?= $unit['kd_unit'] ?>" name="<?= $unit['kd_unit'] ?>" type="number" hidden />
+                                         <?php }
+                                            } ?>
+                                         <input class="form-control quantity border-0 text-center" id="<?= $unit['kd_unit'] ?>" name="<?= $unit['kd_unit'] ?>" type="number" hidden />
+                                     </div>
+                                 </div>
+                                 <div class="col-2">
+                                     <button type="button" id="add_unitcart" class="btn btn-warning text-white add_unitcart" data-unitkdproduct="<?php echo $unit['kd_unit'] ?>" data-unitnameproduct="<?php echo $unit['name_unit'] ?>" data-unitpriceproduct="<?php echo $unit['price_unit'] ?>" data-unitphotoproduct="<?php echo $unit['photo_unit'] ?>">Pesan</button>
                                  </div>
                              </div>
-                             <div class="col-2">
-                                 <button type="button" id="add_unitcart" class="btn btn-warning text-white add_unitcart" data-unitkdproduct="<?php echo $unit['kd_unit'] ?>" data-unitnameproduct="<?php echo $unit['name_unit'] ?>" data-unitpriceproduct="<?php echo $unit['price_unit'] ?>" data-unitphotoproduct="<?php echo $unit['photo_unit'] ?>">Pesan</button>
-                             </div>
-                         </div>
-                     <?php } ?>
+                     <?php }
+                        } ?>
                  </div>
              </div>
          </div>

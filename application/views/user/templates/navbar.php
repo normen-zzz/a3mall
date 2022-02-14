@@ -120,7 +120,7 @@
                      <?php if ($this->session->userdata('email')) { ?>
                          <li class="nav-item dropdown my-auto">
                              <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $user['photo']) ?>" width="30" height="30" alt="" />
+                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $usergoogle['photo']) ?>" width="30" height="30" alt="" />
                              </a>
                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                  <li>
@@ -139,7 +139,7 @@
 
                          <li class="nav-item dropdown my-auto">
                              <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img class="rounded-circle shadow bg-danger" src="<?= $user_data['picture'] ?>" width="30" height="30" alt="" />
+                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $usergoogle['photo'])  ?>" width="30" height="30" alt="" />
                              </a>
                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                  <li>

@@ -18,6 +18,7 @@ class Cart extends CI_Controller
         $google = $this->session->userdata('user_data');
         if ($google) {
             $alamat = $this->user->getAlamatByEmail($google['email']);
+            $usergoogle = $this->db->get_where('users', ['email' => $google['email']])->row_array();
             if (!$alamat->num_rows()) {
                 $alamat = '';
                 $alamatongkir = '';
@@ -28,6 +29,7 @@ class Cart extends CI_Controller
             }
         } else {
             $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'));
+            $usergoogle = '';
             if (!$alamat->num_rows()) {
                 $alamat = '';
                 $alamatongkir = '';
@@ -46,7 +48,8 @@ class Cart extends CI_Controller
             "keranjang" => $this->cart->contents(),
             "alamat" => $alamat,
             "alamatongkir" => $alamatongkir,
-            "province" => $province
+            "province" => $province,
+            "usergoogle" => $usergoogle
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);

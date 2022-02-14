@@ -97,7 +97,7 @@ class Barang extends CI_Controller
             $data = [
                 'kd_product' => $this->input->post('code'),
                 'name_product' => $this->input->post('name'),
-                'slug_product' => $slug,
+                'slug_product' => $this->input->post('brand') . "-" . $slug,
                 'price_product' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'describe_product' => $this->input->post('describe'),
                 'brand_product' => $this->input->post('brand'),
@@ -171,7 +171,7 @@ class Barang extends CI_Controller
             $data = [
                 'kd_product' => $this->input->post('code'),
                 'name_product' => $this->input->post('name'),
-                'slug_product' => $slug,
+                'slug_product' => $this->input->post('brand') . "-" . $slug,
                 'price_product' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'describe_product' => $this->input->post('describe'),
                 'brand_product' => $this->input->post('brand'),
@@ -211,7 +211,6 @@ class Barang extends CI_Controller
             'kd_product' => $code,
             'describe_photoproduct' => $this->input->post('describe'),
             'users' => $user['id'],
-            'variation_product' => $this->input->post('variation')
         ];
 
         if (isset($_FILES['photo']['name'])) {

@@ -22,7 +22,6 @@
                                             <th>No</th>
                                             <th>Photo</th>
                                             <th>Describe</th>
-                                            <th>Variation</th>
                                             <th>Last Edited By</th>
                                             <th>Created At</th>
                                             <th>Action</th>
@@ -36,7 +35,7 @@
                                                 <td><?= $no ?></td>
                                                 <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/images/produk/' . $photo['photo_product']) ?>" alt=""></a></td>
                                                 <td><?= $photo['describe_photoproduct'] ?></td>
-                                                <td><?= $photo['name_variation'] ?></td>
+
                                                 <td><?= $photo['users'] ?></td>
                                                 <td><?= $photo['created_photoproduct'] ?></td>
                                                 <td>
@@ -94,14 +93,7 @@
                         <?= form_error('describe', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
-                    <div class="form-group">
-                        <label>Variation</label>
-                        <select name="variation">
-                            <?php foreach ($variation as $variation) { ?>
-                                <option value="<?= $variation['id_variation'] ?>"><?= $variation['name_variation'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
+
 
 
             </div>
