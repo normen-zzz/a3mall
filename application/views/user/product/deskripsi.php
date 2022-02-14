@@ -43,7 +43,7 @@
 
                              <div class="col-4">
                                  <div class="form-check">
-                                     <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" />
+                                     <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" checked />
                                      <label class="form-check-label" for="flexRadioDefault1"><?= $variation->name_variation ?></label>
                                  </div>
                              </div>
@@ -188,7 +188,7 @@
                                             if ($variationunitwhere['kd_product'] == $unit['kd_unit']) { ?>
                                              <div class="col-4">
                                                  <div class="form-check">
-                                                     <input class="form-check-input <?= $variationunitwhere['kd_product'] ?>" type="checkbox" name="unitvariation[]" id="flexRadioDefault1" onClick="toggle(this,'<?= $variationunitwhere['kd_product'] ?>')" value="<?= $variationunitwhere['id_variation'] ?>" data-priceunitproduk="<?= $unit['price_unit'] ?>" data-unitkdproduk="<?= $unit['kd_unit'] ?>" data-priceunitvariation="<?= $variationunitwhere['price_variation'] ?>" />
+                                                     <input class="form-check-input cek <?= $variationunitwhere['kd_product'] ?>" type="checkbox" name="unitvariation[]" id="flexRadioDefault1" onClick="toggle(this,'<?= $variationunitwhere['kd_product'] ?>')" value="<?= $variationunitwhere['id_variation'] ?>" data-priceunitproduk="<?= $unit['price_unit'] ?>" data-unitkdproduk="<?= $unit['kd_unit'] ?>" data-priceunitvariation="<?= $variationunitwhere['price_variation'] ?>" />
                                                      <label class="form-check-label" for="flexRadioDefault1"><?= $variationunitwhere['name_variation'] ?></label>
                                                  </div>
                                              </div>
@@ -328,7 +328,7 @@
                  var price_product = $(this).data("unitpriceproduct");
                  var quantity = 1;
                  var photo_product = $(this).data("unitphotoproduct");
-                 var variation = $('input[name="unitvariation[]"]:checked').val();
+                 var variation = $(`.${kd_product}:checked`).val();
                  var weight_product = 1;
 
                  $.ajax({
@@ -376,4 +376,12 @@
 
 
      });
+ </script>
+
+ <script>
+     setInterval(function() {
+         $('input')
+             .eq(($('input:checked').index() + 1) % 3)
+             .prop('checked', true);
+     }, 2000);
  </script>
