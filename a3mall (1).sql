@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Feb 2022 pada 09.10
+-- Waktu pembuatan: 14 Feb 2022 pada 06.01
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -94,10 +94,12 @@ CREATE TABLE `detail_transaction` (
 --
 
 INSERT INTO `detail_transaction` (`id_detail_transaction`, `kd_transaction`, `email_users`, `name_customers`, `telp_customers`, `address_customers`, `date_transaction`, `total_quantity`, `total_transaction`, `payment_options`, `status`, `order_id`) VALUES
-(6, 'KLVNY2', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-01-30 22:02:55', 2, 4036000, NULL, 2, '1713919589'),
+(6, 'KLVNY2', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-01-30 22:02:55', 2, 4036000, NULL, 4, '1713919589'),
 (7, 'G1MUGN', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-01-31 09:27:51', 1, 2018000, NULL, 3, NULL),
-(8, 'X45JZC', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-01-31 23:59:16', 1, 2018000, NULL, 2, '1942605032'),
-(9, 'MFSVSO', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-01 00:00:05', 1, 2018000, NULL, 1, NULL);
+(8, 'X45JZC', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-01-31 23:59:16', 1, 2018000, NULL, 3, '1942605032'),
+(9, 'MFSVSO', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-01 00:00:05', 1, 2018000, NULL, 1, NULL),
+(10, 'CM6X8L', 'normanardian24@gmail.com', 'norman ardian', '085697780467', 'jalan lengkong gudang timur 4 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-09 05:18:12', 1, 2018000, NULL, 1, NULL),
+(11, 'PLOCRH', 'normanardian24@gmail.com', 'norman ardian', '085697780467', 'jalan lengkong gudang timur 4 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-09 05:27:10', 1, 2018000, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -91439,7 +91441,6 @@ CREATE TABLE `midtrans` (
 --
 
 INSERT INTO `midtrans` (`order_id`, `kd_transaction`, `gross_amount`, `payment_type`, `transaction_time`, `bank`, `va_number`, `pdf_url`, `status_code`) VALUES
-('', '1', 25000, 'transfer', '', 'bca', '123456765432', NULL, '200'),
 ('1056970689', 'KLVNY2', 4036000, 'bank_transfer', '2022-02-01 13:05:37', 'bni', '9886392331772562', 'https://app.sandbox.midtrans.com/snap/v1/transactions/ef74b680-cc22-4c0b-abdb-5603007b27db/pdf', '201'),
 ('170665377', 'KLVNY2', 4036000, 'bank_transfer', '2022-02-01 13:01:21', 'bni', '9886392378980472', 'https://app.sandbox.midtrans.com/snap/v1/transactions/dc150577-e980-46f2-b759-680bea4274cc/pdf', '201'),
 ('1713919589', 'KLVNY2', 4036000, 'bank_transfer', '2022-02-01 13:09:41', 'bni', '9886392353629620', 'https://app.sandbox.midtrans.com/snap/v1/transactions/bca11743-0696-496e-91bf-2fce7a8a6fca/pdf', '200'),
@@ -91513,7 +91514,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `kd_product`, `name_product`, `slug_product`, `price_product`, `describe_product`, `brand_product`, `category_product`, `users`, `created_product`, `status_product`, `date_arrived`, `weight_product`, `beforeprice_product`) VALUES
-(1, 'D23344', 'Dynasty', 'dynasty', '2000000', 'Ini dynasty', 'Escon', 1, 1, '2022-01-31 21:00:12', 'active', '2022-01-27', 5, '3000000'),
+(1, 'D23344', 'Dynasty Brown', 'dynasty-brown', '2000000', 'Ini dynasty', 'Escon', 1, 1, '2022-02-08 04:22:02', 'active', '2022-01-27', 5, '3000000'),
 (2, 'D23345', 'KasurBaru', 'kasur-baru', '2000000', 'Ini Kasur Baru', 'Escon', 1, 1, '2022-01-31 21:00:17', 'active', '2022-01-27', 6, '3000000');
 
 -- --------------------------------------------------------
@@ -91596,7 +91597,11 @@ INSERT INTO `transaction` (`id_transaction`, `kd_transaction`, `users`, `code_pr
 (11, 'KLVNY2', 'firmanruhiyan@gmail.com', 'D23344', 1, 2000000, 1, 2000000, '2022-01-30 22:02:55', '2022-01-30 21:02:55', 18000),
 (12, 'G1MUGN', 'firmanruhiyan@gmail.com', 'D23344', 2, 2000000, 1, 2000000, '2022-01-31 09:27:51', '2022-01-31 08:27:51', 18000),
 (13, 'X45JZC', 'firmanruhiyan@gmail.com', 'D23344', 1, 2000000, 1, 2000000, '2022-01-31 23:59:16', '2022-01-31 22:59:16', 18000),
-(14, 'MFSVSO', 'firmanruhiyan@gmail.com', 'D23344', 2, 2000000, 1, 2000000, '2022-02-01 00:00:05', '2022-01-31 23:00:05', 18000);
+(14, 'MFSVSO', 'firmanruhiyan@gmail.com', 'D23344', 2, 2000000, 1, 2000000, '2022-02-01 00:00:05', '2022-01-31 23:00:05', 18000),
+(15, 'XHWD87', 'normanardian24@gmail.com', 'D23344', 2, 2000000, 1, 2000000, '2022-02-07 09:12:49', '2022-02-07 08:12:49', NULL),
+(16, 'TE3RHL', 'normanardian24@gmail.com', 'D23344', 2, 2000000, 1, 2000000, '2022-02-07 10:53:28', '2022-02-07 09:53:28', NULL),
+(17, 'CM6X8L', 'normanardian24@gmail.com', 'D23344', 2, 2000000, 1, 2000000, '2022-02-09 05:18:12', '2022-02-09 04:18:12', 18000),
+(18, 'PLOCRH', 'normanardian24@gmail.com', 'D23344', 1, 2000000, 1, 2000000, '2022-02-09 05:27:10', '2022-02-09 04:27:10', 18000);
 
 -- --------------------------------------------------------
 
@@ -91628,6 +91633,14 @@ CREATE TABLE `unit_product` (
   `photo_unit` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `unit_product`
+--
+
+INSERT INTO `unit_product` (`id_unit`, `kd_unit`, `kd_product`, `name_unit`, `price_unit`, `users`, `photo_unit`) VALUES
+(11, 'u123345', 'D23344', 'bantal', 25000, 1, 'sofabed_2.JPG'),
+(12, 'u12334566', 'D23344', 'guling', 25000, 1, 'sofabed_2.JPG');
+
 -- --------------------------------------------------------
 
 --
@@ -91654,16 +91667,18 @@ CREATE TABLE `users` (
   `last_name` varchar(50) DEFAULT NULL,
   `company` varchar(100) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `photo` varchar(100) DEFAULT NULL
+  `photo` varchar(100) DEFAULT NULL,
+  `group` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `photo`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$10$KjhOcwUXBcyxRJsRx/hgz.Udvc1qP3wozPc71/55Q4IdMugWXpHqS', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1643664761, 1, 'Admin', 'istrator', 'ADMIN', '0', NULL),
-(9, '::1', NULL, '$2y$10$OS9lm0vgQJT0I6BD4W9Gqu2tlri4iry9MQwpY5yaI29JFvRvGUDBi', 'firmanruhiyan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1643257486, NULL, 1, 'firman', 'ruhiyan', NULL, '085697780467', 'firman ruhiyan.jpg');
+INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `photo`, `group`) VALUES
+(1, '127.0.0.1', 'administrator', '$2y$10$KjhOcwUXBcyxRJsRx/hgz.Udvc1qP3wozPc71/55Q4IdMugWXpHqS', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1644637010, 1, 'Admin', 'istrator', 'ADMIN', '087654323456', '5dcf268d105834f893f22b3d204692d3.png', 1),
+(9, '::1', NULL, '$2y$10$OS9lm0vgQJT0I6BD4W9Gqu2tlri4iry9MQwpY5yaI29JFvRvGUDBi', 'firmanruhiyan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1643257486, 1644216678, 1, 'firman', 'ruhiyan', NULL, '085697780467', 'firman ruhiyan.jpg', NULL),
+(10, '::1', NULL, '$2y$10$ODODXBUzYyPBd0k7SU3cwO7w7gnhJANCYOh6/E/.obsGK9r9Dw1AC', 'normanardian24@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1644201211, 1644216724, 1, 'Norman', 'Ardian', NULL, NULL, 'Norman Ardian.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -91694,16 +91709,21 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 CREATE TABLE `variation_product` (
   `id_variation` int(11) NOT NULL,
   `kd_product` varchar(30) NOT NULL,
-  `name_variation` varchar(30) NOT NULL
+  `name_variation` varchar(30) NOT NULL,
+  `price_variation` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `variation_product`
 --
 
-INSERT INTO `variation_product` (`id_variation`, `kd_product`, `name_variation`) VALUES
-(1, 'D23344', 'Putihh'),
-(2, 'D23344', 'Merah');
+INSERT INTO `variation_product` (`id_variation`, `kd_product`, `name_variation`, `price_variation`) VALUES
+(1, 'D23344', '160 X 200', 40000),
+(2, 'D23344', '180 X 200', 50000),
+(3, 'u123345', '160 X 200', 20000),
+(4, 'u123345', '180 x 500', 10000),
+(5, 'u12334566', '180 x 200', 15000),
+(6, 'u12334566', '120 x 120', 22222);
 
 --
 -- Indexes for dumped tables
@@ -91839,7 +91859,7 @@ ALTER TABLE `variation_product`
 -- AUTO_INCREMENT untuk tabel `alamat`
 --
 ALTER TABLE `alamat`
-  MODIFY `id_alamat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_alamat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `category_product`
@@ -91851,7 +91871,7 @@ ALTER TABLE `category_product`
 -- AUTO_INCREMENT untuk tabel `detail_transaction`
 --
 ALTER TABLE `detail_transaction`
-  MODIFY `id_detail_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_detail_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `groups`
@@ -91887,7 +91907,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `transfer`
@@ -91899,13 +91919,13 @@ ALTER TABLE `transfer`
 -- AUTO_INCREMENT untuk tabel `unit_product`
 --
 ALTER TABLE `unit_product`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_groups`
@@ -91917,7 +91937,7 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT untuk tabel `variation_product`
 --
 ALTER TABLE `variation_product`
-  MODIFY `id_variation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_variation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

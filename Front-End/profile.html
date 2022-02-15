@@ -1,306 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- Bootstrap CSS -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-			crossorigin="anonymous"
-		/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-		<!-- Icon Bootstrap 5 -->
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
-		/>
+    <!-- Icon Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
 
-		<!-- Font Google -->
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
-			rel="stylesheet"
-		/>
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
 
-		<!-- My CSS -->
-		<link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
-		<!-- Swipper JS -->
-		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Swipper JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-		<title>Hello, world!</title>
-	</head>
-	<body>
-		<!-- Navbar -->
-		<nav class="navbar navbar-expand-lg navbar-light py-3" id="navbar">
-			<div class="container">
-				<a class="navbar-brand fw-bold" href="#">A3MALL</a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav navb ms-5 me-auto">
-						<li class="nav-item">
-							<a class="nav-link active" href="index.html">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="produk.html">Produk</a>
-						</li>
-					</ul>
-					<ul class="navbar-nav">
-						<li class="nav-item my-auto me-4 border-1 border">
-							<form class="input-group">
-								<span class="input-group-text border-0 bg-white" id="basic-addon1"
-									><i class="bi bi-search"></i
-								></span>
-								<input
-									class="form-control border-0"
-									type="search"
-									placeholder="Search"
-									aria-label="Search"
-								/>
-							</form>
-						</li>
-						<li class="nav-item cartres my-auto me-4">
-							<div id="cart" class="d-none"></div>
-							<a
-								href="./keranjang.html"
-								class="cart text-dark h5 position-relative d-inline-flex"
-								aria-label="View your shopping cart"
-							>
-								<i class="bi bi-cart3"></i>
-								<span
-									class="cart-basket d-flex align-items-center justify-content-center"
-								>
-									0
-								</span>
-							</a>
-						</li>
-						<li class="nav-item dropdown my-auto">
-							<a
-								class="nav-link dropdown-toggle small my-auto"
-								href="#"
-								id="navbarDropdown"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								<img
-									class="rounded-circle shadow bg-danger"
-									src="./assets/img/profile/img-profile.png"
-									width="30"
-									height="30"
-									alt=""
-								/>
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li>
-									<p class="fw-light text-secondary small text-center">
-										Hai, Nama User
-									</p>
-								</li>
-								<hr />
-								<li><a class="dropdown-item" href="./profile.html">Profile</a></li>
-								<li>
-									<a class="dropdown-item" href="./status.html">Staus Pesanan</a>
-								</li>
-								<li><a class="dropdown-item" href="./alamat.html">Alamat</a></li>
-								<hr />
-								<li><a class="dropdown-item" href="#">Log Out</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!-- Akhir Navbar -->
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light py-3" id="navbar">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">A3MALL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav navb ms-5 me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="produk.html">Produk</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item my-auto me-4 border-1 border">
+              <form class="input-group">
+                <span class="input-group-text border-0 bg-white" id="basic-addon1"><i class="bi bi-search"></i></span>
+                <input class="form-control border-0" type="search" placeholder="Search" aria-label="Search" />
+              </form>
+            </li>
+            <li class="nav-item cartres my-auto me-4">
+              <div id="cart" class="d-none"></div>
+              <a href="./keranjang.html" class="cart text-dark h5 position-relative d-inline-flex" aria-label="View your shopping cart">
+                <i class="bi bi-cart3"></i>
+                <span class="cart-basket d-flex align-items-center justify-content-center"> 0 </span>
+              </a>
+            </li>
+            <li class="nav-item dropdown my-auto">
+              <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="rounded-circle shadow bg-danger" src="./assets/img/profile/img-profile.png" width="30" height="30" alt="" />
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <p class="fw-light text-secondary small text-center">Hai, Nama User</p>
+                </li>
+                <hr />
+                <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+                <li>
+                  <a class="dropdown-item" href="./status.html">Staus Pesanan</a>
+                </li>
+                <li><a class="dropdown-item" href="./alamat.html">Alamat</a></li>
+                <hr />
+                <li><a class="dropdown-item" href="#">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Akhir Navbar -->
 
-		<!-- Profile -->
-		<section class="py-5 bg-light" id="profile">
-			<div class="container py-5">
-				<div class="row bg-white p-5 shadow">
-					<div class="col-lg-2 me-5 mb-3">
-						<img
-							src="./assets/img/profile/img-profile.png"
-							class="card-img-top bg-danger"
-							alt="..."
-						/>
-					</div>
-					<div class="col-lg">
-						<div class="row">
-							<div class="col-lg-2">
-								<p class="fw-light text-secondary">username</p>
-							</div>
-							<div class="col">
-								<p>Nama Lengkap</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-2">
-								<p class="fw-light text-secondary">No Telp</p>
-							</div>
-							<div class="col">
-								<p>0878126317</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-2">
-								<p class="fw-light text-secondary">Email</p>
-							</div>
-							<div class="col">admin@admin.com</div>
-						</div>
-						<button
-							type="button"
-							class="btn px-5 yellow-button"
-							data-bs-toggle="modal"
-							data-bs-target="#exampleModal"
-						>
-							Edit
-						</button>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- ./Profile -->
+    <!-- Profile -->
+    <section class="py-5 bg-light" id="profile">
+      <div class="container py-5">
+        <div class="row bg-white p-5 shadow">
+          <div class="col-lg-2 me-5 mb-3">
+            <img src="./assets/img/profile/img-profile.png" class="card-img-top bg-danger" alt="..." />
+          </div>
+          <div class="col-lg">
+            <div class="row">
+              <div class="col-lg-2">
+                <p class="fw-light text-secondary">username</p>
+              </div>
+              <div class="col">
+                <p>Nama Lengkap</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <p class="fw-light text-secondary">No Telp</p>
+              </div>
+              <div class="col">
+                <p>0878126317</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <p class="fw-light text-secondary">Email</p>
+              </div>
+              <div class="col">admin@admin.com</div>
+            </div>
+            <button type="button" class="btn px-5 yellow-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ./Profile -->
 
-		<!-- Footer -->
-		<footer class="bg-white">
-			<div class="container">
-				<div class="row py-5">
-					<div class="col-lg py-2">
-						<h5 class="yellow-text fw-bold">A3MALL</h5>
-						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry.
-						</p>
-					</div>
-					<div class="col-lg py-2">
-						<p class="fw-bold">About Us</p>
-						<ul class="navbar-nav">
-							<li class="nav-item">
-								<a class="nav-link text-dark p-0 my-1 small" href="#">Service</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-dark p-0 my-1 small" href="#">Portofolio</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-dark p-0 my-1 small" href="#">Contact Us</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-lg py-2">
-						<p class="fw-bold">Contact Us</p>
-						<ul class="navbar-nav">
-							<li class="nav-item">
-								<p class="small">
-									Lorem Ipsum is simply dummy text of the printing and typesetting
-									industry.
-								</p>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-dark p-0 my-1 small" href="#"
-									>Phone: +62******</a
-								>
-								<a class="nav-link text-dark p-0 my-1 small" href="#"
-									>Phone: +62******</a
-								>
-							</li>
-						</ul>
-					</div>
-					<div class="col text-end mt-auto">
-						<a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a>
-						<a href="#"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
-						<a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="container-fluid">
-				<div class="row border-top">
-					<div class="col text-center">
-						<p class="py-3 m-0">Copyright ® 2021 Lorem All rights Rcerved</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- Akhir Footer -->
+    <!-- Footer -->
+    <footer class="bg-white">
+      <div class="container">
+        <div class="row py-5">
+          <div class="col-lg py-2">
+            <h5 class="yellow-text fw-bold">A3MALL</h5>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+          <div class="col-lg py-2">
+            <p class="fw-bold">About Us</p>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Portofolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg py-2">
+            <p class="fw-bold">Contact Us</p>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <p class="small">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
+                <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col text-end mt-auto">
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a>
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
+            <a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row border-top">
+          <div class="col text-center">
+            <p class="py-3 m-0">Copyright ® 2021 Lorem All rights Rcerved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Akhir Footer -->
 
-		<!-- Modal edit -->
-		<div
-			class="modal fade"
-			id="exampleModal"
-			tabindex="-1"
-			aria-labelledby="exampleModalLabel"
-			aria-hidden="true"
-		>
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
-						<button
-							type="button"
-							class="btn-close"
-							data-bs-dismiss="modal"
-							aria-label="Close"
-						></button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="mb-3">
-								<label class="form-label">Ubah nama</label>
-								<input type="text" class="form-control" />
-							</div>
-							<div class="mb-3">
-								<label class="form-label">No Telp baru</label>
-								<input type="number" class="form-control" />
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label"
-									>Email baru</label
-								>
-								<input
-									type="email"
-									class="form-control"
-									id="exampleInputEmail1"
-									aria-describedby="emailHelp"
-								/>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-							Close
-						</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Akhir Modal edit -->
-	</body>
+    <!-- Modal edit -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Ubah nama</label>
+                <input type="text" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">No Telp baru</label>
+                <input type="number" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email baru</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Akhir Modal edit -->
+  </body>
 
-	<script src="./assets/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="./assets/js/jquery-3.3.1.slim.min.js"></script>
 
-	<!-- Swiper JS -->
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-		crossorigin="anonymous"
-	></script>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-	<!-- My JS -->
-	<script src="./assets/js/script.js"></script>
+  <!-- My JS -->
+  <script src="./assets/js/script.js"></script>
 </html>
