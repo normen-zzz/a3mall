@@ -75,9 +75,9 @@
                         <button class="btn btn-primary" type="submit">Daftar</button>
                     </div>
                 </form>
-                <p class="pt-3 text-center">or</p>
+                <p class="pt-3 text-center">Atau</p>
                 <div class="d-grid">
-                    <a class="btn btn-danger" href="<?= base_url('user/Auth/google')  ?>"><i class="text-white bi-google"></i>+ Daftar Dengan Google</a>
+                    <a class="btn btn-danger" href="<?= base_url('user/Auth/google')  ?>"><i class="text-white bi-google"></i>+ Login Dengan Google</a>
                 </div>
                 <hr />
                 <p>Sudah punya akun? | <a class="text-dark" href="<?= base_url('Login') ?>">Login disini</a></p>

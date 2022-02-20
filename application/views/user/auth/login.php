@@ -32,21 +32,27 @@
                 <h1>MASUK</h1>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col text-center text-danger">
+                <h4><?= $this->session->flashdata('message'); ?></h4>
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <form method="POST" action="<?= base_url('user/auth/login') ?>" class="needs-validation" novalidate="">
+                <form method="POST" action="<?= base_url('user/auth/login') ?>" class="needs-validation">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="identity" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="identity" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" />
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" required />
                     </div>
                     <div class="mb-3 form-check">
                         <input name="remember" type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        <label class="form-check-label" for="exampleCheck1">Ingat Saya</label>
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" type="submit">Log In</button>
@@ -54,10 +60,17 @@
                 </form>
                 <p class="pt-3 text-center">or</p>
                 <div class="d-grid">
-                    <a href="<?= base_url('user/Auth/google') ?>" class="btn btn-danger" type="submit"><i class="text-white bi-google"></i>+ Continue with Google</a>
+                    <a href="<?= base_url('user/Auth/google') ?>" class="btn btn-danger" type="submit"><i class="text-white bi-google"></i>+ Login Dengan Google</a>
                 </div>
                 <hr />
-                <a class="text-dark" href="<?= base_url('Register') ?>">Create a new account</a>
+                <div class="row">
+                    <a class="text-dark" href="<?= base_url('Register') ?>">Buat Akun Baru</a>
+                </div>
+                <div class="row">
+                    <a class="text-dark" href="<?= base_url('Register') ?>">Lupa Password</a>
+                </div>
+
+
             </div>
         </div>
     </div>

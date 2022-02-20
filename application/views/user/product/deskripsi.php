@@ -66,8 +66,11 @@
                      </div>
                      <div class="text mb-3 pt-3">
                          <p class="m-0">Harga:</p>
-                         <h5 class="mb-0 fw-light text-secondary"><s id="beforetarget">Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s></h5>
-                         <h2 class="yellow-text" id="target">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h2>
+                         <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($produk->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($produk->beforeprice_product + +$max->max_price, '0', ',', '.') ?></s></h5>
+                         <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product + $min->min_price, '0', ',', '.')  ?> ~ <span>Rp. <?= number_format($produk->price_product + $max->max_price, '0', ',', '.')  ?></span></h4>
+
+                         <!-- <h5 class="mb-0 fw-light text-secondary"><s id="beforetarget">Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s> ~ Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></h5> -->
+                         <!-- <h2 class="yellow-text" id="target">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h2> -->
                          <!-- <h2 class="yellow-text">Coming Soon</h2> -->
                      </div>
                      <div class="col">
@@ -131,7 +134,9 @@
              </dov>
          </div>
          <div class="row pt-3 proser-grid">
-             <?php foreach ($sejenis as $sejenis) { ?>
+             <?php foreach ($sejenis as $sejenis) {
+                    $max = $this->barang->getMaxPriceFromVariation($sejenis->kd_product)->row();
+                    $min = $this->barang->getMinPriceFromVariation($sejenis->kd_product)->row(); ?>
                  <div class="col py-2">
                      <a href="<?= base_url('Deskripsi/' . $sejenis->slug_product) ?>" style="text-decoration: none">
                          <div class="bg-white card-proser">
@@ -140,7 +145,10 @@
                                  <p class="fw-light text-secondary small"><?= $sejenis->name_category ?></p>
                                  <h5 class="card-title fw-bold text-dark"><?= $sejenis->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
-                                 <p class="card-text yellow-text mb-3">Coming Soon</p>
+                                 <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sejenis->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                 <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sejenis->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+
+                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                  <div class="text-center btn-foto">
                                      <a href="<?= base_url('Deskripsi/' . $sejenis->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button">Detail</a>
                                  </div>
@@ -167,8 +175,9 @@
                  <div class="container">
                      <?php foreach ($unit as $unit) { ?>
                          <?php $variationunitwhere = $this->barang->getVariationUnit($unit['kd_unit']);
-                            if ($variationunitwhere != '') { ?>
-
+                            if ($variationunitwhere != '') {
+                                $max_unit = $this->barang->getMaxPriceFromVariation($unit['kd_unit'])->row();
+                                $min_unit = $this->barang->getMinPriceFromVariation($unit['kd_unit'])->row(); ?>
                              <div class="row py-3 border border-1">
                                  <div class="col-md-2">
                                      <div class="img text-center">
@@ -180,8 +189,9 @@
                                          <div class="col-md py-1">
                                              <p><?= $unit['name_unit'] ?></p>
                                          </div>
+
                                          <div class="col-md py-1 text-center isi-keranjang my-auto">
-                                             <p class="my-auto">Rp. <?= number_format($unit['price_unit'], '0', ',', '.') ?></p>
+                                             <p class="my-auto" id="harga<?= $unit['kd_unit'] ?>">Rp. <?= number_format($unit['price_unit'] + $min_unit->min_price, '0', ',', '.') ?> ~ Rp. <?= number_format($unit['price_unit'] + $max_unit->max_price, '0', ',', '.') ?></p>
                                          </div>
                                      </div>
 
@@ -230,10 +240,34 @@
          var newBeforeHarga = hargaVariasi + hargaBeforeProduk;
 
          value = convertToRupiah(newHarga);
-         beforeValue = convertToRupiah(newBeforeHarga);
+         beforeValue = "<s>" + convertToRupiah(newBeforeHarga) + "</s>";
          $('input[name=pricevariasi]').val(hargaVariasi);
          $("#target").html(value);
          $("#beforetarget").html(beforeValue);
+
+
+     });
+ </script>
+
+ <script>
+     function convertToRupiah(angka) {
+         var rupiah = '';
+         var angkarev = angka.toString().split('').reverse().join('');
+         for (var i = 0; i < angkarev.length; i++)
+             if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + '.';
+         return 'Rp. ' + rupiah.split('', rupiah.length - 1).reverse().join('');
+     }
+     var html = "";
+     var value = "New Text "
+     $('input:checkbox[name="unitvariation[]"]').change(function() {
+         var hargaVariasi = $(this).data("priceunitvariation");
+         var hargaProduk = $(this).data("priceunitproduk");
+         var kdUnit = $(this).data("unitkdproduk");
+         var newHarga = hargaVariasi + hargaProduk;
+
+         value = convertToRupiah(newHarga);
+         //  $('input[name=pricevariasi]').val(hargaVariasi);
+         $("#harga" + kdUnit).html(value);
 
 
      });
@@ -249,10 +283,10 @@
                  var newBeforeHarga = hargaVariasi + hargaBeforeProduk;
 
                  value = convertToRupiah(newHarga);
-                 beforeValue = convertToRupiah(newBeforeHarga);
+                 beforeValue = "<s>" + convertToRupiah(newBeforeHarga) + "</s>"
                  $('input[name=pricevariasi]').val(hargaVariasi);
                  $("#target").html(value);
-                 $("#beforetarget").html(beforeValue);
+                 $(".beforetarget").html(beforeValue);
              })
 
          }

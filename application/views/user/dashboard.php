@@ -121,7 +121,9 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Sofa</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
-                                <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product, '0', ',', '.') ?></p>
+                                <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. 99.9999</s> ~ <s>Rp.999.999</s></p>
+                                <p class="card-text yellow-text mb-3">Rp. 999.9999 ~ <span>Rp. 999.999</span></p>
+                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product, '0', ',', '.') ?></p> -->
                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
                                     <a href="<?= base_url('Deskripsi/' . $sofa->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>
@@ -138,7 +140,9 @@
             </div>
         </div>
         <div class="row arival-grid">
-            <?php foreach ($springbed as $springbed) { ?>
+            <?php foreach ($springbed as $springbed) {
+                $max = $this->barang->getMaxPriceFromVariation($springbed->kd_product)->row();
+                $min = $this->barang->getMinPriceFromVariation($springbed->kd_product)->row(); ?>
                 <div class="col-lg-3 py-2">
                     <a href="<?= base_url('Deskripsi/' . $springbed->slug_product) ?>" style="text-decoration: none">
                         <div class="bg-white card-arival">
@@ -146,7 +150,9 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Spring Bed</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $springbed->name_product ?></h5>
-                                <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product, '0', ',', '.') ?></p>
+                                <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($springbed->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($springbed->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product, '0', ',', '.') ?></p> -->
                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
                                     <a href="<?= base_url('Deskripsi/' . $springbed->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>

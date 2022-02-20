@@ -25,7 +25,7 @@ class Product extends CI_Controller
             $usergoogle = '';
         }
         $data = [
-            "title" => "A3MALL | Product",
+            "title" => "Spring bed dan Sofa berkualitas dari A3Mall",
             "page" => "user/product/index",
             "sofa" => $this->barang->getProductByCategoryJoinPhoto("2"),
             "springbed" => $this->barang->getProductByCategoryJoinPhoto("1"),
@@ -58,8 +58,10 @@ class Product extends CI_Controller
             "variation" => $this->db->get_where('variation_product', array('kd_product' => $produk->kd_product))->result(),
             "unit" => $this->barang->getUnitByCodeProduct($produk->kd_product),
             "variationunit" => $this->barang->getVariationUnit(),
-            "usergoogle" => $usergoogle
+            "usergoogle" => $usergoogle,
         ];
+        $data['max'] = $this->barang->getMaxPriceFromVariation($data['produk']->kd_product)->row();
+        $data['min'] = $this->barang->getMinPriceFromVariation($data['produk']->kd_product)->row();
 
         $this->load->view('user/templates/app', $data, FALSE);
     }

@@ -39,6 +39,7 @@
                                                 <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/images/produk/' . $unit['photo_unit']) ?>"></a></td>
                                                 <td><?= $unit['username'] ?></td>
                                                 <td><a href="javascript:;" class="btn btn-primary item-detail" data="<?php echo $unit['id_unit'] ?>">Ubah</a>
+                                                    <a href="<?= base_url('admin/Barang/variationBarang/' . $unit['kd_unit']) ?>" class="btn btn-secondary mt-1">Variation</a>
                                                     <a href="<?= base_url('admin/Barang/deleteUnit/' . $unit['id_unit']) ?>" class="btn btn-danger" onclick="return confirm('Anda Yakin Ingin Menghapus?')">Hapus</a>
                                                 </td>
                                             </tr>

@@ -37,7 +37,7 @@
                             <p class="my-auto">x<?= $transaksi->quantity ?></p>
                         </div>
                         <div class="col-md-3 py-1 text-center isi-keranjang my-auto">
-                            <p class="yellow-text my-auto">Rp. <?= $transaksi->total_price ?></p>
+                            <p class="yellow-text my-auto">Rp. <?= number_format($transaksi->total_price, '0', ',', '.')  ?></p>
                         </div>
                     </div>
                 </div>

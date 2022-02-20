@@ -75,7 +75,7 @@ class Auth extends CI_Controller
 			} else {
 				// if the login was un-successful
 				// redirect them back to the login page
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				$this->session->set_flashdata('message', 'Email Atau Password anda Salah');
 				redirect('user/auth/login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
 		} else {
@@ -339,8 +339,8 @@ class Auth extends CI_Controller
 					'protocol' => 'smtp',
 					'smtp_host' => 'ssl://mail.atigamall.com',
 					'smtp_port' => 465,
-					'smtp_user' => 'normanardian@atigamall.com',
-					'smtp_pass' => 'mesaram123',
+					'smtp_user' => 'test@atigamall.com',
+					'smtp_pass' => 'Gagap123',
 					'mailtype' => 'html',
 				];
 				$data = array(
@@ -352,8 +352,8 @@ class Auth extends CI_Controller
 				$this->load->helpers('url');
 				$this->email->set_newline("\r\n");
 
-				$this->email->from('normanardian@atigamall.com');
-				$this->email->to("normanardian24@gmail.com");
+				$this->email->from('test@atigamall.com');
+				$this->email->to($this->input->post('identity'));
 				$this->email->subject("forgot password");
 				$body = $this->load->view('auth/email/forgot_password.tpl.php', $data, TRUE);
 				$this->email->message($body);
@@ -361,14 +361,14 @@ class Auth extends CI_Controller
 				if ($this->email->send()) {
 
 					$this->session->set_flashdata('success', 'Email Send sucessfully');
-					return redirect('auth/login');
+					return redirect('user/auth/login');
 				} else {
 					echo "Email not send .....";
 					show_error($this->email->print_debugger());
 				}
 			} else {
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect("auth/forgot_password", 'refresh');
+				redirect("user/auth/forgot_password", 'refresh');
 			}
 		}
 	}
@@ -441,17 +441,17 @@ class Auth extends CI_Controller
 					if ($change) {
 						// if the password was successfully changed
 						$this->session->set_flashdata('message', $this->ion_auth->messages());
-						redirect("auth/login", 'refresh');
+						redirect("user/auth/login", 'refresh');
 					} else {
 						$this->session->set_flashdata('message', $this->ion_auth->errors());
-						redirect('auth/reset_password/' . $code, 'refresh');
+						redirect('user/auth/reset_password/' . $code, 'refresh');
 					}
 				}
 			}
 		} else {
 			// if the code is invalid then send them back to the forgot password page
 			$this->session->set_flashdata('message', $this->ion_auth->errors());
-			redirect("auth/forgot_password", 'refresh');
+			redirect("user/auth/forgot_password", 'refresh');
 		}
 	}
 

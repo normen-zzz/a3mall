@@ -120,19 +120,20 @@ class Transaksi_model extends CI_Model
 
     public function getTransactionByDetailTransaction($user)
     {
-        $this->db->select('a.*,d.photo_product,e.name_variation,c.name_product,c.price_product');
+        $this->db->select('a.*,d.photo_product,c.name_product,c.price_product');
         $this->db->from('transaction a');
         $this->db->join('users b', 'b.email=a.users', 'left');
         $this->db->join('product c', 'c.kd_product=a.code_product', 'left');
-        $this->db->join('photo_product d', 'd.variation_product=a.variation', 'left');
-        $this->db->join('variation_product e', 'e.id_variation=a.variation', 'left');
-        $this->db->join('unit_product f', 'f.kd_unit=a.code_product', 'left');
+        $this->db->join('photo_product d', 'd.kd_product=a.code_product', 'left');
+        $this->db->join('unit_product e', 'e.kd_unit=a.code_product', 'left');
         $this->db->where('a.users', $user);
         return $this->db->get();
         // } else {
         //     return false;
         // }
     }
+
+    
 }
 
 /* End of file ModelName.php */

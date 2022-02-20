@@ -80,7 +80,7 @@ class Cart extends CI_Controller
             'qty' => $this->input->post('quantity'),
             'photo' => $this->input->post('photo_product'),
             'kd_product' => $this->input->post('kd_product'),
-            'weight' => $this->input->post('weight_product')
+            'weight' => 1
         );
         $this->cart->insert($data);
         // echo $this->show_cart(); //tampilkan cart setelah added

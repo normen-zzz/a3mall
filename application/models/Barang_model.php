@@ -264,6 +264,21 @@ class Barang_model extends CI_Model
         // if ($query->num_rows() != 0) {
         return $query->result();
     }
+
+    public function getMaxPriceFromVariation($where)
+    {
+        $this->db->select_max('price_variation', 'max_price');
+        $this->db->from('variation_product');
+        $this->db->where('kd_product', $where);
+        return $this->db->get();
+    }
+    public function getMinPriceFromVariation($where)
+    {
+        $this->db->select_min('price_variation', 'min_price');
+        $this->db->from('variation_product');
+        $this->db->where('kd_product', $where);
+        return $this->db->get();
+    }
 }
 
 /* End of file ModelName.php */

@@ -26,6 +26,7 @@
                                             <th>Before Price</th>
                                             <th>Describe</th>
                                             <th>Category</th>
+                                            <th>Weight</th>
                                             <th>Last Edited By</th>
                                             <th>Status</th>
                                             <th>Created At</th>
@@ -41,6 +42,7 @@
                                                 <td><?= number_format($barang['beforeprice_product'], '0', ',', '.') ?></td>
                                                 <td><?= $barang['describe_product'] ?></td>
                                                 <td><?= $barang['name_category'] ?></td>
+                                                <td><?= $barang['weight_product'] ?></td>
                                                 <td><?= $barang['username'] ?></td>
                                                 <td>
                                                     <?php if ($barang['status_product'] == 'active') {

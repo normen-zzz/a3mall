@@ -96,7 +96,7 @@
                                             } ?>" href="<?= base_url('Dashboard') ?>">Home</a>
                      </li>
                      <li class="nav-item">
-                         <a class="nav-link  <?php if ($this->uri->segment(1) == 'Product' || $this->uri->segment(1) === FALSE) {
+                         <a class="nav-link  <?php if ($this->uri->segment(1) == 'Product' || $this->uri->segment(1) === FALSE || $this->uri->segment(1) == 'Deskripsi') {
                                                     echo 'active';
                                                 } ?>" href="<?= base_url('Product') ?>">Produk</a>
                      </li>
@@ -120,7 +120,7 @@
                      <?php if ($this->session->userdata('email')) { ?>
                          <li class="nav-item dropdown my-auto">
                              <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $usergoogle['photo']) ?>" width="30" height="30" alt="" />
+                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $user['photo']) ?>" width="30" height="30" alt="" />
                              </a>
                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                  <li>
