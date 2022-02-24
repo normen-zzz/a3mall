@@ -325,7 +325,7 @@ class Auth extends CI_Controller
 				}
 
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect("auth/forgot_password", 'refresh');
+				redirect("user/auth/forgot_password", 'refresh');
 			}
 
 			// run the forgotten password method to email an activation code to the user
