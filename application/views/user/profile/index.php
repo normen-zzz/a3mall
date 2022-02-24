@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg" id="showdata">
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fw-light text-secondary">Nama Depan</p>
                         </div>
                         <div class="col">
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fw-light text-secondary">Nama Belakang</p>
                         </div>
                         <div class="col">
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fw-light text-secondary">No Telp</p>
                         </div>
                         <div class="col">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fw-light text-secondary">Email</p>
                         </div>
                         <div class="col"><?= $user['email'] ?></div>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-lg" id="showdata">
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fw-light text-secondary">Nama Depan</p>
                         </div>
                         <div class="col">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fw-light text-secondary">Nama Belakang</p>
                         </div>
                         <div class="col">
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fw-light text-secondary">No Telp</p>
                         </div>
                         <div class="col">
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <p class="fw-light text-secondary">Email</p>
                         </div>
                         <div class="col"><?= $usergoogle['email'] ?></div>
