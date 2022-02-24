@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Feb 2022 pada 05.34
+-- Waktu pembuatan: 24 Feb 2022 pada 06.42
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -44,9 +44,9 @@ CREATE TABLE `alamat` (
 --
 
 INSERT INTO `alamat` (`id_alamat`, `email`, `nama_alamat`, `telp_alamat`, `provinsi_alamat`, `kabupaten_alamat`, `kecamatan_alamat`, `pos_alamat`, `detail_alamat`) VALUES
-(16, 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 3, 457, 6314, 15318, 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77'),
 (18, 'wigman.webstudio@gmail.com', 'wigman', '08765434567', 3, 457, 6315, 15331, 'jalan wtc'),
-(19, 'normanardian24@gmail.com', 'norman ardian', '085697780467', 3, 457, 6314, 15318, 'jalan lengkong gudang timur 4, rt.004 rw.003 no.77');
+(19, 'normanardian24@gmail.com', 'norman ardian', '085697780467', 3, 457, 6314, 15318, 'jalan lengkong gudang timur 4, rt.004 rw.003 no.77'),
+(21, 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 6, 189, 2623, 12345, 'jalan seribu nomor seribu');
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,14 @@ CREATE TABLE `detail_transaction` (
 --
 
 INSERT INTO `detail_transaction` (`id_detail_transaction`, `kd_transaction`, `email_users`, `name_customers`, `telp_customers`, `address_customers`, `date_transaction`, `total_quantity`, `total_transaction`, `payment_options`, `status`, `order_id`) VALUES
-(24, 'XL18PJ', 'normanardian24@gmail.com', 'norman ardian', '085697780467', 'jalan lengkong gudang timur 4, rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-19 10:51:01', 9, 12438222, NULL, 1, NULL);
+(24, 'XL18PJ', 'normanardian24@gmail.com', 'norman ardian', '085697780467', 'jalan lengkong gudang timur 4, rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-19 10:51:01', 9, 12438222, NULL, 1, NULL),
+(25, 'GIVYZX', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-20 08:11:50', 2, 4270000, NULL, 1, NULL),
+(26, 'KMVGTR', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-20 08:25:47', 2, 4270000, NULL, 1, NULL),
+(27, 'AZSKA8', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-23 15:24:00', 1, 4010000, NULL, 1, NULL),
+(28, 'PJEDO0', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan anu nomor anu-Payung ,Bangka Selatan ,Bangka Belitung ID 12345', '2022-02-23 15:36:23', 1, 4010000, NULL, 1, NULL),
+(29, 'NTTEDJ', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan anu nomor anu-Payung ,Bangka Selatan ,Bangka Belitung ID 12345', '2022-02-23 15:39:43', 1, 4010000, NULL, 1, NULL),
+(30, 'T1GRFK', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan anu nomor anu-Payung ,Bangka Selatan ,Bangka Belitung ID 12345', '2022-02-23 15:44:34', 1, 4260000, NULL, 1, NULL),
+(31, 'IPUJSR', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan seribu nomor seribu-Kepulauan Seribu Utara ,Kepulauan Seribu ,DKI Jakarta ID 12345', '2022-02-23 15:46:58', 1, 4012000, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -116,7 +123,8 @@ CREATE TABLE `groups` (
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
-(2, 'members', 'General User');
+(2, 'members', 'General User'),
+(3, 'staff', 'Staff');
 
 -- --------------------------------------------------------
 
@@ -91415,13 +91423,6 @@ CREATE TABLE `login_attempts` (
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data untuk tabel `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(5, '::1', 'normanardian24@gmail.com', 1645331096);
-
 -- --------------------------------------------------------
 
 --
@@ -91511,7 +91512,6 @@ CREATE TABLE `product` (
   `created_product` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status_product` varchar(10) DEFAULT NULL,
   `date_arrived` date DEFAULT NULL,
-  `weight_product` int(11) NOT NULL,
   `beforeprice_product` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -91519,10 +91519,10 @@ CREATE TABLE `product` (
 -- Dumping data untuk tabel `product`
 --
 
-INSERT INTO `product` (`id_product`, `kd_product`, `name_product`, `slug_product`, `price_product`, `describe_product`, `brand_product`, `category_product`, `users`, `created_product`, `status_product`, `date_arrived`, `weight_product`, `beforeprice_product`) VALUES
-(3, 'B12345', 'Bagus Brown', 'bagus-brown-Escon', '4000000', 'Ini Bagus Brown', 'Escon', 1, 1, '2022-02-19 09:48:42', 'active', '2022-02-14', 5, '5000000'),
-(1, 'D23344', 'Dynasty Brown', 'dynasty-brown', '2000000', 'Ini dynasty', 'Escon', 1, 1, '2022-02-08 04:22:02', 'active', '2022-01-27', 5, '3000000'),
-(2, 'D23345', 'KasurBaru', 'kasur-baru', '2000000', 'Ini Kasur Baru', 'Escon', 1, 1, '2022-01-31 21:00:17', 'active', '2022-01-27', 6, '3000000');
+INSERT INTO `product` (`id_product`, `kd_product`, `name_product`, `slug_product`, `price_product`, `describe_product`, `brand_product`, `category_product`, `users`, `created_product`, `status_product`, `date_arrived`, `beforeprice_product`) VALUES
+(3, 'B12345', 'Bagus Brown', 'Escon-bagus-brown', '4000000', 'Ini Bagus Brown', 'Escon', 1, 1, '2022-02-23 04:51:04', 'deactive', '2022-02-14', '5000000'),
+(1, 'D23344', 'Dynasty Brown', 'dynasty-brown', '2000000', 'Ini dynasty', 'Escon', 1, 1, '2022-02-08 04:22:02', 'active', '2022-01-27', '3000000'),
+(2, 'D23345', 'KasurBaru', 'kasur-baru', '2000000', 'Ini Kasur Baru', 'Escon', 1, 1, '2022-01-31 21:00:17', 'active', '2022-01-27', '3000000');
 
 -- --------------------------------------------------------
 
@@ -91609,7 +91609,16 @@ INSERT INTO `transaction` (`id_transaction`, `kd_transaction`, `users`, `code_pr
 (83, 'XL18PJ', 'normanardian24@gmail.com', 'u12334566', 6, 47222, 1, 47222, '2022-02-19 10:50:57', '2022-02-19 09:50:57', 18000, 'guling', 'sofabed_2.JPG'),
 (84, 'XL18PJ', 'normanardian24@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-19 10:50:58', '2022-02-19 09:50:58', 18000, 'Bagus Brown', 'alegrobrown_2.JPG'),
 (85, 'XL18PJ', 'normanardian24@gmail.com', 'B12345', 8, 4012000, 1, 4012000, '2022-02-19 10:51:00', '2022-02-19 09:51:00', 18000, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(86, 'XL18PJ', 'normanardian24@gmail.com', 'k12345', 9, 20000, 1, 20000, '2022-02-19 10:51:01', '2022-02-19 09:51:01', 18000, 'bantal', 'alegrobrown_1.JPG');
+(86, 'XL18PJ', 'normanardian24@gmail.com', 'k12345', 9, 20000, 1, 20000, '2022-02-19 10:51:01', '2022-02-19 09:51:01', 18000, 'bantal', 'alegrobrown_1.JPG'),
+(87, 'GIVYZX', 'firmanruhiyan@gmail.com', 'D23344', 1, 2040000, 1, 2040000, '2022-02-20 08:11:45', '2022-02-20 07:11:45', 90000, 'Dynasty Brown', 'DYNASTY.png'),
+(88, 'GIVYZX', 'firmanruhiyan@gmail.com', 'D23344', 2, 2050000, 1, 2050000, '2022-02-20 08:11:48', '2022-02-20 07:11:48', 90000, 'Dynasty Brown', 'DYNASTY.png'),
+(89, 'KMVGTR', 'firmanruhiyan@gmail.com', 'D23344', 1, 2040000, 1, 2040000, '2022-02-20 08:25:39', '2022-02-20 07:25:39', 90000, 'Dynasty Brown', 'DYNASTY.png'),
+(90, 'KMVGTR', 'firmanruhiyan@gmail.com', 'D23344', 2, 2050000, 1, 2050000, '2022-02-20 08:25:41', '2022-02-20 07:25:41', 90000, 'Dynasty Brown', 'DYNASTY.png'),
+(91, 'AZSKA8', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-23 15:23:58', '2022-02-23 14:23:58', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
+(92, 'PJEDO0', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-23 15:36:22', '2022-02-23 14:36:22', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
+(93, 'NTTEDJ', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-23 15:39:43', '2022-02-23 14:39:43', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
+(94, 'T1GRFK', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-23 15:44:33', '2022-02-23 14:44:33', 250000, 'Bagus Brown', 'alegrobrown_2.JPG'),
+(95, 'IPUJSR', 'firmanruhiyan@gmail.com', 'B12345', 8, 4012000, 1, 4012000, '2022-02-23 15:46:57', '2022-02-23 14:46:57', 0, 'Bagus Brown', 'alegrobrown_2.JPG');
 
 -- --------------------------------------------------------
 
@@ -91686,11 +91695,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `photo`, `group`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$10$KjhOcwUXBcyxRJsRx/hgz.Udvc1qP3wozPc71/55Q4IdMugWXpHqS', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1644928501, 1, 'Admin', 'istrator', 'ADMIN', '087654323456', '5dcf268d105834f893f22b3d204692d3.png', 1),
+(1, '127.0.0.1', 'administrator', '$2y$10$KjhOcwUXBcyxRJsRx/hgz.Udvc1qP3wozPc71/55Q4IdMugWXpHqS', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1645680493, 1, 'Admin', 'istrator', 'ADMIN', '087654323456', '5dcf268d105834f893f22b3d204692d3.png', 1),
 (9, '::1', NULL, '$2y$10$Fu5qrsBkirSUv3ax1GNXWezcSunCIdrXYT7r3B.ZDf8me/Bge2UdO', 'firmanruhiyan@gmail.com', NULL, NULL, '81107289162e1565531b', '$2y$10$B7I.78EJFlqgP5NDWt9JHO5iTPeSuqdQ/CGuPvCFLPSxSCYJTtV8u', 1645262397, NULL, NULL, 1643257486, 1645086149, 1, 'firman', 'ruhiyan', NULL, '085697780467', '5687e7a2e7be92881c154b4711b85ecf.JPG', NULL),
-(10, '::1', NULL, '$2y$10$nL2vSpa4kvRGvhll8SVAmOIuFKePbZxopLRHUS03jNI21owmaq4L2', 'normanardian24@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1644201211, 1645263880, 1, 'Norman', 'Ardian', NULL, NULL, 'Norman Ardian.jpg', NULL),
+(10, '::1', NULL, '$2y$10$f3YT3eHXcK/KObfW/Iy2AedqsIW6uPD7TK.HS5Oj89Tqy6NNihUWG', 'normanardian24@gmail.com', NULL, NULL, 'f1bcf94f47ea0e620319', '$2y$10$3WrLi4D8c1t5xjTmzwAazu6CQiumQJbhV/tJHHLlEjtDP69xrUQ8m', 1645441763, NULL, NULL, 1644201211, 1645263880, 1, 'Norman', 'Ardian', NULL, NULL, 'Norman Ardian.jpg', NULL),
 (11, '::1', 'atiga', '$2y$10$NdgSDjxxXI7fdJirZUc4OuOaRKH1xbVIQoSRifKCzkPSxK8Ygam26', 'atigamall3@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1644817949, NULL, 1, 'atiga', 'mall', NULL, NULL, 'atiga mall.jpg', 2),
-(12, '::1', 'Wigman', '$2y$10$dLC/zTaAu2wY1eJ39aTeEOqa72OsKRO8aQiIXstypneDpDbeQyhmS', 'wigman.webstudio@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1644818190, NULL, 1, 'Wigman', 'Web Studio', NULL, '0987654345678', 'a95848426a8e9880c779a7789e5b34d0.JPG', 2);
+(12, '::1', 'Wigman', '$2y$10$dLC/zTaAu2wY1eJ39aTeEOqa72OsKRO8aQiIXstypneDpDbeQyhmS', 'wigman.webstudio@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1644818190, NULL, 1, 'Wigman', 'Web Studio', NULL, '0987654345678', 'a95848426a8e9880c779a7789e5b34d0.JPG', 2),
+(13, '::1', 'normanardiann', 'gagap123', 'normanardian21@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1645524288, NULL, 1, 'norman', 'ardian', NULL, '085697780467', 'fed030b19558db0df33af1f8dfbf5266.png', 3),
+(14, '::1', 'norman', 'gagap123', 'norman@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1645530277, NULL, 1, 'norman', 'ardian', NULL, '09876543212', '2725265dbcc2a2cae016c8ac713cf387.png', 3),
+(16, '::1', 'norman2', '$2y$10$pFc9bIolHEW/uzWUlvXOzuyh11R.z1atXIcPkfQ83Ckn5DD2U8Ehq', 'norman2@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1645530549, 1645619462, 1, 'norman', 'ardian', NULL, '087656789', '1e8441beee3024485b3c9e8e8d9fc0d1.png', 1);
 
 -- --------------------------------------------------------
 
@@ -91710,7 +91722,8 @@ CREATE TABLE `users_groups` (
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1),
-(2, 1, 2);
+(2, 1, 2),
+(9, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -91722,23 +91735,27 @@ CREATE TABLE `variation_product` (
   `id_variation` int(11) NOT NULL,
   `kd_product` varchar(30) NOT NULL,
   `name_variation` varchar(30) NOT NULL,
-  `price_variation` int(20) NOT NULL
+  `price_variation` int(20) NOT NULL,
+  `length_variation` int(11) DEFAULT NULL,
+  `width_variation` int(11) DEFAULT NULL,
+  `weight_variation` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `variation_product`
 --
 
-INSERT INTO `variation_product` (`id_variation`, `kd_product`, `name_variation`, `price_variation`) VALUES
-(1, 'D23344', '160 X 200', 40000),
-(2, 'D23344', '180 X 200', 50000),
-(3, 'u123345', '160 X 200', 20000),
-(4, 'u123345', '180 x 500', 10000),
-(5, 'u12334566', '180 x 200', 15000),
-(6, 'u12334566', '120 x 120', 22222),
-(7, 'B12345', '160 X 200', 10000),
-(8, 'B12345', '180 x 200', 12000),
-(9, 'k12345', '120 x 120', 0);
+INSERT INTO `variation_product` (`id_variation`, `kd_product`, `name_variation`, `price_variation`, `length_variation`, `width_variation`, `weight_variation`) VALUES
+(1, 'D23344', '160 X 200', 40000, 200, 160, 5000),
+(2, 'D23344', '180 X 200', 50000, 200, 180, 5000),
+(3, 'u123345', '160 X 200', 20000, 200, 160, 5000),
+(4, 'u123345', '180 x 500', 10000, 500, 180, 5000),
+(5, 'u12334566', '180 x 200', 15000, 200, 180, 5000),
+(6, 'u12334566', '120 x 120', 22222, 120, 120, 5000),
+(7, 'B12345', '160 X 200', 10000, 200, 160, 5000),
+(8, 'B12345', '180 x 200', 12000, 200, 180, 5000),
+(9, 'k12345', '120 x 120', 0, 120, 120, 5000),
+(10, 'B12345', '200 x 200', 0, 200, 200, 5000);
 
 --
 -- Indexes for dumped tables
@@ -91874,7 +91891,7 @@ ALTER TABLE `variation_product`
 -- AUTO_INCREMENT untuk tabel `alamat`
 --
 ALTER TABLE `alamat`
-  MODIFY `id_alamat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_alamat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `category_product`
@@ -91886,19 +91903,19 @@ ALTER TABLE `category_product`
 -- AUTO_INCREMENT untuk tabel `detail_transaction`
 --
 ALTER TABLE `detail_transaction`
-  MODIFY `id_detail_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_detail_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `photo_product`
@@ -91922,7 +91939,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT untuk tabel `transfer`
@@ -91940,19 +91957,19 @@ ALTER TABLE `unit_product`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `variation_product`
 --
 ALTER TABLE `variation_product`
-  MODIFY `id_variation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_variation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
