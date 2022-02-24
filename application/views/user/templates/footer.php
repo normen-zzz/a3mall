@@ -24,7 +24,7 @@
                 <p class="fw-bold">Contact Us</p>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <p class="small">Jangan ragu menghubungi kami jika ada pertanyaan :)</p>
+                        <a target="_blank" href="https://goo.gl/maps/fQfeMgSdEqc8ZrxGA" class="small nav-link text-dark">Jl. Mutiara V No. 3 Desa Curug RT.04 / RW.01, Kel. Curug, Kec. Gunung Sindur, Kab. Bogor, 16340</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark p-0 my-1 small" href="tel:+6281388912929">Phone: 081388912929</a>
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div class="col text-end mt-auto">
-                <!-- <a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a> -->
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100077517905467"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a>
                 <a target="_blank" href="https://www.instagram.com/atigamall/"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
                 <!-- <a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a> -->
             </div>

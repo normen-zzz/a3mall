@@ -106,6 +106,7 @@ class Barang extends CI_Controller
                 'users' => $user['id'],
                 'date_arrived' => $this->input->post('date'),
                 'beforeprice_product' => preg_replace("/[^0-9]/", "", $this->input->post('beforeprice')),
+
             ];
 
             // if (isset($_FILES['photo']['name'])) {
@@ -179,7 +180,8 @@ class Barang extends CI_Controller
                 'users' => $user['id'],
                 'status_product' => $this->input->post('status'),
                 'date_arrived' => $this->input->post('date'),
-                'beforeprice_product' => $this->input->post('beforeprice')
+                'beforeprice_product' => $this->input->post('beforeprice'),
+
             ];
             $this->barang->editBarang($this->input->post('code'), $data);
             $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Diubah!", "success");');
@@ -442,6 +444,9 @@ class Barang extends CI_Controller
             $data = [
                 'kd_product' => $this->input->post('code'),
                 'name_variation' => $this->input->post('name'),
+                'length_variation' => $this->input->post('length'),
+                'width_variation' => $this->input->post('width'),
+                'weight_variation' => $this->input->post('weight'),
             ];
 
 
@@ -464,6 +469,9 @@ class Barang extends CI_Controller
         } else {
             $data = [
                 'name_variation' => $this->input->post('name'),
+                'length_variation' => $this->input->post('length'),
+                'width_variation' => $this->input->post('width'),
+                'weight_variation' => $this->input->post('weight'),
             ];
             $this->barang->editVariation($this->input->post('id'), $data);
             $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Variation Berhasil Diubah!", "success");');

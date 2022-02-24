@@ -22,55 +22,32 @@
     <!-- Swipper JS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <title>A3Mall | Login</title>
+    <title>A3Mall | Lupa Password</title>
 </head>
 
 <body>
     <div class="container py-5">
         <div class="row">
-            <div class="col text-center">
-                <h1>MASUK</h1>
+            <div class="col text-center py-4">
+                <h1>Masukan Email</h1>
             </div>
         </div>
-
         <div class="row">
-            <div class="col text-center text-danger">
-                <p><?= $this->session->flashdata('message'); ?></p>
+            <div class="col text-center text-danger py-4">
+                <p><?= $this->session->flashdata('message') ?></p>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-7">
-                <form method="POST" action="<?= base_url('user/auth/login') ?>" class="needs-validation" autocomplete="off">
+            <div class="col-lg-5 shadow p-5">
+                <form method="POST" action="<?= base_url('user/Auth/forgot_password') ?>">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="identity" id="exampleInputEmail1" aria-describedby="emailHelp" required />
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" required />
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input name="remember" type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">Ingat Saya</label>
+                        <label for="identity" class="form-label">Email</label>
+                        <input type="email" name="identity" class="form-control" id="email" />
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="submit">Log In</button>
+                        <button class="btn btn-primary" type="submit">Submit</button>
                     </div>
                 </form>
-                <p class="pt-3 text-center">or</p>
-                <div class="d-grid">
-                    <a href="<?= base_url('user/Auth/google') ?>" class="btn btn-danger" type="submit"><i class="text-white bi-google"></i>+ Login Dengan Google</a>
-                </div>
-                <hr />
-                <div class="row">
-                    <a class="text-dark" href="<?= base_url('Register') ?>">Buat Akun Baru</a>
-                </div>
-                <div class="row">
-                    <a class="text-dark" href="<?= base_url('Forgot-Password') ?>">Lupa Password</a>
-                </div>
-
-
             </div>
         </div>
     </div>

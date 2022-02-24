@@ -82,7 +82,7 @@ class Checkout extends CI_Controller
         $alamatongkir = $getAlamat->rajaongkir->results;
         $ongkir = 0;
         foreach ($keranjang as $keranjang) {
-            $getHarga =  $this->ongkir->getHargaOngkir($alamat['kecamatan_alamat'], $keranjang['weight']);
+            $getHarga =  $this->ongkir->getHargaOngkir($alamat['kecamatan_alamat'], $keranjang['weight'], $keranjang['length'], $keranjang['width']);
             $harga = $getHarga->rajaongkir->results;
             $data = [
                 'kd_transaction' => $kode_transaksi,
@@ -93,11 +93,33 @@ class Checkout extends CI_Controller
                 'quantity' => $keranjang['qty'],
                 'total_price' => $keranjang['price'] * $keranjang['qty'],
                 'date_transaction' => date('Y-m-d H:i:s'),
-                'ongkir' => $harga[0]->costs[1]->cost[0]->value,
                 'name_product' => $keranjang['name'],
                 'photo_product' => $keranjang['photo']
             ];
-
+            $kota = $alamatongkir->city;
+            switch ($kota) {
+                case (preg_match("/jakarta/i", $alamatongkir->city) ? true : false):
+                    $data['ongkir'] = 0;
+                    break;
+                case (preg_match("/bogor/i", $alamatongkir->city) ? true : false):
+                    $data['ongkir'] = 0;
+                    break;
+                case (preg_match("/depok/i", $alamatongkir->city) ? true : false):
+                    $data['ongkir'] = 0;
+                    break;
+                case (preg_match("/tangerang/i", $alamatongkir->city) ? true : false):
+                    $data['ongkir'] = 0;
+                    break;
+                case (preg_match("/bekasi/i", $alamatongkir->city) ? true : false):
+                    $data['ongkir'] = 0;
+                    break;
+                case (preg_match("/kepulauan seribu/i", $alamatongkir->city) ? true : false):
+                    $data['ongkir'] = 0;
+                    break;
+                default:
+                    $data['ongkir'] = $harga[0]->costs[1]->cost[0]->value;
+                    break;
+            }
             $ongkir += $data['ongkir'];
             $this->db->insert('transaction', $data);
         }

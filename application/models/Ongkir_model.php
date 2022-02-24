@@ -116,7 +116,7 @@ class Ongkir_model extends CI_Model
         return $output;
     }
 
-    public function getHargaOngkir($tujuan, $berat)
+    public function getHargaOngkir($tujuan, $berat, $panjang, $lebar)
     {
         $curl = curl_init();
 
@@ -136,7 +136,9 @@ class Ongkir_model extends CI_Model
                 'destination' => $tujuan,
                 'destinationType' => 'subdistrict',
                 'weight' => $berat,
-                'courier' => 'jne'
+                'courier' => 'jne',
+                'length' => $panjang,
+                'width' => $lebar
             ),
         ));
 

@@ -64,7 +64,9 @@ class Cart extends CI_Controller
             'qty' => $this->input->post('quantity'),
             'photo' => $this->input->post('photo_product'),
             'kd_product' => $this->input->post('kd_product'),
-            'weight' => $this->input->post('weight_product')
+            'weight' => $this->input->post('weight_product'),
+            'length' => $this->input->post('length_product'),
+            'width' => $this->input->post('width_product'),
         );
         $this->cart->insert($data);
         // echo $this->show_cart(); //tampilkan cart setelah added
@@ -80,7 +82,9 @@ class Cart extends CI_Controller
             'qty' => $this->input->post('quantity'),
             'photo' => $this->input->post('photo_product'),
             'kd_product' => $this->input->post('kd_product'),
-            'weight' => 1
+            'weight' => $this->input->post('weight_product'),
+            'length' => $this->input->post('length_product'),
+            'width' => $this->input->post('width_product'),
         );
         $this->cart->insert($data);
         // echo $this->show_cart(); //tampilkan cart setelah added
@@ -166,6 +170,7 @@ class Cart extends CI_Controller
             <div class="row">
                 <div class="col-md py-1">
                     <p>' . $keranjang['name'] . '</p>
+                   
                 </div>
                 <div class="col-md py-1 text-center isi-keranjang my-auto">
                 <p class="fw-light text-secondary my-auto">Variasi:' . $variation['name_variation'] . '</p>

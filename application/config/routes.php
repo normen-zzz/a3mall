@@ -70,6 +70,8 @@ $route['Login'] = 'user/Auth/login';
 $route['Register'] = 'user/Auth/create_user';
 $route['login-google'] = 'user/Auth/google';
 $route['set-password'] = 'user/Auth/set_password';
+$route['Forgot-Password'] = 'user/Auth/forgot_password';
+
 
 //Cart
 $route['Cart'] = 'user/Cart';

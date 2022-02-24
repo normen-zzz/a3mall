@@ -26,7 +26,6 @@
                                             <th>Before Price</th>
                                             <th>Describe</th>
                                             <th>Category</th>
-                                            <th>Weight</th>
                                             <th>Last Edited By</th>
                                             <th>Status</th>
                                             <th>Created At</th>
@@ -42,7 +41,6 @@
                                                 <td><?= number_format($barang['beforeprice_product'], '0', ',', '.') ?></td>
                                                 <td><?= $barang['describe_product'] ?></td>
                                                 <td><?= $barang['name_category'] ?></td>
-                                                <td><?= $barang['weight_product'] ?></td>
                                                 <td><?= $barang['username'] ?></td>
                                                 <td>
                                                     <?php if ($barang['status_product'] == 'active') {
@@ -224,6 +222,7 @@
                         </select>
                         <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
                     </div>
+
                     <div class="form-group">
                         <label>Before Price</label>
                         <input type="text" id="tanpa-rupiah" name="beforeprice" class="form-control">
@@ -287,6 +286,7 @@
                 $('input[name=brand]').val(data.brand_product);
                 $('select[name=status]').val(data.status_product);
                 $('input[name=date]').val(data.date_arrived);
+
             },
             error: function() {
                 alert('Could not displaying data');

@@ -22,6 +22,9 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Name</th>
+                                            <th>Length (Cm)</th>
+                                            <th>Width (Cm)</th>
+                                            <th>Weight (G)</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -31,6 +34,9 @@
                                             <tr>
                                                 <td><?= $no ?></td>
                                                 <td><?= $variation['name_variation'] ?></td>
+                                                <td><?= $variation['length_variation'] ?></td>
+                                                <td><?= $variation['width_variation'] ?></td>
+                                                <td><?= $variation['weight_variation'] ?></td>
                                                 <td>
 
                                                     <a href="javascript:;" class="btn btn-primary mt-1 item-detail" data="<?php echo $variation['id_variation'] ?>">Ubah</a>
@@ -45,23 +51,6 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="card-footer text-right">
-                            <nav class="d-inline-block">
-                                <ul class="pagination mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -75,18 +64,34 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Barang</h5>
+                <h5 class="modal-title">Tambah Variation</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form action="<?= base_url('admin/Barang/addVariation') ?>" method="post">
-                    <input type="text" name="code" value="<?= $this->uri->segment(4) ?>">
+                    <input type="text" name="code" value="<?= $this->uri->segment(4) ?>" hidden>
                     <div class="form-group">
                         <label>Name Variation</label>
                         <input type="text" name="name" class="form-control">
                         <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Width (Cm)</label>
+                        <input type="number" name="width" class="form-control">
+                        <?= form_error('width', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Length (Cm)</label>
+                        <input type="number" name="length" class="form-control">
+                        <?= form_error('length', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Weight (G)</label>
+                        <input type="number" name="weight" class="form-control">
+                        <?= form_error('weight', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
             </div>
@@ -104,7 +109,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Barang</h5>
+                <h5 class="modal-title">Ubah Variation</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -115,9 +120,25 @@
                     <input type="text" name="id" hidden>
                     <input type="text" name="code" hidden>
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Name (Width x Length)</label>
                         <input type="text" name="name" class="form-control">
                         <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Width (Cm)</label>
+                        <input type="number" name="width" class="form-control">
+                        <?= form_error('width', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Length (Cm)</label>
+                        <input type="number" name="length" class="form-control">
+                        <?= form_error('length', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Weight (G)</label>
+                        <input type="number" name="weight" class="form-control">
+                        <?= form_error('weight', '<small class="text-danger">', '</small>'); ?>
                     </div>
             </div>
             <div class="modal-footer bg-whitesmoke br">
@@ -147,6 +168,9 @@
                 $('input[name=id]').val(data.id_variation);
                 $('input[name=name]').val(data.name_variation);
                 $('input[name=code]').val(data.kd_product);
+                $('input[name=length]').val(data.length_variation);
+                $('input[name=width]').val(data.width_variation);
+                $('input[name=weight]').val(data.weight_variation);
             },
             error: function() {
                 alert('Could not displaying data');

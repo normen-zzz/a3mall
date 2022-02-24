@@ -311,7 +311,7 @@ class Auth extends CI_Controller
 
 			// set any errors and display the form
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'forgot_password', $this->data);
+			$this->_render_page('user/auth' . DIRECTORY_SEPARATOR . 'forgot_password', $this->data);
 		} else {
 			$identity_column = $this->config->item('identity', 'ion_auth');
 			$identity = $this->ion_auth->where($identity_column, $this->input->post('identity'))->users()->row();
@@ -360,11 +360,11 @@ class Auth extends CI_Controller
 
 				if ($this->email->send()) {
 
-					$this->session->set_flashdata('success', 'Email Send sucessfully');
+					$this->session->set_flashdata('message', 'Email Untuk reset password berhasil dikirimkan, Silahkan cek email anda');
 					return redirect('user/auth/login');
 				} else {
-					echo "Email not send .....";
-					show_error($this->email->print_debugger());
+					$this->session->set_flashdata('message', 'Pengiriman Ke Email Untuk Reset Password Gagal <br> Silahkan Coba lagi');
+					return redirect('Forgot-Password');
 				}
 			} else {
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
@@ -423,7 +423,7 @@ class Auth extends CI_Controller
 				$this->data['code'] = $code;
 
 				// render
-				$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'reset_password', $this->data);
+				$this->_render_page('user/auth' . DIRECTORY_SEPARATOR . 'reset_password', $this->data);
 			} else {
 				$identity = $user->{$this->config->item('identity', 'ion_auth')};
 
@@ -444,7 +444,7 @@ class Auth extends CI_Controller
 						redirect("user/auth/login", 'refresh');
 					} else {
 						$this->session->set_flashdata('message', $this->ion_auth->errors());
-						redirect('user/auth/reset_password/' . $code, 'refresh');
+						redirect('user/Auth/reset_password/' . $code, 'refresh');
 					}
 				}
 			}

@@ -12,6 +12,12 @@
                             <h4><?= $title ?></h4>
                         </div>
                         <div class="col">
+                            <button data-toggle="modal" data-target="#tambahAdminModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Admin</button>
+                        </div>
+                        <div class="col mt-2">
+                            <a href="<?= base_url('admin/Administrator/group') ?>" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i>Group</a>
+                        </div>
+                        <div class="col">
                             <!-- <button data-toggle="modal" data-target="#tambahPhotoBarangModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Photo</button> -->
                         </div>
                         <div class="card-body">
@@ -44,7 +50,7 @@
                                                 <td><?= $admin['name'] ?></td>
                                                 <td>
                                                     <a href="javascript:;" class="btn btn-primary mt-1 item-detail" data="<?php echo $admin['email'] ?>">Ubah</a>
-                                                    <a href="<?= base_url('admin/Barang/deleteBarang/' . $admin['email']) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>
+                                                    <a href="<?= base_url('admin/Barang/deleteAdmin/' . urlencode($admin['email'])) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -95,9 +101,10 @@
                 }
                 ?>
                 <form action="<?= base_url('admin/Administrator/editAdmin') ?>" method="post" enctype="multipart/form-data">
+                    <input type="text" name="ganti_gambar" hidden>
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="text" name="username" class="form-control">
+                        <input type="text" name="username" class="form-control" required>
                         <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
@@ -113,13 +120,23 @@
                     </div>
 
                     <div class="form-group">
+                        <label>Group</label>
+                        <select name="group" class="form-control" id="group" required>
+                            <?php foreach ($group as $group) { ?>
+                                <option value="<?= $group['id'] ?>"><?= $group['name'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" name="first_name" class="form-control">
+                        <input type="text" name="first_name" class="form-control" required>
                         <?= form_error('first_name', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" name="last_name" class="form-control">
+                        <input type="text" name="last_name" class="form-control" required>
                         <?= form_error('last_name', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
@@ -130,6 +147,82 @@
                     <div class="form-group">
                         <label>Photo (Isi Jika Ingin Mengubah Photo)</label>
                         <input type="file" name="photo" class="form-control">
+                        <?= form_error('photo', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- modal tambah barang -->
+<div class="modal fade" tabindex="-1" role="dialog" id="tambahAdminModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Barang</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php
+                $url = $this->uri->segment(3);
+                if ($url == 'addBarang') {
+                    $url = $this->uri->segment(4);
+                }
+                ?>
+                <form action="<?= base_url('admin/Administrator/addAdmin') ?>" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                        <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" class="form-control" required>
+                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>password</label>
+                        <input type="text" name="password" class="form-control" required>
+                        <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Group</label>
+                        <select name="group" class="form-control" required>
+                            <?php foreach ($group as $group) { ?>
+                                <option value="<?= $group['id'] ?>"><?= $group['name'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" class="form-control" required>
+                        <?= form_error('first_name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" class="form-control" required>
+                        <?= form_error('last_name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" name="phone" class="form-control" required>
+                        <?= form_error('phone', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <input type="file" name="photo" class="form-control" required>
                         <?= form_error('photo', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
@@ -163,6 +256,9 @@
                 $('input[name=first_name]').val(data.first_name);
                 $('input[name=last_name]').val(data.last_name);
                 $('input[name=phone]').val(data.phone);
+                $('input[name=ganti_gambar]').val(data.photo);
+                $(`select[name=group] option[value=${data.group}]`).attr('selected', true);
+                // $('select[name=status]').val(data.status_product);
             },
             error: function() {
                 alert('Could not displaying data');

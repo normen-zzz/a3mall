@@ -1,10 +1,10 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
+            <a href="index.html">A3Mall</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html">A3</a>
         </div>
         <ul class="sidebar-menu">
             <!-- Dashboard -->
@@ -58,11 +58,12 @@
             <li class="<?php if ($this->uri->segment(2) == "pembayaran" || $this->uri->segment(2) == "Pembayaran") {
                             echo "active";
                         } ?>"><a class="nav-link" href="<?= base_url('admin/Pembayaran') ?>"><i class="fas fa-fire"></i> <span>Pembayaran</span></a></li>
-
-            <li class="menu-header">Administrator</li>
-            <li class="<?php if ($this->uri->segment(2) == "administrator" || $this->uri->segment(2) == "Administrator") {
-                            echo "active";
-                        } ?>"><a class="nav-link" href="<?= base_url('admin/Administrator') ?>"><i class="fas fa-fire"></i> <span>Administrator</span></a></li>
+            <?php if ($user['group'] == 1) { ?>
+                <li class="menu-header">Administrator</li>
+                <li class="<?php if ($this->uri->segment(2) == "administrator" || $this->uri->segment(2) == "Administrator") {
+                                echo "active";
+                            } ?>"><a class="nav-link" href="<?= base_url('admin/Administrator') ?>"><i class="fas fa-fire"></i> <span>Administrator</span></a></li>
+            <?php } ?>
 
     </aside>
 </div>

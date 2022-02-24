@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Transaksi Selesai</h1>
+            <h1>Data Group Administrator</h1>
         </div>
 
         <div class="section-body">
@@ -12,6 +12,9 @@
                             <h4><?= $title ?></h4>
                         </div>
                         <div class="col">
+                            <button data-toggle="modal" data-target="#tambahGroupModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Group</button>
+                        </div>
+                        <div class="col">
                             <!-- <button data-toggle="modal" data-target="#tambahPhotoBarangModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Photo</button> -->
                         </div>
                         <div class="card-body">
@@ -20,36 +23,23 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Pelanggan</th>
-                                            <th>Kode</th>
-                                            <th>Tanggal</th>
-                                            <th>Yang Harus Dibayarkan</th>
-                                            <th>Status Bayar</th>
+                                            <th>Name</th>
+                                            <th>Description</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody id="showdata">
                                         <?php $no = 0;
-                                        foreach ($transaksi as $transaksi) {
+                                        foreach ($group as $group) {
                                             $no++ ?>
                                             <tr>
                                                 <td><?= $no ?></td>
-                                                <td><?php echo $transaksi->name_customers ?>
-                                                    <br><small>
-                                                        Telepon: <?php echo $transaksi->telp_customers ?>
-                                                        <br>Email: <?php echo $transaksi->email_users ?>
-                                                        <br>Alamat Kirim:
-                                                        <br><?php echo nl2br($transaksi->address_customers) ?>
-                                                    </small>
-                                                </td>
-                                                <td><?php echo $transaksi->kd_transaction ?></td>
-                                                <td><?php echo date('d-m-Y', strtotime($transaksi->date_transaction)) ?></td>
-                                                <td><?php echo number_format($transaksi->total_transaction) ?></td>
-                                                <td>Selesai</td>
+                                                <td><?= $group['name'] ?></td>
+                                                <td><?= $group['description'] ?></td>
                                                 <td>
-                                                    <!-- <a href="<?= base_url('admin/Transaksi/updateTransaction/' . $transaksi->kd_transaction) ?>" class="btn btn-success mt-1" onclick="return confirm('Anda Yakin Ingin Konfirmasi?')"><i class="fa fa-check"></i> Konfirmasi</a>
-                                                    <a href="" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')"><i class="fa fa-times"></i> Hapus</a> -->
+                                                    <a href="javascript:;" class="btn btn-primary mt-1 item-detail" data="<?php echo $group['id'] ?>">Ubah</a>
+                                                    <a href="<?= base_url('admin/Administrator/deleteGroup/' . $group['id']) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -82,6 +72,109 @@
         </div>
     </section>
 </div>
+<!-- modal ubah Group  -->
+<div class="modal fade" tabindex="-1" role="dialog" id="editGroupModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ubah Group</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php
+                $url = $this->uri->segment(3);
+                if ($url == 'editBarang') {
+                    $url = $this->uri->segment(4);
+                }
+                ?>
+                <form action="<?= base_url('admin/Administrator/editGroup') ?>" method="post">
+                    <input type="number" name="id" hidden>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" required>
+                        <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" name="description" class="form-control" required>
+                        <?= form_error('description', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- modal tambah Group -->
+<div class="modal fade" tabindex="-1" role="dialog" id="tambahGroupModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Barang</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php
+                $url = $this->uri->segment(3);
+                if ($url == 'addBarang') {
+                    $url = $this->uri->segment(4);
+                }
+                ?>
+                <form action="<?= base_url('admin/Administrator/addGroup') ?>" method="post">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" required>
+                        <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" name="description" class="form-control" required>
+                        <?= form_error('description', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#showdata').on('click', '.item-detail', function() {
+        var id = $(this).attr('data');
+        $('#editGroupModal').modal('show');
+        $.ajax({
+            type: 'ajax',
+            method: 'get',
+            url: '<?php echo base_url() ?>admin/Administrator/getGroup',
+            data: {
+                id: id,
+            },
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                $('input[name=name]').val(data.name);
+                $('input[name=description]').val(data.description);
+                $('input[name=id]').val(data.id);
+            },
+            error: function() {
+                alert('Could not displaying data');
+            }
+        });
+    });
+</script>
 
 <!-- <div class="modal fade" tabindex="-1" role="dialog" id="tambahPhotoBarangModal">
     <div class="modal-dialog" role="document">

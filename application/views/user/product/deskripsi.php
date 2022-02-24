@@ -43,12 +43,15 @@
 
                              <div class="col-4">
                                  <div class="form-check">
-                                     <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" />
+                                     <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" data-lengthvariation="<?= $variation->length_variation ?>" data-widthvariation="<?= $variation->width_variation ?>" data-weightvariation="<?= $variation->weight_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" />
                                      <label class="form-check-label" for="flexRadioDefault1"><?= $variation->name_variation ?></label>
                                  </div>
                              </div>
                              <input class="form-control quantity border-0 text-center" id="pricevariasi" name="pricevariasi" type="number" hidden />
                              <input class="form-control quantity border-0 text-center" id="beforepricevariasi" name="beforepricevariasi" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="length_variation" name="length_variation" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="width_variation" name="width_variation" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="weight_variation" name="weight_variation" type="number" hidden />
                          <?php } ?>
                      </div>
                      <div class="input-group inline-group border-1 border border-dark">
@@ -77,7 +80,7 @@
 
                      </div>
                      <div class="d-grid gap-2">
-                         <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" data-weightproduct="<?php echo $produk->weight_product ?>">Masukan Ke Keranjang</button>
+                         <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>">Masukan Ke Keranjang</button>
                          <button href="#" class="btn yellow-button shadow" type="button" data-bs-toggle="modal" data-bs-target="#modalPerItem">Beli Per Item</button>
                      </div>
                  </div>
@@ -200,13 +203,17 @@
                                                 if ($variationunitwhere['kd_product'] == $unit['kd_unit']) { ?>
                                                  <div class="col-4">
                                                      <div class="form-check">
-                                                         <input class="form-check-input cek <?= $variationunitwhere['kd_product'] ?>" type="checkbox" name="unitvariation[]" id="flexRadioDefault1" onClick="toggle(this,'<?= $variationunitwhere['kd_product'] ?>')" value="<?= $variationunitwhere['id_variation'] ?>" data-priceunitproduk="<?= $unit['price_unit'] ?>" data-unitkdproduk="<?= $unit['kd_unit'] ?>" data-priceunitvariation="<?= $variationunitwhere['price_variation'] ?>" />
+                                                         <input class="form-check-input cek <?= $variationunitwhere['kd_product'] ?>" type="checkbox" name="unitvariation[]" id="flexRadioDefault1" onClick="toggle(this,'<?= $variationunitwhere['kd_product'] ?>')" value="<?= $variationunitwhere['id_variation'] ?>" data-priceunitproduk="<?= $unit['price_unit'] ?>" data-unitkdproduk="<?= $unit['kd_unit'] ?>" data-priceunitvariation="<?= $variationunitwhere['price_variation'] ?>" data-lengthunitvariation="<?= $variationunitwhere['length_variation'] ?>" data-widthunitvariation="<?= $variationunitwhere['width_variation'] ?>" data-weightunitvariation="<?= $variationunitwhere['weight_variation'] ?>" />
                                                          <label class="form-check-label" for="flexRadioDefault1"><?= $variationunitwhere['name_variation'] ?></label>
                                                      </div>
                                                  </div>
                                          <?php }
                                             } ?>
                                          <input class="form-control quantity border-0 text-center" id="<?= $unit['kd_unit'] ?>" name="<?= $unit['kd_unit'] ?>" type="number" hidden />
+                                         <input type="number" name="length<?= $unit['kd_unit'] ?>" id="length<?= $unit['kd_unit'] ?>" hidden>
+                                         <input type="number" name="width<?= $unit['kd_unit'] ?>" id="width<?= $unit['kd_unit'] ?>" hidden>
+                                         <input type="number" name="weight<?= $unit['kd_unit'] ?>" id="weight<?= $unit['kd_unit'] ?>" hidden>
+
                                      </div>
                                  </div>
                                  <div class="col-2">
@@ -238,12 +245,20 @@
          var hargaBeforeProduk = $(this).data("beforepriceproduk");
          var newHarga = hargaVariasi + hargaProduk;
          var newBeforeHarga = hargaVariasi + hargaBeforeProduk;
+         var panjangVariasi = $(this).data("lengthvariation");
+         var lebarVariasi = $(this).data("widthvariation");
+         var beratVariasi = $(this).data("weightvariation");
+
 
          value = convertToRupiah(newHarga);
          beforeValue = "<s>" + convertToRupiah(newBeforeHarga) + "</s>";
          $('input[name=pricevariasi]').val(hargaVariasi);
          $("#target").html(value);
          $("#beforetarget").html(beforeValue);
+         $('input[name=length_variation]').val(panjangVariasi);
+         $('input[name=width_variation]').val(lebarVariasi);
+         $('input[name=weight_variation]').val(beratVariasi);
+
 
 
      });
@@ -281,12 +296,18 @@
                  var hargaBeforeProduk = $(this).data("beforepriceproduk");
                  var newHarga = hargaVariasi + hargaProduk;
                  var newBeforeHarga = hargaVariasi + hargaBeforeProduk;
+                 var panjangVariasi = $(this).data("lengthvariation");
+                 var lebarVariasi = $(this).data("widthvariation");
+                 var beratVariasi = $(this).data("weightvariation");
 
                  value = convertToRupiah(newHarga);
                  beforeValue = "<s>" + convertToRupiah(newBeforeHarga) + "</s>"
                  $('input[name=pricevariasi]').val(hargaVariasi);
                  $("#target").html(value);
                  $(".beforetarget").html(beforeValue);
+                 $('input[name=length_variation]').val(panjangVariasi);
+                 $('input[name=width_variation]').val(lebarVariasi);
+                 $('input[name=weight_variation]').val(beratVariasi);
              })
 
          }
@@ -305,7 +326,10 @@
                  var quantity = $('#' + kd_product).val();
                  var photo_product = $(this).data("photoproduct");
                  var variation = $('input[name="variation"]:checked').val();
-                 var weight_product = $(this).data("weightproduct");
+                 var weight_product = $('input[name=weight_variation]').val();
+                 var length_product = $('input[name=length_variation]').val();
+                 var width_product = $('input[name=width_variation]').val();
+
 
                  $.ajax({
                      url: "<?= base_url(); ?>user/cart/add_to_cart",
@@ -317,6 +341,8 @@
                          quantity: quantity,
                          photo_product: photo_product,
                          variation: variation,
+                         length_product: length_product,
+                         width_product: width_product,
                          weight_product: weight_product
                      },
                      success: function(data) {
@@ -366,7 +392,9 @@
                  var quantity = 1;
                  var photo_product = $(this).data("unitphotoproduct");
                  var variation = $(`.${kd_product}:checked`).val();
-                 var weight_product = 1;
+                 var length_product = $(`#length${kd_product}`).val();
+                 var width_product = $(`#width${kd_product}`).val();
+                 var weight_product = $(`#weight${kd_product}`).val();
 
                  $.ajax({
                      url: "<?= base_url(); ?>user/cart/add_to_cart_unit",
@@ -378,6 +406,8 @@
                          quantity: quantity,
                          photo_product: photo_product,
                          variation: variation,
+                         length_product: length_product,
+                         width_product: width_product,
                          weight_product: weight_product
                      },
                      success: function(data) {
@@ -408,8 +438,15 @@
          var hargaVariasi = $(this).data("priceunitvariation");
          var hargaProduk = $(this).data("priceunitproduk");
          var newHarga = hargaVariasi + hargaProduk;
+         var panjangVariasi = $(this).data("lengthunitvariation");
+         var lebarVariasi = $(this).data("widthunitvariation");
+         var beratVariasi = $(this).data("weightunitvariation");
 
          $(`input[name=${kd_unitProduk}]`).val(hargaVariasi);
+         $(`input[name=length${kd_unitProduk}]`).val(panjangVariasi);
+         $(`input[name=width${kd_unitProduk}]`).val(lebarVariasi);
+         $(`input[name=weight${kd_unitProduk}]`).val(beratVariasi);
+
 
 
      });
