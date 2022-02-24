@@ -74,56 +74,11 @@
      <div class="container py-5">
          <div class="row">
              <dov class="col">
-                 <h2 class="judul">Produk Serupa</h2>
+                 <h2 class="judul">Produk Unggulan</h2>
              </dov>
          </div>
          <div class="row pt-3 proser-grid">
-             <div class="col py-2">
-                 <a href="./deskripsi.html" style="text-decoration: none">
-                     <div class="bg-white card-proser">
-                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                         <div class="card-body">
-                             <p class="fw-light text-secondary small">Sofa</p>
-                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                             <div class="text-center btn-foto">
-                                 <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
-                             </div>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="col py-2">
-                 <a href="./deskripsi.html" style="text-decoration: none">
-                     <div class="bg-white card-proser">
-                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                         <div class="card-body">
-                             <p class="fw-light text-secondary small">Sofa</p>
-                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                             <div class="text-center btn-foto">
-                                 <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
-                             </div>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="col py-2">
-                 <a href="./deskripsi.html" style="text-decoration: none">
-                     <div class="bg-white card-proser">
-                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                         <div class="card-body">
-                             <p class="fw-light text-secondary small">Sofa</p>
-                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                             <div class="text-center btn-foto">
-                                 <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
-                             </div>
-                         </div>
-                     </div>
-                 </a>
-             </div>
-             <div class="col py-2">
+             <div class="col-3 py-2">
                  <a href="./deskripsi.html" style="text-decoration: none">
                      <div class="bg-white card-proser">
                          <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />

@@ -140,7 +140,7 @@
              <?php foreach ($sejenis as $sejenis) {
                     $max = $this->barang->getMaxPriceFromVariation($sejenis->kd_product)->row();
                     $min = $this->barang->getMinPriceFromVariation($sejenis->kd_product)->row(); ?>
-                 <div class="col py-2">
+                 <div class="col-3 py-2">
                      <a href="<?= base_url('Deskripsi/' . $sejenis->slug_product) ?>" style="text-decoration: none">
                          <div class="bg-white card-proser">
                              <img src="<?= base_url('assets/images/produk/' . $sejenis->photo_product) ?>" class="card-img-top p-3" alt="..." />
