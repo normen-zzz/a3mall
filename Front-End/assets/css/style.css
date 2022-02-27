@@ -253,7 +253,8 @@ ul li a.cart .cart-basket {
     object-fit: cover;
   }
 
-  #produk .produk-grid {
+  #produk .produk-grid,
+  #brand .grid-brand {
     display: grid;
     grid-template-columns: auto auto;
   }
@@ -293,7 +294,8 @@ ul li a.cart .cart-basket {
 
   #proser .btn-foto,
   #arival .btn-foto,
-  #produk .btn-foto {
+  #produk .btn-foto,
+  #brand .btn-foto {
     display: none;
   }
   /* Produk Serupa */
