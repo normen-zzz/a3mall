@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Barang_model', 'barang');
+		$this->load->model('Blog_model', 'blog');
 	}
 
 	public function index()
@@ -28,17 +29,8 @@ class Dashboard extends CI_Controller
 			"usergoogle" => $usergoogle,
 			"springbed" => $this->barang->getNewArrival(1),
 			"sofa" => $this->barang->getNewArrival(2),
-		];
-
-		$this->load->view('user/templates/app', $data, FALSE);
-	}
-
-	public function lokasi()
-	{
-		$data = [
-			"title" => "A3MALL | Lokasi",
-			"page" => "user/lokasi",
-			"user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
+			"blog" => $this->blog->getBlog()->result_array(),
+			"brand" => $this->db->get('brand_product')->result_array(),
 		];
 
 		$this->load->view('user/templates/app', $data, FALSE);

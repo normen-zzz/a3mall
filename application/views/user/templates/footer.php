@@ -7,7 +7,7 @@
                 <p>Menyediakan Spring Bed dan Sofa berkualitas.</p>
             </div>
             <div class="col-lg py-2">
-                <p class="fw-bold">About Us</p>
+                <!-- <p class="fw-bold">About Us</p>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link text-dark p-0 my-1 small" href="#">Service</a>
@@ -18,16 +18,16 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark p-0 my-1 small" href="#">Contact Us</a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
             <div class="col-lg py-2">
                 <p class="fw-bold">Contact Us</p>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a target="_blank" href="https://goo.gl/maps/fQfeMgSdEqc8ZrxGA" class="small nav-link text-dark">Jl. Mutiara V No. 3 Desa Curug RT.04 / RW.01, Kel. Curug, Kec. Gunung Sindur, Kab. Bogor, 16340</a>
+                        <p class="small nav-link text-dark">Jl. Mutiara V No. 3 Desa Curug RT.04 / RW.01, Kel. Curug, Kec. Gunung Sindur, Kab. Bogor, 16340</p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark p-0 my-1 small" href="tel:+6281388912929">Phone: 081388912929</a>
+                        <a class="nav-link text-dark p-0 my-1 small" href="tel:+6281388912929"><i class="bi bi-telephone"></i> (+62)81388912929</a>
 
                     </li>
                 </ul>

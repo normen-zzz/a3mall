@@ -86,3 +86,9 @@ $route['Status/detail/(:any)'] = 'user/Status/detail';
 //Catalogue
 $route['Catalogue'] = 'user/Catalogue/index';
 $route['Catalogue/detailCatalogue/(:any)'] = 'user/Catalogue/detailCatalogue';
+
+//Blog
+$route['Blog'] = 'user/Blog/index';
+$route['Blog/detail/(:any)'] = 'user/Blog/detailBlog';
+//Blog
+$route['Brand/(:any)'] = 'user/Brand/index';

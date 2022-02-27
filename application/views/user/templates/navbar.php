@@ -1,179 +1,88 @@
- <?php if ($this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) == NULL) { ?>
-     <!-- Navbar Dashboard -->
-     <nav class="navbar navbar-expand-md navbar-light fixed-top my-auto" id="navbar">
-         <div class="container">
-             <a class="navbar-brand fw-bold bt" href="<?= base_url('Dashboard') ?>">A3MALL</a>
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-             </button>
-             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                 <ul class="navbar-nav ms-5 me-auto">
-                     <li class="nav-item">
-                         <a class="nav-link active" href="<?= base_url('Dashboard') ?>">Home</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link bt" href="<?= base_url('Product') ?>">Produk</a>
-                     </li>
-                 </ul>
-                 <ul class="navbar-nav">
-                     <li class="nav-item my-auto me-3">
-                         <!-- <form class="input-group border-1 border rounded-3">
-                             <span class="input-group-text border-0 bg-white" id="basic-addon1"><i class="bi bi-search"></i></span>
-                             <input class="form-control border-0" type="search" placeholder="Search" aria-label="Search" />
-                         </form> -->
-                     </li>
-                     <li class="nav-item cartres my-auto me-4">
-                         <div id="cart" class="d-none"></div>
-                         <a href="<?= base_url('Cart') ?>" class="cart h5 bt position-relative d-inline-flex" aria-label="View your shopping cart">
-                             <i class="bi bi-cart3"></i>
-                             <div id="total_items"></div>
-                         </a>
-                     </li>
-                     <!-- Jika Login Manual -->
-                     <?php if ($this->session->userdata('email')) { ?>
-                         <li class="nav-item dropdown my-auto">
-                             <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $user['photo']) ?>" width="30" height="30" alt="" />
-                             </a>
-                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                 <li>
-                                     <p class="fw-light text-secondary small text-center">Hai, <?= $user['first_name'] . ' ' . $user['last_name'] ?></p>
-                                 </li>
-                                 <hr />
-                                 <li>
-                                     <p class="dropdown-item">Saldo: <?= number_format($user['saldo'], '0', ',', '.')  ?></p>
-                                 </li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
-                                 <hr />
-                                 <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
-                             </ul>
-                         </li>
-                         <!-- Jika Login Google -->
-                     <?php } elseif ($this->session->userdata('user_data')) {
+<!-- Navbar -->
+<?php $brand = $this->db->get('brand_product')->result_array(); ?>
+<nav class="navbar navbar-expand-md navbar-light bg-white my-auto" id="navbar">
+    <div class="container">
+        <div class="img">
+            <a href="<?= base_url('Dashboard') ?>"><img src="<?= base_url('assets/user/') ?>img/logo-gradiant_revisi01022022-2.png" height="50" alt="" /></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav navb ms-5 me-auto">
+                <li class="nav-item ms-3">
+                    <a class="nav-link active" href="<?= base_url('Dashboard') ?>">Home</a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="<?= base_url('Product') ?>">Produk</a>
+                </li>
+                <li class="nav-item dropdown ms-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Brand </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php foreach ($brand as $brand) { ?>
+                            <li><a class="dropdown-item" href="<?= base_url('Brand/' . $brand['name_brand']) ?>"><?= $brand['name_brand'] ?></a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="<?= base_url('Blog') ?>">Blog</a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="<?= base_url('Catalogue') ?>">Catalogue</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item cartres my-auto">
+                    <div id="cart" class="d-none"></div>
+                    <a href="<?= base_url('Cart') ?>" class="cart h5 my-auto text-dark position-relative d-inline-flex" aria-label="View your shopping cart">
+                        <i class="bi bi-cart3"></i>
+                        <div class="cart-basket d-flex align-items-center justify-content-center" id="total_items"></div>
+                    </a>
+                </li>
 
-                        ?>
-                         <li class="nav-item dropdown my-auto">
-                             <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $usergoogle['photo']) ?>" width="30" height="30" alt="" />
-                             </a>
-                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                 <li>
-                                     <p class="fw-light text-secondary small text-center">Hai, <?= $usergoogle['first_name'] ?></p>
-                                 </li>
-                                 <hr />
-                                 <li>
-                                     <p class="dropdown-item">Saldo: <?= number_format($usergoogle['saldo'], '0', ',', '.')  ?></p>
-                                 </li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
-                                 <hr />
-                                 <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
-                             </ul>
-                         </li>
-                     <?php } else { ?>
-                         <li class="nav-item my-auto">
-                             <a class="nav-link my-auto bt btn btn-warning px-5 rounded-pill" href="<?= base_url('Login') ?>">Login</a>
-                         </li>
-                     <?php } ?>
-
-
-                 </ul>
-             </div>
-         </div>
-     </nav>
-     <!-- Akhir Navbar -->
-
- <?php } else { ?>
-     <!-- Navbar Selain Dashboard -->
-     <nav class="navbar navbar-expand-lg navbar-light py-3" id="navbar">
-         <div class="container">
-             <a class="navbar-brand fw-bold" href="<?= base_url('Dashboard') ?>">A3MALL</a>
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-             </button>
-             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                 <ul class="navbar-nav ms-5 me-auto">
-                     <li class="nav-item">
-                         <a class="nav-link <?php if ($this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) === FALSE) {
-                                                echo 'active';
-                                            } ?>" href="<?= base_url('Dashboard') ?>">Home</a>
-                     </li>
-                     <li class="nav-item">
-                         <a class="nav-link  <?php if ($this->uri->segment(1) == 'Product' || $this->uri->segment(1) === FALSE || $this->uri->segment(1) == 'Deskripsi') {
-                                                    echo 'active';
-                                                } ?>" href="<?= base_url('Product') ?>">Produk</a>
-                     </li>
-                 </ul>
-                 <ul class="navbar-nav">
-                     <!-- <li class="nav-item my-auto me-3">
-                         <form class="input-group">
-                             <span class="input-group-text border-0 bg-white" id="basic-addon1"><i class="bi bi-search"></i></span>
-                             <input class="form-control border-0" type="search" placeholder="Search" aria-label="Search" />
-                         </form>
-                     </li> -->
-                     <li class="nav-item cartres my-auto me-4">
-                         <div id="cart" class="d-none"></div>
-                         <a href="<?= base_url('Cart') ?>" class="cart text-dark h5 position-relative d-inline-flex" aria-label="View your shopping cart">
-                             <i class="bi bi-cart3"></i>
-                             <div id="total_items">
-
-                             </div>
-                         </a>
-                     </li>
-                     <?php if ($this->session->userdata('email')) { ?>
-                         <li class="nav-item dropdown my-auto">
-                             <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $user['photo']) ?>" width="30" height="30" alt="" />
-                             </a>
-                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                 <li>
-                                     <p class="fw-light text-secondary small text-center">Hai, <?= $user['first_name'] . ' ' . $user['last_name'] ?></p>
-                                 </li>
-                                 <hr />
-                                 <li>
-                                     <p class="dropdown-item">Saldo: <?= number_format($user['saldo'], '0', ',', '.')  ?></p>
-                                 </li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
-                                 <hr />
-                                 <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
-                             </ul>
-                         </li>
-                     <?php } elseif ($this->session->userdata('user_data')) {
-                            $user_data = $this->session->userdata('user_data'); ?>
-
-                         <li class="nav-item dropdown my-auto">
-                             <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $usergoogle['photo'])  ?>" width="30" height="30" alt="" />
-                             </a>
-                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                 <li>
-                                     <p class="fw-light text-secondary small text-center">Hai, <?= $user_data['name'] ?></p>
-                                 </li>
-                                 <hr />
-                                 <li>
-                                     <p class="dropdown-item">Saldo: <?= number_format($usergoogle['saldo'], '0', ',', '.')  ?></p>
-                                 </li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
-                                 <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
-                                 <hr />
-                                 <li><a class="dropdown-item" onclick="return confirm('Apakah anda yakin ingin logout?')" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
-                             </ul>
-                         </li>
-                     <?php } else { ?>
-                         <li class="nav-item my-auto">
-                             <a class="nav-link my-auto bt btn btn-warning px-5 rounded-pill" href="<?= base_url('Login') ?>">Login</a>
-                         </li>
-                     <?php } ?>
-
-                 </ul>
-             </div>
-         </div>
-     </nav>
-     <!-- Akhir Navbar -->
- <?php } ?>
+                <!-- Jika Login Manual -->
+                <?php if ($this->session->userdata('email')) { ?>
+                    <li class="nav-item dropdown my-auto">
+                        <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $user['photo']) ?>" width="30" height="30" alt="" />
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <p class="fw-light text-secondary small text-center">Hai, <?= $user['first_name'] . ' ' . $user['last_name'] ?></p>
+                            </li>
+                            <hr />
+                            <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Staus Pesanan</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
+                            <hr />
+                            <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- Jika Login Google -->
+                <?php } elseif ($this->session->userdata('user_data')) { ?>
+                    <li class="nav-item dropdown my-auto">
+                        <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="rounded-circle shadow bg-danger" src="<?= base_url('assets/user/img/profile/' . $usergoogle['photo']) ?>" width="30" height="30" alt="" />
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <p class="fw-light text-secondary small text-center">Hai, <?= $usergoogle['first_name'] ?></p>
+                            </li>
+                            <hr />
+                            <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
+                            <hr />
+                            <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
+                        </ul>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item my-auto">
+                        <a class="nav-link my-auto bt btn btn-warning px-5 rounded-pill" href="<?= base_url('Login') ?>">Login</a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Akhir Navbar -->

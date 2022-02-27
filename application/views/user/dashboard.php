@@ -1,48 +1,41 @@
+<?php function limit_text($text, $limit)
+{
+    if (str_word_count($text, 0) > $limit) {
+        $words = str_word_count($text, 2);
+        $pos   = array_keys($words);
+        $text  = substr($text, 0, $pos[$limit]) . '....';
+    }
+    return $text;
+} ?>
 <!-- Hero -->
 <section class="overflow-hidden" id="hero">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="<?= base_url('assets/user/') ?>img/landingpage/1.jpg" class="d-block w-100" alt="..." />
-                <div class="card-img-overlay container justify-content-center">
-                    <div class="row">
-                        <div class="col text-center">
-                            <h5 class="card-title yellow-text fw-light">Spring Bed & Sofa Bed</h5>
-                            <p class="card-text display-3 text-white">NEW ARRIVAL 2022</p>
-                            <a href="#arival" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="<?= base_url('assets/user/img/') ?>landingpage/Pink Minimalist Modern Furniture Promotion Video.jpg" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= base_url('assets/user/img/') ?>landingpage/Light Green and Lavender Organic Abstract Education YouTube Intro.jpg" alt="..." />
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="<?= base_url('assets/user/') ?>img/landingpage/2.jpg" class="d-block w-100" alt="..." />
-                <div class="card-img-overlay container justify-content-center">
-                    <div class="row">
-                        <div class="col text-center">
-                            <h5 class="card-title yellow-text fw-light">Promo 20%</h5>
-                            <p class="card-text display-3 text-white">Tahun Baru Imlek</p>
-                            <a href="<?= base_url('Product') ?>" class="btn yellow-button rounded-pill px-5 py-2">Pesan</a>
-
-
-                        </div>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </section>
 <!-- Akhir Hero -->
@@ -97,23 +90,27 @@
 </section>
 <!-- Akhir Why -->
 
+
+
 <!-- New Arival -->
 <section class="py-5" id="arival">
     <div class="container py-5">
         <div class="row">
             <div class="col text-center">
-                <h2>New Arrival</h2>
+                <h2>Baru Datang</h2>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <div class="judul pb-3">
-                    <h3>Sofa</h3>
+                    <h3><a href="<?= base_url('Product') ?>" style="text-decoration: none;" class="text-dark">Sofa</a></h3>
                 </div>
             </div>
         </div>
         <div class="row arival-grid">
-            <?php foreach ($sofa as $sofa) { ?>
+            <?php foreach ($sofa as $sofa) {
+                $max = $this->barang->getMaxPriceFromVariation($sofa->kd_product)->row();
+                $min = $this->barang->getMinPriceFromVariation($sofa->kd_product)->row(); ?>
                 <div class="col-lg-3 py-2">
                     <a href="<?= base_url('Deskripsi/' . $sofa->slug_product) ?>" style="text-decoration: none">
                         <div class="bg-white card-arival">
@@ -121,8 +118,8 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Sofa</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
-                                <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. 99.9999</s> ~ <s>Rp.999.999</s></p>
-                                <p class="card-text yellow-text mb-3">Rp. 999.9999 ~ <span>Rp. 999.999</span></p>
+                                <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sofa->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sofa->price_product + $max->max_price, '0', ',', '.') ?></span></p>
                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product, '0', ',', '.') ?></p> -->
                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
@@ -136,7 +133,7 @@
         </div>
         <div class="row pt-5">
             <div class="judul pb-3">
-                <h3>Spring Bed</h3>
+                <h3><a style="text-decoration: none" href="<?= base_url('Product') ?>" class="text-dark">Spring Bed</a></h3>
             </div>
         </div>
         <div class="row arival-grid">
@@ -176,12 +173,43 @@
             </div>
             <div class="col-lg my-auto p-5">
                 <h1 class="display-4 fw-bold text-white pb-3">Ada pertanyaan terkait produk?</h1>
-                <a href="tel:+6281388912929" class="btn btn-light px-5 py-2 yellow-text shadow">Contact Us</a>
+                <a href="#footer" class="btn btn-light px-5 py-2 yellow-text shadow">Contact Us</a>
             </div>
         </div>
     </div>
 </section>
 <!-- Akhir Contact -->
+
+<!-- Blog -->
+<section class="py-5" id="blog">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col">
+                <h1>Blog</h1>
+            </div>
+        </div>
+        <div class="row pembungkus-blog pt-3">
+            <?php foreach ($blog as $blog) { ?>
+                <div class="col-lg-4 py-2">
+                    <div class="bg-white bg-card">
+                        <img src="<?= base_url('assets/user/img/blog/' . $blog['photo_blog']) ?>" class="card-img-top" alt="..." />
+                        <div class="card-body mx-3">
+                            <h5 class="card-title"><?= $blog['title_blog'] ?></h5>
+                            <p class="card-text"><?= limit_text($blog['content_blog'], 19) ?></p>
+                            <a href="<?= base_url('Blog/detail/' . $blog['slug_blog']) ?>" class="btn btn-blog">See more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+        <div class="row pt-4">
+            <div class="col text-center">
+                <a href="<?= base_url('Blog') ?>" class="btn yellow-button px-5 py-2">Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog End -->
 
 <!-- Testimoni -->
 <!-- <section class="py-5" id="testimoni">

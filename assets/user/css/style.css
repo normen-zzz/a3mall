@@ -37,43 +37,17 @@ nav .nav-link.active {
   transition: 0.4s;
   width: 100%;
 }
-
-#navbar .bt {
-  color: #fff;
-}
-
-#navbar .bt.scrolled {
-  color: #000;
-}
-
-#navbar.scrolled {
-  background-color: #fbfbfb;
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
-  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-#navbar .search.scrolled {
-  border: 1px solid #000 !important;
-}
 /* Navbar */
 
 /* Landing Page - Hero */
 #hero .carousel {
-  height: 100vh;
+  height: 100%;
 }
 
 #hero .carousel img {
-  height: 100vh;
   width: 100%;
-  filter: brightness(20%);
+  height: 100%;
   object-fit: cover;
-}
-
-#hero .card-img-overlay {
-  display: flex;
-  align-items: center;
 }
 /* Akhir Landing Page Hero */
 
@@ -98,35 +72,29 @@ nav .nav-link.active {
 }
 /* Akhir Landing Page Kontak */
 
-/* Landing Page Testimoni */
-#testimoni .swiper {
-  width: 100%;
-  height: 100%;
+/* Blog */
+#blog {
+  background-color: var(--bg);
 }
 
-#testimoni .swiper-slide {
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
+#blog .bg-card {
+  border-radius: 16px;
 }
 
-#testimoni .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+#blog .bg-card img {
+  border-radius: 16px 16px 0 0;
 }
-/* Landing Page Testimoni */
+
+#blog .bg-card .btn-blog {
+  color: var(--primary);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#blog .bg-card .btn-blog:hover {
+  margin-left: 5px;
+}
+/* Blog */
 
 /* Keranjang */
 #keranjang .hapus:hover {
@@ -211,9 +179,12 @@ nav .nav-link.active {
 /* Deskripsi Foto */
 
 /* Desk */
-#desk .nav-link.active,
-#produk .nav-link.active {
+#desk .nav-link.active {
   background-color: #fff;
+}
+
+#produk .nav-link.active {
+  background-color: transparent;
 }
 /* Desk */
 
@@ -282,9 +253,16 @@ ul li a.cart .cart-basket {
     object-fit: cover;
   }
 
-  #produk .produk-grid {
+  #produk .produk-grid,
+  #brand .grid-brand {
     display: grid;
     grid-template-columns: auto auto;
+  }
+
+  #produk .nav-pills {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
   }
 
   #status .grid-status {
@@ -316,7 +294,8 @@ ul li a.cart .cart-basket {
 
   #proser .btn-foto,
   #arival .btn-foto,
-  #produk .btn-foto {
+  #produk .btn-foto,
+  #brand .btn-foto {
     display: none;
   }
   /* Produk Serupa */

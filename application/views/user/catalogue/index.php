@@ -10,15 +10,16 @@
              </div>
          </div>
          <hr />
-         <div class="row justify-content-center pt-3">
-             <div class="col-lg-10">
-                 <a href="" class="text-dark text-decoration-none">
-                     <h3 class="m-0 fw-bold">2022</h3>
-                     <h1 class="fw-bolder">Furniture</h1>
-                     <img src="<?= base_url('assets/user/img/katalog/' . 'e-catalogue atigamall v.1_compressed_page-0001.jpg') ?>" class="card-img" alt="..." />
-                 </a>
+         <?php foreach ($catalogue as $catalogue) { ?>
+             <div class="row justify-content-center pt-3">
+                 <div class="col-lg-10">
+                     <a href="<?= base_url('Catalogue/detailCatalogue/' . $catalogue['slug_catalogue']) ?>" class="text-dark text-decoration-none">
+                         <h3 class="m-0 fw-bold"><?= $catalogue['name_catalogue'] ?></h3>
+                         <img src="<?= base_url('assets/user/img/katalog/' . $catalogue['photo_catalogue']) ?>" class="card-img" alt="..." />
+                     </a>
+                 </div>
              </div>
-         </div>
+         <?php } ?>
      </div>
  </section>
  <!-- Akhir Katalog -->

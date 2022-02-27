@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Catalogue extends CI_Controller
+class Blog extends CI_Controller
 {
 
 
@@ -10,6 +10,7 @@ class Catalogue extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Barang_model', 'barang');
+        $this->load->model('Blog_model', 'blog');
     }
 
     public function index()
@@ -22,17 +23,17 @@ class Catalogue extends CI_Controller
         }
 
         $data = [
-            "title" => "A3MALL | Catalog",
-            "page" => "user/catalogue/index",
+            "title" => "A3MALL | Blog",
+            "page" => "user/blog/index",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "usergoogle" => $usergoogle,
-            "catalogue" => $this->db->get('catalogue')->result_array(),
+            "blog" => $this->blog->getBlog()->result_array(),
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);
     }
 
-    public function detailCatalogue()
+    public function detailBlog()
     {
         if ($this->session->userdata('user_data')) {
             $google = $this->session->userdata('user_data');
@@ -43,12 +44,12 @@ class Catalogue extends CI_Controller
 
 
         $data = [
-            "title" => "A3MALL | Detail Catalogue",
-            "page" => "user/catalogue/detail",
+            "title" => "A3MALL | Detail Blog",
+            "page" => "user/blog/detail",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "usergoogle" => $usergoogle,
-            "catalogue" => $this->db->get_where('catalogue', array('slug_catalogue' => $this->uri->segment(3)))->row_array(),
-            "detailcatalogue" => $this->db->get_where('detail_catalogue', array('slug_catalogue' => $this->uri->segment(3)))->result_array(),
+            "detailblog" => $this->blog->getBlogWhere($this->uri->segment(3))->row_array(),
+            "sejenis" => $this->blog->getBlogSejenis($this->uri->segment(3))->result_array(),
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);

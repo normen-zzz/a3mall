@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Catalogue extends CI_Controller
+class Brand extends CI_Controller
 {
 
 
@@ -10,6 +10,8 @@ class Catalogue extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Barang_model', 'barang');
+        $this->load->model('Blog_model', 'blog');
+        $this->load->model('Brand_model', 'brand');
     }
 
     public function index()
@@ -22,17 +24,18 @@ class Catalogue extends CI_Controller
         }
 
         $data = [
-            "title" => "A3MALL | Catalog",
-            "page" => "user/catalogue/index",
+            "title" => "A3MALL | Brand " . ucwords($this->uri->segment(2)),
+            "page" => "user/brand/index",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "usergoogle" => $usergoogle,
-            "catalogue" => $this->db->get('catalogue')->result_array(),
+            "branddetail" => $this->db->get_where('brand_product', array('name_brand' => $this->uri->segment(2)))->row_array(),
+            "productbrand" => $this->brand->getProductBrand($this->uri->segment(2))->result_array(),
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);
     }
 
-    public function detailCatalogue()
+    public function detailBlog()
     {
         if ($this->session->userdata('user_data')) {
             $google = $this->session->userdata('user_data');
@@ -43,12 +46,12 @@ class Catalogue extends CI_Controller
 
 
         $data = [
-            "title" => "A3MALL | Detail Catalogue",
-            "page" => "user/catalogue/detail",
+            "title" => "A3MALL | Detail Blog",
+            "page" => "user/blog/detail",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "usergoogle" => $usergoogle,
-            "catalogue" => $this->db->get_where('catalogue', array('slug_catalogue' => $this->uri->segment(3)))->row_array(),
-            "detailcatalogue" => $this->db->get_where('detail_catalogue', array('slug_catalogue' => $this->uri->segment(3)))->result_array(),
+            "detailblog" => $this->blog->getBlogWhere($this->uri->segment(3))->row_array(),
+            "sejenis" => $this->blog->getBlogSejenis($this->uri->segment(3))->result_array(),
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);

@@ -18,13 +18,14 @@ class Catalogue extends CI_Controller
         $this->load->model('Catalogue_model', 'catalogue');
     }
 
-    public function index()
+    public function index($modal = '')
     {
         $data = [
             "title" => "A3Mall|Catalogue",
             "page" => "admin/catalogue/index",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "catalogue" => $this->db->get('catalogue')->result_array(),
+            "modal" => $modal
         ];
 
         $this->load->view('admin/templates/app', $data, FALSE);
@@ -49,7 +50,7 @@ class Catalogue extends CI_Controller
         ]);
 
         $this->form_validation->set_rules('describe', 'Describe', 'required', [
-            'required' => 'Price tidak boleh kosong.'
+            'required' => 'Describe tidak boleh kosong.'
         ]);
 
 
@@ -121,13 +122,13 @@ class Catalogue extends CI_Controller
         ]);
 
         $this->form_validation->set_rules('describe', 'Describe', 'required', [
-            'required' => 'Price tidak boleh kosong.'
+            'required' => 'Describe tidak boleh kosong.'
         ]);
 
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->index("$('#tambahCatalogueModal').modal('show');");
+            $this->index("$('#ubahCatalogueModal').modal('show');");
         } else {
             $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
             $title = trim(strtolower($this->input->post('name')));

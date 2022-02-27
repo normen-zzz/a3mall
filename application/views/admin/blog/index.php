@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Catalogue</h1>
+            <h1>Data Blog</h1>
         </div>
 
         <div class="section-body">
@@ -12,7 +12,7 @@
                             <h4><?= $title . ' (' . $this->uri->segment(4) . ')' ?></h4>
                         </div>
                         <div class="col">
-                            <button data-toggle="modal" data-target="#tambahCatalogueModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Catalogue</button>
+                            <button data-toggle="modal" data-target="#tambahBlogModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Blog</button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -20,27 +20,28 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Name</th>
-                                            <th>Describe</th>
-                                            <th>Photo</th>
+                                            <th>Title</th>
                                             <th>Slug</th>
-                                            <th>pdf</th>
+                                            <th>Content</th>
+                                            <th>Writer</th>
+                                            <th>See</th>
+                                            <th>Photo</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="showdata">
                                         <?php $no = 1;
-                                        foreach ($catalogue as $catalogue) { ?>
+                                        foreach ($blog as $blog) { ?>
                                             <tr>
                                                 <td><?= $no ?></td>
-                                                <td><?= $catalogue['name_catalogue'] ?></td>
-                                                <td><?= $catalogue['describe_catalogue'] ?></td>
-                                                <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/user/img/katalog/' . $catalogue['photo_catalogue']) ?>"></a></td>
-                                                <td><?= $catalogue['slug_catalogue'] ?></td>
-                                                <td><a target="_blank" href="<?= base_url('assets/user/img/katalog/pdf/' . $catalogue['pdf_catalogue']) ?>">Link Pdf</a></td>
-                                                <td><a href="javascript:;" class="btn btn-primary item-detail" data="<?php echo $catalogue['id_catalogue'] ?>">Ubah</a>
-                                                    <a href="<?= base_url('admin/Catalogue/detail/' . $catalogue['slug_catalogue']) ?>" class="btn btn-primary">isi</a>
-                                                    <a href="<?= base_url('admin/Catalogue/deleteCatalogue/' . $catalogue['slug_catalogue']) ?>" class="btn btn-danger" onclick="return confirm('Anda Yakin Ingin Menghapus?')">Hapus</a>
+                                                <td><?= $blog['title_blog'] ?></td>
+                                                <td><?= $blog['slug_blog'] ?></td>
+                                                <td><?= $blog['content_blog'] ?></td>
+                                                <td><?= $blog['writer_blog'] ?></td>
+                                                <td><?= $blog['see_blog'] ?></td>
+                                                <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/user/img/blog/' . $blog['photo_blog']) ?>"></a></td>
+                                                <td><a href="javascript:;" class="btn btn-primary item-detail" data="<?php echo $blog['id_blog'] ?>">Ubah</a>
+                                                    <a href="<?= base_url('admin/Blog/deleteBlog/' . $blog['id_blog']) ?>" class="btn btn-danger" onclick="return confirm('Anda Yakin Ingin Menghapus?')">Hapus</a>
                                                 </td>
                                             </tr>
                                         <?php $no++;
@@ -50,23 +51,7 @@
                                 <lastmod></lastmod>
                             </div>
                         </div>
-                        <div class="card-footer text-right">
-                            <nav class="d-inline-block">
-                                <ul class="pagination mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -76,7 +61,7 @@
 </div>
 
 <!-- modal Tambah -->
-<div class="modal fade" tabindex="-1" role="dialog" id="tambahCatalogueModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="tambahBlogModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,26 +72,28 @@
             </div>
             <div class="modal-body">
 
-                <form action="<?= base_url('admin/Catalogue/addCatalogue') ?>" method="post" enctype='multipart/form-data'>
+                <form action="<?= base_url('admin/Blog/addBlog') ?>" method="post" enctype='multipart/form-data'>
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" class="form-control">
-                        <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control">
+                        <?= form_error('title', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
                     <div class="form-group">
-                        <label>Describe</label>
-                        <input type="text" name="describe" class="form-control">
-                        <?= form_error('describe', '<small class="text-danger">', '</small>'); ?>
+                        <label>Content</label>
+                        <textarea id="editor1" name="content" class="form-control"></textarea>
+                        <?= form_error('content', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Writer</label>
+                        <input type="text" name="writer" class="form-control">
+                        <?= form_error('writer', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
                     <div class="form-group">
                         <label>Photo</label>
                         <input type="file" name="photo" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Pdf</label>
-                        <input type="file" name="pdf" class="form-control">
                     </div>
 
             </div>
@@ -120,39 +107,41 @@
 </div>
 
 <!-- modal Ubah -->
-<div class="modal fade" tabindex="-1" role="dialog" id="ubahCatalogueModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="ubahBlogModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Ubah Unit</h5>
+                <h5 class="modal-title">Ubah Blog</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
 
-                <form action="<?= base_url('admin/Catalogue/editCatalogue') ?>" method="post" enctype='multipart/form-data'>
+                <form action="<?= base_url('admin/Blog/editBlog') ?>" method="post" enctype='multipart/form-data'>
                     <input type="number" name="id" hidden>
 
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" class="form-control">
-                        <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                        <label>Title</label>
+                        <input type="text" name="title" class="form-control">
+                        <?= form_error('title', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
                     <div class="form-group">
-                        <label>Describe</label>
-                        <input type="text" name="describe" class="form-control">
-                        <?= form_error('describe', '<small class="text-danger">', '</small>'); ?>
+                        <label>Content</label>
+                        <textarea id="editor2" name="content" class="form-control"></textarea>
+                        <?= form_error('content', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
                     <div class="form-group">
-                        <label>Photo (Isi Jika Ingin Mengubah)</label>
+                        <label>Writer</label>
+                        <input type="text" name="writer" class="form-control">
+                        <?= form_error('writer', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Photo (Isi Jika Ingin mengubah blog)</label>
                         <input type="file" name="photo" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Pdf (Isi Jika Ingin Mengubah)</label>
-                        <input type="file" name="pdf" class="form-control">
                     </div>
 
             </div>
@@ -204,21 +193,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $('#showdata').on('click', '.item-detail', function() {
-        var id_catalogue = $(this).attr('data');
-        $('#ubahCatalogueModal').modal('show');
+        var id_blog = $(this).attr('data');
+        $('#ubahBlogModal').modal('show');
         $.ajax({
             type: 'ajax',
             method: 'get',
-            url: '<?php echo base_url() ?>admin/Catalogue/getCatalogue',
+            url: '<?php echo base_url() ?>admin/Blog/getBlog',
             data: {
-                id_catalogue: id_catalogue
+                id_blog: id_blog
             },
             async: false,
             dataType: 'json',
             success: function(data) {
-                $('input[name=name]').val(data.name_catalogue);
-                $('input[name=describe]').val(data.describe_catalogue);
-                $('input[name=id]').val(data.id_catalogue);
+                $('input[name=title]').val(data.title_blog);
+                CKEDITOR.instances['editor2'].setData(data.content_blog);
+                $('input[name=writer]').val(data.writer_blog);
+                $('input[name=id]').val(data.id_blog);
             },
             error: function() {
                 alert('Could not displaying data');
