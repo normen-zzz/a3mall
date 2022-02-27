@@ -82,3 +82,7 @@ $route['Checkout/(:any)'] = 'user/Checkout/index';
 //Status
 $route['Status'] = 'user/Status/index';
 $route['Status/detail/(:any)'] = 'user/Status/detail';
+
+//Catalogue
+$route['Catalogue'] = 'user/Catalogue/index';
+$route['Catalogue/detailCatalogue/(:any)'] = 'user/Catalogue/detailCatalogue';

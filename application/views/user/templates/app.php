@@ -70,6 +70,7 @@
     var jumlah = $("#jumlah").val();
     var nama = $("#nama").val();
     var kd_transaction = $("#kd_transaction").val();
+    var email = $("#email").val();
 
     $.ajax({
       type: 'POST',
@@ -77,7 +78,8 @@
       data: {
         jumlah: jumlah,
         nama: nama,
-        kd_transaction: kd_transaction
+        kd_transaction: kd_transaction,
+        email: email
 
       },
       cache: false,
@@ -129,6 +131,8 @@
     var jumlah = $('#jumlah_' + id).val();
     var nama = $("#nama_" + id).val();
     var kd_transaction = $("#kd_transaction_" + id).val();
+    var email = $("#email_" + id).val();
+
 
     $.ajax({
       type: 'POST',
@@ -136,7 +140,8 @@
       data: {
         jumlah: jumlah,
         nama: nama,
-        kd_transaction: kd_transaction
+        kd_transaction: kd_transaction,
+        email: email
 
       },
       cache: false,
@@ -179,6 +184,17 @@
     });
   });
 </script>
+<!-- <script>
+  function ajaxcsrf() {
+    var csrfname = '<?= $this->security->get_csrf_token_name() ?>';
+    var csrfhash = '<?= $this->security->get_csrf_hash() ?>';
+    var csrf = {};
+    csrf[csrfname] = csrfhash;
+    $.ajaxSetup({
+      "data": csrf
+    });
+  }
+</script> -->
 
 
 </html>

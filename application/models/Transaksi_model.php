@@ -85,6 +85,7 @@ class Transaksi_model extends CI_Model
         $this->db->join('users b', 'b.email=a.email_users', 'left');
         $this->db->where('a.email_users', $where);
         $this->db->where('a.status', 1);
+        $this->db->order_by('a.date_transaction', 'desc');
         return $this->db->get();
     }
 
@@ -95,6 +96,7 @@ class Transaksi_model extends CI_Model
         $this->db->join('users b', 'b.email=a.email_users', 'left');
         $this->db->where('a.email_users', $where);
         $this->db->where('a.status', 2);
+        $this->db->order_by('a.date_transaction', 'desc');
         return $this->db->get();
     }
 
@@ -105,6 +107,7 @@ class Transaksi_model extends CI_Model
         $this->db->join('users b', 'b.email=a.email_users', 'left');
         $this->db->where('a.email_users', $where);
         $this->db->where('a.status', 3);
+        $this->db->order_by('a.date_transaction', 'desc');
         return $this->db->get();
     }
 
@@ -115,6 +118,7 @@ class Transaksi_model extends CI_Model
         $this->db->join('users b', 'b.email=a.email_users', 'left');
         $this->db->where('a.email_users', $where);
         $this->db->where('a.status', 4);
+        $this->db->order_by('a.date_transaction', 'desc');
         return $this->db->get();
     }
 
@@ -132,8 +136,6 @@ class Transaksi_model extends CI_Model
         //     return false;
         // }
     }
-
-    
 }
 
 /* End of file ModelName.php */

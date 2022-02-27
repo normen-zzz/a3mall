@@ -31,6 +31,7 @@ class Checkout extends CI_Controller
             $google = $this->session->userdata('user_data');
             $usergoogle = $this->db->get_where('users', ['email' => $google['email']])->row_array();
             $alamat = $this->user->getAlamatByEmail($google['email']);
+            $user = $this->db->get_where('users', array('email' => $google['email']))->row();
             if (!$alamat->num_rows()) {
                 $alamat = '';
             } else {
@@ -41,6 +42,7 @@ class Checkout extends CI_Controller
         } else {
             $usergoogle = '';
             $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'));
+            $user = $this->db->get_where('users', array('email' => $this->session->userdata('email')))->row();
             if (!$alamat->num_rows()) {
                 $alamat = '';
             } else {
@@ -49,6 +51,7 @@ class Checkout extends CI_Controller
                 $alamatongkir = $getAlamat->rajaongkir->results;
             }
         }
+        $saldo = $user->saldo;
 
         $data = [
             "title" => "A3MALL | Checkout",
@@ -71,22 +74,24 @@ class Checkout extends CI_Controller
 
         if ($this->session->userdata['user_data']) {
             $google = $this->session->userdata('user_data');
-            $user = $google['email'];
+            $email = $google['email'];
         } else {
-            $user = $this->session->userdata('email');
+            $email = $this->session->userdata('email');
         }
 
         $kode_transaksi = strtoupper(random_string('alnum', 6));
-        $alamat = $this->user->getAlamatByEmail($user)->row_array();
+        $alamat = $this->user->getAlamatByEmail($email)->row_array();
         $getAlamat = $this->ongkir->getAlamatOngkir($alamat['kabupaten_alamat'], $alamat['kecamatan_alamat']);
         $alamatongkir = $getAlamat->rajaongkir->results;
+        $userdetail = $this->db->get_where('users', array('email' => $email))->row();
         $ongkir = 0;
+
         foreach ($keranjang as $keranjang) {
             $getHarga =  $this->ongkir->getHargaOngkir($alamat['kecamatan_alamat'], $keranjang['weight'], $keranjang['length'], $keranjang['width']);
             $harga = $getHarga->rajaongkir->results;
             $data = [
                 'kd_transaction' => $kode_transaksi,
-                'users' => $user,
+                'users' => $email,
                 'code_product' => $keranjang['kd_product'],
                 'variation' => $keranjang['id'],
                 'price' => $keranjang['price'],
@@ -124,17 +129,22 @@ class Checkout extends CI_Controller
             $this->db->insert('transaction', $data);
         }
 
-
+        $saldo = $userdetail->saldo;
+        if ($saldo >= ($this->cart->total() + $ongkir)) {
+            $saldo = $this->cart->total() + $ongkir;
+        }
         $detail = [
             'kd_transaction' => $kode_transaksi,
-            'email_users' => $user,
+            'email_users' => $email,
             'name_customers' => $alamat['nama_alamat'],
             'telp_customers' => $alamat['telp_alamat'],
             'address_customers' =>  $alamat['detail_alamat'] . '-' .  $alamatongkir->subdistrict_name . ' ,' . $alamatongkir->city . ' ,' . $alamatongkir->province . ' ID ' . $alamat['pos_alamat'],
             'date_transaction' => date('Y-m-d H:i:s'),
-            'total_transaction' => $this->cart->total() + $ongkir,
+            'potongan_saldo' => $saldo,
+            'total_transaction' => ($this->cart->total() + $ongkir),
             'total_quantity' => $this->cart->total_items(),
             'status' => 1,
+            'total_payment' => ($this->cart->total() + $ongkir) - $saldo,
         ];
         $this->db->insert('detail_transaction', $detail);
         $this->cart->destroy();
@@ -176,6 +186,7 @@ class Checkout extends CI_Controller
         $nama = $this->input->post('nama');
         $jumlah = $this->input->post('jumlah');
         $kd_transaction = $this->input->post('kd_transaction');
+        $email = $this->input->post('email');
 
 
 
@@ -220,7 +231,8 @@ class Checkout extends CI_Controller
 
         // Optional
         $customer_details = array(
-            'first_name'    => strtok($nama, " "),
+            'first_name'    => $nama,
+            'email' => $email
         );
 
         // Data yang akan dikirim untuk request redirect_url.
@@ -284,9 +296,18 @@ class Checkout extends CI_Controller
         ];
 
         $simpan = $this->db->insert('midtrans', $data);
+        if ($this->session->userdata('user_data')) {
+            $google = $this->session->userdata('user_data');
+            $alamat = $this->user->getAlamatByEmail($google['email']);
+            $user = $this->db->get_where('users', array('email' => $google['email']))->row();
+        } else {
+            $user = $this->db->get_where('users', array('email' => $this->session->userdata('email')))->row();
+        }
         $this->db->update('detail_transaction', array('order_id' => $result['order_id']), array('kd_transaction' => $_POST['kd_transaction']));
+        $detail_transaction = $this->db->get_where('detail_transaction', array('kd_transaction' => $_POST['kd_transaction']))->row();
         if ($simpan) {
             $this->session->set_flashdata('success', 'Berhasil!');
+            $this->db->update('users', array('saldo' => ($user->saldo - $detail_transaction->potongan_saldo)), array('email' => $user->email));
             redirect(base_url('Status'));
             // var_dump($result);
         } else {
@@ -294,6 +315,24 @@ class Checkout extends CI_Controller
             redirect(base_url('Status'));
             // var_dump($result);
         }
+    }
+
+    public function skip_payment()
+    {
+        if ($this->session->userdata('user_data')) {
+            $google = $this->session->userdata('user_data');
+            $alamat = $this->user->getAlamatByEmail($google['email']);
+            $user = $this->db->get_where('users', array('email' => $google['email']))->row();
+        } else {
+            $user = $this->db->get_where('users', array('email' => $this->session->userdata('email')))->row();
+        }
+
+        $code = $this->input->post('kd_transaction');
+        $detail_transaction = $this->db->get_where('detail_transaction', array('kd_transaction' => $code))->row();
+
+        $this->db->update('detail_transaction', array('status' => 2), array('kd_transaction' => $code));
+        $this->db->update('users', array('saldo' => ($user->saldo - $detail_transaction->potongan_saldo)), array('email' => $user->email));
+        redirect('Status');
     }
 }
 

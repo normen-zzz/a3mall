@@ -46,7 +46,7 @@
                                                         <input type="number" id="jumlah_<?php echo $unpaid['id_detail_transaction']; ?>" value="<?= $unpaid['total_transaction'] ?>" hidden>
                                                         <input type="text" id="nama_<?php echo $unpaid['id_detail_transaction']; ?>" value="<?= $unpaid['name_customers'] ?>" hidden>
                                                         <input type="text" name="kd_transaction" id="kd_transaction_<?php echo $unpaid['id_detail_transaction']; ?>" value="<?= $unpaid['kd_transaction'] ?>" hidden>
-
+                                                        <input type="text" name="email" id="email_<?php echo $unpaid['id_detail_transaction']; ?>" value="<?= $unpaid['email_users'] ?>" hidden>
                                                     </form>
                                                     <button data-id="<?php echo $unpaid['id_detail_transaction']; ?>" class="btn yellow-button px-5 py-2 midtrans">Bayar</button>
                                                     <a href="<?= base_url('Status/detail/' . $unpaid['kd_transaction']) ?>" class="btn yellow-button px-5 py-2">Lihat Pesanan</a>

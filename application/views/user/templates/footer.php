@@ -4,7 +4,7 @@
         <div class="row py-5">
             <div class="col-lg py-2">
                 <h5 class="card-text yellow-text fw-light">A3MALL</h5>
-                <p>Menyediakan Spring Bed Dan Sofa berkualitas.</p>
+                <p>Menyediakan Spring Bed dan Sofa berkualitas.</p>
             </div>
             <div class="col-lg py-2">
                 <p class="fw-bold">About Us</p>

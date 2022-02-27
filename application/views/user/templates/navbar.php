@@ -40,6 +40,9 @@
                                      <p class="fw-light text-secondary small text-center">Hai, <?= $user['first_name'] . ' ' . $user['last_name'] ?></p>
                                  </li>
                                  <hr />
+                                 <li>
+                                     <p class="dropdown-item">Saldo: <?= number_format($user['saldo'], '0', ',', '.')  ?></p>
+                                 </li>
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
@@ -60,6 +63,9 @@
                                      <p class="fw-light text-secondary small text-center">Hai, <?= $usergoogle['first_name'] ?></p>
                                  </li>
                                  <hr />
+                                 <li>
+                                     <p class="dropdown-item">Saldo: <?= number_format($usergoogle['saldo'], '0', ',', '.')  ?></p>
+                                 </li>
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
@@ -127,6 +133,9 @@
                                      <p class="fw-light text-secondary small text-center">Hai, <?= $user['first_name'] . ' ' . $user['last_name'] ?></p>
                                  </li>
                                  <hr />
+                                 <li>
+                                     <p class="dropdown-item">Saldo: <?= number_format($user['saldo'], '0', ',', '.')  ?></p>
+                                 </li>
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
@@ -146,6 +155,9 @@
                                      <p class="fw-light text-secondary small text-center">Hai, <?= $user_data['name'] ?></p>
                                  </li>
                                  <hr />
+                                 <li>
+                                     <p class="dropdown-item">Saldo: <?= number_format($usergoogle['saldo'], '0', ',', '.')  ?></p>
+                                 </li>
                                  <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                                  <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>

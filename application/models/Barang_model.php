@@ -11,6 +11,7 @@ class Barang_model extends CI_Model
         $this->db->from('product a');
         $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
         $this->db->join('users c', 'c.id=a.users', 'left');
+        $this->db->join('brand_product d', 'd.id_brand=a.brand_product', 'left');
         $this->db->where('a.category_product', $where);
         $this->db->order_by('a.id_product', 'desc');
         $query = $this->db->get();
@@ -19,6 +20,51 @@ class Barang_model extends CI_Model
         // } else {
         //     return false;
         // }
+    }
+
+    public function getCategory()
+    {
+        $this->db->select('*');
+        $this->db->from('category_product');
+        $this->db->order_by('created_category', 'desc');
+        return $this->db->get();
+    }
+    //ajax
+    public function getCategoryAjax($id)
+    {
+        $this->db->select('*');
+        $this->db->from('category_product');
+        $this->db->where('id_category', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+    public function editCategory($id, $data)
+    {
+        $this->db->update('category_product', $data, ['id_category' => $id]);
+        return $this->db->affected_rows();
+    }
+    public function getBrand()
+    {
+        $this->db->select('*');
+        $this->db->from('brand_product');
+        $this->db->order_by('created_brand', 'desc');
+        return $this->db->get();
+    }
+
+    //ajax
+    public function getBrandAjax($id)
+    {
+        $this->db->select('*');
+        $this->db->from('brand_product');
+        $this->db->where('id_brand', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function editBrand($id, $data)
+    {
+        $this->db->update('brand_product', $data, ['id_brand' => $id]);
+        return $this->db->affected_rows();
     }
 
     public function getProductByCategoryJoinPhoto($where)
@@ -110,6 +156,7 @@ class Barang_model extends CI_Model
         $this->db->from('product');
         $this->db->where('kd_product', $id);
         $this->db->join('category_product', 'category_product.id_category=product.category_product');
+        $this->db->join('brand_product', 'brand_product.id_brand=product.brand_product');
         $query = $this->db->get();
         return $query->row();
     }

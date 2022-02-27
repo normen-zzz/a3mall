@@ -352,7 +352,7 @@
                          alert("success");
                      },
                      error: function(error) {
-                         alert("Error");
+                         alert(error);
                      }
 
 

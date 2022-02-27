@@ -54,6 +54,11 @@
                                 } ?>"><a class="nav-link " href="<?= base_url('admin/Transaksi/done') ?>">Selesai</a></li>
                 </ul>
             </li>
+            <li class="menu-header">Catalogue</li>
+            <li class="<?php if ($this->uri->segment(2) == "catalogue" || $this->uri->segment(2) == "Catalogue") {
+                            echo "active";
+                        } ?>"><a class="nav-link" href="<?= base_url('admin/Catalogue') ?>"><i class="fas fa-fire"></i> <span>Catalogue</span></a></li>
+
             <li class="menu-header">Pembayaran</li>
             <li class="<?php if ($this->uri->segment(2) == "pembayaran" || $this->uri->segment(2) == "Pembayaran") {
                             echo "active";

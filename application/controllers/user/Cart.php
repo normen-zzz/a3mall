@@ -96,6 +96,7 @@ class Cart extends CI_Controller
         $google = $this->session->userdata('user_data');
         if ($google) {
             $alamat = $this->user->getAlamatByEmail($google['email']);
+            $user = $this->db->get_where('users', array('email' => $google['email']))->row();
             if (!$alamat->num_rows()) {
                 $alamat = '';
                 $alamatongkir = '';
@@ -106,6 +107,7 @@ class Cart extends CI_Controller
             }
         } else {
             $alamat = $this->user->getAlamatByEmail($this->session->userdata('email'));
+            $user = $this->db->get_where('users', array('email' => $this->session->userdata('email')))->row();
             if (!$alamat->num_rows()) {
                 $alamat = '';
                 $alamatongkir = '';
@@ -121,6 +123,7 @@ class Cart extends CI_Controller
             $tombol = '<a href="' . base_url('user/Checkout/addToCheckout') . '" class="btn px-5 py-2 yellow-button">Pesan</a>';
         }
 
+
         $total = '
             <div class="container">
                 <div class="row">
@@ -135,6 +138,9 @@ class Cart extends CI_Controller
             </div>
 
        ';
+
+
+
         return $total;
     }
 

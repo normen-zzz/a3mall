@@ -111,7 +111,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button class="btn btn-primary" onclick="ajaxcsrf()" type="submit">Submit form</button>
                     </div>
                 </form>
             </div>

@@ -21,6 +21,7 @@ class Barang extends CI_Controller
         }
     }
 
+
     public function springbed($modal = "")
     {
         $data = [
@@ -29,6 +30,10 @@ class Barang extends CI_Controller
             "title2" => "Spring Bed",
             "page" => "admin/barang/index",
             "barang" => $this->barang->getProductByCategory('1'),
+            "category" => $this->barang->getCategory()->result_array(),
+            "category1" => $this->barang->getCategory()->result_array(),
+            "brand" => $this->barang->getBrand()->result_array(),
+            "brand1" => $this->barang->getBrand()->result_array(),
             "modal" => $modal
         ];
 
@@ -43,6 +48,10 @@ class Barang extends CI_Controller
             "title2" => "Sofa",
             "page" => "admin/barang/index",
             "barang" => $this->barang->getProductByCategory('2'),
+            "category" => $this->barang->getCategory()->result_array(),
+            "category1" => $this->barang->getCategory()->result_array(),
+            "brand" => $this->barang->getBrand()->result_array(),
+            "brand1" => $this->barang->getBrand()->result_array(),
             "modal" => $modal
         ];
 
@@ -494,6 +503,165 @@ class Barang extends CI_Controller
         $code = $this->input->get('id_variation');
         $result = $this->barang->getVariationAjax($code);
         echo json_encode($result);
+    }
+
+
+    //Brand
+    public function brand($modal = "")
+    {
+        $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
+            "title" => "Data Brand Product",
+            "title2" => "Brand",
+            "page" => "admin/barang/brand/index",
+            "brand" => $this->barang->getBrand()->result_array(),
+            "modal" => $modal
+        ];
+
+        $this->load->view('admin/templates/app', $data);
+    }
+    public function getBrandAjax()
+    {
+        $id = $this->input->get('id_brand');
+        $result = $this->barang->getBrandAjax($id);
+        echo json_encode($result);
+    }
+
+
+    public function addBrand()
+    {
+
+        $this->form_validation->set_rules('name', 'Name', 'required', [
+            'required' => 'Name tidak boleh kosong.'
+        ]);
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->brand("$('#tambahCategoryModal').modal('show');");
+        } else {
+            $data = [
+                'name_brand' => $this->input->post('name'),
+                'describe_brand' => $this->input->post('describe'),
+            ];
+
+
+
+            $this->db->insert('brand_product', $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Brand Berhasil Ditambahkan!", "success");');
+
+            redirect('admin/Barang/brand');
+        }
+    }
+
+    public function editBrand()
+    {
+
+        $this->form_validation->set_rules('name', 'Name', 'required', [
+            'required' => 'Name tidak boleh kosong.'
+        ]);
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->brand("$('#tambahCategoryModal').modal('show');");
+        } else {
+            $data = [
+                'name_brand' => $this->input->post('name'),
+                'describe_brand' => $this->input->post('describe'),
+            ];
+
+
+
+            $this->barang->editBrand($this->input->post('id'), $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Brand Berhasil Diubah!", "success");');
+
+            redirect('admin/Barang/brand');
+        }
+    }
+
+    public function deleteBrand($id)
+    {
+
+        $this->db->delete('brand_product', ['id_brand' => $id]);
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Brand Berhasil Dihapus!", "success");');
+        redirect('admin/Barang/brand');
+    }
+
+    //Category
+    public function category($modal = "")
+    {
+        $data = [
+            "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
+            "title" => "Data Category Product",
+            "title2" => "Category",
+            "page" => "admin/barang/category/index",
+            "category" => $this->barang->getCategory()->result_array(),
+            "modal" => $modal
+        ];
+
+        $this->load->view('admin/templates/app', $data);
+    }
+    public function getCategoryAjax()
+    {
+        $id = $this->input->get('id_category');
+        $result = $this->barang->getCategoryAjax($id);
+        echo json_encode($result);
+    }
+
+    public function addCategory()
+    {
+
+        $this->form_validation->set_rules('name', 'Name', 'required', [
+            'required' => 'Name tidak boleh kosong.'
+        ]);
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->category("$('#tambahCategoryModal').modal('show');");
+        } else {
+            $data = [
+                'name_category' => $this->input->post('name'),
+                'describe_category' => $this->input->post('describe'),
+            ];
+
+
+
+            $this->db->insert('category_product', $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Category Berhasil Ditambahkan!", "success");');
+
+            redirect('admin/Barang/category');
+        }
+    }
+
+
+    public function editCategory()
+    {
+
+        $this->form_validation->set_rules('name', 'Name', 'required', [
+            'required' => 'Name tidak boleh kosong.'
+        ]);
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->category("$('#tambahCategoryModal').modal('show');");
+        } else {
+            $data = [
+                'name_category' => $this->input->post('name'),
+                'describe_category' => $this->input->post('describe'),
+            ];
+
+            $this->barang->editCategory($this->input->post('id'), $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Category Berhasil Diubah!", "success");');
+
+            redirect('admin/Barang/category');
+        }
+    }
+
+    public function deleteCategory($id)
+    {
+
+        $this->db->delete('category_product', ['id_category' => $id]);
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Category Berhasil Dihapus!", "success");');
+        redirect('admin/Barang/category');
     }
 }
 

@@ -15,6 +15,12 @@
                         <div class="col">
                             <button data-toggle="modal" data-target="#tambahBarangModal" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Tambah Barang</button>
                         </div>
+                        <div class="col mt-2">
+                            <a href="<?= base_url('admin/Barang/brand') ?>" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Brand</a>
+                        </div>
+                        <div class="col mt-2">
+                            <a href="<?= base_url('admin/Barang/category') ?>" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Category</a>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="table_id" class="table text-center table-striped">
@@ -26,6 +32,7 @@
                                             <th>Before Price</th>
                                             <th>Describe</th>
                                             <th>Category</th>
+                                            <th>Brand</th>
                                             <th>Last Edited By</th>
                                             <th>Status</th>
                                             <th>Created At</th>
@@ -41,6 +48,7 @@
                                                 <td><?= number_format($barang['beforeprice_product'], '0', ',', '.') ?></td>
                                                 <td><?= $barang['describe_product'] ?></td>
                                                 <td><?= $barang['name_category'] ?></td>
+                                                <td><?= $barang['name_brand'] ?></td>
                                                 <td><?= $barang['username'] ?></td>
                                                 <td>
                                                     <?php if ($barang['status_product'] == 'active') {
@@ -126,14 +134,15 @@
                     </div>
                     <div class="form-group">
                         <label>Describe</label>
-                        <textarea class="form-control" name="describe"></textarea>
+                        <textarea class="form-control" name="describe" id="editor1"></textarea>
                         <?= form_error('describe', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label>Category</label>
                         <select name="category" class="form-control">
-                            <option value="1">Spring Bed</option>
-                            <option value="2">Sofa</option>
+                            <?php foreach ($category as $category) { ?>
+                                <option value="<?= $category['id_category'] ?>"><?= $category['name_category'] ?></option>
+                            <?php } ?>
                         </select>
                         <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
                     </div>
@@ -149,7 +158,11 @@
                     </div>
                     <div class="form-group">
                         <label>Brand</label>
-                        <input type="text" name="brand" class="form-control">
+                        <select name="brand" class="form-control">
+                            <?php foreach ($brand as $brand) { ?>
+                                <option value="<?= $brand['id_brand'] ?>"><?= $brand['name_brand'] ?></option>
+                            <?php } ?>
+                        </select>
                         <?= form_error('brand', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
@@ -181,7 +194,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Barang</h5>
+                <h5 class="modal-title">Ubah Barang</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -211,14 +224,16 @@
                     </div>
                     <div class="form-group">
                         <label>Describe</label>
-                        <textarea class="form-control" name="describe"></textarea>
+                        <textarea class="form-control" id="editor2" name="describe"></textarea>
                         <?= form_error('describe', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label>Category</label>
-                        <select name="category" class="form-control">
-                            <option value="1">Spring Bed</option>
-                            <option value="2">Sofa</option>
+                        <select name="category" class="form-control" required>
+                            <?php foreach ($category1 as $category) { ?>
+                                <option value="<?= $category['id_category'] ?>"><?= $category['name_category'] ?></option>
+                                <option value="2">Sofa</option>
+                            <?php } ?>
                         </select>
                         <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
                     </div>
@@ -235,7 +250,11 @@
                     </div>
                     <div class="form-group">
                         <label>Brand</label>
-                        <input type="text" name="brand" class="form-control">
+                        <select name="brand" class="form-control" required>
+                            <?php foreach ($brand1 as $brand1) { ?>
+                                <option value="<?= $brand1['id_brand'] ?>"><?= $brand1['name_brand'] ?></option>
+                            <?php } ?>
+                        </select>
                         <?= form_error('brand', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
@@ -279,11 +298,11 @@
             success: function(data) {
                 $('input[name=code]').val(data.kd_product);
                 $('input[name=name]').val(data.name_product);
-                $('textarea[name=describe]').val(data.describe_product);
+                CKEDITOR.instances['editor2'].setData(data.describe_product);
                 $('select[name=category]').val(data.category_product);
                 $('input[name=price]').val(data.price_product);
                 $('input[name=beforeprice]').val(data.beforeprice_product);
-                $('input[name=brand]').val(data.brand_product);
+                $('select[name=brand]').val(data.brand_product);
                 $('select[name=status]').val(data.status_product);
                 $('input[name=date]').val(data.date_arrived);
 
