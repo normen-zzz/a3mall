@@ -15,75 +15,67 @@
  </section>
  <!-- Akhir Breadcrumb -->
 
+
  <!-- Produk -->
  <section id="produk">
      <div class="container py-5">
-         <div class="row">
-             <div class="col">
-                 <ul class="nav nav-pills mb-5 mx-auto justify-content-center rounded-pill" style="background-color: #eeeeee; width: 19%" id="pills-tab" role="tablist">
-                     <li class="nav-item my-2" role="presentation">
-                         <button class="nav-link rounded-pill text-dark active" id="desk1-tab" data-bs-toggle="pill" data-bs-target="#desk1" type="button" role="tab" aria-controls="desk1" aria-selected="true">Sofa</button>
-                     </li>
-                     <li class="nav-item my-2" role="presentation">
-                         <button class="nav-link rounded-pill text-dark" id="desk2-tab" data-bs-toggle="pill" data-bs-target="#desk2" type="button" role="tab" aria-controls="desk2" aria-selected="false">Spring Bed</button>
-                     </li>
-                 </ul>
-                 <div class="tab-content" id="pills-tabContent">
-                     <div class="tab-pane fade show container p-0 active" id="desk1" role="tabpanel" aria-labelledby="desk1-tab">
-                         <div class="row pt-3 produk-grid">
-                             <?php foreach ($sofa as $sofa) { ?>
-                                 <div class="col-lg py-2">
-                                     <a href="<?= base_url('Deskripsi/' . $sofa['slug_product']) ?>" style="text-decoration: none">
-                                         <div class="bg-white card-proser">
-                                             <img src="<?= base_url('assets/user/img/produk/' . $photo_produk['photo_product']) ?>" class="card-img-top p-3" alt="..." />
-                                             <div class="card-body">
-                                                 <p class="fw-light text-secondary small">Sofa</p>
-                                                 <h5 class="card-title fw-bold text-dark"><?= $sofa['name_product'] ?></h5>
-                                                 <!-- <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa['beforeprice_product'], '0', ',', '.') ?></s></p> -->
-                                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa['price_product'], '0', ',', '.') ?></p> -->
-                                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
-                                                 <div class="text-center btn-foto">
-                                                     <a href="<?= base_url('Deskripsi/' . $sofa['slug_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
-                                                 </div>
+         <div class="row d-flex align-items-start">
+             <div class="col-lg-2 nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                 <button class="nav-link text-primary text-start active" id="v-1-tab" data-bs-toggle="pill" data-bs-target="#v-1" type="button" role="tab" aria-controls="v-1" aria-selected="true">Spring Bed</button>
+                 <button class="nav-link text-primary text-start" id="v-3-tab" data-bs-toggle="pill" data-bs-target="#v-3" type="button" role="tab" aria-controls="v-3" aria-selected="false">Sofa</button>
+             </div>
+             <div class="col-lg tab-content" id="v-pills-tabContent">
+                 <div class="tab-pane fade show active" id="v-1" role="tabpanel" aria-labelledby="v-1-tab">
+                     <div class="row produk-grid">
+                         <?php
+                            foreach ($springbed as $springbed) {
+                                $max = $this->barang->getMaxPriceFromVariation($springbed['kd_product'])->row();
+                                $min = $this->barang->getMinPriceFromVariation($springbed['kd_product'])->row();
+                            ?>
+                             <div class="col-lg-4 py-2">
+                                 <a href="<?= base_url('Deskripsi/' . $springbed['slug_product']) ?>" style="text-decoration: none">
+                                     <div class="bg-white card-proser">
+                                         <img src="<?= base_url('assets/images/produk/' . $springbed['photo_product']) ?>" class="card-img-top p-3" alt="..." />
+                                         <div class="card-body">
+                                             <p class="fw-light text-secondary small">Spring Bed</p>
+                                             <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
+                                             <p class="card-text mb-0 small fw-light text-secondary"><s>Rp.<?= number_format($springbed['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s> ~ <s>Rp.<?= number_format($springbed['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s></p>
+                                             <p class="card-text yellow-text mb-3">Rp.<?= number_format($springbed['price_product'] + $min->min_price, '0', ',', '.') ?> ~ <span>Rp.<?= number_format($springbed['price_product'] + $max->max_price, '0', ',', '.') ?></span></p>
+                                             <div class="text-center btn-foto">
+                                                 <a href="<?= base_url('Deskripsi/' . $springbed['slug_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                              </div>
                                          </div>
-                                     </a>
-                                 </div>
-                             <?php }
-                                ?>
-                         </div>
+                                     </div>
+                                 </a>
+                             </div>
+                         <?php } ?>
                      </div>
-                     <div class="tab-pane fade container p-0" id="desk2" role="tabpanel" aria-labelledby="desk2-tab">
-                         <div class="row pt-3 produk-grid">
-                             <?php
-                                foreach ($springbed as $springbed) {
-                                    $max = $this->barang->getMaxPriceFromVariation($springbed['kd_product'])->row();
-                                    $min = $this->barang->getMinPriceFromVariation($springbed['kd_product'])->row();
-                                ?>
+                 </div>
+                 <div class="tab-pane fade show active" id="v-3" role="tabpanel" aria-labelledby="v-3-tab">
+                     <div class="row produk-grid">
 
-                                 <div class="col-lg-3 py-2">
-                                     <a href="<?= base_url('Deskripsi/' . $springbed['slug_product']) ?>" style="text-decoration: none">
-                                         <div class="bg-white card-proser">
-                                             <img src="<?= base_url('assets/images/produk/' . $springbed['photo_product']) ?>" class="card-img-top p-3" alt="..." />
-                                             <div class="card-body">
-                                                 <p class="fw-light text-secondary small">Spring Bed</p>
-                                                 <h5 class="card-title fw-bold text-dark"><?= $springbed['name_product'] ?></h5>
-                                                 <p class="card-text mb-0 small fw-light text-secondary"><s>Rp.<?= number_format($springbed['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s> ~ <s>Rp.<?= number_format($springbed['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s></p>
-                                                 <p class="card-text yellow-text mb-3">Rp.<?= number_format($springbed['price_product'] + $min->min_price, '0', ',', '.') ?> ~ <span>Rp.<?= number_format($springbed['price_product'] + $max->max_price, '0', ',', '.') ?></span></p>
-                                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
-                                                 <div class="text-center btn-foto">
-                                                     <input type="number" name="quantity" id="<?php echo $springbed['kd_product']; ?>" value="1" class="quantity form-control" hidden>
-                                                     <!-- <button id="add_cart" class="btn rounded-pill px-5 py-2 btn-foto yellow-button" data-kdproduct="<?php echo $springbed['kd_product'] ?>" data-nameproduct="<?php echo $springbed['name_product'] ?>" data-priceproduct="<?php echo $springbed['price_product'] ?>" data-photoproduct="<?php echo $springbed['photo_product'] ?>">Pesan</button> -->
-                                                     <a href="<?= base_url('Deskripsi/' . $springbed['slug_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
-                                                 </div>
+                         <?php
+                            foreach ($sofa as $sofa) {
+                                $max = $this->barang->getMaxPriceFromVariation($sofa['kd_product'])->row();
+                                $min = $this->barang->getMinPriceFromVariation($sofa['kd_product'])->row();
+                            ?>
+                             <div class="col-lg-4 py-2">
+                                 <a href="<?= base_url('Deskripsi/' . $sofa['slug_product']) ?>" style="text-decoration: none">
+                                     <div class="bg-white card-proser">
+                                         <img src="<?= base_url('assets/images/produk/' . $sofa['photo_product']) ?>" class="card-img-top p-3" alt="..." />
+                                         <div class="card-body">
+                                             <p class="fw-light text-secondary small">Sofa</p>
+                                             <h5 class="card-title fw-bold text-dark"><?= $sofa['name_product'] ?></h5>
+                                             <p class="card-text mb-0 small fw-light text-secondary"><s>Rp.<?= number_format($sofa['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s> ~ <s>Rp.<?= number_format($sofa['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s></p>
+                                             <p class="card-text yellow-text mb-3">Rp.<?= number_format($sofa['price_product'] + $min->min_price, '0', ',', '.') ?> ~ <span>Rp.<?= number_format($sofa['price_product'] + $max->max_price, '0', ',', '.') ?></span></p>
+                                             <div class="text-center btn-foto">
+                                                 <a href="<?= base_url('Deskripsi/' . $sofa['slug_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                              </div>
                                          </div>
-                                     </a>
-                                 </div>
-                             <?php }
-
-                                ?>
-                         </div>
+                                     </div>
+                                 </a>
+                             </div>
+                         <?php } ?>
                      </div>
                  </div>
              </div>

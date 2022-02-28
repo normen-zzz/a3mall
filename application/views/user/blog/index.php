@@ -17,7 +17,8 @@
             </div>
         </div>
         <div class="row pembungkus-blog pt-5">
-            <?php foreach ($blog as $blog) { ?>
+            <?php foreach ($blog as $blog) {
+            ?>
                 <div class="col-lg-4 py-2">
                     <div class="bg-white bg-card shadow">
                         <img src="<?= base_url('assets/user/img/blog/' . $blog['photo_blog']) ?>" class="card-img-top" alt="..." />
