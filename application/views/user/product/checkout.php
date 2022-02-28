@@ -1,5 +1,5 @@
 <!-- Breadcrumb -->
-<section id="breadcrumb" class="bg-white py-5">
+<!-- <section id="breadcrumb" class="bg-white py-5">
     <div class="container">
         <div class="row">
             <divc class="col">
@@ -7,7 +7,7 @@
             </divc>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Akhir Breadcrumb -->
 
 <!-- Alamat -->

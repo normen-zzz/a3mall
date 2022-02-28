@@ -78,21 +78,33 @@
              </dov>
          </div>
          <div class="row pt-3 proser-grid">
-             <div class="col-3 py-2">
-                 <a href="./deskripsi.html" style="text-decoration: none">
-                     <div class="bg-white card-proser">
-                         <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
-                         <div class="card-body">
-                             <p class="fw-light text-secondary small">Sofa</p>
-                             <h5 class="card-title fw-bold text-dark">Sakarias Armchair</h5>
-                             <p class="card-text yellow-text mb-3">Rp. 999.9999s</p>
-                             <div class="text-center btn-foto">
-                                 <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 yellow-button">Pesan</a>
+             <?php foreach ($unggulan as $unggulan) {
+                    $max = $this->barang->getMaxPriceFromVariation($unggulan->kd_product)->row();
+                    $min = $this->barang->getMinPriceFromVariation($unggulan->kd_product)->row(); ?>
+                 <div class="col-3 py-2">
+                     <a href="<?= base_url('Deskripsi/' . $unggulan->slug_product) ?>" style="text-decoration: none">
+                         <div class="bg-white card-proser">
+                             <img src="<?= base_url('assets/images/produk/' . $unggulan->photo_product) ?>" class="card-img-top p-3" alt="..." />
+                             <div class="card-body">
+                                 <p class="fw-light text-secondary small"><?= $unggulan->name_category ?></p>
+                                 <h5 class="card-title fw-bold text-dark"><?= $unggulan->name_product ?></h5>
+                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= $unggulan->price_product ?></p> -->
+                                 <?php if ($unggulan->beforeprice_product != $unggulan->price_product) { ?>
+                                     <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($unggulan->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($unggulan->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($unggulan->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($unggulan->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                 <?php } else { ?>
+                                     <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($unggulan->beforeprice_product, '0', ',', '.') ?></s></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($unggulan->price_product, '0', ',', '.') ?></p>
+                                 <?php } ?>
+                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
+                                 <div class="text-center btn-foto">
+                                     <a href="<?= base_url('Deskripsi/' . $unggulan->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button">Detail</a>
+                                 </div>
                              </div>
                          </div>
-                     </div>
-                 </a>
-             </div>
+                     </a>
+                 </div>
+             <?php } ?>
          </div>
      </div>
  </section>

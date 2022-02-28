@@ -50,7 +50,7 @@
                                                 <td><?= $admin['name'] ?></td>
                                                 <td>
                                                     <a href="javascript:;" class="btn btn-primary mt-1 item-detail" data="<?php echo $admin['email'] ?>">Ubah</a>
-                                                    <a href="<?= base_url('admin/Barang/deleteAdmin/' . urlencode($admin['email'])) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>
+                                                    <a href="<?= base_url('admin/Administrator/deleteAdmin/' . urlencode($admin['email'])) ?>" class="btn btn-danger mt-1" onclick="return confirm('Anda Yakin Ingin Menghapus?')">hapus</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -160,7 +160,7 @@
     </div>
 </div>
 
-<!-- modal tambah barang -->
+<!-- modal tambah Admin -->
 <div class="modal fade" tabindex="-1" role="dialog" id="tambahAdminModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -193,16 +193,6 @@
                         <label>password</label>
                         <input type="text" name="password" class="form-control" required>
                         <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Group</label>
-                        <select name="group" class="form-control" required>
-                            <?php foreach ($group as $group) { ?>
-                                <option value="<?= $group['id'] ?>"><?= $group['name'] ?></option>
-                            <?php } ?>
-                        </select>
-                        <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
                     <div class="form-group">

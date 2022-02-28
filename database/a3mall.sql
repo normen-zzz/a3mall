@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Feb 2022 pada 02.35
+-- Waktu pembuatan: 28 Feb 2022 pada 09.56
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -91,6 +91,27 @@ CREATE TABLE `brand_product` (
 
 INSERT INTO `brand_product` (`id_brand`, `name_brand`, `created_brand`, `describe_brand`) VALUES
 (1, 'escon', '2022-02-27 06:33:10', 'Brand Escon');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `carousel`
+--
+
+CREATE TABLE `carousel` (
+  `id_carousel` int(11) NOT NULL,
+  `photo_carousel` varchar(50) NOT NULL,
+  `created_carousel` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `carousel`
+--
+
+INSERT INTO `carousel` (`id_carousel`, `photo_carousel`, `created_carousel`) VALUES
+(4, '07934bbd045d7d591bf908238404ea94.jpg', '2022-02-28 08:42:07'),
+(5, '870badd8afbc970d6f716362819c39fd.jpg', '2022-02-28 08:33:18'),
+(6, '21f96cdd75eccaeacb9f3443ba27c703.jpg', '2022-02-28 08:44:43');
 
 -- --------------------------------------------------------
 
@@ -91611,9 +91632,7 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id_product`, `kd_product`, `name_product`, `slug_product`, `price_product`, `describe_product`, `brand_product`, `category_product`, `users`, `created_product`, `status_product`, `date_arrived`, `beforeprice_product`) VALUES
 (3, 'B12345', 'Bagus Brown', '1-bagus-brown', '4000000', 'Ini Bagus Brown', 1, 1, 1, '2022-02-27 07:48:09', 'active', '2022-02-14', '5000000'),
-(1, 'D23344', 'Dynasty Brown', 'dynasty-brown', '2000000', 'Ini dynasty', 1, 1, 1, '2022-02-27 07:47:47', 'active', '2022-01-27', '3000000'),
-(2, 'D23345', 'KasurBaru', 'kasur-baru', '2000000', 'Ini Kasur Baru', 1, 1, 1, '2022-02-27 07:47:48', 'active', '2022-01-27', '3000000'),
-(4, 'test', 'test', '1-test', '4000000', '<p>test</p>\r\n', 1, 1, 1, '2022-02-27 13:37:30', 'active', '2022-02-27', '5000000');
+(1, 'D23344', 'Dynasty Brown', 'dynasty-brown', '2000000', 'Ini dynasty', 1, 1, 1, '2022-02-27 07:47:47', 'active', '2022-01-27', '3000000');
 
 -- --------------------------------------------------------
 
@@ -91793,7 +91812,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `photo`, `group`, `saldo`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$10$KjhOcwUXBcyxRJsRx/hgz.Udvc1qP3wozPc71/55Q4IdMugWXpHqS', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1645953494, 1, 'Admin', 'istrator', 'ADMIN', '087654323456', '5dcf268d105834f893f22b3d204692d3.png', 1, 0),
+(1, '127.0.0.1', 'administrator', '$2y$10$KjhOcwUXBcyxRJsRx/hgz.Udvc1qP3wozPc71/55Q4IdMugWXpHqS', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1646031096, 1, 'Admin', 'istrator', 'ADMIN', '087654323456', '5dcf268d105834f893f22b3d204692d3.png', 1, 0),
 (9, '::1', NULL, '$2y$10$Fu5qrsBkirSUv3ax1GNXWezcSunCIdrXYT7r3B.ZDf8me/Bge2UdO', 'firmanruhiyan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1643257486, 1645874689, 1, 'firman', 'ruhiyan', NULL, '085697780467', '5687e7a2e7be92881c154b4711b85ecf.JPG', NULL, 200000),
 (10, '::1', NULL, '$2y$10$f3YT3eHXcK/KObfW/Iy2AedqsIW6uPD7TK.HS5Oj89Tqy6NNihUWG', 'normanardian24@gmail.com', NULL, NULL, 'fd02d4a9a8e708918067', '$2y$10$vMX7f3aJomw/dJ1KUY9sEuYBOK9sg5U0GbN7lV0NSZoxv.1oZ5o9K', 1645682248, NULL, NULL, 1644201211, 1645263880, 1, 'Norman', 'Ardian', NULL, NULL, 'Norman Ardian.jpg', NULL, 0),
 (11, '::1', 'atiga', '$2y$10$NdgSDjxxXI7fdJirZUc4OuOaRKH1xbVIQoSRifKCzkPSxK8Ygam26', 'atigamall3@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1644817949, NULL, 1, 'atiga', 'mall', NULL, NULL, 'atiga mall.jpg', 2, 0),
@@ -91876,6 +91895,12 @@ ALTER TABLE `blog`
 --
 ALTER TABLE `brand_product`
   ADD PRIMARY KEY (`id_brand`);
+
+--
+-- Indeks untuk tabel `carousel`
+--
+ALTER TABLE `carousel`
+  ADD PRIMARY KEY (`id_carousel`);
 
 --
 -- Indeks untuk tabel `catalogue`
@@ -92026,6 +92051,12 @@ ALTER TABLE `blog`
 --
 ALTER TABLE `brand_product`
   MODIFY `id_brand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `carousel`
+--
+ALTER TABLE `carousel`
+  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `catalogue`

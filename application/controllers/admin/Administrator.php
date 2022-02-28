@@ -77,7 +77,7 @@ class Administrator extends CI_Controller
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
                 'phone' => $this->input->post('phone'),
-                'group' => $this->input->post('group'),
+                'group' => 3,
             ];
 
             if (!empty($this->input->post('password'))) {
@@ -151,7 +151,7 @@ class Administrator extends CI_Controller
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
                 'phone' => $this->input->post('phone'),
-                'group' => $this->input->post('group'),
+                'group' => 3,
             ];
 
             if (isset($_FILES['photo']['name'])) {

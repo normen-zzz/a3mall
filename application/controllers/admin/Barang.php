@@ -453,6 +453,7 @@ class Barang extends CI_Controller
             $data = [
                 'kd_product' => $this->input->post('code'),
                 'name_variation' => $this->input->post('name'),
+                'price_variation' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'length_variation' => $this->input->post('length'),
                 'width_variation' => $this->input->post('width'),
                 'weight_variation' => $this->input->post('weight'),
@@ -478,6 +479,7 @@ class Barang extends CI_Controller
         } else {
             $data = [
                 'name_variation' => $this->input->post('name'),
+                'price_variation' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'length_variation' => $this->input->post('length'),
                 'width_variation' => $this->input->post('width'),
                 'weight_variation' => $this->input->post('weight'),

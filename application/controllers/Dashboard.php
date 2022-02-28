@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller
 		parent::__construct();
 		$this->load->model('Barang_model', 'barang');
 		$this->load->model('Blog_model', 'blog');
+		$this->load->model('Cms_model', 'cms');
 	}
 
 	public function index()
@@ -31,6 +32,7 @@ class Dashboard extends CI_Controller
 			"sofa" => $this->barang->getNewArrival(2),
 			"blog" => $this->blog->getBlog()->result_array(),
 			"brand" => $this->db->get('brand_product')->result_array(),
+			"carousel" => $this->cms->getCarousel()->result_array(),
 		];
 
 		$this->load->view('user/templates/app', $data, FALSE);

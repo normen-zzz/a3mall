@@ -85,6 +85,19 @@ class Barang_model extends CI_Model
         // }
     }
 
+    public function getProductByRand()
+    {
+        $this->db->select('*');
+        $this->db->from('product a');
+        $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
+        $this->db->join('users c', 'c.id=a.users', 'left');
+        $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
+        $this->db->group_by('a.kd_product');
+        $this->db->order_by('rand()');
+        $this->db->limit(4);
+        return $this->db->get();
+    }
+
     public function getProductByKd($where)
     {
         $this->db->select('*');

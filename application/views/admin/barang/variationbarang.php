@@ -22,6 +22,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Name</th>
+                                            <th>Price</th>
                                             <th>Length (Cm)</th>
                                             <th>Width (Cm)</th>
                                             <th>Weight (G)</th>
@@ -34,6 +35,7 @@
                                             <tr>
                                                 <td><?= $no ?></td>
                                                 <td><?= $variation['name_variation'] ?></td>
+                                                <td><?= number_format($variation['price_variation'], '0', ',', '.')  ?></td>
                                                 <td><?= $variation['length_variation'] ?></td>
                                                 <td><?= $variation['width_variation'] ?></td>
                                                 <td><?= $variation['weight_variation'] ?></td>
@@ -76,6 +78,11 @@
                         <label>Name Variation</label>
                         <input type="text" name="name" class="form-control">
                         <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Price Variation</label>
+                        <input type="text" id="tanpa-rupiah" name="price" class="form-control">
+                        <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label>Width (Cm)</label>
@@ -123,6 +130,11 @@
                         <label>Name (Width x Length)</label>
                         <input type="text" name="name" class="form-control">
                         <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Price Variation</label>
+                        <input type="text" id="tanpa-rupiah" name="price" class="form-control">
+                        <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
                         <label>Width (Cm)</label>

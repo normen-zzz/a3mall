@@ -1,5 +1,5 @@
  <!-- Breadcrumb -->
- <section id="breadcrumb" class="bg-white py-5">
+ <!-- <section id="breadcrumb" class="bg-white py-5">
      <div class="container">
          <div class="row">
              <divc class="col">
@@ -8,7 +8,7 @@
              </divc>
          </div>
      </div>
- </section>
+ </section> -->
  <!-- Akhir Breadcrumb -->
 
  <!-- Deskripsi Foto -->
@@ -148,9 +148,13 @@
                                  <p class="fw-light text-secondary small"><?= $sejenis->name_category ?></p>
                                  <h5 class="card-title fw-bold text-dark"><?= $sejenis->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
-                                 <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sejenis->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
-                                 <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sejenis->price_product + $max->max_price, '0', ',', '.') ?></span></p>
-
+                                 <?php if ($sejenis->beforeprice_product != $sejenis->price_product) { ?>
+                                     <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sejenis->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sejenis->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                 <?php } else { ?>
+                                     <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product, '0', ',', '.') ?></s></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product, '0', ',', '.') ?></p>
+                                 <?php } ?>
                                  <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                  <div class="text-center btn-foto">
                                      <a href="<?= base_url('Deskripsi/' . $sejenis->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button">Detail</a>

@@ -29,10 +29,6 @@
         <div class="row pt-5">
             <div class="col">
                 <h2>Berita baru lainnya</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consequatur dignissimos laborum placeat autem rerum possimus explicabo ex error nemo. Fugiat obcaecati deleniti ab magnam architecto laudantium veniam, voluptates
-                    perspiciatis!
-                </p>
             </div>
         </div>
         <div class="row pembungkus-blog pt-5">

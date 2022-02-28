@@ -39,12 +39,7 @@ class Admin_model extends CI_Model
         $this->db->from('groups a');
         $this->db->where_not_in('a.id', 2);
         $this->db->order_by('a.id', 'desc');
-        $query = $this->db->get();
-        // if ($query->num_rows() != 0) {
-        return $query;
-        // } else {
-        //     return false;
-        // }
+        return $this->db->get();
     }
 
     public function getAdminAjax($email)

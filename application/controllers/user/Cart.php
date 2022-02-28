@@ -11,6 +11,7 @@ class Cart extends CI_Controller
         parent::__construct();
         $this->load->model('User_model', 'user');
         $this->load->model('Ongkir_model', 'ongkir');
+        $this->load->model('Barang_model', 'barang');
     }
 
     public function index()
@@ -49,7 +50,8 @@ class Cart extends CI_Controller
             "alamat" => $alamat,
             "alamatongkir" => $alamatongkir,
             "province" => $province,
-            "usergoogle" => $usergoogle
+            "usergoogle" => $usergoogle,
+            "unggulan" => $this->barang->getProductByRand()->result(),
         ];
 
         $this->load->view('user/templates/app', $data, FALSE);

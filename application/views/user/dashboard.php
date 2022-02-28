@@ -16,14 +16,18 @@
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 2"></button>
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="<?= base_url('assets/user/img/') ?>landingpage/Pink Minimalist Modern Furniture Promotion Video.jpg" alt="..." />
-                        </div>
-                        <div class="carousel-item">
-                            <img src="<?= base_url('assets/user/img/') ?>landingpage/Light Green and Lavender Organic Abstract Education YouTube Intro.jpg" alt="..." />
-                        </div>
+                        <?php $no = 1;
+                        foreach ($carousel as $carousel) { ?>
+                            <div class="carousel-item <?php if ($no == 1) {
+                                                            echo 'active';
+                                                        } ?>">
+                                <img src="<?= base_url('assets/user/img/carousel/' . $carousel['photo_carousel']) ?>" alt="..." />
+                            </div>
+                        <?php $no++;
+                        } ?>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -70,17 +74,17 @@
                     <div class="col-lg">
                         <h5 class="fw-bold yellow-text">Berkualitas Tinggi</h5>
                         <p class="fw-light small">
-                           Produk kami menggunakan bahan yang dibuat khusus dengan kualitas terbaik dikelasnya sesuai dengan keseimbangan antara nilai dan produknya. </p>
+                            Produk kami menggunakan bahan yang dibuat khusus dengan kualitas terbaik dikelasnya sesuai dengan keseimbangan antara nilai dan produknya. </p>
                     </div>
                     <div class="col-lg">
                         <h5 class="fw-bold yellow-text">Inovatif dan Unik</h5>
                         <p class="fw-light small">
-                            Produk yang kami di designe dengan penampilan terkini dan  elegance membawa inspirasi sejuk dan nyaman </p>
+                            Produk yang kami desain dengan penampilan terkini dan elegan membawa inspirasi sejuk dan nyaman </p>
                     </div>
                     <div class="col-lg">
                         <h5 class="fw-bold yellow-text">Biaya Terjangkau</h5>
                         <p class="fw-light small">
-                            Kami memberikan harga yang cukup terjangankau </p>
+                            Kami memberikan harga yang cukup terjangkau </p>
                     </div>
                 </div>
             </div>
@@ -113,12 +117,17 @@
                 <div class="col-lg-3 py-2">
                     <a href="<?= base_url('Deskripsi/' . $sofa->slug_product) ?>" style="text-decoration: none">
                         <div class="bg-white card-arival">
-                            <img src="<?= base_url('assets/user/') ?>img/produk/MH-103.png" class="card-img-top p-3" alt="..." />
+                            <img src="<?= base_url('assets/images/produk/' . $sofa->photo_product) ?>" class="card-img-top p-3" alt="..." />
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Sofa</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $sofa->name_product ?></h5>
-                                <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sofa->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
-                                <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sofa->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                <?php if ($sofa->beforeprice_product != $sofa->price_product) { ?>
+                                    <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sofa->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sofa->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                <?php } else { ?>
+                                    <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa->beforeprice_product, '0', ',', '.') ?></s></p>
+                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product, '0', ',', '.') ?></p>
+                                <?php } ?>
                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product, '0', ',', '.') ?></p> -->
                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
@@ -146,8 +155,13 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Spring Bed</p>
                                 <h5 class="card-title fw-bold text-dark"><?= $springbed->name_product ?></h5>
-                                <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($springbed->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
-                                <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($springbed->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                <?php if ($springbed->beforeprice_product != $springbed->price_product) { ?>
+                                    <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($springbed->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($springbed->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                <?php } else { ?>
+                                    <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed->beforeprice_product, '0', ',', '.') ?></s></p>
+                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product, '0', ',', '.') ?></p>
+                                <?php } ?>
                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product, '0', ',', '.') ?></p> -->
                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
