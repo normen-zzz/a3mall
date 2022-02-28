@@ -176,6 +176,9 @@ class Cart extends CI_Controller
             <div class="row">
                 <div class="col-md py-1">
                     <p>' . $keranjang['name'] . '</p>
+                    <p>' . $keranjang['weight'] . '</p>
+                    <p>' . $keranjang['length'] . '</p>
+                    <p>' . $keranjang['width'] . '</p>
                    
                 </div>
                 <div class="col-md py-1 text-center isi-keranjang my-auto">

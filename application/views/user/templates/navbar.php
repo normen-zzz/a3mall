@@ -11,13 +11,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav navb ms-5 me-auto">
                 <li class="nav-item ms-3">
-<<<<<<< HEAD
-                    <a class="nav-link active" href="<?= base_url('Dashboard') ?>">Beranda</a>
-=======
+
                     <a class="nav-link <?php if ($this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) == False) {
                                             echo 'active';
-                                        } ?>" href="<?= base_url('Dashboard') ?>">Home</a>
->>>>>>> d7fac7a4b8f609c429938bc2b09d0c73613bd33a
+                                        } ?>" href="<?= base_url('Dashboard') ?>">Beranda</a>
                 </li>
                 <li class="nav-item ms-3">
                     <a class="nav-link <?php if ($this->uri->segment(1) == 'Product') {
@@ -40,13 +37,10 @@
                                         } ?>" href="<?= base_url('Blog') ?>">Blog</a>
                 </li>
                 <li class="nav-item ms-3">
-<<<<<<< HEAD
-                    <a class="nav-link" href="<?= base_url('Catalogue') ?>">Katalog</a>
-=======
                     <a class="nav-link <?php if ($this->uri->segment(1) == 'Catalogue') {
                                             echo 'active';
-                                        } ?>" href="<?= base_url('Catalogue') ?>">Catalogue</a>
->>>>>>> d7fac7a4b8f609c429938bc2b09d0c73613bd33a
+                                        } ?>" href="<?= base_url('Catalogue') ?>">Katalog</a>
+
                 </li>
             </ul>
             <ul class="navbar-nav">
