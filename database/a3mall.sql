@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Feb 2022 pada 13.17
+-- Waktu pembuatan: 28 Feb 2022 pada 02.35
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -51,6 +51,30 @@ INSERT INTO `alamat` (`id_alamat`, `email`, `nama_alamat`, `telp_alamat`, `provi
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `blog`
+--
+
+CREATE TABLE `blog` (
+  `id_blog` int(11) NOT NULL,
+  `title_blog` varchar(50) NOT NULL,
+  `slug_blog` varchar(50) NOT NULL,
+  `photo_blog` varchar(50) NOT NULL,
+  `content_blog` text NOT NULL,
+  `writer_blog` varchar(50) NOT NULL,
+  `created_blog` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `see_blog` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `blog`
+--
+
+INSERT INTO `blog` (`id_blog`, `title_blog`, `slug_blog`, `photo_blog`, `content_blog`, `writer_blog`, `created_blog`, `see_blog`) VALUES
+(2, 'coba1', 'coba1', 'dff66cf323c0482d4a1d4a17ee835e17.jpg', '<p>coba1</p>\r\n', 'coba', '2022-02-27 13:55:07', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `brand_product`
 --
 
@@ -89,7 +113,7 @@ CREATE TABLE `catalogue` (
 --
 
 INSERT INTO `catalogue` (`id_catalogue`, `name_catalogue`, `describe_catalogue`, `created_catalogue`, `photo_catalogue`, `slug_catalogue`, `pdf_catalogue`) VALUES
-(10, 'E-Catalogue Maret 2022', 'E- Catalogue', '2022-02-27 11:20:22', 'b449451095f15fbe507bd3d1fd4b3a09.jpg', 'e-catalogue-maret-2022', 'cca7e521c8f5c17c8fa66cbcf9b25f34.pdf');
+(10, 'E-Catalogue Maret 2022', 'E- Cataloguee', '2022-02-27 12:59:26', 'b449451095f15fbe507bd3d1fd4b3a09.jpg', 'e-catalogue-maret-2022', 'cca7e521c8f5c17c8fa66cbcf9b25f34.pdf');
 
 -- --------------------------------------------------------
 
@@ -91588,7 +91612,8 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id_product`, `kd_product`, `name_product`, `slug_product`, `price_product`, `describe_product`, `brand_product`, `category_product`, `users`, `created_product`, `status_product`, `date_arrived`, `beforeprice_product`) VALUES
 (3, 'B12345', 'Bagus Brown', '1-bagus-brown', '4000000', 'Ini Bagus Brown', 1, 1, 1, '2022-02-27 07:48:09', 'active', '2022-02-14', '5000000'),
 (1, 'D23344', 'Dynasty Brown', 'dynasty-brown', '2000000', 'Ini dynasty', 1, 1, 1, '2022-02-27 07:47:47', 'active', '2022-01-27', '3000000'),
-(2, 'D23345', 'KasurBaru', 'kasur-baru', '2000000', 'Ini Kasur Baru', 1, 1, 1, '2022-02-27 07:47:48', 'active', '2022-01-27', '3000000');
+(2, 'D23345', 'KasurBaru', 'kasur-baru', '2000000', 'Ini Kasur Baru', 1, 1, 1, '2022-02-27 07:47:48', 'active', '2022-01-27', '3000000'),
+(4, 'test', 'test', '1-test', '4000000', '<p>test</p>\r\n', 1, 1, 1, '2022-02-27 13:37:30', 'active', '2022-02-27', '5000000');
 
 -- --------------------------------------------------------
 
@@ -91841,6 +91866,12 @@ ALTER TABLE `alamat`
   ADD PRIMARY KEY (`id_alamat`);
 
 --
+-- Indeks untuk tabel `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id_blog`);
+
+--
 -- Indeks untuk tabel `brand_product`
 --
 ALTER TABLE `brand_product`
@@ -91985,6 +92016,12 @@ ALTER TABLE `alamat`
   MODIFY `id_alamat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT untuk tabel `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `brand_product`
 --
 ALTER TABLE `brand_product`
@@ -92042,7 +92079,7 @@ ALTER TABLE `photo_unit`
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaction`
