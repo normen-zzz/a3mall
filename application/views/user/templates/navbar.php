@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav navb ms-5 me-auto">
                 <li class="nav-item ms-3">
-                    <a class="nav-link active" href="<?= base_url('Dashboard') ?>">Home</a>
+                    <a class="nav-link active" href="<?= base_url('Dashboard') ?>">Beranda</a>
                 </li>
                 <li class="nav-item ms-3">
                     <a class="nav-link" href="<?= base_url('Product') ?>">Produk</a>
@@ -28,7 +28,7 @@
                     <a class="nav-link" href="<?= base_url('Blog') ?>">Blog</a>
                 </li>
                 <li class="nav-item ms-3">
-                    <a class="nav-link" href="<?= base_url('Catalogue') ?>">Catalogue</a>
+                    <a class="nav-link" href="<?= base_url('Catalogue') ?>">Katalog</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

@@ -68,20 +68,19 @@
             <div class="col-lg">
                 <div class="row">
                     <div class="col-lg">
-                        <h5 class="fw-bold yellow-text">Gratis Ongkir</h5>
+                        <h5 class="fw-bold yellow-text">Berkualitas Tinggi</h5>
                         <p class="fw-light small">
-                            Kami Menyediakan gratis ongkir khususnya daerah jabodetabek </p>
+                           Produk kami menggunakan bahan yang dibuat khusus dengan kualitas terbaik dikelasnya sesuai dengan keseimbangan antara nilai dan produknya. </p>
                     </div>
                     <div class="col-lg">
-                        <h5 class="fw-bold yellow-text">Banyak Pilihan</h5>
+                        <h5 class="fw-bold yellow-text">Inovatif dan Unik</h5>
                         <p class="fw-light small">
-                            Produk yang kami sediakan mulai dari Spring Bed hingga Sofa dengan berbagai macam tipe dan
-                            juga warna yang bervarian </p>
+                            Produk yang kami di designe dengan penampilan terkini dan  elegance membawa inspirasi sejuk dan nyaman </p>
                     </div>
                     <div class="col-lg">
-                        <h5 class="fw-bold yellow-text">Mudah Dipasang</h5>
+                        <h5 class="fw-bold yellow-text">Biaya Terjangkau</h5>
                         <p class="fw-light small">
-                            Kami memikirkan bahwa produk yang kami berikan kepada pembeli agar mudah dipasang </p>
+                            Kami memberikan harga yang cukup terjangankau </p>
                     </div>
                 </div>
             </div>

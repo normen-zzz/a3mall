@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="row py-5">
-            <div class="col">
+            <div class="col text-center">
                 <img class="img-fluid" src="<?= base_url('assets/user/img/blog/' .  $detailblog['photo_blog']) ?>" alt="" />
             </div>
         </div>

@@ -80,16 +80,16 @@
                 <h5 class="fw-bold">Produk (<?= $detail_transaksi['total_quantity'] ?>)</h5>
             </div>
             <div class="col my-auto justify-content-end d-flex">
-                <p class="my-auto me-5"><span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($detail_transaksi['total_transaction'], '0', ',', '.') ?></span></p>
+                <p class="my-auto "><span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($detail_transaksi['total_transaction'], '0', ',', '.') ?></span></p>
 
             </div>
         </div>
-        <div class="row">
+        <div class="row py-3">
             <div class="col my-auto">
                 <h5 class="fw-bold">Potongan Saldo</h5>
             </div>
             <div class="col my-auto justify-content-end d-flex">
-                <p class="my-auto me-5"><span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($detail_transaksi['potongan_saldo'], '0', ',', '.') ?></span></p>
+                <p class="my-auto"><span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($detail_transaksi['potongan_saldo'], '0', ',', '.') ?></span></p>
             </div>
         </div>
         <?php if ($detail_transaksi['total_payment'] == 0) { ?>
