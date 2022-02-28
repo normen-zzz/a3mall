@@ -43,14 +43,16 @@
                 <form method="POST" action="<?= base_url('user/Auth/reset_password/' . $code) ?>">
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" name="<?= $new_password ?>" class="form-control" id="exampleInputPassword1" />
+                        <?php echo form_input($new_password); ?>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                        <input type="password" name="<?= $new_password_confirm ?>" class="form-control" id="exampleInputPassword1" />
+                        <?php echo form_input($new_password_confirm); ?>
                     </div>
+
                     <?php echo form_input($user_id); ?>
                     <?php echo form_hidden($csrf); ?>
+
                     <div class="d-grid gap-2">
 
                         <button class="btn btn-primary" type="submit">Submit</button>

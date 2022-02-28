@@ -69,9 +69,18 @@
                      </div>
                      <div class="text mb-3 pt-3">
                          <p class="m-0">Harga:</p>
-                         <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($produk->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($produk->beforeprice_product + +$max->max_price, '0', ',', '.') ?></s></h5>
-                         <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product + $min->min_price, '0', ',', '.')  ?> ~ <span>Rp. <?= number_format($produk->price_product + $max->max_price, '0', ',', '.')  ?></span></h4>
+                         <?php if ($min->min_price != $max->max_price) { ?>
+                             <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($produk->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($produk->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></h5>
+                             <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product + $min->min_price, '0', ',', '.')  ?> ~ <span>Rp. <?= number_format($produk->price_product + $max->max_price, '0', ',', '.')  ?></span></h4>
+                             <?php } else {
+                                if ($produk->beforeprice_product != $produk->price_product) { ?>
+                                 <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s></h5>
+                                 <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h4>
+                             <?php } else { ?>
+                                 <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?> </h4>
+                             <?php  } ?>
 
+                         <?php } ?>
                          <!-- <h5 class="mb-0 fw-light text-secondary"><s id="beforetarget">Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s> ~ Rp <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></h5> -->
                          <!-- <h2 class="yellow-text" id="target">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h2> -->
                          <!-- <h2 class="yellow-text">Coming Soon</h2> -->
@@ -148,11 +157,13 @@
                                  <p class="fw-light text-secondary small"><?= $sejenis->name_category ?></p>
                                  <h5 class="card-title fw-bold text-dark"><?= $sejenis->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
-                                 <?php if ($sejenis->beforeprice_product != $sejenis->price_product) { ?>
+                                 <?php if ($min->min_price != $max->max_price) { ?>
                                      <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sejenis->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
                                      <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sejenis->price_product + $max->max_price, '0', ',', '.') ?></span></p>
-                                 <?php } else { ?>
-                                     <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product, '0', ',', '.') ?></s></p>
+                                     <?php } else {
+                                        if ($sejenis->beforeprice_product != $sejenis->price_product) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product, '0', ',', '.') ?></s></p>
+                                     <?php } ?>
                                      <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product, '0', ',', '.') ?></p>
                                  <?php } ?>
                                  <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->

@@ -76,7 +76,7 @@ class Barang_model extends CI_Model
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
         $this->db->where('a.category_product', $where);
         $this->db->group_by('d.kd_product');
-        $this->db->order_by('a.id_product', 'desc');
+        $this->db->order_by('a.date_arrived', 'desc');
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result_array();

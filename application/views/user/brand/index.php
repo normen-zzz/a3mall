@@ -42,9 +42,15 @@
                              <div class="card-body">
                                  <p class="fw-light text-secondary small"><?= $productbrand['name_category'] ?></p>
                                  <h5 class="card-title fw-bold text-dark"><?= $productbrand['name_product'] ?></h5>
-                                 <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($productbrand['beforeprice_product'] + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($productbrand['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s></p>
-                                 <p class="card-text yellow-text mb-3">Rp. <?= number_format($productbrand['price_product'] + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($productbrand['price_product'] + $max->max_price, '0', ',', '.') ?></span></p>
-                                 <div class="text-center btn-foto">
+                                 <?php if ($min->min_price != $max->max_price) { ?>
+                                     <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($productbrand['beforeprice_product'] + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($productbrand['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($productbrand['price_product'] + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($productbrand['price_product'] + $max->max_price, '0', ',', '.') ?></span></p>
+                                     <?php } else {
+                                        if ($productbrand['beforeprice_product'] != $productbrand['price_product']) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($productbrand['beforeprice_product'], '0', ',', '.') ?></s></p>
+                                     <?php } ?>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($productbrand['price_product'], '0', ',', '.') ?></p>
+                                 <?php } ?><div class="text-center btn-foto">
                                      <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
                                  </div>
                              </div>
