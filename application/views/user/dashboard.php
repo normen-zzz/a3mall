@@ -188,7 +188,8 @@
             </div>
         </div>
         <div class="row pembungkus-blog pt-3">
-            <?php foreach ($blog as $blog) { ?>
+            <?php $no = 0;
+            foreach ($blog as $blog) { ?>
                 <div class="col-lg-4 py-2">
                     <div class="bg-white bg-card">
                         <img src="<?= base_url('assets/user/img/blog/' . $blog['photo_blog']) ?>" class="card-img-top" alt="..." />
@@ -199,13 +200,16 @@
                         </div>
                     </div>
                 </div>
-            <?php } ?>
+            <?php $no++;
+            } ?>
         </div>
-        <div class="row pt-4">
-            <div class="col text-center">
-                <a href="<?= base_url('Blog') ?>" class="btn yellow-button px-5 py-2">Selengkapnya</a>
+        <?php if ($no > 3) { ?>
+            <div class="row pt-4">
+                <div class="col text-center">
+                    <a href="<?= base_url('Blog') ?>" class="btn yellow-button px-5 py-2">Selengkapnya</a>
+                </div>
             </div>
-        </div>
+        <?php } ?>
     </div>
 </section>
 <!-- Blog End -->

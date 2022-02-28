@@ -215,7 +215,7 @@ class Cart extends CI_Controller
 
     public function show_items()
     {
-        $items = '<span id="total_items" class="cart-basket d-flex align-items-center justify-content-center">' . $this->cart->total_items() . '</span>';
+        $items = '<span class="cart-basket d-flex align-items-center justify-content-center">' . $this->cart->total_items() . '</span>';
 
         return $items;
     }

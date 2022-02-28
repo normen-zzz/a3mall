@@ -22,6 +22,7 @@
 <section class="pb-5" id="blog">
     <div class="container py-5">
         <div class="row pembungkus-blog pt-5">
+<<<<<<< HEAD
             <?php foreach ($blog as $blog) { ?>
             <div class="col-lg-4 py-2">
                 <div class="bg-white bg-card shadow">
@@ -32,6 +33,18 @@
                         <p class="card-text"><?= limit_text($blog['content_blog'], 19) ?></p>
                         <a href="<?= base_url('Blog/detail/' . $blog['slug_blog']) ?>" class="btn btn-blog">See more <i
                                 class="bi bi-arrow-right"></i></a>
+=======
+            <?php foreach ($blog as $blog) {
+            ?>
+                <div class="col-lg-4 py-2">
+                    <div class="bg-white bg-card shadow">
+                        <img src="<?= base_url('assets/user/img/blog/' . $blog['photo_blog']) ?>" class="card-img-top" alt="..." />
+                        <div class="card-body mx-3">
+                            <h5 class="card-title"><?= $blog['title_blog'] ?></h5>
+                            <p class="card-text"><?= limit_text($blog['content_blog'], 19) ?></p>
+                            <a href="<?= base_url('Blog/detail/' . $blog['slug_blog']) ?>" class="btn btn-blog">See more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+>>>>>>> d7fac7a4b8f609c429938bc2b09d0c73613bd33a
                     </div>
                 </div>
             </div>

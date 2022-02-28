@@ -11,13 +11,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav navb ms-5 me-auto">
                 <li class="nav-item ms-3">
+<<<<<<< HEAD
                     <a class="nav-link active" href="<?= base_url('Dashboard') ?>">Beranda</a>
+=======
+                    <a class="nav-link <?php if ($this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) == False) {
+                                            echo 'active';
+                                        } ?>" href="<?= base_url('Dashboard') ?>">Home</a>
+>>>>>>> d7fac7a4b8f609c429938bc2b09d0c73613bd33a
                 </li>
                 <li class="nav-item ms-3">
-                    <a class="nav-link" href="<?= base_url('Product') ?>">Produk</a>
+                    <a class="nav-link <?php if ($this->uri->segment(1) == 'Product') {
+                                            echo 'active';
+                                        } ?>" href="<?= base_url('Product') ?>">Produk</a>
                 </li>
                 <li class="nav-item dropdown ms-3">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Brand </a>
+                    <a class="nav-link dropdown-toggle <?php if ($this->uri->segment(1) == 'Brand') {
+                                                            echo 'active';
+                                                        } ?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Brand </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php foreach ($brand as $brand) { ?>
                             <li><a class="dropdown-item" href="<?= base_url('Brand/' . $brand['name_brand']) ?>"><?= $brand['name_brand'] ?></a></li>
@@ -25,10 +35,18 @@
                     </ul>
                 </li>
                 <li class="nav-item ms-3">
-                    <a class="nav-link" href="<?= base_url('Blog') ?>">Blog</a>
+                    <a class="nav-link <?php if ($this->uri->segment(1) == 'Blog') {
+                                            echo 'active';
+                                        } ?>" href="<?= base_url('Blog') ?>">Blog</a>
                 </li>
                 <li class="nav-item ms-3">
+<<<<<<< HEAD
                     <a class="nav-link" href="<?= base_url('Catalogue') ?>">Katalog</a>
+=======
+                    <a class="nav-link <?php if ($this->uri->segment(1) == 'Catalogue') {
+                                            echo 'active';
+                                        } ?>" href="<?= base_url('Catalogue') ?>">Catalogue</a>
+>>>>>>> d7fac7a4b8f609c429938bc2b09d0c73613bd33a
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -36,7 +54,7 @@
                     <div id="cart" class="d-none"></div>
                     <a href="<?= base_url('Cart') ?>" class="cart h5 my-auto text-dark position-relative d-inline-flex" aria-label="View your shopping cart">
                         <i class="bi bi-cart3"></i>
-                        <div class="cart-basket d-flex align-items-center justify-content-center" id="total_items"></div>
+                        <div id="total_items"></div>
                     </a>
                 </li>
 
@@ -78,7 +96,7 @@
                     </li>
                 <?php } else { ?>
                     <li class="nav-item my-auto">
-                        <a class="nav-link my-auto bt btn btn-warning px-5 rounded-pill" href="<?= base_url('Login') ?>">Login</a>
+                        <a class="nav-link h4 my-auto text-dark rounded-pill" href="<?= base_url('Login') ?>"><i class="bi bi-person"></i></a>
                     </li>
                 <?php } ?>
             </ul>
