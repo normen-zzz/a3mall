@@ -304,6 +304,7 @@ class Barang_model extends CI_Model
         $this->db->like('a.brand_product', $like);
         $this->db->where_not_in('a.slug_product', $except);
         $this->db->group_by('a.kd_product');
+        $this->db->limit(4);
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
         return $query->result();

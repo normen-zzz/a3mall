@@ -48,7 +48,7 @@
 <section class="py-5" id="tersedia">
     <div class="container">
         <div class="row">
-            <div class="col text-center">
+            <div class="col-lg text-center">
                 <h5>Tersedia juga di</h5>
                 <a href="https://shopee.co.id/shop/654899565/" target="_blank">
                     <img src="<?= base_url('assets/user/') ?>img/landingpage/shopee-logo-40477 1.svg" class="img-fluid mx-5" alt="" />
