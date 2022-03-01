@@ -224,6 +224,23 @@ ul li a.cart .cart-basket {
 }
 
 @media only screen and (max-width: 991px) {
+  #tersedia img {
+    width: 100px;
+    margin: 0 !important;
+  }
+
+  body h1 {
+    font-size: 32px !important;
+  }
+
+  body h5 {
+    font-size: 18px !important;
+  }
+
+  body p {
+    font-size: 14px !important;
+  }
+
   /* Navbar */
   #navbar .navb {
     margin: 0 !important;
