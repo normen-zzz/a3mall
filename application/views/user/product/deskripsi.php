@@ -15,7 +15,7 @@
  <section class="py-5 overflow-hidden" id="deskfoto">
      <div class="container">
          <div class="row">
-             <div class="col-lg-7 p-5 padding-foto">
+             <div class="col-lg-7 p-5 px-5">
                  <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper3">
                      <div class="swiper-wrapper">
                          <?php foreach ($photo_produk as $photo) { ?>

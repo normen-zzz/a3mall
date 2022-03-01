@@ -100,13 +100,14 @@ class Barang extends CI_Controller
         } else {
             $jenis = $this->input->post('jenis');
             $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+            $brand = $this->db->get_where('brand_product', array('id_brand' => $this->input->post('brand')))->row();
             $title = trim(strtolower($this->input->post('name')));
             $out = explode(" ", $title);
             $slug = implode("-", $out);
             $data = [
                 'kd_product' => $this->input->post('code'),
                 'name_product' => $this->input->post('name'),
-                'slug_product' => $this->input->post('brand') . "-" . $slug,
+                'slug_product' => $brand->name_brand . "-" . $slug,
                 'price_product' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'describe_product' => $this->input->post('describe'),
                 'brand_product' => $this->input->post('brand'),
@@ -175,13 +176,14 @@ class Barang extends CI_Controller
         } else {
             $jenis = $this->input->post('jenis');
             $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-            $title = trim(strtolower($this->input->post('name')));
+            $brand = $this->db->get_where('brand_product', array('id_brand' => $this->input->post('brand')))->row();
+            $title = trim(strtolower(ucwords($brand->name_brand) . ' ' . $this->input->post('name')));
             $out = explode(" ", $title);
             $slug = implode("-", $out);
             $data = [
                 'kd_product' => $this->input->post('code'),
-                'name_product' => $this->input->post('name'),
-                'slug_product' => $this->input->post('brand') . "-" . $slug,
+                'name_product' => ucwords($brand->name_brand) . ' ' . $this->input->post('name'),
+                'slug_product' => $slug,
                 'price_product' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'describe_product' => $this->input->post('describe'),
                 'brand_product' => $this->input->post('brand'),

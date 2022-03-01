@@ -4,6 +4,13 @@
             <h1>Data Barang</h1>
         </div>
 
+        <?php
+        function limit_words($string, $word_limit)
+        {
+            $words = explode(" ", $string);
+            return implode(" ", array_splice($words, 0, $word_limit));
+        } ?>
+
         <div class="section-body">
             <div class="row">
                 <div class="col">
@@ -46,7 +53,7 @@
                                                 <td><?= $barang['name_product'] ?></td>
                                                 <td><?= number_format($barang['price_product'], '0', ',', '.') ?></td>
                                                 <td><?= number_format($barang['beforeprice_product'], '0', ',', '.') ?></td>
-                                                <td><?= $barang['describe_product'] ?></td>
+                                                <td><?= limit_words($barang['describe_product'], 15) ?>.... </td>
                                                 <td><?= $barang['name_category'] ?></td>
                                                 <td><?= $barang['name_brand'] ?></td>
                                                 <td><?= $barang['username'] ?></td>
