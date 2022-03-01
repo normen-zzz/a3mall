@@ -9,29 +9,37 @@ $('.btn-plus, .btn-minus').on('click', function (e) {
 function myFunction(x) {
   if (x.matches) {
     // If media query matches
-    var swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
+    var swiper = new Swiper('.mySwiper2', {
+      spaceBetween: 10,
+      slidesPerView: 3,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper('.mySwiper3', {
+      spaceBetween: 10,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      thumbs: {
+        swiper: swiper,
+      },
     });
   } else {
-    var swiper = new Swiper('.mySwiper', {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
+    var swiper = new Swiper('.mySwiper2', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper('.mySwiper3', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: swiper,
       },
     });
   }
@@ -40,23 +48,6 @@ function myFunction(x) {
 var x = window.matchMedia('(max-width: 991px)');
 myFunction(x); // Call listener function at run time
 x.addListener(myFunction); // Attach listener function on state changes
-
-var swiper = new Swiper('.mySwiper2', {
-  spaceBetween: 10,
-  slidesPerView: 4,
-  freeMode: true,
-  watchSlidesProgress: true,
-});
-var swiper2 = new Swiper('.mySwiper3', {
-  spaceBetween: 10,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  thumbs: {
-    swiper: swiper,
-  },
-});
 
 $(window).scroll(function () {
   $('nav, a, span').toggleClass('scrolled', $(this).scrollTop() > 20);
