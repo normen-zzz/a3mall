@@ -89,8 +89,10 @@
                                  <p class="fw-light text-secondary small"><?= $unggulan->name_category ?></p>
                                  <h5 class="card-title fw-bold text-dark"><?= $unggulan->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $unggulan->price_product ?></p> -->
-                                 <?php if ($min->min_price != $max->max_price) { ?>
-                                     <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($unggulan->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($unggulan->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                 <?php if ($min->min_price != $max->max_price) {
+                                        if ($unggulan->beforeprice_product != $unggulan->price_product) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($unggulan->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($unggulan->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                     <?php } ?>
                                      <p class="card-text yellow-text mb-3">Rp. <?= number_format($unggulan->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($unggulan->price_product + $max->max_price, '0', ',', '.') ?></span></p>
                                      <?php } else {
                                         if ($unggulan->beforeprice_product != $unggulan->price_product) { ?>

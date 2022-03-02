@@ -69,8 +69,10 @@
                      </div>
                      <div class="text mb-3 pt-3">
                          <p class="m-0">Harga:</p>
-                         <?php if ($min->min_price != $max->max_price) { ?>
-                             <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($produk->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($produk->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></h5>
+                         <?php if ($min->min_price != $max->max_price) {
+                                if ($produk->beforeprice_product != $produk->price_product) {  ?>
+                                 <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($produk->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($produk->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></h5>
+                             <?php } ?>
                              <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product + $min->min_price, '0', ',', '.')  ?> ~ <span>Rp. <?= number_format($produk->price_product + $max->max_price, '0', ',', '.')  ?></span></h4>
                              <?php } else {
                                 if ($produk->beforeprice_product != $produk->price_product) { ?>
@@ -149,7 +151,7 @@
              <?php foreach ($sejenis as $sejenis) {
                     $max = $this->barang->getMaxPriceFromVariation($sejenis->kd_product)->row();
                     $min = $this->barang->getMinPriceFromVariation($sejenis->kd_product)->row(); ?>
-                 <div class="col-3 py-2">
+                 <div class="col py-2">
                      <a href="<?= base_url('Deskripsi/' . $sejenis->slug_product) ?>" style="text-decoration: none">
                          <div class="bg-white card-proser">
                              <img src="<?= base_url('assets/images/produk/' . $sejenis->photo_product) ?>" class="card-img-top p-3" alt="..." />
@@ -157,8 +159,10 @@
                                  <p class="fw-light text-secondary small"><?= $sejenis->name_category ?></p>
                                  <h5 class="card-title fw-bold text-dark"><?= $sejenis->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
-                                 <?php if ($min->min_price != $max->max_price) { ?>
-                                     <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sejenis->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                 <?php if ($min->min_price != $max->max_price) {
+                                        if ($sejenis->beforeprice_product != $sejenis->price_product) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sejenis->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                     <?php } ?>
                                      <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sejenis->price_product + $max->max_price, '0', ',', '.') ?></span></p>
                                      <?php } else {
                                         if ($sejenis->beforeprice_product != $sejenis->price_product) { ?>
