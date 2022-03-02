@@ -87,7 +87,7 @@
                              <img src="<?= base_url('assets/images/produk/' . $unggulan->photo_product) ?>" class="card-img-top p-3" alt="..." />
                              <div class="card-body">
                                  <p class="fw-light text-secondary small"><?= $unggulan->name_category ?></p>
-                                 <h5 class="card-title fw-bold text-dark"><?= $unggulan->name_product ?></h5>
+                                 <h5 class="card-title fw-bold text-dark"><?= ucfirst($unggulan->name_brand) . ' ' . $unggulan->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $unggulan->price_product ?></p> -->
                                  <?php if ($min->min_price != $max->max_price) {
                                         if ($unggulan->beforeprice_product != $unggulan->price_product) { ?>

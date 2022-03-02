@@ -74,6 +74,7 @@ class Barang_model extends CI_Model
         $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
         $this->db->join('users c', 'c.id=a.users', 'left');
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
+        $this->db->join('brand_product e', 'e.id_brand=a.brand_product', 'left');
         $this->db->where('a.category_product', $where);
         $this->db->group_by('d.kd_product');
         $this->db->order_by('a.date_arrived', 'desc');
@@ -92,6 +93,7 @@ class Barang_model extends CI_Model
         $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
         $this->db->join('users c', 'c.id=a.users', 'left');
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
+        $this->db->join('brand_product e', 'e.id_brand = a.brand_product');
         $this->db->group_by('a.kd_product');
         $this->db->order_by('rand()');
         $this->db->limit(4);
@@ -121,6 +123,7 @@ class Barang_model extends CI_Model
         $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
         $this->db->join('users c', 'c.id=a.users', 'left');
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
+        $this->db->join('brand_product e', 'e.id_brand = a.brand_product');
         $this->db->where('a.slug_product', $where);
         $query = $this->db->get();
         // if ($query->num_rows() != 0) {
@@ -301,6 +304,7 @@ class Barang_model extends CI_Model
         $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
         $this->db->join('users c', 'c.id=a.users', 'left');
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
+        $this->db->join('brand_product e', 'e.id_brand = a.brand_product');
         $this->db->like('a.brand_product', $like);
         $this->db->where_not_in('a.slug_product', $except);
         $this->db->group_by('a.kd_product');
@@ -317,6 +321,7 @@ class Barang_model extends CI_Model
         $this->db->join('category_product b', 'b.id_category=a.category_product', 'left');
         $this->db->join('users c', 'c.id=a.users', 'left');
         $this->db->join('photo_product d', 'd.kd_product = a.kd_product');
+        $this->db->join('brand_product e', 'e.id_brand = a.brand_product');
         $this->db->limit(4);
         $this->db->order_by('a.date_arrived', 'desc');
         $this->db->where('a.category_product', $where);
