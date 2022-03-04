@@ -208,7 +208,7 @@ class Catalogue extends CI_Controller
     {
         $data = [
             "title" => "A3Mall|Catalogue",
-            "page" => "admin/Catalogue/detail",
+            "page" => "admin/catalogue/detail",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "detailcatalogue" => $this->db->get_where('detail_catalogue', array('slug_catalogue' => $slug))->result_array(),
             "modal" => $modal,

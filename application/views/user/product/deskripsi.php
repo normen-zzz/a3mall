@@ -91,8 +91,13 @@
 
                      </div>
                      <div class="d-grid gap-2">
-                         <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>">Masukan Ke Keranjang</button>
-                         <button href="#" class="btn yellow-button shadow" type="button" data-bs-toggle="modal" data-bs-target="#modalPerItem">Beli Per Item</button>
+                         <?php if ($produk->status_product == 'active') {  ?>
+                             <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>">Masukan Ke Keranjang</button>
+                             <button href="#" class="btn yellow-button shadow" type="button" data-bs-toggle="modal" data-bs-target="#modalPerItem">Beli Per Item</button>
+                         <?php } else { ?>
+                             <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" disabled>Masukan Ke Keranjang</button>
+                             <button href="#" class="btn yellow-button shadow" type="button" data-bs-toggle="modal" data-bs-target="#modalPerItem" disabled>Beli Per Item</button>
+                         <?php } ?>
                      </div>
                  </div>
              </div>
