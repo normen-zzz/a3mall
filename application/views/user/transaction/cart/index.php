@@ -1,5 +1,5 @@
  <!-- Breadcrumb -->
- <section id="breadcrumb" class="bg-white py-5">
+ <!-- <section id="breadcrumb" class="bg-white py-5">
      <div class="container">
          <div class="row">
              <divc class="col">
@@ -7,7 +7,7 @@
              </divc>
          </div>
      </div>
- </section>
+ </section> -->
  <!-- Akhir Breadcrumb -->
 
  <?php if ($alamat == '') {
@@ -29,6 +29,16 @@
              </div>
          </section>
          <!-- Akhir Belum ada alamat -->
+     <?php } else { ?>
+         <section class="my-5">
+             <div class="container">
+                 <div class="row bg-white p-5">
+                     <div class="col text-center">
+                         <a href="<?= base_url('Login') ?>" class="btn yellow-button px-5 py-3">Login</a>
+                     </div>
+                 </div>
+             </div>
+         </section>
      <?php }
     } else { ?>
 
@@ -81,7 +91,7 @@
              <?php foreach ($unggulan as $unggulan) {
                     $max = $this->barang->getMaxPriceFromVariation($unggulan->kd_product)->row();
                     $min = $this->barang->getMinPriceFromVariation($unggulan->kd_product)->row(); ?>
-                 <div class="col-3 py-2">
+                 <div class="col py-2">
                      <a href="<?= base_url('Deskripsi/' . $unggulan->slug_product) ?>" style="text-decoration: none">
                          <div class="bg-white card-proser">
                              <img src="<?= base_url('assets/images/produk/' . $unggulan->photo_product) ?>" class="card-img-top p-3" alt="..." />

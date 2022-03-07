@@ -62,6 +62,11 @@
                             <li>
                                 <p class="fw-light text-secondary small text-center">Hai, <?= $user['first_name'] . ' ' . $user['last_name'] ?></p>
                             </li>
+                            <li>
+                                <p class="fw-light text-secondary small text-center">
+                                    Saldo: Rp. <?= number_format($user['saldo'], '0', ',', '.') ?>
+                                </p>
+                            </li>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                             <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Staus Pesanan</a></li>
@@ -79,6 +84,11 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
                                 <p class="fw-light text-secondary small text-center">Hai, <?= $usergoogle['first_name'] ?></p>
+                            </li>
+                            <li>
+                                <p class="fw-light text-secondary small text-center">
+                                    Saldo: Rp. <?= number_format($usergoogle['saldo'], '0', ',', '.') ?>
+                                </p>
                             </li>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>

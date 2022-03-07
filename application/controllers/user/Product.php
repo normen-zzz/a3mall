@@ -49,7 +49,7 @@ class Product extends CI_Controller
         }
         $produk = $this->barang->getProductBySlug($this->uri->segment(2));
         $data = [
-            "title" => "$produk->name_category $produk->brand_product $produk->name_product",
+            "title" => "$produk->name_category " . ucfirst($produk->name_brand) . " $produk->name_product",
             "page" => "user/product/deskripsi",
             "produk" => $this->barang->getProductBySlug($this->uri->segment(2)),
             "photo_produk" => $this->barang->getPhotoBarangBySlug($this->uri->segment(2)),
