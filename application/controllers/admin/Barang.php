@@ -230,6 +230,8 @@ class Barang extends CI_Controller
             $config['upload_path']         = './assets/images/produk/';
             $config['allowed_types']     = 'gif|jpg|png|jpeg';
             $config['overwrite']          = true;
+            $config['encrypt_name'] = TRUE;
+
 
             $this->load->library('upload', $config);
 
@@ -269,7 +271,7 @@ class Barang extends CI_Controller
     public function deletePhotoBarang($id)
     {
         $foto = $this->db->get_where('photo_product', ['id_photoproduct' => $id])->row_array();
-        $gambar_lama = $foto['photo'];
+        $gambar_lama = $foto['photo_product'];
         unlink(FCPATH . 'assets/images/produk/' . $gambar_lama);
         $this->db->delete('photo_product', ['id_photoproduct' => $id]);
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Photo Barang Berhasil Dihapus!", "success");');
