@@ -209,6 +209,11 @@ ul li a.cart .cart-basket {
   border-radius: 50%;
 }
 
+/* Detail Blog */
+#detail_blog img {
+  width: 100%;
+}
+/* Akhir Detail Blog */
 /* RESPONSIVE */
 @media only screen and (max-width: 1200px) {
   #desk ul {
