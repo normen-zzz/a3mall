@@ -180,6 +180,11 @@ nav .nav-link.active {
   background-color: #fff;
 }
 
+#deskfoto .nav-link.active {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+
 #produk .nav-link.active {
   background-color: transparent;
 }
@@ -232,6 +237,10 @@ ul li a.cart .cart-basket {
   #tersedia img {
     width: 100px;
     margin: 0 !important;
+  }
+
+  .padding-foto {
+    padding: 10px !important;
   }
 
   body h1 {
