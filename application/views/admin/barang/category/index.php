@@ -71,7 +71,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Barang/addCategory/') ?>" method="post">
-
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="form-group">
                         <label>Name Category</label>
                         <input type="text" name="name" class="form-control">
@@ -105,6 +105,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Barang/editCategory/') ?>" method="post">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="number" name="id" hidden>
                     <div class="form-group">
                         <label>Name Category</label>
@@ -138,6 +139,7 @@
             url: '<?php echo base_url() ?>admin/Barang/getCategoryAjax',
             data: {
                 id_category: id_category,
+                <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
             },
             async: false,
             dataType: 'json',

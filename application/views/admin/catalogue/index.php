@@ -88,6 +88,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Catalogue/addCatalogue') ?>" method="post" enctype='multipart/form-data'>
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" name="name" class="form-control">
@@ -132,6 +133,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Catalogue/editCatalogue') ?>" method="post" enctype='multipart/form-data'>
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="number" name="id" hidden>
 
                     <div class="form-group">

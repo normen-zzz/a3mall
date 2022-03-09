@@ -83,6 +83,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?= base_url('admin/Barang/addPhotoBarang/' . $this->uri->segment('4')) ?>" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="form-group">
                         <label>Photo</label>
                         <input type="file" name="photo" class="form-control" required>

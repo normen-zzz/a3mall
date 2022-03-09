@@ -29,6 +29,8 @@
   <title><?= $title ?></title>
 </head>
 
+
+
 <body>
   <?php $this->load->view('user/templates/navbar') ?>
 

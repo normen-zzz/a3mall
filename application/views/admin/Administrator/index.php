@@ -101,6 +101,7 @@
                 }
                 ?>
                 <form action="<?= base_url('admin/Administrator/editAdmin') ?>" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="text" name="ganti_gambar" hidden>
                     <div class="form-group">
                         <label>Username</label>
@@ -178,6 +179,7 @@
                 }
                 ?>
                 <form action="<?= base_url('admin/Administrator/addAdmin') ?>" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="form-group">
                         <label>Username</label>
                         <input type="text" name="username" class="form-control" required>
@@ -237,6 +239,7 @@
             url: '<?php echo base_url() ?>admin/Administrator/getAdmin',
             data: {
                 email: email,
+                <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
             },
             async: false,
             dataType: 'json',
