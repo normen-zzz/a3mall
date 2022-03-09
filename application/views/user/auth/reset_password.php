@@ -41,6 +41,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-5 shadow p-5">
                 <form method="POST" action="<?= base_url('user/Auth/reset_password/' . $code) ?>">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <?php echo form_input($new_password); ?>

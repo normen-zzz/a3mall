@@ -108,6 +108,7 @@
                 }
                 ?>
                 <form action="<?= base_url('admin/Barang/addBarang/' . $url) ?>" method="post">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="text" name="jenis" value="<?php if ($this->uri->segment(3) == 'addBarang') {
                                                                 echo $this->uri->segment(4);
                                                             } else {
@@ -198,6 +199,7 @@
                 }
                 ?>
                 <form action="<?= base_url('admin/Barang/editBarang/' . $url) ?>" method="post">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="text" name="jenis" value="<?php if ($this->uri->segment(3) == 'editBarang') {
                                                                 echo $this->uri->segment(4);
                                                             } else {
@@ -283,6 +285,7 @@
             url: '<?php echo base_url() ?>admin/Barang/getBarang',
             data: {
                 kd_product: kd_product,
+                <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
             },
             async: false,
             dataType: 'json',

@@ -99,6 +99,7 @@
             </div>
             <div class="modal-body">
                 <form method="POST" action="<?= base_url('user/Profile/ubahProfile') ?>" enctype="multipart/form-data">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="mb-3">
                         <label class="form-label">Nama Depan</label>
                         <input type="text" name="first_name" class="form-control" />

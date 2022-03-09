@@ -134,6 +134,7 @@
              </div>
              <div class="modal-body">
                  <form class="row g-3 needs-validation" method="POST" action="<?= base_url('user/Profile/addAlamat') ?>" novalidate>
+                     <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                      <div class="col-md-6">
                          <label for="validationCustom01" class="form-label">Nama</label>
                          <input type="text" name="name" class="form-control" id="validationCustom01" required />

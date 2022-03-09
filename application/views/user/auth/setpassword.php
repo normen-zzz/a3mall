@@ -35,6 +35,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-5 shadow p-5">
 				<form method="POST" action="<?= base_url('user/Auth/set_password') ?>">
+					<input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 					<div class="mb-3">
 						<label for="exampleInputPassword1" class="form-label">Password</label>
 						<input type="password" name="password" class="form-control" id="exampleInputPassword1" />

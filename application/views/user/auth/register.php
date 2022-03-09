@@ -35,6 +35,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-7 shadow p-5">
                 <form method="POST" action="<?= base_url('user/Auth/create_user')  ?>" autocomplete="off">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="mb-3">
                         <label class="form-label">Username</label>
                         <input type="text" name="username" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />

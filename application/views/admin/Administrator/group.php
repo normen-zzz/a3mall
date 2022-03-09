@@ -90,6 +90,7 @@
                 }
                 ?>
                 <form action="<?= base_url('admin/Administrator/editGroup') ?>" method="post">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="number" name="id" hidden>
                     <div class="form-group">
                         <label>Name</label>
@@ -130,6 +131,7 @@
                 }
                 ?>
                 <form action="<?= base_url('admin/Administrator/addGroup') ?>" method="post">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" name="name" class="form-control" required>
@@ -161,6 +163,7 @@
             url: '<?php echo base_url() ?>admin/Administrator/getGroup',
             data: {
                 id: id,
+                <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
             },
             async: false,
             dataType: 'json',

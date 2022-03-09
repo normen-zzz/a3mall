@@ -100,6 +100,7 @@
                 <div class="col my-auto justify-content-end d-flex">
                     <p class="my-auto me-5">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($detail_transaksi['total_payment'], '0', ',', '.') ?></span></p>
                     <form method="post" action="<?= base_url() ?>user/Checkout/skip_payment">
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                         <input type="text" name="kd_transaction" id="kd_transaction" value="<?= $detail_transaksi['kd_transaction'] ?>" hidden>
                         <button type="submit" class=" btn yellow-button px-5 py-2">Selesaikan Pembayaran</button>
                     </form>
@@ -113,6 +114,7 @@
                 <div class="col my-auto justify-content-end d-flex">
                     <p class="my-auto me-5">Total: <span class="yellow-text h5 fw-bold ms-3"> Rp. <?= number_format($detail_transaksi['total_payment'], '0', ',', '.') ?></span></p>
                     <form id="payment-form" method="post" action="<?= base_url() ?>user/Checkout/finish">
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                         <input type="hidden" name="result_type" id="result-type" value="">
                         <input type="hidden" name="result_data" id="result-data" value="">
                         <input type="number" id="jumlah" value="<?= $detail_transaksi['total_payment'] ?>" hidden>

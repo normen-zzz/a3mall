@@ -73,6 +73,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?= base_url('admin/Barang/addVariation') ?>" method="post">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="text" name="code" value="<?= $this->uri->segment(4) ?>" hidden>
                     <div class="form-group">
                         <label>Name Variation</label>
@@ -124,6 +125,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Barang/editVariation/' . $this->uri->segment(4)) ?>" method="post">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="text" name="id" hidden>
                     <input type="text" name="code" hidden>
                     <div class="form-group">
@@ -173,6 +175,7 @@
             url: '<?php echo base_url() ?>admin/Barang/getVariation',
             data: {
                 id_variation: id_variation,
+                <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
             },
             async: false,
             dataType: 'json',

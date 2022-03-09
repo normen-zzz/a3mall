@@ -40,6 +40,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-5 shadow p-5">
                 <form method="POST" action="<?= base_url('user/Auth/forgot_password') ?>">
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="mb-3">
                         <label for="identity" class="form-label">Email</label>
                         <input type="email" name="identity" class="form-control" id="email" />

@@ -53,6 +53,7 @@
             </div>
             <div class="modal-body">
                 <form class="row g-3 needs-validation" method="POST" action="<?= base_url('user/Profile/addAlamat') ?>" novalidate>
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Nama</label>
                         <input type="text" name="name" class="form-control" id="validationCustom01" required />
@@ -130,6 +131,7 @@
             </div>
             <div class="modal-body">
                 <form class="row g-3 needs-validation" method="POST" action="<?= base_url('user/Profile/editAlamat') ?>" novalidate>
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Nama</label>
                         <input type="text" name="name" class="form-control" id="validationCustom01" required />
@@ -207,6 +209,7 @@
 <!-- Akhir Modal Hapus -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 <script>
     $('#provinsi').change(function() {
         var provinsi_id = $('#provinsi').val(); //ambil value id dari provinsi
@@ -216,7 +219,8 @@
                 url: '<?= base_url(); ?>user/Checkout/getCityOngkir',
                 method: 'POST',
                 data: {
-                    provinsi_id: provinsi_id
+                    provinsi_id: provinsi_id,
+                    <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
                 },
                 success: function(data) {
                     $('#kabupaten').html(data)
@@ -233,7 +237,8 @@
                 url: '<?= base_url(); ?>user/Checkout/getSubDistrictOngkir',
                 method: 'POST',
                 data: {
-                    kabupaten_id: kabupaten_id
+                    kabupaten_id: kabupaten_id,
+                    <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
                 },
                 success: function(data) {
                     $('#kecamatan').html(data)
@@ -257,6 +262,7 @@
             url: '<?php echo base_url() ?>user/Profile/getAlamat',
             data: {
                 email: email,
+                <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
             },
             async: false,
             dataType: 'json',

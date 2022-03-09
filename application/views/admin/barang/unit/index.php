@@ -88,6 +88,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Barang/addUnit/' . $this->uri->segment(4)) ?>" method="post" enctype='multipart/form-data'>
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="text" name="kd_product" class="form-control" hidden value="<?= $this->uri->segment(4) ?>">
 
                     <div class="form-group">
@@ -136,6 +137,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Barang/editUnit/' . $this->uri->segment(4)) ?>" method="post" enctype='multipart/form-data'>
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="text" name="code" class="form-control" hidden value="<?= $this->uri->segment(4) ?>">
 
                     <input type="text" name="ganti_gambar" hidden>
@@ -214,7 +216,8 @@
             method: 'get',
             url: '<?php echo base_url() ?>admin/Barang/getUnit',
             data: {
-                id_unit: id_unit
+                id_unit: id_unit,
+                <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
             },
             async: false,
             dataType: 'json',

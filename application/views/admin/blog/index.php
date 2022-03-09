@@ -6,7 +6,7 @@
 
         <div class="section-body">
             <div class="row">
-                <div class="col">
+                <div class="col-lg-4">
                     <div class="card">
                         <div class="card-header">
                             <h4><?= $title . ' (' . $this->uri->segment(4) . ')' ?></h4>
@@ -73,6 +73,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Blog/addBlog') ?>" method="post" enctype='multipart/form-data'>
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="form-group">
                         <label>Title</label>
                         <input type="text" name="title" class="form-control">
@@ -119,6 +120,7 @@
             <div class="modal-body">
 
                 <form action="<?= base_url('admin/Blog/editBlog') ?>" method="post" enctype='multipart/form-data'>
+                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <input type="number" name="id" hidden>
 
                     <div class="form-group">

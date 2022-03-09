@@ -41,6 +41,7 @@
                                             <div class="row border-bottom pb-3">
                                                 <div class="col text-end">
                                                     <form id="payment-form" method="post" action="<?= base_url() ?>user/Checkout/finish">
+                                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                                                         <input type="hidden" name="result_type" id="result-type" value="">
                                                         <input type="hidden" name="result_data" id="result-data" value="">
                                                         <input type="number" id="jumlah_<?php echo $unpaid['id_detail_transaction']; ?>" value="<?= $unpaid['total_transaction'] ?>" hidden>
