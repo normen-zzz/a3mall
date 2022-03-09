@@ -188,6 +188,10 @@ nav .nav-link.active {
 #produk .nav-link.active {
   background-color: transparent;
 }
+
+#pills-tabContent img {
+  cursor: pointer;
+}
 /* Desk */
 
 /* Checkout */
