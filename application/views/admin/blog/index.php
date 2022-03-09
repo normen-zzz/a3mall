@@ -6,7 +6,7 @@
 
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col">
                     <div class="card">
                         <div class="card-header">
                             <h4><?= $title . ' (' . $this->uri->segment(4) . ')' ?></h4>

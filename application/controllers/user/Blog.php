@@ -41,14 +41,14 @@ class Blog extends CI_Controller
         } else {
             $usergoogle = '';
         }
-
+        $blog = $this->blog->getBlogWhere($this->uri->segment(3))->row_array();
 
         $data = [
-            "title" => "A3MALL | Detail Blog",
+            "title" => "A3MALL Blog | " . $blog['title_blog'],
             "page" => "user/blog/detail",
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "usergoogle" => $usergoogle,
-            "detailblog" => $this->blog->getBlogWhere($this->uri->segment(3))->row_array(),
+            "detailblog" => $blog,
             "sejenis" => $this->blog->getBlogSejenis($this->uri->segment(3))->result_array(),
         ];
 
