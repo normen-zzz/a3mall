@@ -8,6 +8,11 @@ class User_model extends CI_Model
         $this->db->update('users', $data, ['email' => $email]);
         return $this->db->affected_rows();
     }
+    public function setReferal($email, $data)
+    {
+        $this->db->update('users', $data, ['email' => $email]);
+        return $this->db->affected_rows();
+    }
 
     public function getProfileAjax($id)
     {
@@ -40,6 +45,19 @@ class User_model extends CI_Model
         $this->db->where('email', $id);
         $query = $this->db->get();
         return $query->row();
+    }
+
+    public function check_databse($str)
+    {
+        $this->db->select('*');
+        $this->db->from('referal');
+        $this->db->where('code_referal', $str);
+        $query = $this->db->get();
+        if ($query->num_rows() != 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 }
 

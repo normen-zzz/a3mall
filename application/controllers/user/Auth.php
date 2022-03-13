@@ -25,6 +25,23 @@ class Auth extends CI_Controller
 	/**
 	 * Redirect if needed, otherwise display the user list
 	 */
+
+	public function check_match($str)
+	{
+		$this->load->model('User_model');
+		if (empty($str)) {
+			return TRUE;
+		} else {
+			$result = $this->User_model->check_databse($str);
+			//call to model function fo check string match in databse and return result
+			if ($result == FALSE) {
+				$this->form_validation->set_message('check_match', 'Kode Referal Tidak Ditemukan');
+				return FALSE;
+			} else {
+				return TRUE;
+			}
+		}
+	}
 	public function index()
 	{
 
@@ -193,6 +210,65 @@ class Auth extends CI_Controller
 			$this->load->model('User_model');
 			$session = $this->session->userdata('user_data');
 			$this->User_model->setPassword($session['email'], $data);
+			$this->session->set_flashdata('message', 'swal("Berhasil!", "Password berhasil ditambahkan!", "success");');
+
+			$user = $this->db->get_where('users', array('email' => $session['email']))->row_array();
+			if (empty($user['referal'])) {
+				redirect('set-referal');
+			} else {
+				redirect('Dashboard');
+			}
+		}
+	}
+
+
+
+	public function set_referal()
+	{
+		$this->load->model('Referal_model', 'referal');
+		$this->form_validation->set_rules('referal', 'Referal', 'callback_check_match');
+
+		if ($this->form_validation->run() == FALSE) {
+			$data = [
+				'title' => 'Set Referal',
+			];
+			$this->load->view('user/auth/setreferal', $data);
+		} else {
+			if (!empty($this->input->post('referal'))) {
+				$referal = $this->referal->getReferal($this->input->post('referal'))->row_array();
+				if ($referal['level_referal'] == 2) {
+					$data = [
+						'referal' => $this->input->post('referal'),
+						'group' => 5
+					];
+				} else {
+					$data = [
+						'referal' => $this->input->post('referal'),
+						'group' => 2
+					];
+				}
+			} else {
+				$data = [
+					'referal' => 'abc123',
+				];
+			}
+
+
+			$this->load->model('User_model');
+			$session = $this->session->userdata('user_data');
+			if ($this->User_model->setReferal($session['email'], $data)) {
+				$levelReferal = $this->referal->getReferal($this->input->post('referal'))->row();
+				if ($levelReferal->level_referal == 2) {
+					$referal = [
+						'code_referal' => strtoupper($session['given_name']) . mt_rand(1000, 9999),
+						'users_email_referal' => $session['email'],
+						'level_referal' => 3,
+						'describe' => 'Referal Bussines Executive For Customers'
+					];
+					$this->db->insert('referal', $referal);
+				}
+			}
+
 			$this->session->set_flashdata('message', 'swal("Berhasil!", "Password berhasil ditambahkan!", "success");');
 
 			redirect('Dashboard');
@@ -531,6 +607,7 @@ class Auth extends CI_Controller
 	 */
 	public function create_user()
 	{
+		$this->load->model('Referal_model', 'referal');
 		$this->data['title'] = $this->lang->line('create_user_heading');
 
 		// if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
@@ -569,6 +646,8 @@ class Auth extends CI_Controller
 			'min_length' => 'Password kurang dari 6 Karakter'
 		]);
 
+		$this->form_validation->set_rules('referal', 'Referal', 'callback_check_match');
+
 		$this->form_validation->set_rules('password_confirm', 'Password Confirm', 'required|matches[password_confirm]', [
 			'required'  => 'Konfirmasi Password tidak boleh kosong.',
 			'matches' => 'Isi tidak sama dengan kolom password'
@@ -585,12 +664,34 @@ class Auth extends CI_Controller
 				'last_name' => $this->input->post('last_name'),
 				'company' => $this->input->post('company'),
 				'phone' => $this->input->post('phone'),
-				'group' => 2
 			];
+			if (!empty($this->input->post('referal'))) {
+				$additional_data['referal'] = $this->input->post('referal');
+				$referal = $this->referal->getReferal($this->input->post('referal'))->row_array();
+				if ($referal['level_referal'] == 2) {
+					$additional_data['group'] = 5;
+				} else {
+					$additional_data['group'] = 2;
+				}
+			} else {
+				$additional_data['referal'] = 'abc123';
+				$additional_data['group'] = 2;
+			}
 		}
 		if ($this->form_validation->run() === TRUE && $this->ion_auth->register($identity, $password, $email, $additional_data)) {
 			// check to see if we are creating the user
 			// redirect them back to the admin page
+			$referal = $this->referal->getReferal($this->input->post('referal'))->row_array();
+			if (!empty($this->input->post('referal')) && $referal['level_referal'] == 2) {
+				$buatreferal = [
+					'code_referal' => strtoupper($this->input->post('first_name')) . mt_rand(1000, 9999),
+					'users_email_referal' => $this->input->post('email'),
+					'level_referal' => 3,
+					'describe' => 'Referal Bussines Executive For Customers'
+
+				];
+				$this->db->insert('referal', $buatreferal);
+			}
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
 			redirect("Login", 'refresh');
 		} else {

@@ -43,6 +43,8 @@
                                             <th>Last Edited By</th>
                                             <th>Status</th>
                                             <th>Created At</th>
+                                            <th>Button Name</th>
+                                            <th>Button Link</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -53,7 +55,7 @@
                                                 <td><?= $barang['name_product'] ?></td>
                                                 <td><?= number_format($barang['price_product'], '0', ',', '.') ?></td>
                                                 <td><?= number_format($barang['beforeprice_product'], '0', ',', '.') ?></td>
-                                                <td><?= limit_words($barang['describe_product'], 15) ?>.... </td>
+                                                <td><?= limit_words($barang['describe_product'], 8) ?>.... </td>
                                                 <td><?= $barang['name_category'] ?></td>
                                                 <td><?= $barang['name_brand'] ?></td>
                                                 <td><?= $barang['username'] ?></td>
@@ -66,6 +68,8 @@
 
                                                 </td>
                                                 <td><?= $barang['created_product'] ?></td>
+                                                <td><?= $barang['subbutton_name'] ?></td>
+                                                <td><?= $barang['subbutton_link'] ?></td>
                                                 <td>
                                                     <a href="<?= base_url('admin/Barang/variationBarang/' . $barang['kd_product']) ?>" class="btn btn-secondary mt-1">Variation</a>
                                                     <a href="<?= base_url('admin/Barang/unitProduct/' . $barang['kd_product']) ?>" class="btn btn-secondary mt-1">Unit</a>
@@ -170,6 +174,14 @@
                         <input type="date" name="date" class="form-control">
                         <?= form_error('date', '<small class="text-danger">', '</small>'); ?>
                     </div>
+                    <div class="form-group">
+                        <label>Sub Button Name</label>
+                        <input type="text" name="subbutton_name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Sub Button Link</label>
+                        <input type="text" name="subbutton_link" class="form-control">
+                    </div>
 
             </div>
             <div class="modal-footer bg-whitesmoke br">
@@ -263,6 +275,15 @@
                         <input type="date" name="date" class="form-control">
                         <?= form_error('date', '<small class="text-danger">', '</small>'); ?>
                     </div>
+                    <div class="form-group">
+                        <label>Sub Button Name</label>
+                        <input type="text" name="subbutton_name" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sub Button Link</label>
+                        <input type="text" name="subbutton_link" class="form-control">
+                    </div>
 
             </div>
             <div class="modal-footer bg-whitesmoke br">
@@ -299,6 +320,8 @@
                 $('select[name=brand]').val(data.brand_product);
                 $('select[name=status]').val(data.status_product);
                 $('input[name=date]').val(data.date_arrived);
+                $('input[name=subbutton_name]').val(data.subbutton_name);
+                $('input[name=subbutton_link]').val(data.subbutton_link);
 
             },
             error: function() {

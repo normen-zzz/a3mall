@@ -34,7 +34,7 @@
                                         foreach ($group as $group) {
                                             $no++ ?>
                                             <tr>
-                                                <td><?= $no ?></td>
+                                                <td><?= $group['id'] ?></td>
                                                 <td><?= $group['name'] ?></td>
                                                 <td><?= $group['description'] ?></td>
                                                 <td>

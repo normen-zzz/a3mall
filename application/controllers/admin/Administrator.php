@@ -16,6 +16,7 @@ class Administrator extends CI_Controller
             redirect('admin/Auth');
         }
         $this->load->model('Admin_model', 'admin');
+        $this->load->model('Referal_model', 'referal');
     }
 
     public function index($modal = '')
@@ -26,6 +27,7 @@ class Administrator extends CI_Controller
             "user" => $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array(),
             "admin" => $this->admin->getAdministrator(),
             "group" => $this->admin->getGroup()->result_array(),
+            "group1" => $this->admin->getGroup()->result_array(),
             'modal' => $modal
         ];
 
@@ -77,8 +79,9 @@ class Administrator extends CI_Controller
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
                 'phone' => $this->input->post('phone'),
-                'group' => 3,
+                'group' => $this->input->post('group'),
             ];
+
 
             if (!empty($this->input->post('password'))) {
                 $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
@@ -106,6 +109,27 @@ class Administrator extends CI_Controller
                 }
             }
             $this->admin->editAdmin($this->input->post('email'), $data);
+            if ($this->input->post('group') == 4) {
+                if ($this->referal->getReferalBE($this->input->post('email')) == FALSE) {
+                    $referal = [
+                        'code_referal' => strtoupper($this->input->post('first_name')) . mt_rand(1000, 9999),
+                        'users_email_referal' => $this->input->post('email'),
+                        'level_referal' => 2,
+                        'describe' => 'Referal Head Bussines Executive For Business Executive'
+                    ];
+                    $this->db->insert('referal', $referal);
+                }
+            } elseif ($this->input->post('group') == 5) {
+                if ($this->referal->getReferalBE($this->input->post('email')) == FALSE) {
+                    $referal = [
+                        'code_referal' => strtoupper($this->input->post('first_name')) . mt_rand(1000, 9999),
+                        'users_email_referal' => $this->input->post('email'),
+                        'level_referal' => 3,
+                        'describe' => 'Referal Bussines Executive For Customers'
+                    ];
+                    $this->db->insert('referal', $referal);
+                }
+            }
             $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Admin Berhasil Diubah!", "success");');
 
             redirect(base_url('admin/Administrator'));
@@ -151,7 +175,7 @@ class Administrator extends CI_Controller
                 'first_name' => $this->input->post('first_name'),
                 'last_name' => $this->input->post('last_name'),
                 'phone' => $this->input->post('phone'),
-                'group' => 3,
+                'group' => $this->input->post('group'),
             ];
 
             if (isset($_FILES['photo']['name'])) {
@@ -171,6 +195,27 @@ class Administrator extends CI_Controller
                 }
             }
             $this->admin->addAdmin($data);
+            if ($this->input->post('group') == 4) {
+                if ($this->referal->getReferalBE($this->input->post('email')) == FALSE) {
+                    $referal = [
+                        'code_referal' => strtoupper($this->input->post('first_name')) . mt_rand(1000, 9999),
+                        'users_email_referal' => $this->input->post('email'),
+                        'level_referal' => 2,
+                        'describe' => 'Referal Head Bussines Executive For Business Executive'
+                    ];
+                    $this->db->insert('referal', $referal);
+                }
+            } elseif ($this->input->post('group') == 5) {
+                if ($this->referal->getReferalBE($this->input->post('email')) == FALSE) {
+                    $referal = [
+                        'code_referal' => strtoupper($this->input->post('first_name')) . mt_rand(1000, 9999),
+                        'users_email_referal' => $this->input->post('email'),
+                        'level_referal' => 3,
+                        'describe' => 'Referal Bussines Executive For Customers'
+                    ];
+                    $this->db->insert('referal', $referal);
+                }
+            }
 
             $admin = $this->admin->getAdministratorWhere($this->input->post('email'));
 
@@ -180,6 +225,7 @@ class Administrator extends CI_Controller
             ];
 
             $this->db->insert('users_groups', $grup);
+
 
             $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Admin Berhasil Ditambah!", "success");');
 
@@ -285,6 +331,9 @@ class Administrator extends CI_Controller
     {
 
         $this->db->delete('groups', ['id' => $id]);
+        $this->db->query("SET @num := 0;");
+        $this->db->query("UPDATE groups SET id = @num := (@num+1);");
+        $this->db->query("ALTER TABLE groups AUTO_INCREMENT = 1;");
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Group Berhasil Dihapus!", "success");');
         redirect('admin/Administrator/group');
     }

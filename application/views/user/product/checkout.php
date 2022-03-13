@@ -37,6 +37,7 @@
                 <div class="row">
                     <div class="col-md py-1">
                         <p>Louis Vuitton</p>
+
                     </div>
                     <div class="col-md py-1 text-center isi-keranjang my-auto">
                         <p class="fw-light text-secondary my-auto">Variasi: Pola biru</p>

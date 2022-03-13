@@ -180,8 +180,17 @@ nav .nav-link.active {
   background-color: #fff;
 }
 
+#deskfoto .nav-link.active {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+
 #produk .nav-link.active {
   background-color: transparent;
+}
+
+#check-desk img {
+  cursor: pointer;
 }
 /* Desk */
 
@@ -209,6 +218,11 @@ ul li a.cart .cart-basket {
   border-radius: 50%;
 }
 
+/* Detail Blog */
+#detail_blog img {
+  width: 100%;
+}
+/* Akhir Detail Blog */
 /* RESPONSIVE */
 @media only screen and (max-width: 1200px) {
   #desk ul {
@@ -229,12 +243,16 @@ ul li a.cart .cart-basket {
     margin: 0 !important;
   }
 
+  .padding-foto {
+    padding: 10px !important;
+  }
+
   body h1 {
     font-size: 32px !important;
   }
 
   body h5 {
-    font-size: 18px !important;
+    font-size: 17px !important;
   }
 
   body p {

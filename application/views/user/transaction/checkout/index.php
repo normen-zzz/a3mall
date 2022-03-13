@@ -26,6 +26,7 @@
                     <div class="row">
                         <div class="col-md-3 py-1">
                             <p><?= $transaksi->name_product ?></p>
+                            <p class="fw-light text-secondary my-auto">Opsi: <?= $transaksi->name_unit ?></p>
                         </div>
                         <div class="col-md-2 py-1 text-center isi-keranjang my-auto">
                             <p class="fw-light text-secondary my-auto">Variasi: <?= $transaksi->name_variation ?></p>

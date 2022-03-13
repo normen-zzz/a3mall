@@ -7,6 +7,29 @@
     }
     return $text;
 } ?>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-pembungkus-bg">
+            <div class="modal-header">
+                <button type="button" id="tutup-popup" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-pembungkus">
+                <div class="container text-center text-white">
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid" src="<?= base_url('assets/user/img/popup/' . $popup->photo_popup) ?>" alt="" />
+                        </div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col">
+                            <a href="<?= $popup->buttonlink_popup ?>" class="btn yellow-button btn-cover py-2 px-5 rounded-pill">Beli Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Hero -->
 <section class="overflow-hidden" id="hero">
     <div class="container">
@@ -235,6 +258,9 @@
     </div>
 </section>
 <!-- Blog End -->
+
+
+
 
 <!-- Testimoni -->
 <!-- <section class="py-5" id="testimoni">

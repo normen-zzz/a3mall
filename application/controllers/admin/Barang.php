@@ -116,6 +116,8 @@ class Barang extends CI_Controller
                 'users' => $user['id'],
                 'date_arrived' => $this->input->post('date'),
                 'beforeprice_product' => preg_replace("/[^0-9]/", "", $this->input->post('beforeprice')),
+                'subbutton_name' => $this->input->post('subbutton_name'),
+                'subbutton_link' => $this->input->post('subbutton_link'),
 
             ];
 
@@ -260,10 +262,17 @@ class Barang extends CI_Controller
         $photounitold = $photounit['photo_unit'];
         unlink(FCPATH . 'assets/images/produk/' . $photoproductold);
         unlink(FCPATH . 'assets/images/unitproduk/' . $photounitold);
+
         $this->db->delete('unit_product', ['kd_product' => $code]);
+
         $this->db->delete('photo_product', ['kd_product' => $code]);
+
         $this->db->delete('product', ['kd_product' => $code]);
+
+
         $this->db->delete('variation_product', ['kd_product' => $code]);
+
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Barang Berhasil Dihapus!", "success");');
         redirect($_SERVER['HTTP_REFERER']);
     }
@@ -274,6 +283,8 @@ class Barang extends CI_Controller
         $gambar_lama = $foto['photo_product'];
         unlink(FCPATH . 'assets/images/produk/' . $gambar_lama);
         $this->db->delete('photo_product', ['id_photoproduct' => $id]);
+
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Photo Barang Berhasil Dihapus!", "success");');
         redirect('admin/Barang/photoBarang/' . $foto['kd_product']);
     }
@@ -423,6 +434,8 @@ class Barang extends CI_Controller
         $gambar_lama = $foto['photo_unit'];
         unlink(FCPATH . 'assets/images/unitproduk/' . $gambar_lama);
         $this->db->delete('unit_product', ['id_unit' => $id]);
+
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Unit Berhasil Dihapus!", "success");');
         redirect('admin/Barang/unitProduct/' . $foto['kd_product']);
     }
@@ -499,6 +512,8 @@ class Barang extends CI_Controller
     {
 
         $this->db->delete('variation_product', ['id_variation' => $this->uri->segment(5)]);
+
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Photo Barang Berhasil Dihapus!", "success");');
         redirect('admin/Barang/variationBarang/' . $this->uri->segment(4));
     }
@@ -588,6 +603,8 @@ class Barang extends CI_Controller
     {
 
         $this->db->delete('brand_product', ['id_brand' => $id]);
+
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Brand Berhasil Dihapus!", "success");');
         redirect('admin/Barang/brand');
     }
@@ -666,6 +683,7 @@ class Barang extends CI_Controller
     {
 
         $this->db->delete('category_product', ['id_category' => $id]);
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Category Berhasil Dihapus!", "success");');
         redirect('admin/Barang/category');
     }

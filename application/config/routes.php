@@ -71,10 +71,13 @@ $route['Register'] = 'user/Auth/create_user';
 $route['login-google'] = 'user/Auth/google';
 $route['set-password'] = 'user/Auth/set_password';
 $route['Forgot-Password'] = 'user/Auth/forgot_password';
+$route['set-referal'] = 'user/Auth/set_referal';
 
 
 //Cart
 $route['Cart'] = 'user/Cart';
+//Referal
+$route['Referal'] = 'user/Referal';
 
 //Checkout
 $route['Checkout/(:any)'] = 'user/Checkout/index';

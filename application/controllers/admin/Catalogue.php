@@ -200,6 +200,7 @@ class Catalogue extends CI_Controller
         unlink(FCPATH . 'assets/user/img/katalog/pdf/' . $catalogue['pdf_catalogue']);
         $this->db->delete('catalogue', ['slug_catalogue' => $slug]);
 
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Catalogue Berhasil Dihapus!", "success");');
         redirect($_SERVER['HTTP_REFERER']);
     }
@@ -335,6 +336,7 @@ class Catalogue extends CI_Controller
         $detail_catalogue = $this->db->get_where('detail_catalogue', ['id_detail_catalogue' => $id])->row_array();
         unlink(FCPATH . 'assets/user/img/katalog/' . $detail_catalogue['photo_detail_catalogue']);
         $this->db->delete('detail_catalogue', ['id_detail_catalogue' => $id]);
+
 
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Detail Catalogue Berhasil Dihapus!", "success");');
         redirect($_SERVER['HTTP_REFERER']);

@@ -93,6 +93,8 @@ class Checkout extends CI_Controller
                 'kd_transaction' => $kode_transaksi,
                 'users' => $email,
                 'code_product' => $keranjang['kd_product'],
+                'kd_unit' => $keranjang['kd_unit'],
+                'name_unit' => $keranjang['name_unit'],
                 'variation' => $keranjang['id'],
                 'price' => $keranjang['price'],
                 'quantity' => $keranjang['qty'],

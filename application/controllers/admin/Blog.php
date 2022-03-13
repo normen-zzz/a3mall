@@ -146,6 +146,7 @@ class Blog extends CI_Controller
         $blog = $this->db->get_where('blog', ['id_blog' => $id])->row_array();
         unlink(FCPATH . 'assets/user/img/blog/' . $blog['photo_blog']);
         $this->db->delete('blog', ['id_blog' => $id]);
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data Catalogue Berhasil Dihapus!", "success");');
         redirect($_SERVER['HTTP_REFERER']);
     }

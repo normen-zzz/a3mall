@@ -61,18 +61,22 @@ class Cart extends CI_Controller
     {
         $data = array(
             'id' => $this->input->post('variation'),
-            'name' => $this->input->post('name_product'),
-            'price' => $this->input->post('price_product'),
             'qty' => $this->input->post('quantity'),
+            'price' => $this->input->post('price_product'),
+            'name' => $this->input->post('name_product'),
             'photo' => $this->input->post('photo_product'),
             'kd_product' => $this->input->post('kd_product'),
             'weight' => $this->input->post('weight_product'),
             'length' => $this->input->post('length_product'),
             'width' => $this->input->post('width_product'),
+            'kd_unit' => $this->input->post('kd_unit'),
+            'name_unit' => $this->input->post('name_unit'),
+
+
         );
         $this->cart->insert($data);
         // echo $this->show_cart(); //tampilkan cart setelah added
-        // var_dump($data);
+        var_dump($data);
     }
 
     public function add_to_cart_unit()
@@ -178,13 +182,10 @@ class Cart extends CI_Controller
             <div class="row">
                 <div class="col-md py-1">
                     <p>' . $keranjang['name'] . '</p>
-                    <p>' . $keranjang['weight'] . '</p>
-                    <p>' . $keranjang['length'] . '</p>
-                    <p>' . $keranjang['width'] . '</p>
-                   
                 </div>
                 <div class="col-md py-1 text-center isi-keranjang my-auto">
                 <p class="fw-light text-secondary my-auto">Variasi:' . $variation['name_variation'] . '</p>
+                <p class="fw-light text-secondary my-auto">Opsi: ' . $keranjang['name_unit'] . ' </p>
             </div>
                 <div class="col-md py-1 text-center isi-keranjang my-auto">
                     <p class="my-auto">Rp.' . number_format($keranjang['price'], '0', ',', '.') . '</p>

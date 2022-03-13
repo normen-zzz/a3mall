@@ -99,6 +99,7 @@ class Carousel extends CI_Controller
         $carousel = $this->db->get_where('carousel', ['id_carousel' => $id])->row_array();
         unlink(FCPATH . 'assets/user/img/carousel/' . $carousel['photo_carousel']);
         $this->db->delete('carousel', ['id_carousel' => $id]);
+
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data carousel Berhasil Dihapus!", "success");');
         redirect($_SERVER['HTTP_REFERER']);
     }

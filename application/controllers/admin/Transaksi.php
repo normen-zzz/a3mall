@@ -13,6 +13,8 @@ class Transaksi extends CI_Controller
         $this->load->library(['ion_auth', 'form_validation']);
         $this->load->model('Barang_model', 'barang');
         $this->load->model('Transaksi_model', 'transaksi');
+        $this->load->model('User_model', 'user');
+        $this->load->model('Referal_model', 'referal');
         if (!$this->ion_auth->is_admin()) {
             $this->session->set_flashdata('message', 'You must be an admin to view this page');
             redirect('Admin/auth');
@@ -71,10 +73,26 @@ class Transaksi extends CI_Controller
 
     {
         $detail = $this->transaksi->getDetailTransactionWhereCode($code);
+        $user = $this->user->getProfileAjax($detail->email_users);
+        $referal = $this->referal->getReferal($user->referal)->row();
+        $businessEx = $this->referal->getBusinessEx($referal->users_email_referal)->row();
+        $transaction = $this->db->get_where('transaction', array('kd_transaction' => $detail->kd_transaction))->result();
+        $ongkir = 0;
+        foreach ($transaction as $transaction) {
+            $ongkir += $transaction->ongkir;
+        }
         $data = [
             "status" => $detail->status + 1
         ];
 
+        if ($data['status'] == 4) {
+            if ($referal->level_referal == 3) {
+                $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $ongkir)) * 0.02), array('email' => $detail->email_users));
+                $this->db->update('users', array('saldo' => ($businessEx->saldo) + (($detail->total_transaction - $ongkir)) * 0.03), array('email' => $businessEx->email));
+            } else {
+                $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $ongkir)) * 0.01), array('email' => $detail->email_users));
+            }
+        }
         $this->transaksi->updateStatus($data, $code);
         redirect($_SERVER['HTTP_REFERER']);
     }

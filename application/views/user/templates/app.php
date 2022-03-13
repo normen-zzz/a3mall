@@ -81,7 +81,8 @@
         jumlah: jumlah,
         nama: nama,
         kd_transaction: kd_transaction,
-        email: email
+        email: email,
+        <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
 
       },
       cache: false,
@@ -143,7 +144,8 @@
         jumlah: jumlah,
         nama: nama,
         kd_transaction: kd_transaction,
-        email: email
+        email: email,
+        <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
 
       },
       cache: false,

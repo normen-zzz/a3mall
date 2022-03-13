@@ -69,8 +69,14 @@
                             </li>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
-                            <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Staus Pesanan</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                             <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
+                            <?php $CI = &get_instance();
+                            $CI->load->model('Referal_model');
+                            $referal = $CI->Referal_model->getReferal($usergoogle['referal'])->row();
+                            if ($referal->level_referal == 2) { ?>
+                                <li><a class="dropdown-item" href="<?= base_url('Referal') ?>">Status Referal</a></li>
+                            <?php } ?>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
                         </ul>
@@ -94,6 +100,13 @@
                             <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                             <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                             <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
+                            <?php
+                            $CI = &get_instance();
+                            $CI->load->model('Referal_model');
+                            $referal = $CI->Referal_model->getReferal($usergoogle['referal'])->row();
+                            if ($referal->level_referal == 2) { ?>
+                                <li><a class="dropdown-item" href="<?= base_url('Referal') ?>">Status Referal</a></li>
+                            <?php } ?>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
                         </ul>

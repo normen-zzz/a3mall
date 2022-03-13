@@ -127,7 +127,7 @@
                                 <option value="<?= $group['id'] ?>"><?= $group['name'] ?></option>
                             <?php } ?>
                         </select>
-                        <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
+                        <?= form_error('group', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
                     <div class="form-group">
@@ -216,6 +216,15 @@
                         <label>Photo</label>
                         <input type="file" name="photo" class="form-control" required>
                         <?= form_error('photo', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
+                        <label>Group</label>
+                        <select name="group" class="form-control" id="group" required>
+                            <?php foreach ($group1 as $group1) { ?>
+                                <option value="<?= $group1['id'] ?>"><?= $group1['name'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <?= form_error('group', '<small class="text-danger">', '</small>'); ?>
                     </div>
 
             </div>

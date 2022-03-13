@@ -240,7 +240,8 @@
              method: "POST",
              data: {
                  row_id: row_id,
-                 qty: qty
+                 qty: qty,
+                 <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
              },
              success: function(data) {
                  $('#detail_cart').html(data);
@@ -258,7 +259,8 @@
              method: "POST",
              data: {
                  row_id: row_id,
-                 qty: qty
+                 qty: qty,
+                 <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
              },
              success: function(data) {
                  $('#detail_cart').html(data);
@@ -276,7 +278,8 @@
              url: "<?php echo base_url(); ?>user/cart/hapus_cart",
              method: "POST",
              data: {
-                 row_id: row_id
+                 row_id: row_id,
+                 <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
              },
              success: function(data) {
                  $('#detail_cart').html(data);
@@ -296,7 +299,8 @@
                  url: '<?= base_url(); ?>user/Checkout/getCityOngkir',
                  method: 'POST',
                  data: {
-                     provinsi_id: provinsi_id
+                     provinsi_id: provinsi_id,
+                     <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
                  },
                  success: function(data) {
                      $('#kabupaten').html(data)
@@ -313,7 +317,8 @@
                  url: '<?= base_url(); ?>user/Checkout/getSubDistrictOngkir',
                  method: 'POST',
                  data: {
-                     kabupaten_id: kabupaten_id
+                     kabupaten_id: kabupaten_id,
+                     <?php echo $this->security->get_csrf_token_name(); ?>: '<?php echo $this->security->get_csrf_hash(); ?>'
                  },
                  success: function(data) {
                      $('#kecamatan').html(data)

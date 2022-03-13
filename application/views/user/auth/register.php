@@ -34,7 +34,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-7 shadow p-5">
-                <form method="POST" action="<?= base_url('user/Auth/create_user')  ?>" autocomplete="off">
+                <form method="POST" action="<?= base_url('user/Auth/create_user')  ?>">
                     <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="mb-3">
                         <label class="form-label">Username</label>
@@ -71,6 +71,11 @@
                         <label for="exampleInputPassword1" class="form-label">Konfirmasi password</label>
                         <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword1" />
                         <?= form_error('password_confirm', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kode Referal (Isi Jika Mempunyai Kode Referal)</label>
+                        <input type="text" name="referal" class="form-control" aria-label="Referal" aria-describedby="basic-addon1" />
+                        <?= form_error('referal', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" type="submit">Daftar</button>
