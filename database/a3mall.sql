@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Feb 2022 pada 09.56
+-- Waktu pembuatan: 13 Mar 2022 pada 20.48
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -44,9 +44,11 @@ CREATE TABLE `alamat` (
 --
 
 INSERT INTO `alamat` (`id_alamat`, `email`, `nama_alamat`, `telp_alamat`, `provinsi_alamat`, `kabupaten_alamat`, `kecamatan_alamat`, `pos_alamat`, `detail_alamat`) VALUES
-(18, 'wigman.webstudio@gmail.com', 'wigman', '08765434567', 3, 457, 6315, 15331, 'jalan wtc'),
-(19, 'normanardian24@gmail.com', 'norman ardian', '085697780467', 3, 457, 6314, 15318, 'jalan lengkong gudang timur 4, rt.004 rw.003 no.77'),
-(21, 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 6, 189, 2623, 12345, 'jalan seribu nomor seribu');
+(22, 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 3, 457, 6314, 15318, 'Jalan Lengkong Gudang timur 4 Rt.004 Rw.003 No.77 '),
+(23, 'staff@atigamall.com', 'Wildan Beckham Surtanik', '085157283329', 4, 62, 832, 131231, '123'),
+(24, 'akubudi248@gmail.com', 'Budhi', '085850518483', 6, 151, 2091, 111610, 'Jl Al Hidayah No 27\r\n'),
+(25, 'customer.care@atigamall.com', 'norman ardian', '085697780467', 3, 457, 6314, 15318, 'jalan anu'),
+(26, 'ardilorenzo19@gmail.com', 'normen', '09876543', 4, 175, 2452, 12345, 'jalan bengkulu');
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,8 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id_blog`, `title_blog`, `slug_blog`, `photo_blog`, `content_blog`, `writer_blog`, `created_blog`, `see_blog`) VALUES
-(2, 'coba1', 'coba1', 'dff66cf323c0482d4a1d4a17ee835e17.jpg', '<p>coba1</p>\r\n', 'coba', '2022-02-27 13:55:07', 0);
+(7, 'Sejarah Furnitur atau Mebel', 'sejarah-furnitur-atau-mebel', '860c16fce73fd925f51206071d2f24f4.jpg', '<p>Furnitur atau mebel adalah perlengkapan rumah yang mencakup semua barang seperti kursi, meja dan lemari.</p>\r\n\r\n<p><strong>Mebel </strong>berasal dari kata &lsquo;<em>movable</em>&rsquo; yang berarti &lsquo;<em>bisa bergerak</em>&rsquo;.</p>\r\n\r\n<p>Sedangkan untuk<strong> Furnitur / furniture </strong>berasal dari bahasa Prancis, yaitu &lsquo;<em>fourniture</em>&rsquo;&nbsp;</p>\r\n\r\n<p>(1520 - 30 Masehi)</p>\r\n\r\n<p>&lsquo;<em>Fourniture</em>&rsquo; mempunyai asal kata &lsquo;<em>fournir</em>&rsquo; yang berarti &lsquo;<em>furnish atau perabot rumah / ruangan</em>&rsquo;</p>\r\n\r\n<p>Walaupun mebel dan furniture memiliki arti yang berbeda, tetapi yang ditunjuk itu sama yaitu meja, kursi, kemari dan lainnya.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://lh3.googleusercontent.com/0DI041-FtVGfteeVxIw6pBdDxxme42ivhCzSYui93fG9ljGZciaVrRkxKSif8VEVCmjaz_3rZX2fmQrW9QQDaaboQMifKjHBs5FmTlhxokzcWN7zegP7n_4KOO8H0MOB3rDAzMvX\" style=\"height:370px; width:558px\" /></p>\r\n\r\n<p>Tahukah anda? Bahwa mebel tertua adalah mebel yang ditemukan di Desa Skara Brae, Orkney, Scotlandia Utara loh.. Disana terdapat situs rumah kuno peninggalan zaman Neolitikum 3100-2500 sebelum Masehi.</p>\r\n\r\n<p>Menariknya, di rumah batu terdapat perlengkapan yang cukup lengkap loh, seperti rumah pada umumnya, ada lemari pakaian, tempat tidur, lemari tundan, tempat duduk dari batu dan wadah kerang.&nbsp;</p>\r\n\r\n<p><img src=\"https://lh5.googleusercontent.com/wUCau9f25cgLDMxcNgLh6kwnc2ZYybx9BMgulfQSuRq6vo0Q-NNuTJh8GvzDXYh0323hkIFXqNnAH7Iw3sF2o7jkrMM9jengY-raqY8zsCRfGXh4cxMe4l-qO368l1Xt9iN0dnu0\" style=\"height:346px; width:520px\" /></p>\r\n\r\n<p>Dan ternyata lemari pakaian pada zaman itu merupakan furnitur yang cukup penting loh.. Wah berarti <em>style is everything</em> ya &hellip;. Dan hal ini terlihat dari posisinya yang terletak di dekat pintu masuk.</p>\r\n\r\n<p><img src=\"https://lh5.googleusercontent.com/9QLxRileYGiId-OZAfFhAfWdrza3kFNbV8Th8quc-sIIicZrhO99szaMRpOi7TS_aBWdtwxfSIlfLwDQP2sIh3g0RC1QM_-0Ya3Srz0XVXIRaEND2NXyslBMQd6dXXTTXfiTRCyt\" style=\"height:379px; width:379px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Sejarah mebel dideteksi dari artefak atau peninggalan prasejarah, jika diurutkan secara kronologis, sejarah mebel dimulai dari zaman Neolitikum, klasik, Eropa Modern Awal, Neoklasik abad 19, Amerika Utara Awal, Modern, Zaman Hijau dan Kontemporer.</p>\r\n\r\n<p>Mebel di Asia agak berbeda dengan mebel yang berada di Barat. Mebel Asia memiliki gaya tersendiri walaupun terkadang di pengaruhi oleh Barat. Itu dikarenakan interaksi antara warga Asia dengan Barat melalui kolonialisme, pendidikan dan informasi.&nbsp;</p>\r\n\r\n<p>Mebel Asia lahir dari Indonesia (terutama Jepara dan Bali), China, Jepang, Pakistan, India, Burma, Korea, dan Monggolia.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://lh3.googleusercontent.com/IhPPAlypN5vzREe-BIXwXQNbkVk2iJXVj9CD9mjGx7Shoj4rx6y01a0F8zDC4RkVzGVDylJUyzjbe9WD2jfLS4CNpSeT4kkhtXSRp0SakFA2WgUhMpTyaEtNsLOXi7VF-naC4anp\" style=\"height:275px; width:553px\" /></p>\r\n\r\n<p>Nah sebelumnya kita sudah membahas sedikit tentang sejarah mebel. Untuk mebel yang berasal dari Indonesia ternyata mempunyai gaya yang unik loh dengan ciri khas hias ukir yang beragam.</p>\r\n\r\n<p>Salah satu daerah yang terkenal dengan kerajinan ukiran di Indonesia itu adalah Jepara.</p>\r\n\r\n<p>Pada tahun 2004, Kabupaten Jepara memiliki 3.539 unit produksi usaha mebel yang terdaftar di Dinas Perindustrian, Perdagangan, Koperasi, dan Penanaman Modal.</p>\r\n\r\n<p>Ditambah lagi Jepara mendapatkan julukan sebagai &ldquo;<strong>The World Carving Center</strong>&rdquo; karena produk-produk ukir Jepara yang sudah mendunia dimana banyak penyuka seni ukiran Jepara dari berbagai negara.</p>\r\n\r\n<p>Wow&hellip; Bangga ga sih dengan Indonesia? Iya tentu Pastilah&hellip;.</p>\r\n\r\n<p>&nbsp;</p>\r\n', 'atigamall', '2022-03-07 11:52:49', 0),
+(8, 'Gaya Furniture di  Indonesia ', 'gaya-furniture-di--indonesia', 'b71ee391716b9cbc8cd4f4991ada00fc.jpg', '<p>Sebelumnya kita sudah tahu nih sedikit tentang sejarah furnitur atau mebel dari seluruh dunia&hellip;</p>\r\n\r\n<p>Di Indonesia bangunan bergaya modern mulai bermunculan setelah kemerdekaan tahun 1945, <strong><em>Gaya Art Deco</em></strong> pada rumah dan bangunan dengan pintu dan jendela tinggi mulai banyak ditinggalkan orang dan beralih ke furnitur bergaya klasik khas Indonesia.</p>\r\n\r\n<p><br />\r\n<img src=\"https://lh3.googleusercontent.com/w3LM4Rs5JdDyqjKiXpMyGDDbpsW_gjG0RYmxtxFrjzuC7V2bAvi5hoipJ4msgnI7e5fDArTSkQYPMUdBNkZ2ZbKzrwPwwM7b2SD-ADmZuKe3X4nIvGfDWMJ7Jq3LCVjgfBwLoW_P\" style=\"height:389px; width:311px\" /></p>\r\n\r\n<p>Pada tahun 1960an hingga 1970an, model furnitur yang populer adalah model <em>jengki </em>dengan ciri khas kaki yang meruncing dan miring serta bentuk kursi yang landai.</p>\r\n\r\n<p><em>Gaya Jengki</em><strong><em> </em></strong>yang diambil dari kata <em>yankee </em>yang konon dicetuskan langsung dari Bung Karno untuk menandingi gaya arsitektur kolonial.</p>\r\n\r\n<p>Karena orang-orang (orang Jawa) pada masa itu sulit mengucapkan kata <em>yankee</em>, maka diubah menjadi<em> jengki</em>.&nbsp;<br />\r\n<br />\r\n<img src=\"https://lh6.googleusercontent.com/51Yz8iJcAc5u4mhKRiTk4zYtmpHYudnq-_bvgf3jnHoyAxpt965TixAQVN5hVIAOnPAeXa7GsBB5XmAZ-CcMfZyC5UnVN5dDlMxgSmIjb4JeSwj_41-50aJt91b64hb1yvbOApo8\" style=\"height:343px; width:275px\" /></p>\r\n\r\n<p>Masuk sekitar tahun 1970 dan 1980, orang-orang mulai bernai bermain dengan warna yang lebih terang dan mengikuti gaya retro.</p>\r\n\r\n<p>Furnitur yang terkenal di masa tersebut adalah kursi lipat santai dengan bantalan lilitan karet atau kuris merak <em>plus side tabe&nbsp;</em>senada yang biasa diletakkan di teras. Arsitektur bangunan juga dibuat lebih sederhana, misalnya atap datar, jendela persegi lebar, dan munculnya penggunaan keramik atau teraso bukan ubin.</p>\r\n\r\n<p>Menjelang tahun 1990an, gaya rumah minimalis mulai dikenal di Indonesia, terinspirasi dari konsep minimalis yang telah lebih dulu dipopulerkan Amerika dan Eropa.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n', 'atigamall', '2022-03-08 06:47:05', 0);
 
 -- --------------------------------------------------------
 
@@ -90,7 +93,8 @@ CREATE TABLE `brand_product` (
 --
 
 INSERT INTO `brand_product` (`id_brand`, `name_brand`, `created_brand`, `describe_brand`) VALUES
-(1, 'escon', '2022-02-27 06:33:10', 'Brand Escon');
+(1, 'escon', '2022-02-27 06:33:10', 'Brand Escon'),
+(2, 'Manhattan', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -116,6 +120,18 @@ INSERT INTO `carousel` (`id_carousel`, `photo_carousel`, `created_carousel`) VAL
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `cashback`
+--
+
+CREATE TABLE `cashback` (
+  `id_cashback` int(11) NOT NULL,
+  `percent_cashback` int(11) NOT NULL,
+  `level_referal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `catalogue`
 --
 
@@ -134,7 +150,7 @@ CREATE TABLE `catalogue` (
 --
 
 INSERT INTO `catalogue` (`id_catalogue`, `name_catalogue`, `describe_catalogue`, `created_catalogue`, `photo_catalogue`, `slug_catalogue`, `pdf_catalogue`) VALUES
-(10, 'E-Catalogue Maret 2022', 'E- Cataloguee', '2022-02-27 12:59:26', 'b449451095f15fbe507bd3d1fd4b3a09.jpg', 'e-catalogue-maret-2022', 'cca7e521c8f5c17c8fa66cbcf9b25f34.pdf');
+(21, 'E-Catalogue', 'EDISI MARET 2022', '2022-03-02 14:35:39', 'a1e0844662b064a6ff22a4b7fd05fcb8.jpg', 'e-catalogue', 'abbe67c6364fdebff75834d13a30e18c.pdf');
 
 -- --------------------------------------------------------
 
@@ -172,6 +188,27 @@ CREATE TABLE `detail_catalogue` (
   `photo_detail_catalogue` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `detail_catalogue`
+--
+
+INSERT INTO `detail_catalogue` (`id_detail_catalogue`, `slug_catalogue`, `name_detail_catalogue`, `describe_detail_catalogue`, `photo_detail_catalogue`) VALUES
+(2, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', 'b9a73a994ad6a2781df8650569ad5650.jpg'),
+(3, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', '672ec8be4d1e8909fb0900c5566995e0.jpg'),
+(4, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', 'd68fa14a8394b29082d354a1e71ebca9.jpg'),
+(5, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', 'fd6befec6e55e21c0d6b30316734d696.jpg'),
+(6, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', 'fec5d728ab5aa6c0fddfe5c00fdf8713.jpg'),
+(7, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', 'ee7acabc4310696983fbc89e97b29617.jpg'),
+(11, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', '228dc2967dd3959a33c148944b6de1a0.jpg'),
+(12, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022 ', '8cb7407dda47f680fd1a394166e37864.jpg'),
+(13, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', '0d1b5bb65eb971fa807e9e4c58152f13.jpg'),
+(14, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', '2f9df45b8792fa7367eee39d6058dfb0.jpg'),
+(16, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', '15a5f2e953df9578c48dda4487dcffac.jpg'),
+(17, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', 'c112e25c10e2534c575febb795a52af3.jpg'),
+(18, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', '03554cd2ef9ef9f2f2581d5dec08b755.jpg'),
+(19, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', '6849c623c3b45e83a07ef696b2147464.jpg'),
+(20, 'e-catalogue', 'E-Catalogue', 'EDISI MARET 2022', '5be548a013973068724e1c65b9648958.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -200,18 +237,14 @@ CREATE TABLE `detail_transaction` (
 --
 
 INSERT INTO `detail_transaction` (`id_detail_transaction`, `kd_transaction`, `email_users`, `name_customers`, `telp_customers`, `address_customers`, `date_transaction`, `total_quantity`, `total_transaction`, `payment_options`, `status`, `order_id`, `potongan_saldo`, `total_payment`) VALUES
-(24, 'XL18PJ', 'normanardian24@gmail.com', 'norman ardian', '085697780467', 'jalan lengkong gudang timur 4, rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-19 10:51:01', 9, 12438222, NULL, 1, NULL, NULL, NULL),
-(25, 'GIVYZX', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-20 08:11:50', 2, 4270000, NULL, 1, '1409509346', 4270000, 0),
-(26, 'KMVGTR', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-20 08:25:47', 2, 4270000, NULL, 1, NULL, NULL, NULL),
-(27, 'AZSKA8', 'firmanruhiyan@gmail.com', 'Norman Ardian', '085697780467', 'jalan lengkong gudang timur 4 rt.004 rw.003 no.77-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-02-23 15:24:00', 1, 4010000, NULL, 1, NULL, NULL, NULL),
-(28, 'PJEDO0', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan anu nomor anu-Payung ,Bangka Selatan ,Bangka Belitung ID 12345', '2022-02-23 15:36:23', 1, 4010000, NULL, 1, NULL, NULL, NULL),
-(29, 'NTTEDJ', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan anu nomor anu-Payung ,Bangka Selatan ,Bangka Belitung ID 12345', '2022-02-23 15:39:43', 1, 4010000, NULL, 1, NULL, NULL, NULL),
-(30, 'T1GRFK', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan anu nomor anu-Payung ,Bangka Selatan ,Bangka Belitung ID 12345', '2022-02-23 15:44:34', 1, 4260000, NULL, 1, NULL, NULL, NULL),
-(31, 'IPUJSR', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan seribu nomor seribu-Kepulauan Seribu Utara ,Kepulauan Seribu ,DKI Jakarta ID 12345', '2022-02-23 15:46:58', 1, 4012000, NULL, 1, NULL, NULL, NULL),
-(32, 'YSIAVX', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan seribu nomor seribu-Kepulauan Seribu Utara ,Kepulauan Seribu ,DKI Jakarta ID 12345', '2022-02-24 10:19:17', 1, 4010000, NULL, 1, NULL, NULL, NULL),
-(33, 'URYSYR', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan seribu nomor seribu-Kepulauan Seribu Utara ,Kepulauan Seribu ,DKI Jakarta ID 12345', '2022-02-26 08:51:42', 2, 8022000, NULL, 1, NULL, 500000, 7522000),
-(34, 'NSPXMI', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan seribu nomor seribu-Kepulauan Seribu Utara ,Kepulauan Seribu ,DKI Jakarta ID 12345', '2022-02-26 08:54:40', 2, 8010000, NULL, 2, NULL, 8010000, 0),
-(35, 'ANOAXH', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'jalan seribu nomor seribu-Kepulauan Seribu Utara ,Kepulauan Seribu ,DKI Jakarta ID 12345', '2022-02-26 09:06:09', 1, 4010000, NULL, 1, '1251807395', 1990000, 2020000);
+(36, 'YQN2MY', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'Jalan Lengkong Gudang timur 4 Rt.004 Rw.003 No.77 -Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-03-02 12:28:53', 1, 3449000, NULL, 3, '1498354307', 0, 3449000),
+(37, 'DAG1C9', 'staff@atigamall.com', 'Wildan Beckham Surtanik', '085157283329', '123-Gading Cempaka ,Bengkulu ,Bengkulu ID 131231', '2022-03-02 12:44:30', 1, 4437000, NULL, 2, '2031484108', 0, 4437000),
+(38, 'NUZKDE', 'firmanruhiyan@gmail.com', 'norman ardian', '085697780467', 'Jalan Lengkong Gudang timur 4 Rt.004 Rw.003 No.77 -Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-03-03 15:31:57', 1, 2929000, NULL, 1, NULL, 34490, 2894510),
+(39, '9PJDK1', 'akubudi248@gmail.com', 'Budhi', '085850518483', 'Jl Al Hidayah No 27\r\n-Kembangan ,Jakarta Barat ,DKI Jakarta ID 111610', '2022-03-03 16:09:45', 1, 1399000, NULL, 1, '1122798537', 0, 1399000),
+(40, 'DH2UPC', 'customer.care@atigamall.com', 'norman ardian', '085697780467', 'jalan anu-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-03-13 04:53:35', 1, 2799000, NULL, 1, NULL, 0, 2799000),
+(41, 'RMSKLG', 'customer.care@atigamall.com', 'norman ardian', '085697780467', 'jalan anu-Serpong ,Tangerang Selatan ,Banten ID 15318', '2022-03-13 06:25:12', 1, 2799000, NULL, 1, NULL, 0, 2799000),
+(42, 'KHJJ2Q', 'ardilorenzo19@gmail.com', 'normen', '09876543', 'jalan bengkulu-Kaur Utara ,Kaur ,Bengkulu ID 12345', '2022-03-13 08:00:03', 1, 2846000, NULL, 4, '289815427', 0, 2846000),
+(43, 'EWX1P6', 'ardilorenzo19@gmail.com', 'normen', '09876543', 'jalan bengkulu-Kaur Utara ,Kaur ,Bengkulu ID 12345', '2022-03-13 13:16:05', 1, 2846000, NULL, 4, NULL, 0, 2846000);
 
 -- --------------------------------------------------------
 
@@ -221,7 +254,7 @@ INSERT INTO `detail_transaction` (`id_detail_transaction`, `kd_transaction`, `em
 
 CREATE TABLE `groups` (
   `id` mediumint(8) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -232,7 +265,9 @@ CREATE TABLE `groups` (
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
 (2, 'members', 'General User'),
-(3, 'staff', 'Staff');
+(3, 'staff', 'Staff'),
+(4, 'Head Business Executive', 'Head business executive'),
+(5, 'Business Executive', 'business executive');
 
 -- --------------------------------------------------------
 
@@ -91531,6 +91566,13 @@ CREATE TABLE `login_attempts` (
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data untuk tabel `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(21, '::1', 'ardilorenzo10@gmail.com', 1647172333);
+
 -- --------------------------------------------------------
 
 --
@@ -91554,15 +91596,12 @@ CREATE TABLE `midtrans` (
 --
 
 INSERT INTO `midtrans` (`order_id`, `kd_transaction`, `gross_amount`, `payment_type`, `transaction_time`, `bank`, `va_number`, `pdf_url`, `status_code`) VALUES
-('1056970689', 'KLVNY2', 4036000, 'bank_transfer', '2022-02-01 13:05:37', 'bni', '9886392331772562', 'https://app.sandbox.midtrans.com/snap/v1/transactions/ef74b680-cc22-4c0b-abdb-5603007b27db/pdf', '201'),
-('1251807395', 'ANOAXH', 4010000, 'bank_transfer', '2022-02-26 15:53:27', 'bni', '9886392345726288', 'https://app.sandbox.midtrans.com/snap/v1/transactions/56d2758b-dfa5-4604-82b8-45aa8a4272c9/pdf', '201'),
-('1409509346', 'GIVYZX', 4270000, 'bank_transfer', '2022-02-24 15:32:16', 'bni', '9886392330937330', 'https://app.sandbox.midtrans.com/snap/v1/transactions/27530f42-dd1f-4730-b4b8-1e031ccb400b/pdf', '201'),
-('170665377', 'KLVNY2', 4036000, 'bank_transfer', '2022-02-01 13:01:21', 'bni', '9886392378980472', 'https://app.sandbox.midtrans.com/snap/v1/transactions/dc150577-e980-46f2-b759-680bea4274cc/pdf', '201'),
-('1713919589', 'KLVNY2', 4036000, 'bank_transfer', '2022-02-01 13:09:41', 'bni', '9886392353629620', 'https://app.sandbox.midtrans.com/snap/v1/transactions/bca11743-0696-496e-91bf-2fce7a8a6fca/pdf', '200'),
-('1942605032', 'X45JZC', 2018000, 'bank_transfer', '2022-02-01 13:35:51', 'bni', '9886392310882948', 'https://app.sandbox.midtrans.com/snap/v1/transactions/4a679807-4859-484b-ae18-7dd48adf040c/pdf', '200'),
-('396912965', 'ANOAXH', 2020000, 'bank_transfer', '2022-02-26 15:15:15', 'bni', '9886392338802022', 'https://app.sandbox.midtrans.com/snap/v1/transactions/c75511e9-e0ee-4589-8f2a-198f50bb4700/pdf', '201'),
-('433781547', 'D5U7LE', 2058000, 'bank_transfer', '2022-02-15 10:41:41', 'bni', '9886392302626724', 'https://app.sandbox.midtrans.com/snap/v1/transactions/7ac07ae4-e30c-4eb1-abe0-ce426e6fe07b/pdf', '201'),
-('529957785', 'KLVNY2', 4036000, 'bank_transfer', '2022-02-01 12:31:57', 'bni', '9886392352730049', 'https://app.sandbox.midtrans.com/snap/v1/transactions/0c08cc3f-68d8-403a-8d79-97a300723b85/pdf', '201');
+('1122798537', '9PJDK1', 1399000, 'gopay', '2022-03-03 23:11:11', '', '', '', '201'),
+('116628475', 'DAG1C9', 4437000, 'bank_transfer', '2022-03-02 19:45:05', 'bca', '63923099871', 'https://app.sandbox.midtrans.com/snap/v1/transactions/32c02087-9f8d-4e50-a1a0-cc142c4ea919/pdf', '201'),
+('1498354307', 'YQN2MY', 3449000, 'bank_transfer', '2022-03-02 19:29:16', '', '', '', '200'),
+('2031484108', 'DAG1C9', 4437000, 'bank_transfer', '2022-03-02 19:46:46', 'bca', '63923065494', 'https://app.sandbox.midtrans.com/snap/v1/transactions/2e5bc78b-43d5-4ae3-82fd-910e69cc8bb7/pdf', '200'),
+('289815427', 'KHJJ2Q', 2846000, 'bank_transfer', '2022-03-13 14:00:23', 'bni', '9886392325218366', 'https://app.sandbox.midtrans.com/snap/v1/transactions/d93b50c3-599e-484f-acdd-1a143feafa3f/pdf', '201'),
+('49281005', '9PJDK1', 1399000, 'gopay', '2022-03-03 23:09:59', '', '', '', '200');
 
 -- --------------------------------------------------------
 
@@ -91584,10 +91623,28 @@ CREATE TABLE `photo_product` (
 --
 
 INSERT INTO `photo_product` (`id_photoproduct`, `kd_product`, `photo_product`, `describe_photoproduct`, `users`, `created_photoproduct`) VALUES
-(20, 'D23344', 'DYNASTY.png', '', 1, '2022-01-31 04:50:31'),
-(21, 'D23344', 'merah_2.png', '', 1, '2022-01-31 04:50:43'),
-(22, 'B12345', 'alegrobrown_2.JPG', '', 1, '2022-02-14 06:34:40'),
-(23, 'B12345', 'mozartbrown_1.JPG', '', 1, '2022-02-14 06:37:57');
+(88, 'GHASD492LOS', 'sofabed2.jpg', '', 19, '2022-02-28 17:45:56'),
+(89, 'GHASD492LOS', 'sofabed1.jpg', '', 19, '2022-02-28 17:46:05'),
+(90, 'GHASD492LOS', 'sofabed.jpg', '', 19, '2022-02-28 17:46:16'),
+(171, 'QFBBSAF720', 'a6eb7374617ff73fc27f0b5a1d195161.jpg', '', 18, '2022-03-07 07:03:46'),
+(172, 'QFBBSAF720', '8d40d73e19e98c041dda4628b2f2f4a6.jpg', '', 18, '2022-03-07 07:03:56'),
+(173, 'QFBBSAF720', '68369f4d3be1c6964552b943315d587f.jpg', '', 18, '2022-03-07 07:04:06'),
+(174, 'HAFS512FGA08', '64be4f8f2af297824ca50d9e276efd95.jpg', '', 18, '2022-03-07 07:13:58'),
+(175, 'HAFS512FGA08', '1afefae29ba23a9b96a0571dfa42c626.jpg', '', 18, '2022-03-07 07:14:07'),
+(176, 'HAFS512FGA08', 'cae5e877c8d8dc7611de95988594c892.jpg', '', 18, '2022-03-07 07:14:15'),
+(177, 'HAFS512FGA08', '91938ffc019f493388056a1409e2975f.jpg', '', 18, '2022-03-07 07:14:27'),
+(178, 'QFADVABX41T', 'a3d2b44d509974eb98bcdcb885019e8e.jpg', '', 18, '2022-03-07 07:15:20'),
+(179, 'QFADVABX41T', 'd1eb63863963e2a2d17d79cc39749857.jpg', '', 18, '2022-03-07 07:15:28'),
+(180, 'QFADVABX41T', 'c9784697ec0ba27b1dab88325d5591ee.jpg', '', 18, '2022-03-07 07:15:39'),
+(181, 'QFADVABX41T', 'f189d001e5f8eaa1935e8bcec6ecd561.jpg', '', 18, '2022-03-07 07:15:53'),
+(182, 'UASHDGF321', '2609c8ae17106f281f56cc51e91ceb50.jpg', '', 18, '2022-03-07 07:16:43'),
+(183, 'UASHDGF321', '01968ff4d862086afc7ce4336108c393.jpg', '', 18, '2022-03-07 07:16:51'),
+(184, 'UASHDGF321', 'd9ba865e0a0c7c9a294ba67133a72e48.jpg', '', 18, '2022-03-07 07:16:59'),
+(185, 'UASHDGF321', '051e76d409bd5fa56d846a3692c1dec1.jpg', '', 18, '2022-03-07 07:17:13'),
+(186, 'YUQWEA8NSD3', '0fc6087787fb9c28300815c5bf9fde13.jpg', '', 18, '2022-03-07 07:18:13'),
+(187, 'YUQWEA8NSD3', '76ae2c2ba9b47e5f6f1728207c00db5b.jpg', '', 18, '2022-03-07 07:18:20'),
+(188, 'YUQWEA8NSD3', 'e33979cc0375ca84c195f0fb7110c610.jpg', '', 18, '2022-03-07 07:18:27'),
+(189, 'YUQWEA8NSD3', '297b1bca09ff349c87196347bc22ad88.jpg', '', 18, '2022-03-07 07:18:51');
 
 -- --------------------------------------------------------
 
@@ -91603,6 +91660,25 @@ CREATE TABLE `photo_unit` (
   `users` int(11) NOT NULL,
   `created_photounit` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `popup`
+--
+
+CREATE TABLE `popup` (
+  `id_popup` int(11) NOT NULL,
+  `photo_popup` varchar(50) NOT NULL,
+  `buttonlink_popup` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `popup`
+--
+
+INSERT INTO `popup` (`id_popup`, `photo_popup`, `buttonlink_popup`) VALUES
+(1, '02ead1d7ea26bee4feb319a99fa77856.jpg', 'https://www.atigamall.com/');
 
 -- --------------------------------------------------------
 
@@ -91623,16 +91699,22 @@ CREATE TABLE `product` (
   `created_product` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status_product` varchar(10) DEFAULT NULL,
   `date_arrived` date DEFAULT NULL,
-  `beforeprice_product` varchar(20) DEFAULT NULL
+  `beforeprice_product` varchar(20) DEFAULT NULL,
+  `subbutton_name` varchar(30) DEFAULT NULL,
+  `subbutton_link` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `product`
 --
 
-INSERT INTO `product` (`id_product`, `kd_product`, `name_product`, `slug_product`, `price_product`, `describe_product`, `brand_product`, `category_product`, `users`, `created_product`, `status_product`, `date_arrived`, `beforeprice_product`) VALUES
-(3, 'B12345', 'Bagus Brown', '1-bagus-brown', '4000000', 'Ini Bagus Brown', 1, 1, 1, '2022-02-27 07:48:09', 'active', '2022-02-14', '5000000'),
-(1, 'D23344', 'Dynasty Brown', 'dynasty-brown', '2000000', 'Ini dynasty', 1, 1, 1, '2022-02-27 07:47:47', 'active', '2022-01-27', '3000000');
+INSERT INTO `product` (`id_product`, `kd_product`, `name_product`, `slug_product`, `price_product`, `describe_product`, `brand_product`, `category_product`, `users`, `created_product`, `status_product`, `date_arrived`, `beforeprice_product`, `subbutton_name`, `subbutton_link`) VALUES
+(23, 'GHASD492LOS', 'Sofa Bed', 'Manhattan-sofa-bed', '1499000', '<p>*Gratis Ongkir Jabodetabek , estimasi 1-7 hari kerja.</p>\r\n\r\n<p>Spesifikasi:</p>\r\n\r\n<p>- High Density Foam<br />\r\n- 2 Jenis bahan :<br />\r\n(1) Bahan Kain Fabric<br />\r\n(2) Synthetic Leather<br />\r\n- Bahan kain bisa dicuci<br />\r\n- Tebal Sofabed (jika dilipat) :<br />\r\n60 cm<br />\r\n- Tebal Sofabed (jika jadi kasur) :<br />\r\n20 cm<br />\r\n- Sofa Bed Size :<br />\r\n100x200<br />\r\n120x200</p>\r\n', 2, 2, 18, '2022-03-02 11:58:41', 'active', '2022-02-28', '1499000', NULL, NULL),
+(18, 'HAFS512FGA08', 'Soprano Brown Semi Single PillowTop Spring Bed', 'escon-soprano-brown-semi-single-pillowtop-spring-b', '2929000', '<p>*Gratis Ongkir Jabodetabek , estimasi 1-7 hari kerja.</p>\r\n\r\n<p>Terdiri dari:<br />\r\n- Mattrass Semi Single Pilowtop<br />\r\n- Garansi Pegas 10 tahun&nbsp;<br />\r\n- Head board<br />\r\n- Dipan + Kaki</p>\r\n\r\n<p>Spesifikasi:<br />\r\n- High Density Foam<br />\r\n- PE Foam Encasement<br />\r\n- 220 gsm Soft 3D Knitted Fabric<br />\r\n- High Carbon Steel 6 Turns Bonnel Spring<br />\r\n- Hardness : Firm<br />\r\n- Ketebalan Matras : 35 cm<br />\r\n- Bed Size&nbsp;<br />\r\n90x200<br />\r\n120x200<br />\r\n160x200<br />\r\n180x200<br />\r\n<br />\r\ncustom size by order</p>\r\n', 1, 1, 18, '2022-03-10 20:35:09', 'deactive', '2022-02-28', '2929000', 'Beli Matras Saja', 'https://localhost/a3mall/Deskripsi/escon-alegro-2-in-1-spring-bed'),
+(14, 'QFADVABX41T', 'Soprano Blue Semi Single PillowTop Spring Bed', 'escon-soprano-blue-semi-single-pillowtop-spring-be', '2929000', '<p>*Gratis Ongkir Jabodetabek , estimasi 1-7 hari kerja.</p>\r\n\r\n<p>Terdiri dari:<br />\r\n- Mattrass Semi Single Pilowtop<br />\r\n- Garansi Pegas 10 tahun&nbsp;<br />\r\n- Head board<br />\r\n- Dipan + Kaki</p>\r\n\r\n<p>Spesifikasi:<br />\r\n- High Density Foam<br />\r\n- PE Foam Encasement<br />\r\n- 220 gsm Soft 3D Knitted Fabric<br />\r\n- High Carbon Steel 6 Turns Bonnel Spring<br />\r\n- Hardness : Firm<br />\r\n- Ketebalan Matras : 35 cm<br />\r\n- Bed Size :<br />\r\n90x200<br />\r\n120x200<br />\r\n160x200<br />\r\n180x200<br />\r\n<br />\r\ncustom size by order</p>\r\n', 1, 1, 18, '2022-03-07 07:21:12', 'deactive', '2022-02-28', '2929000', NULL, NULL),
+(19, 'QFBBSAF720', 'Symphony Semi PlushTop Spring Bed', 'escon-symphony-semi-plushtop-spring-bed', '2799000', '<p>*Gratis Ongkir Jabodetabek , estimasi 1-7 hari kerja.</p>\r\n\r\n<p>Terdiri dari:<br />\r\n- Mattrass Semi Plush Top<br />\r\n- Garansi Pegas 10 tahun&nbsp;<br />\r\n- Head board<br />\r\n- Dipan + Kaki</p>\r\n\r\n<p>Spesifikasi:<br />\r\n- High Density Foam<br />\r\n- PE Foam Encasement<br />\r\n- 220 gsm Soft 3D Knitted Fabric<br />\r\n- High Carbon Steel<br />\r\n6 Turns Bonnel Spring<br />\r\n- Hardness : Medium soft<br />\r\n- Ketebalan Matras : 35 cm<br />\r\n- Bed Size :<br />\r\n90x200<br />\r\n120x200<br />\r\n160x200<br />\r\n180x200</p>\r\n\r\n<p>custom size by order</p>\r\n', 1, 1, 18, '2022-03-07 07:20:25', 'deactive', '2022-02-28', '2799000', NULL, NULL),
+(7, 'UASHDGF321', 'Mozart PlushTop Spring Bed', 'escon-mozart-plushtop-spring-bed', '2929000', '<p>*Gratis Ongkir Jabodetabek , estimasi 1-7 hari kerja.</p>\r\n\r\n<p>Terdiri dari:<br />\r\n- Mattrass Plush Top<br />\r\n- Garansi Pegas 10 tahun&nbsp;<br />\r\n- Head board<br />\r\n- Dipan + Kaki</p>\r\n\r\n<p>Spesifikasi:<br />\r\n- High Density Foam<br />\r\n- PE Foam Encasement<br />\r\n- 220 gsm Soft 3D Knitted Fabric<br />\r\n- High Carbon Steel 6 Turns Bonnel Spring<br />\r\n- Hardness : Firm<br />\r\n- Ketebalan Matras : 35 cm<br />\r\n- Bed Size :<br />\r\n90x200<br />\r\n120x200<br />\r\n160x200<br />\r\n180x200<br />\r\n<br />\r\ncustom size by order</p>\r\n', 1, 1, 18, '2022-03-07 07:20:04', 'deactive', '2022-02-28', '2929000', NULL, NULL),
+(5, 'YUQWEA8NSD3', 'Alegro 2 in 1 Spring Bed', 'escon-alegro-2-in-1-spring-bed', '3149000', '<p>*Gratis Ongkir Jabodetabek , estimasi 1-7 hari kerja.</p>\r\n\r\n<p>Terdiri dari:<br />\r\n- Garansi Pegas 10 tahun&nbsp;<br />\r\n- Head board<br />\r\n- Dipan + Kaki</p>\r\n\r\n<p>Spesifikasi:<br />\r\n- High Density Foam<br />\r\n- PE Foam Encasement<br />\r\n- High Carbon Steel<br />\r\n6 Turns Bonnel Spring<br />\r\n- Hardness : Firm<br />\r\n- Ketebalan Matras : 29 cm<br />\r\n- Bed Size :<br />\r\n100x200<br />\r\n120x200<br />\r\n<br />\r\ncustom size by order</p>\r\n', 1, 1, 18, '2022-03-07 07:21:36', 'deactive', '2022-02-28', '3149000', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -91688,6 +91770,29 @@ INSERT INTO `provinsi` (`id`, `nama_provinsi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `referal`
+--
+
+CREATE TABLE `referal` (
+  `id_referal` int(11) NOT NULL,
+  `code_referal` varchar(50) NOT NULL,
+  `users_email_referal` varchar(50) NOT NULL,
+  `level_referal` int(11) NOT NULL,
+  `describe` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `referal`
+--
+
+INSERT INTO `referal` (`id_referal`, `code_referal`, `users_email_referal`, `level_referal`, `describe`) VALUES
+(1, 'abc123', 'customer.care@atigamall.com', 1, 'referal default user Tanpa BE'),
+(8, 'NORMAN6210', 'normanardian24@gmail.com', 2, 'Referal Head Bussines Executive For Business Executive'),
+(11, 'FIRMAN9554', 'firmanruhiyan@gmail.com', 3, 'Referal Bussines Executive For Customers');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `transaction`
 --
 
@@ -91697,6 +91802,8 @@ CREATE TABLE `transaction` (
   `users` varchar(50) NOT NULL,
   `code_product` varchar(50) NOT NULL,
   `variation` int(11) NOT NULL,
+  `kd_unit` varchar(50) DEFAULT NULL,
+  `name_unit` varchar(50) DEFAULT NULL,
   `price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `total_price` int(11) NOT NULL,
@@ -91711,30 +91818,15 @@ CREATE TABLE `transaction` (
 -- Dumping data untuk tabel `transaction`
 --
 
-INSERT INTO `transaction` (`id_transaction`, `kd_transaction`, `users`, `code_product`, `variation`, `price`, `quantity`, `total_price`, `date_transaction`, `date_update`, `ongkir`, `name_product`, `photo_product`) VALUES
-(79, 'XL18PJ', 'normanardian24@gmail.com', 'D23344', 1, 2040000, 1, 2040000, '2022-02-19 10:50:52', '2022-02-19 09:50:52', 18000, 'Dynasty Brown', 'DYNASTY.png'),
-(80, 'XL18PJ', 'normanardian24@gmail.com', 'D23344', 2, 2050000, 1, 2050000, '2022-02-19 10:50:53', '2022-02-19 09:50:53', 18000, 'Dynasty Brown', 'DYNASTY.png'),
-(81, 'XL18PJ', 'normanardian24@gmail.com', 'u123345', 3, 45000, 1, 45000, '2022-02-19 10:50:55', '2022-02-19 09:50:55', 18000, 'bantal', 'sofabed_2.JPG'),
-(82, 'XL18PJ', 'normanardian24@gmail.com', 'u123345', 4, 35000, 2, 70000, '2022-02-19 10:50:56', '2022-02-19 09:50:56', 18000, 'bantal', 'sofabed_2.JPG'),
-(83, 'XL18PJ', 'normanardian24@gmail.com', 'u12334566', 6, 47222, 1, 47222, '2022-02-19 10:50:57', '2022-02-19 09:50:57', 18000, 'guling', 'sofabed_2.JPG'),
-(84, 'XL18PJ', 'normanardian24@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-19 10:50:58', '2022-02-19 09:50:58', 18000, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(85, 'XL18PJ', 'normanardian24@gmail.com', 'B12345', 8, 4012000, 1, 4012000, '2022-02-19 10:51:00', '2022-02-19 09:51:00', 18000, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(86, 'XL18PJ', 'normanardian24@gmail.com', 'k12345', 9, 20000, 1, 20000, '2022-02-19 10:51:01', '2022-02-19 09:51:01', 18000, 'bantal', 'alegrobrown_1.JPG'),
-(87, 'GIVYZX', 'firmanruhiyan@gmail.com', 'D23344', 1, 2040000, 1, 2040000, '2022-02-20 08:11:45', '2022-02-20 07:11:45', 90000, 'Dynasty Brown', 'DYNASTY.png'),
-(88, 'GIVYZX', 'firmanruhiyan@gmail.com', 'D23344', 2, 2050000, 1, 2050000, '2022-02-20 08:11:48', '2022-02-20 07:11:48', 90000, 'Dynasty Brown', 'DYNASTY.png'),
-(89, 'KMVGTR', 'firmanruhiyan@gmail.com', 'D23344', 1, 2040000, 1, 2040000, '2022-02-20 08:25:39', '2022-02-20 07:25:39', 90000, 'Dynasty Brown', 'DYNASTY.png'),
-(90, 'KMVGTR', 'firmanruhiyan@gmail.com', 'D23344', 2, 2050000, 1, 2050000, '2022-02-20 08:25:41', '2022-02-20 07:25:41', 90000, 'Dynasty Brown', 'DYNASTY.png'),
-(91, 'AZSKA8', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-23 15:23:58', '2022-02-23 14:23:58', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(92, 'PJEDO0', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-23 15:36:22', '2022-02-23 14:36:22', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(93, 'NTTEDJ', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-23 15:39:43', '2022-02-23 14:39:43', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(94, 'T1GRFK', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-23 15:44:33', '2022-02-23 14:44:33', 250000, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(95, 'IPUJSR', 'firmanruhiyan@gmail.com', 'B12345', 8, 4012000, 1, 4012000, '2022-02-23 15:46:57', '2022-02-23 14:46:57', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(96, 'YSIAVX', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-24 10:19:14', '2022-02-24 09:19:14', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(97, 'URYSYR', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-26 08:51:38', '2022-02-26 07:51:38', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(98, 'URYSYR', 'firmanruhiyan@gmail.com', 'B12345', 8, 4012000, 1, 4012000, '2022-02-26 08:51:40', '2022-02-26 07:51:40', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(99, 'NSPXMI', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-26 08:54:38', '2022-02-26 07:54:38', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(100, 'NSPXMI', 'firmanruhiyan@gmail.com', 'B12345', 10, 4000000, 1, 4000000, '2022-02-26 08:54:40', '2022-02-26 07:54:40', 0, 'Bagus Brown', 'alegrobrown_2.JPG'),
-(101, 'ANOAXH', 'firmanruhiyan@gmail.com', 'B12345', 7, 4010000, 1, 4010000, '2022-02-26 09:06:09', '2022-02-26 08:06:09', 0, 'Bagus Brown', 'alegrobrown_2.JPG');
+INSERT INTO `transaction` (`id_transaction`, `kd_transaction`, `users`, `code_product`, `variation`, `kd_unit`, `name_unit`, `price`, `quantity`, `total_price`, `date_transaction`, `date_update`, `ongkir`, `name_product`, `photo_product`) VALUES
+(102, 'YQN2MY', 'firmanruhiyan@gmail.com', 'HAFS512FGA08', 58, NULL, NULL, 3449000, 1, 3449000, '2022-03-02 12:28:53', '2022-03-02 12:28:53', 0, 'Soprano Brown', 'sopranobrown2.jpg'),
+(103, 'DAG1C9', 'staff@atigamall.com', 'QFBBSAF720', 54, NULL, NULL, 4399000, 1, 4399000, '2022-03-02 12:44:30', '2022-03-02 12:44:30', 38000, 'Symphony', 'symphony2.jpg'),
+(104, 'NUZKDE', 'firmanruhiyan@gmail.com', 'HAFS512FGA08', 28, NULL, NULL, 2929000, 1, 2929000, '2022-03-03 15:31:57', '2022-03-03 15:31:57', 0, 'Soprano Brown', 'sopranobrown2.jpg'),
+(105, '9PJDK1', 'akubudi248@gmail.com', 'QJDH6213HAG', 39, NULL, NULL, 1399000, 1, 1399000, '2022-03-03 16:09:45', '2022-03-03 16:09:45', 0, 'Symphony MATRAS', 'symphony.jpg'),
+(106, 'DH2UPC', 'customer.care@atigamall.com', 'QFBBSAF720', 29, NULL, NULL, 2799000, 1, 2799000, '2022-03-13 04:53:35', '2022-03-13 03:53:35', 0, 'Symphony Semi PlushTop Spring Bed', 'a6eb7374617ff73fc27f0b5a1d195161.jpg'),
+(107, 'RMSKLG', 'customer.care@atigamall.com', 'QFBBSAF720', 29, 'QJDH6213HAG', 'Symphony MATRAS', 2799000, 1, 2799000, '2022-03-13 06:25:12', '2022-03-13 05:25:12', 0, 'Symphony Semi PlushTop Spring Bed', 'a6eb7374617ff73fc27f0b5a1d195161.jpg'),
+(108, 'KHJJ2Q', 'ardilorenzo19@gmail.com', 'QFBBSAF720', 29, 'QJDH6213HAG', 'Symphony MATRAS', 2799000, 1, 2799000, '2022-03-13 08:00:03', '2022-03-13 07:00:03', 47000, 'Symphony Semi PlushTop Spring Bed', 'a6eb7374617ff73fc27f0b5a1d195161.jpg'),
+(109, 'EWX1P6', 'ardilorenzo19@gmail.com', 'QFBBSAF720', 29, 'QJDH6213HAG', 'Symphony MATRAS', 2799000, 1, 2799000, '2022-03-13 13:16:04', '2022-03-13 12:16:04', 47000, 'Symphony Semi PlushTop Spring Bed', 'a6eb7374617ff73fc27f0b5a1d195161.jpg');
 
 -- --------------------------------------------------------
 
@@ -91771,10 +91863,11 @@ CREATE TABLE `unit_product` (
 --
 
 INSERT INTO `unit_product` (`id_unit`, `kd_unit`, `kd_product`, `name_unit`, `price_unit`, `users`, `photo_unit`) VALUES
-(11, 'u123345', 'D23344', 'bantal', 25000, 1, 'sofabed_2.JPG'),
-(12, 'u12334566', 'D23344', 'guling', 25000, 1, 'sofabed_2.JPG'),
-(13, 'z12345', 'D23344', 'kain', 1000, 1, 'symphonybrown_4.JPG'),
-(14, 'k12345', 'B12345', 'bantal', 20000, 1, 'alegrobrown_1.JPG');
+(21, 'QJDH6213HAG', 'QFBBSAF720', 'Symphony MATRAS', 1399000, 19, 'symphony.jpg'),
+(22, 'VHBASD0921', 'HAFS512FGA08', 'Soprano Brown MATRAS', 1499000, 19, 'sopranobrown.jpg'),
+(26, 'BGASDB74521', 'QFADVABX41T', 'Soprano Blue MATRAS', 1499000, 19, 'sopranoblue.jpg'),
+(33, '082NASD37S', 'UASHDGF321', 'Mozart MATRAS', 1499000, 19, 'mzoart.jpg'),
+(34, 'apalah123', 'QFBBSAF720', 'Symphony MATRAS', 1399000, 19, 'symphony.jpg');
 
 -- --------------------------------------------------------
 
@@ -91804,22 +91897,21 @@ CREATE TABLE `users` (
   `phone` varchar(20) DEFAULT NULL,
   `photo` varchar(100) DEFAULT NULL,
   `group` int(11) DEFAULT NULL,
-  `saldo` int(11) DEFAULT 0
+  `saldo` int(11) DEFAULT 0,
+  `referal` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `photo`, `group`, `saldo`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$10$KjhOcwUXBcyxRJsRx/hgz.Udvc1qP3wozPc71/55Q4IdMugWXpHqS', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1646031096, 1, 'Admin', 'istrator', 'ADMIN', '087654323456', '5dcf268d105834f893f22b3d204692d3.png', 1, 0),
-(9, '::1', NULL, '$2y$10$Fu5qrsBkirSUv3ax1GNXWezcSunCIdrXYT7r3B.ZDf8me/Bge2UdO', 'firmanruhiyan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1643257486, 1645874689, 1, 'firman', 'ruhiyan', NULL, '085697780467', '5687e7a2e7be92881c154b4711b85ecf.JPG', NULL, 200000),
-(10, '::1', NULL, '$2y$10$f3YT3eHXcK/KObfW/Iy2AedqsIW6uPD7TK.HS5Oj89Tqy6NNihUWG', 'normanardian24@gmail.com', NULL, NULL, 'fd02d4a9a8e708918067', '$2y$10$vMX7f3aJomw/dJ1KUY9sEuYBOK9sg5U0GbN7lV0NSZoxv.1oZ5o9K', 1645682248, NULL, NULL, 1644201211, 1645263880, 1, 'Norman', 'Ardian', NULL, NULL, 'Norman Ardian.jpg', NULL, 0),
-(11, '::1', 'atiga', '$2y$10$NdgSDjxxXI7fdJirZUc4OuOaRKH1xbVIQoSRifKCzkPSxK8Ygam26', 'atigamall3@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1644817949, NULL, 1, 'atiga', 'mall', NULL, NULL, 'atiga mall.jpg', 2, 0),
-(12, '::1', 'Wigman', '$2y$10$dLC/zTaAu2wY1eJ39aTeEOqa72OsKRO8aQiIXstypneDpDbeQyhmS', 'wigman.webstudio@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1644818190, NULL, 1, 'Wigman', 'Web Studio', NULL, '0987654345678', 'a95848426a8e9880c779a7789e5b34d0.JPG', 2, 0),
-(13, '::1', 'normanardiann', 'gagap123', 'normanardian21@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1645524288, NULL, 1, 'norman', 'ardian', NULL, '085697780467', 'fed030b19558db0df33af1f8dfbf5266.png', 3, 0),
-(14, '::1', 'norman', 'gagap123', 'norman@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1645530277, NULL, 1, 'norman', 'ardian', NULL, '09876543212', '2725265dbcc2a2cae016c8ac713cf387.png', 3, 0),
-(16, '::1', 'norman2', '$2y$10$pFc9bIolHEW/uzWUlvXOzuyh11R.z1atXIcPkfQ83Ckn5DD2U8Ehq', 'norman2@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1645530549, 1645619462, 1, 'norman', 'ardian', NULL, '087656789', '1e8441beee3024485b3c9e8e8d9fc0d1.png', 1, 0);
+INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `photo`, `group`, `saldo`, `referal`) VALUES
+(17, '180.243.9.147', 'norman', '$2y$10$62CtWnMqnnj6FDIVaeW7WeEmnCQz/.lkAb8a0nkRWkACWv43rmeEy', 'normanardian24@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1646039628, 1647154676, 1, 'norman', 'ardian', NULL, '087654345678', '658932a5df30ba9d66bb8b9652a81382.jpg', 4, 0, NULL),
+(18, '180.243.9.147', 'AtigaMall', '$2y$10$6eHzpwg/e3aDwAX.hnk0PuvVn9Ngh10ljlciUWGuYR8v6kvfQ1TE.', 'customer.care@atigamall.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1646039838, 1647175921, 1, 'atiga', 'mall', NULL, '081388912929', '9f0c90a33f7d442f24133c1598d965ad.png', 1, 0, NULL),
+(19, '180.243.9.147', 'Staff', '$2y$10$V4J.kGVEpK8H3fr8vi7W/.SStQRBIuxC9dXBxVXzxCpXMDoTUBbJG', 'staff@atigamall.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1646040215, 1646722492, 1, 'staff', 'atigamall', NULL, '0', '8ff9c936abcc08ad9f980af5593bca88.png', 3, 0, NULL),
+(21, '180.244.129.7', 'aku', '$2y$10$0XZ7x4JKo0ejhCQ.a0IVJ.Bm8Ce0fS9p41hO8C.bvcLBmmGmI9swa', 'akubudi248@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1646323684, NULL, 1, 'aku', 'budi', NULL, NULL, 'aku budi.jpg', 2, 0, NULL),
+(30, '::1', 'firman', '$2y$10$7up7Pl8i3u2IQ/RjmZ14keMKp7FWW/vAs27I7cCnr1ZwkmTD57uDO', 'firmanruhiyan@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1646918544, 1646918725, 1, 'firman', 'ruhiyan', NULL, NULL, 'firman ruhiyan.jpg', 5, 83970, 'NORMAN6210'),
+(35, '::1', 'Norman', '$2y$10$apbSaNs6INaTOAd80PTIcOFuJ65e5Qbrt5v.Vky6MaKtLkl6ZAdg6', 'ardilorenzo19@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1647173725, NULL, 1, 'Norman', 'normen', NULL, NULL, 'Norman normen.jpg', 2, 27990, 'abc123');
 
 -- --------------------------------------------------------
 
@@ -91838,9 +91930,9 @@ CREATE TABLE `users_groups` (
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(9, 16, 1);
+(10, 17, 1),
+(11, 18, 1),
+(12, 19, 1);
 
 -- --------------------------------------------------------
 
@@ -91863,16 +91955,81 @@ CREATE TABLE `variation_product` (
 --
 
 INSERT INTO `variation_product` (`id_variation`, `kd_product`, `name_variation`, `price_variation`, `length_variation`, `width_variation`, `weight_variation`) VALUES
-(1, 'D23344', '160 X 200', 40000, 200, 160, 5000),
-(2, 'D23344', '180 X 200', 50000, 200, 180, 5000),
-(3, 'u123345', '160 X 200', 20000, 200, 160, 5000),
-(4, 'u123345', '180 x 500', 10000, 500, 180, 5000),
-(5, 'u12334566', '180 x 200', 15000, 200, 180, 5000),
-(6, 'u12334566', '120 x 120', 22222, 120, 120, 5000),
-(7, 'B12345', '160 X 200', 10000, 200, 160, 5000),
-(8, 'B12345', '180 x 200', 12000, 200, 180, 5000),
-(9, 'k12345', '120 x 120', 0, 120, 120, 5000),
-(10, 'B12345', '200 x 200', 0, 200, 200, 5000);
+(11, 'YUQWEA8NSD3', '100 x 200', 0, 200, 100, 1000),
+(12, '81J3ASDGS', '90 x 200', 0, 200, 90, 1000),
+(13, '81J3ASDGS', '120 X 200', 0, 200, 120, 1000),
+(14, '81J3ASDGS', '160 X 200', 0, 200, 160, 1000),
+(15, '81J3ASDGS', '180 X 200', 0, 200, 180, 1000),
+(18, 'UASHDGF321', '90 x 200', 0, 200, 90, 1000),
+(24, 'QFADVABX41T', '90 x 200', 0, 200, 90, 1000),
+(28, 'HAFS512FGA08', '90 x 200', 0, 200, 90, 1000),
+(29, 'QFBBSAF720', '90 x 200', 0, 200, 90, 1000),
+(34, 'GHASD492LOS', '100 x 200', 0, 200, 100, 1000),
+(36, 'BNASD397KA', '180 X 200', 2499000, 200, 180, 1000),
+(37, 'LKJAY3612GH', '160 X 200', 2199000, 200, 160, 1000),
+(38, 'YAISM973OKA', '120 X 200', 1749000, 200, 120, 1000),
+(39, 'QJDH6213HAG', '90 x 200', 0, 200, 90, 1000),
+(40, 'VHBASD0921', '90 x 200', 0, 200, 90, 1000),
+(41, 'OMB63120JNAD', '160 X 200', 2399000, 200, 160, 1000),
+(42, 'BGASYFAS217', '120 X 200', 1899000, 200, 120, 1000),
+(43, '186BASDJ3287', '90 x 200', 1399000, 200, 90, 1000),
+(44, 'BGASDB74521', '90 x 200', 0, 200, 90, 1000),
+(45, 'JASFD08321M', '160 X 200', 2399000, 200, 160, 1000),
+(46, 'ELMS082JASD', '120 X 200', 1899000, 200, 120, 1000),
+(47, 'IHASDV082JNA', '90 x 200', 1499000, 200, 90, 1000),
+(48, 'LSGA9021DL6', '180 X 200', 2699000, 200, 180, 1000),
+(49, 'RHSBBAMJD', '160 x 200', 2399000, 200, 160, 1000),
+(50, 'HSKAJ0862671', '120 x 200', 1899000, 200, 120, 1000),
+(51, '082NASD37S', '90 x 200', 0, 200, 90, 1000),
+(52, 'QFBBSAF720', '120 x 200', 500000, 200, 120, 1000),
+(53, 'QFBBSAF720', '160 x 200', 1100000, 200, 160, 1000),
+(54, 'QFBBSAF720', '180 x 200', 1600000, 200, 180, 1000),
+(55, 'QJDH6213HAG', '120 x 200', 350000, 200, 120, 1000),
+(56, 'QJDH6213HAG', '160 x 200', 800000, 200, 160, 1000),
+(57, 'QJDH6213HAG', '180 x 200', 1100000, 200, 180, 1000),
+(58, 'HAFS512FGA08', '120 x 200', 520000, 200, 120, 1000),
+(59, 'HAFS512FGA08', '160 x 200', 1170000, 200, 160, 1000),
+(60, 'HAFS512FGA08', '180 x 200', 1670000, 200, 180, 1000),
+(61, 'VHBASD0921', '120 x 200', 400000, 200, 120, 1000),
+(63, 'VHBASD0921', '160 x 200', 900000, 200, 160, 1000),
+(64, 'VHBASD0921', '180 x 200', 1200000, 200, 180, 1000),
+(65, 'QFADVABX41T', '120 x 200', 520000, 200, 120, 1000),
+(66, 'QFADVABX41T', '160 x 200', 1170000, 200, 160, 1000),
+(67, 'QFADVABX41T', '180 x 200', 1670000, 200, 180, 1000),
+(68, 'BGASDB74521', '120 x 200', 400000, 200, 120, 1000),
+(69, 'BGASDB74521', '160 x 200', 900000, 200, 160, 1000),
+(70, 'BGASDB74521', '180 x 200', 1200000, 200, 180, 1000),
+(71, 'UASHDGF321', '120 x 200', 520000, 200, 120, 1000),
+(72, 'UASHDGF321', '160 x 200', 1170000, 200, 160, 1000),
+(73, 'UASHDGF321', '180 x 200', 1670000, 200, 180, 1000),
+(74, '082NASD37S', '120 x 200', 400000, 200, 120, 1000),
+(75, '082NASD37S', '160 x 200', 900000, 200, 160, 1000),
+(76, '082NASD37S', '180 x 200', 1200000, 200, 180, 1000),
+(77, 'YUQWEA8NSD3', '120 x 200', 350000, 200, 120, 1000),
+(78, 'GHASD492LOS', '120 x 200', 1100000, 200, 120, 1000);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `visitor`
+--
+
+CREATE TABLE `visitor` (
+  `ip` varchar(20) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `hits` int(11) DEFAULT NULL,
+  `online` varchar(255) DEFAULT NULL,
+  `time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `visitor`
+--
+
+INSERT INTO `visitor` (`ip`, `date`, `hits`, `online`, `time`) VALUES
+('::1', '2022-03-12', 6, '1647071765', '2022-03-12 14:19:49'),
+('::1', '2022-03-13', 148, '1647175907', '2022-03-13 10:21:43'),
+('::1', '2022-03-14', 18, '1647200154', '2022-03-14 02:23:00');
 
 --
 -- Indexes for dumped tables
@@ -91901,6 +92058,12 @@ ALTER TABLE `brand_product`
 --
 ALTER TABLE `carousel`
   ADD PRIMARY KEY (`id_carousel`);
+
+--
+-- Indeks untuk tabel `cashback`
+--
+ALTER TABLE `cashback`
+  ADD PRIMARY KEY (`id_cashback`);
 
 --
 -- Indeks untuk tabel `catalogue`
@@ -91975,6 +92138,12 @@ ALTER TABLE `photo_unit`
   ADD PRIMARY KEY (`id_photounit`);
 
 --
+-- Indeks untuk tabel `popup`
+--
+ALTER TABLE `popup`
+  ADD PRIMARY KEY (`id_popup`);
+
+--
 -- Indeks untuk tabel `product`
 --
 ALTER TABLE `product`
@@ -91986,6 +92155,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `provinsi`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `referal`
+--
+ALTER TABLE `referal`
+  ADD PRIMARY KEY (`id_referal`);
 
 --
 -- Indeks untuk tabel `transaction`
@@ -92038,19 +92213,19 @@ ALTER TABLE `variation_product`
 -- AUTO_INCREMENT untuk tabel `alamat`
 --
 ALTER TABLE `alamat`
-  MODIFY `id_alamat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_alamat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `brand_product`
 --
 ALTER TABLE `brand_product`
-  MODIFY `id_brand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_brand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `carousel`
@@ -92059,10 +92234,16 @@ ALTER TABLE `carousel`
   MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT untuk tabel `cashback`
+--
+ALTER TABLE `cashback`
+  MODIFY `id_cashback` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `catalogue`
 --
 ALTER TABLE `catalogue`
-  MODIFY `id_catalogue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_catalogue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `category_product`
@@ -92074,31 +92255,25 @@ ALTER TABLE `category_product`
 -- AUTO_INCREMENT untuk tabel `detail_catalogue`
 --
 ALTER TABLE `detail_catalogue`
-  MODIFY `id_detail_catalogue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_detail_catalogue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_transaction`
 --
 ALTER TABLE `detail_transaction`
-  MODIFY `id_detail_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
---
--- AUTO_INCREMENT untuk tabel `groups`
---
-ALTER TABLE `groups`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_detail_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT untuk tabel `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `photo_product`
 --
 ALTER TABLE `photo_product`
-  MODIFY `id_photoproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_photoproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT untuk tabel `photo_unit`
@@ -92107,16 +92282,28 @@ ALTER TABLE `photo_unit`
   MODIFY `id_photounit` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `popup`
+--
+ALTER TABLE `popup`
+  MODIFY `id_popup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT untuk tabel `referal`
+--
+ALTER TABLE `referal`
+  MODIFY `id_referal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT untuk tabel `transfer`
@@ -92128,25 +92315,25 @@ ALTER TABLE `transfer`
 -- AUTO_INCREMENT untuk tabel `unit_product`
 --
 ALTER TABLE `unit_product`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `variation_product`
 --
 ALTER TABLE `variation_product`
-  MODIFY `id_variation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_variation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
