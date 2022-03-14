@@ -16,7 +16,7 @@
 								<table id="table_id" class="table text-center table-striped">
 									<thead>
 										<tr>
-											<th>Pengunjung Hari Ini</th>
+											<th>Pengunjung Hari ini</th>
 											<th>Total Pengunjung</th>
 											<th>Pengunjung Online</th>
 										</tr>
