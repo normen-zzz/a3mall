@@ -73,10 +73,13 @@
                             <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                             <?php $CI = &get_instance();
                             $CI->load->model('Referal_model');
-                            $referal = $CI->Referal_model->getReferal($user['referal'])->row();
-                            if ($referal->level_referal == 2) { ?>
-                                <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Status Referral</a></li>
-                            <?php } ?>
+                            if ($user['referal'] != NULL) {
+                                $referal = $CI->Referal_model->getReferal($user['referal'])->row();
+                                if ($referal->level_referal == 2 || $referal->level_referal != NULL) { ?>
+                                    <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Status Referral</a></li>
+                                <?php } ?>
+                            <?php  } ?>
+
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
                         </ul>
