@@ -28,7 +28,7 @@
                      <div class="row mb-3">
                          <p>Pilih Varian :</p>
                          <?php foreach ($variation as $variation) { ?>
-                             <div class="col">
+                             <div class="col-6">
                                  <div class="form-check form-check-inline border p-2 bg-white">
                                      <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" data-lengthvariation="<?= $variation->length_variation ?>" data-widthvariation="<?= $variation->width_variation ?>" data-weightvariation="<?= $variation->weight_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" style="cursor: pointer" />
                                      <label class="form-check-label" for="flexRadioDefault1" style="cursor: pointer"><?= $variation->name_variation ?></label>
