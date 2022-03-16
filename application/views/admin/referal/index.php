@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Referal</h1>
+            <h1>Data Referral</h1>
         </div>
 
         <div class="section-body">
@@ -12,11 +12,11 @@
                             <h4><?= $title2 ?></h4>
                         </div>
                         <div class="col">
-                            <h1>Kode Referal Anda : <?= $referal['code_referal'] ?> </h1>
+                            <h1>Kode Referral Anda : <?= $referal['code_referal'] ?> </h1>
                         </div>
 
                         <div class="col">
-                            <h1>BE didalam referal Anda </h1>
+                            <h1>BE didalam Referral Anda </h1>
                         </div>
 
                         <div class="card-body">

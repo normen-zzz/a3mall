@@ -77,8 +77,8 @@ $route['set-referal'] = 'user/Auth/set_referal';
 //Cart
 $route['Cart'] = 'user/Cart';
 //Referal
-$route['Referal'] = 'user/Referal';
-$route['Referal/income/(:any)'] = 'user/Referal/income';
+$route['Referral'] = 'user/Referal';
+$route['Referral/income/(:any)'] = 'user/Referal/income';
 
 
 //Checkout
