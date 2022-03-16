@@ -3,15 +3,15 @@
      <div class="container py-5">
          <div class="row">
              <div class="col">
-                 <h2>Halo, ini halaman pemasukan dari referal anda</h2>
-                 <p>Kode Referal : <?= $this->uri->segment(3) ?></p>
+                 <h2>Halo, ini halaman pemasukan dari Referral anda</h2>
+                 <p>Kode Referral : <?= $this->uri->segment(3) ?></p>
              </div>
 
          </div>
 
          <div class="row mt-5 border" style="overflow-x: scroll">
              <div class="col">
-                 <p>Berikut pemasukan dari referal anda</p>
+                 <p>Berikut pemasukan dari Referral anda</p>
                  <table class="table">
                      <thead>
                          <tr>

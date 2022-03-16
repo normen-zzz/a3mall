@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Pajak Referal</h1>
+            <h1>Data Pajak Referral</h1>
         </div>
 
         <div class="section-body">
@@ -20,7 +20,7 @@
                                             <th>No</th>
                                             <th>Nama Be</th>
                                             <th>Email Be</th>
-                                            <th>Kode Referal</th>
+                                            <th>Kode Referral</th>
                                             <th>Asal Transaksi (Kode)</th>
                                             <th>Besar Pajak</th>
                                             <th>Tanggal</th>

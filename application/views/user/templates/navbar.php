@@ -75,7 +75,7 @@
                             $CI->load->model('Referal_model');
                             $referal = $CI->Referal_model->getReferal($user['referal'])->row();
                             if ($referal->level_referal == 2) { ?>
-                                <li><a class="dropdown-item" href="<?= base_url('Referal') ?>">Status Referal</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Status Referral</a></li>
                             <?php } ?>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>

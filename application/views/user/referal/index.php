@@ -3,9 +3,9 @@
      <div class="container py-5">
          <div class="row">
              <div class="col">
-                 <h2>Halo, Ini Kode Referal Kamu Ya : <?= $referal ?></h2>
+                 <h2>Halo, Ini Kode Referral Kamu Ya : <?= $referal ?></h2>
                  <p class="fw-light text-secondary small">
-                     Jika Anda belum mempunyai npwp maka setiap penghasilan dari referal anda dikenakan pajak sebesar 3%, jika anda sudah mempunyai npwp maka pajak yang dikenakan sebesar 2,5%
+                     Jika Anda belum mempunyai npwp maka setiap penghasilan dari Referral anda dikenakan pajak sebesar 3%, jika anda sudah mempunyai npwp maka pajak yang dikenakan sebesar 2,5%
                  </p>
              </div>
              <?php if ($npwp == FALSE) { ?>
@@ -30,11 +30,11 @@
              <?php }
                 } ?>
          </div>
-         <a href="<?= base_url('Referal/income/' . $referal) ?>" class="btn yellow-button px-5 py-2 mt-2">Pemasukan Referal</a>
+         <a href="<?= base_url('Referral/income/' . $referal) ?>" class="btn yellow-button px-5 py-2 mt-2">Pemasukan Referral</a>
          <div class="row mt-5 border" style="overflow-x: scroll">
 
              <div class="col">
-                 <p>Berikut Customer yang tergabung dengan referal anda</p>
+                 <p>Berikut Customer yang tergabung dengan Referral anda</p>
                  <table class="table">
                      <thead>
                          <tr>
