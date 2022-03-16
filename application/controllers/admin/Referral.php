@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Referal extends CI_Controller
+class Referral extends CI_Controller
 {
 
 
@@ -28,8 +28,8 @@ class Referal extends CI_Controller
         $userreferal = $this->referal->getCustomerOnReferal($referal['code_referal'])->result_array();
 
         $data = [
-            "title" => "A3Mall|Referal",
-            "title2" => "Referal",
+            "title" => "A3Mall|Referral",
+            "title2" => "Referral",
             "page" => "admin/referal/index",
             "user" => $user,
             "referal" => $referal,
@@ -119,8 +119,8 @@ class Referal extends CI_Controller
 
 
         $data = [
-            "title" => "A3Mall|Referal",
-            "title2" => "Referal",
+            "title" => "A3Mall|Referral",
+            "title2" => "Referral",
             "page" => "admin/referal/pajak/index",
             "user" => $user,
             "pajak" => $this->referal->getAllPajak()->result_array(),
