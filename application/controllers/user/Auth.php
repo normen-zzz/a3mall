@@ -265,6 +265,7 @@ class Auth extends CI_Controller
 						'level_referal' => 3,
 						'describe' => 'Referal Bussines Executive For Customers'
 					];
+
 					$this->db->insert('referal', $referal);
 				}
 			}
@@ -690,6 +691,8 @@ class Auth extends CI_Controller
 					'describe' => 'Referal Bussines Executive For Customers'
 
 				];
+
+
 				$this->db->insert('referal', $buatreferal);
 			}
 			$this->session->set_flashdata('message', $this->ion_auth->messages());

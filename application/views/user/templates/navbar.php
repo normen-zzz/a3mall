@@ -73,7 +73,7 @@
                             <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
                             <?php $CI = &get_instance();
                             $CI->load->model('Referal_model');
-                            $referal = $CI->Referal_model->getReferal($usergoogle['referal'])->row();
+                            $referal = $CI->Referal_model->getReferal($user['referal'])->row();
                             if ($referal->level_referal == 2) { ?>
                                 <li><a class="dropdown-item" href="<?= base_url('Referal') ?>">Status Referal</a></li>
                             <?php } ?>

@@ -5,12 +5,36 @@
              <div class="col">
                  <h2>Halo, Ini Kode Referal Kamu Ya : <?= $referal ?></h2>
                  <p class="fw-light text-secondary small">
-                     Berikut customer yang menggunakan kode referal anda
+                     Jika Anda belum mempunyai npwp maka setiap penghasilan dari referal anda dikenakan pajak sebesar 3%, jika anda sudah mempunyai npwp maka pajak yang dikenakan sebesar 2,5%
                  </p>
              </div>
+             <?php if ($npwp == FALSE) { ?>
+                 <div class="col-lg-4">
+                     <h2>Input NPWP</h2>
+                     <button type="button" class="btn yellow-button px-5 py-2 mt-2" data-bs-toggle="modal" data-bs-target="#inputNpwp">Input NPWP</button>
+                 </div>
+                 <?php } else {
+                    if ($npwp->status == 'deactive') { ?>
+                     <div class="col-lg-4">
+                         <h2>NPWP Anda : </h2>
+                         <p><?= $npwp->npwp ?></p>
+                         <p>Npwp anda sedang di verifikasi oleh tim atigamall</p>
+                     </div>
+
+                 <?php } else { ?>
+                     <div class="col-lg-4">
+                         <h2>NPWP Anda : </h2>
+                         <p><?= $npwp->npwp ?></p>
+                         <p>Npwp anda sudah diverifikasi oleh tim atigamall</p>
+                     </div>
+             <?php }
+                } ?>
          </div>
+         <a href="<?= base_url('Referal/income/' . $referal) ?>" class="btn yellow-button px-5 py-2 mt-2">Pemasukan Referal</a>
          <div class="row mt-5 border" style="overflow-x: scroll">
+
              <div class="col">
+                 <p>Berikut Customer yang tergabung dengan referal anda</p>
                  <table class="table">
                      <thead>
                          <tr>
@@ -39,4 +63,28 @@
          </div>
      </div>
  </section>
+ <!-- Modal NPWP -->
+ <div class="modal fade" id="inputNpwp" tabindex="-1" aria-labelledby="inputNpwp" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 <form method="post" action="<?= base_url('user/Referal/addNpwp') ?>">
+                     <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+                     <div class="mb-3">
+                         <label class="form-label">Input NPWP</label>
+                         <input type="text" name="npwp" class="form-control" aria-describedby="emailHelp" />
+                     </div>
+
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                 <button type="submit" class="btn btn-primary">Save changes</button>
+             </div>
+             </form>
+         </div>
+     </div>
+ </div>
  <!-- BE End -->

@@ -36,7 +36,7 @@
                                                 <td><?= $unit['kd_unit'] ?></td>
                                                 <td><?= $unit['name_unit'] ?></td>
                                                 <td><?= $unit['price_unit'] ?></td>
-                                                <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/images/produk/' . $unit['photo_unit']) ?>"></a></td>
+                                                <td><a href="#" class="pop"><img width="200" height="90" src="<?= base_url('assets/images/unitproduk/' . $unit['photo_unit']) ?>"></a></td>
                                                 <td><?= $unit['username'] ?></td>
                                                 <td><a href="javascript:;" class="btn btn-primary item-detail" data="<?php echo $unit['id_unit'] ?>">Ubah</a>
                                                     <a href="<?= base_url('admin/Barang/variationBarang/' . $unit['kd_unit']) ?>" class="btn btn-secondary mt-1">Variation</a>

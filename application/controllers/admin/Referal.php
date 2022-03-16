@@ -111,6 +111,24 @@ class Referal extends CI_Controller
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data carousel Berhasil Dihapus!", "success");');
         redirect($_SERVER['HTTP_REFERER']);
     }
+
+    public function pajak($modal = '')
+    {
+        $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+
+
+
+        $data = [
+            "title" => "A3Mall|Referal",
+            "title2" => "Referal",
+            "page" => "admin/referal/pajak/index",
+            "user" => $user,
+            "pajak" => $this->referal->getAllPajak()->result_array(),
+            "modal" => $modal
+        ];
+
+        $this->load->view('admin/templates/app', $data, FALSE);
+    }
 }
 
 /* End of file Dashboard.php */

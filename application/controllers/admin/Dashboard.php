@@ -40,6 +40,10 @@ class Dashboard extends CI_Controller
         $data['pengunjunghariini'] = $pengunjunghariini;
         $data['totalpengunjung'] = $totalpengunjung;
         $data['pengunjungonline'] = $pengunjungonline;
+        $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
+        if ($user->group == 4) {
+            redirect('admin/Referal');
+        }
 
         $this->load->view('admin/templates/app', $data, FALSE);
     }

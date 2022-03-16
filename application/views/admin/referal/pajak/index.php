@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Data Referal</h1>
+            <h1>Data Pajak Referal</h1>
         </div>
 
         <div class="section-body">
@@ -11,13 +11,6 @@
                         <div class="card-header">
                             <h4><?= $title2 ?></h4>
                         </div>
-                        <div class="col">
-                            <h1>Kode Referal Anda : <?= $referal['code_referal'] ?> </h1>
-                        </div>
-
-                        <div class="col">
-                            <h1>BE didalam referal Anda </h1>
-                        </div>
 
                         <div class="card-body">
                             <div class="table-responsive">
@@ -25,15 +18,25 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
+                                            <th>Nama Be</th>
+                                            <th>Email Be</th>
+                                            <th>Kode Referal</th>
+                                            <th>Asal Transaksi (Kode)</th>
+                                            <th>Besar Pajak</th>
+                                            <th>Tanggal</th>
                                         </tr>
                                     </thead>
                                     <tbody id="showdata">
                                         <?php $no = 1;
-                                        foreach ($userreferal as $userreferal) { ?>
+                                        foreach ($pajak as $pajak) { ?>
                                             <tr>
                                                 <td><?= $no; ?></td>
-                                                <td><?= $userreferal['first_name'] . ' ' . $userreferal['last_name'] ?></td>
+                                                <td><?= $pajak['nama_be'] ?></td>
+                                                <td><?= $pajak['email_be'] ?></td>
+                                                <td><?= $pajak['code_referal'] ?></td>
+                                                <td><?= $pajak['kd_transaction'] ?></td>
+                                                <td>Rp. <?= number_format($pajak['amount_tax'], '0', ',', '.')  ?></td>
+                                                <td><?= $pajak['date_tax'] ?></td>
                                             </tr>
 
                                         <?php $no++;

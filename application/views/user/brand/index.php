@@ -53,7 +53,7 @@
                                      <?php } ?>
                                      <p class="card-text yellow-text mb-3">Rp. <?= number_format($productbrand['price_product'], '0', ',', '.') ?></p>
                                  <?php } ?><div class="text-center btn-foto">
-                                     <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Pesan</a>
+                                     <a href="./deskripsi.html" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                  </div>
                              </div>
                          </div>

@@ -228,6 +228,20 @@ class Barang_model extends CI_Model
         // }
     }
 
+    public function getUnitByCodeProductDeskripsi($where)
+    {
+
+        $this->db->select('*');
+        $this->db->from('unit_product a');
+        $this->db->join('users b', 'b.id=a.users', 'left');
+        $this->db->where('a.kd_product', $where);
+        $query = $this->db->get();
+        if ($query->num_rows() != 0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
     public function getUnitAjax($id)
     {
         $this->db->where('id_unit', $id);

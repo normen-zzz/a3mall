@@ -143,6 +143,7 @@ class Checkout extends CI_Controller
             'address_customers' =>  $alamat['detail_alamat'] . '-' .  $alamatongkir->subdistrict_name . ' ,' . $alamatongkir->city . ' ,' . $alamatongkir->province . ' ID ' . $alamat['pos_alamat'],
             'date_transaction' => date('Y-m-d H:i:s'),
             'potongan_saldo' => $saldo,
+            'ongkir' => $ongkir,
             'total_transaction' => ($this->cart->total() + $ongkir),
             'total_quantity' => $this->cart->total_items(),
             'status' => 1,

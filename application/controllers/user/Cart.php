@@ -171,6 +171,10 @@ class Cart extends CI_Controller
             // $fotproduk = $foto['photo_product'];
             $variation = $this->db->get_where('variation_product', array('id_variation' => $keranjang['id']))->row_array();
             $no++;
+            $nameUnit = '';
+            if (isset($keranjang['name_unit'])) {
+                $nameUnit .= '<p class="fw-light text-secondary my-auto">Opsi: ' . $keranjang['name_unit'] . ' </p>';
+            }
             $output .= '
         <div class="row mb-5 keranjang-grid">
         <div class="col-md-2">
@@ -184,9 +188,9 @@ class Cart extends CI_Controller
                     <p>' . $keranjang['name'] . '</p>
                 </div>
                 <div class="col-md py-1 text-center isi-keranjang my-auto">
-                <p class="fw-light text-secondary my-auto">Variasi:' . $variation['name_variation'] . '</p>
-                <p class="fw-light text-secondary my-auto">Opsi: ' . $keranjang['name_unit'] . ' </p>
-            </div>
+                <p class="fw-light text-secondary my-auto">Variasi:' . $variation['name_variation'] . '</p>' .
+                $nameUnit .
+                '</div>
                 <div class="col-md py-1 text-center isi-keranjang my-auto">
                     <p class="my-auto">Rp.' . number_format($keranjang['price'], '0', ',', '.') . '</p>
                 </div>

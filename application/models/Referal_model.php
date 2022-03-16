@@ -47,6 +47,31 @@ class Referal_model extends CI_Model
         $this->db->where('email', $email);
         return $this->db->get();
     }
+
+    public function getNpwpBe($email)
+    {
+        $this->db->select('*');
+        $this->db->from('npwp_be');
+        $this->db->where('email_npwp', $email);
+        return $this->db->get();
+    }
+
+    public function getAllPajak()
+    {
+        $this->db->select('*');
+        $this->db->from('tax_be');
+        $this->db->order_by('id_tax', 'desc');
+        return $this->db->get();
+    }
+
+    public function getIncomeReferal($code)
+    {
+        $this->db->select('*');
+        $this->db->from('income_referal');
+        $this->db->where('referal', $code);
+        $this->db->order_by('id_income', 'desc');
+        return $this->db->get();
+    }
 }
 
 /* End of file ModelName.php */

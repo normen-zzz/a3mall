@@ -194,6 +194,8 @@ class Barang extends CI_Controller
                 'status_product' => $this->input->post('status'),
                 'date_arrived' => $this->input->post('date'),
                 'beforeprice_product' => $this->input->post('beforeprice'),
+                'subbutton_name' => $this->input->post('subbutton_name'),
+                'subbutton_link' => $this->input->post('subbutton_link'),
 
             ];
             $this->barang->editBarang($this->input->post('code'), $data);
@@ -349,7 +351,7 @@ class Barang extends CI_Controller
             ];
 
             if (isset($_FILES['photo']['name'])) {
-                $config['upload_path']         = './assets/images/produk/';
+                $config['upload_path']         = './assets/images/unitproduk/';
                 $config['allowed_types']     = 'gif|jpg|png|jpeg';
                 $config['overwrite']          = true;
 

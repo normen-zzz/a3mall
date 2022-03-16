@@ -77,9 +77,15 @@ class Transaksi extends CI_Controller
         $referal = $this->referal->getReferal($user->referal)->row();
         $businessEx = $this->referal->getBusinessEx($referal->users_email_referal)->row();
         $transaction = $this->db->get_where('transaction', array('kd_transaction' => $detail->kd_transaction))->result();
-        $ongkir = 0;
-        foreach ($transaction as $transaction) {
-            $ongkir += $transaction->ongkir;
+        if ($this->referal->getNpwpBe($referal->users_email_referal)->num_rows() != 0) {
+            $npwp = $this->referal->getNpwpBe($referal->users_email_referal)->row();
+            if ($npwp->status == 'active') {
+                $tax = 0.025;
+            } else {
+                $tax = 0.03;
+            }
+        } else {
+            $tax = 0.03;
         }
         $data = [
             "status" => $detail->status + 1
@@ -87,10 +93,28 @@ class Transaksi extends CI_Controller
 
         if ($data['status'] == 4) {
             if ($referal->level_referal == 3) {
-                $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $ongkir)) * 0.02), array('email' => $detail->email_users));
-                $this->db->update('users', array('saldo' => ($businessEx->saldo) + (($detail->total_transaction - $ongkir)) * 0.03), array('email' => $businessEx->email));
+                $income = [
+                    'referal' => $referal->code_referal,
+                    'kd_transaction' => $detail->kd_transaction,
+                    'income' => (($detail->total_transaction - $detail->ongkir)) * 0.03,
+                    'tax_income' => ((($detail->total_transaction - $detail->ongkir)) * 0.03) * $tax,
+                    'total_income' => ((($detail->total_transaction - $detail->ongkir)) * 0.03) - ((($businessEx->saldo) + (($detail->total_transaction - $detail->ongkir)) * 0.03) * $tax),
+                    'date_income' => date("Y-m-d H:i:s")
+                ];
+                $tax_be = [
+                    'kd_transaction' => $detail->kd_transaction,
+                    'email_be' => $referal->users_email_referal,
+                    'nama_be' => $businessEx->first_name . ' ' . $businessEx->last_name,
+                    'code_referal' => $referal->code_referal,
+                    'amount_tax' => $income['tax_income'],
+                    'date_tax' =>  date("Y-m-d H:i:s")
+                ];
+                $this->db->insert('income_referal', $income);
+                $this->db->insert('tax_be', $tax_be);
+                $this->db->update('users', array('saldo' => $businessEx->saldo + $income['total_income']), array('email' => $referal->users_email_referal)); //Update Saldo Be
+                $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $detail->ongkir)) * 0.02), array('email' => $detail->email_users)); //Update Saldo User Referal
             } else {
-                $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $ongkir)) * 0.01), array('email' => $detail->email_users));
+                $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $detail->ongkir)) * 0.01), array('email' => $detail->email_users)); //Update Saldo User Default
             }
         }
         $this->transaksi->updateStatus($data, $code);

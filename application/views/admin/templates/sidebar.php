@@ -85,6 +85,15 @@
                                 } ?>"><a class="nav-link" href="<?= base_url('admin/Administrator') ?>"><i class="fas fa-fire"></i> <span>Administrator</span></a></li>
             <?php }
             } ?>
+            <?php if ($user['group'] == 4) { ?>
+                <li class="menu-header">Referal</li>
+                <li class="<?php if ($this->uri->segment(2) == "referal" || $this->uri->segment(2) == "Referal") {
+                                echo "active";
+                            } ?>"><a class="nav-link" href="<?= base_url('admin/Referal') ?>"><i class="fas fa-fire"></i> <span>Referal</span></a></li>
+                <li class="<?php if ($this->uri->segment(3) == "pajak" || $this->uri->segment(3) == "Pajak") {
+                                echo "active";
+                            } ?>"><a class="nav-link" href="<?= base_url('admin/Referal/pajak') ?>"><i class="fas fa-fire"></i> <span>Pajak</span></a></li>
+            <?php } ?>
 
     </aside>
 </div>
