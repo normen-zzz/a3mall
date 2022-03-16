@@ -398,7 +398,7 @@
                              $('#detail_cart').html(data);
                              $('#total_items').load(
                                  "<?php echo base_url(); ?>user/cart/load_items");
-                             alert(data);
+                             alert("Sukses");
                          },
                          error: function(error) {
                              alert(JSON.stringify(error));
