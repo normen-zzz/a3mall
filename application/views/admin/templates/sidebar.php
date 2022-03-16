@@ -89,7 +89,7 @@
                 <li class="menu-header">Referral</li>
                 <li class="<?php if ($this->uri->segment(2) == "referral" || $this->uri->segment(2) == "Referral") {
                                 echo "active";
-                            } ?>"><a class="nav-link" href="<?= base_url('admin/Referral') ?>"><i class="fas fa-fire"></i> <span>Referal</span></a></li>
+                            } ?>"><a class="nav-link" href="<?= base_url('admin/Referral') ?>"><i class="fas fa-fire"></i> <span>Referral</span></a></li>
                 <li class="<?php if ($this->uri->segment(3) == "pajak" || $this->uri->segment(3) == "Pajak") {
                                 echo "active";
                             } ?>"><a class="nav-link" href="<?= base_url('admin/Referral/pajak') ?>"><i class="fas fa-fire"></i> <span>Pajak</span></a></li>
