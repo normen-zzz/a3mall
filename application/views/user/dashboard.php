@@ -145,18 +145,16 @@
                                 <p class="fw-light text-secondary small">Sofa</p>
                                 <h5 class="card-title fw-bold text-dark"><?= ucfirst($sofa->name_brand) . ' ' . $sofa->name_product ?></h5>
                                 <?php if ($min->min_price != $max->max_price) {
-                                    if ($sofa->beforeprice_product != $sofa->price_product) { ?>
-                                        <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sofa->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                    if ($sofa->discount != 0) { ?>
+                                        <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($max->max_price, '0', ',', '.') ?></s></p>
                                     <?php } ?>
-                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sofa->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($sofa->discount / 100)), '0', ',', '.') ?> ~ <span>Rp. <?= number_format($max->max_price - ($max->max_price * ($sofa->discount / 100)), '0', ',', '.') ?></span></p>
                                     <?php } else {
-                                    if ($sofa->beforeprice_product != $sofa->price_product) { ?>
-                                        <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sofa->beforeprice_product, '0', ',', '.') ?></s></p>
+                                    if ($sofa['discount'] != 0) { ?>
+                                        <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s></p>
                                     <?php } ?>
-                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product, '0', ',', '.') ?></p>
+                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($sofa->discount / 100)), '0', ',', '.') ?></p>
                                 <?php } ?>
-                                <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($sofa->price_product, '0', ',', '.') ?></p> -->
-                                <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                 <div class="text-center btn-foto">
                                     <a href="<?= base_url('Deskripsi/' . $sofa->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button btn-foto">Detail</a>
                                 </div>
@@ -183,15 +181,15 @@
                                 <p class="fw-light text-secondary small">Spring Bed</p>
                                 <h5 class="card-title fw-bold text-dark"><?= ucfirst($springbed->name_brand) . ' ' . $springbed->name_product ?></h5>
                                 <?php if ($min->min_price != $max->max_price) {
-                                    if ($springbed->beforeprice_product != $springbed->price_product) { ?>
-                                        <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($springbed->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                    if ($springbed->discount != 0) { ?>
+                                        <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($max->max_price, '0', ',', '.') ?></s></p>
                                     <?php } ?>
-                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($springbed->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($springbed->discount / 100)), '0', ',', '.') ?> ~ <span>Rp. <?= number_format($max->max_price - ($max->max_price * ($springbed->discount / 100)), '0', ',', '.') ?></span></p>
                                     <?php } else {
-                                    if ($springbed->beforeprice_product != $springbed->price_product) { ?>
-                                        <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($springbed->beforeprice_product, '0', ',', '.') ?></s></p>
+                                    if ($springbed->discount != 0) { ?>
+                                        <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s></p>
                                     <?php } ?>
-                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product, '0', ',', '.') ?></p>
+                                    <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($springbed->discount / 100)), '0', ',', '.') ?></p>
                                 <?php } ?>
                                 <!-- <p class="card-text yellow-text mb-3">Rp. <?= number_format($springbed->price_product, '0', ',', '.') ?></p> -->
                                 <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->

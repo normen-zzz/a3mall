@@ -30,7 +30,7 @@
                          <?php foreach ($variation as $variation) { ?>
                              <div class="col-6">
                                  <div class="form-check form-check-inline border p-2 bg-white">
-                                     <input class="form-check-input" type="radio" data-priceproduk="<?= $produk->price_product ?>" data-discount="<?= $produk->discount ?>" data-pricevariation="<?= $variation->price_variation ?>" data-lengthvariation="<?= $variation->length_variation ?>" data-widthvariation="<?= $variation->width_variation ?>" data-weightvariation="<?= $variation->weight_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" style="cursor: pointer" />
+                                     <input class="form-check-input" type="radio" data-discount="<?= $produk->discount ?>" data-pricevariation="<?= $variation->price_variation ?>" data-lengthvariation="<?= $variation->length_variation ?>" data-widthvariation="<?= $variation->width_variation ?>" data-weightvariation="<?= $variation->weight_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" style="cursor: pointer" />
                                      <label class="form-check-label" for="flexRadioDefault1" style="cursor: pointer"><?= $variation->name_variation ?></label>
                                  </div>
                              </div>
@@ -79,13 +79,13 @@
 
                      <div class="d-grid gap-2">
                          <?php if ($produk->status_product == 'active') {  ?>
-                             <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>">Masukan Ke Keranjang</button>
+                             <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>">Masukan Ke Keranjang</button>
                              <?php if ($produk->subbutton_name != '') { ?>
                                  <h3 style="text-align: center;">atau</h3>
                                  <a href="<?= $produk->subbutton_link ?>" class="btn yellow-button shadow"><?= $produk->subbutton_name ?></a>
                              <?php } ?>
                          <?php } else { ?>
-                             <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" disabled>Masukan Ke Keranjang</button>
+                             <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" disabled>Masukan Ke Keranjang</button>
                              <?php if ($produk->subbutton_name != '') { ?>
                                  <h3 style="text-align: center;">atau</h3>
                                  <a href="<?= $produk->subbutton_link ?>" class="btn yellow-button shadow"><?= $produk->subbutton_name ?></a>
@@ -159,15 +159,15 @@
                                  <h5 class="card-title fw-bold text-dark"><?= ucfirst($sejenis->name_brand) . ' ' . $sejenis->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
                                  <?php if ($min->min_price != $max->max_price) {
-                                        if ($sejenis->beforeprice_product != $sejenis->price_product) { ?>
-                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($sejenis->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                        if ($sejenis->discount != 0) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($max->max_price, '0', ',', '.') ?></s></p>
                                      <?php } ?>
-                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($sejenis->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($sejenis->discount / 100)), '0', ',', '.') ?> ~ <span>Rp. <?= number_format($max->max_price - ($max->max_price * ($sejenis->discount / 100)), '0', ',', '.') ?></span></p>
                                      <?php } else {
-                                        if ($sejenis->beforeprice_product != $sejenis->price_product) { ?>
-                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($sejenis->beforeprice_product, '0', ',', '.') ?></s></p>
+                                        if ($sejenis->discount != 0) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s></p>
                                      <?php } ?>
-                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($sejenis->price_product, '0', ',', '.') ?></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($sejenis->discount / 100)), '0', ',', '.') ?></p>
                                  <?php } ?>
                                  <div class="text-center btn-foto">
                                      <a href="<?= base_url('Deskripsi/' . $sejenis->slug_product) ?>" class="btn rounded-pill px-5 py-2 yellow-button">Detail</a>

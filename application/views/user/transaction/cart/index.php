@@ -100,15 +100,15 @@
                                  <h5 class="card-title fw-bold text-dark"><?= ucfirst($unggulan->name_brand) . ' ' . $unggulan->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $unggulan->price_product ?></p> -->
                                  <?php if ($min->min_price != $max->max_price) {
-                                        if ($unggulan->beforeprice_product != $unggulan->price_product) { ?>
-                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($unggulan->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($unggulan->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></p>
+                                        if ($unggulan->discount != 0) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($max->max_price, '0', ',', '.') ?></s></p>
                                      <?php } ?>
-                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($unggulan->price_product + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($unggulan->price_product + $max->max_price, '0', ',', '.') ?></span></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($unggulan->discount / 100)), '0', ',', '.') ?> ~ <span>Rp. <?= number_format($max->max_price - ($max->max_price * ($unggulan->discount / 100)), '0', ',', '.') ?></span></p>
                                      <?php } else {
-                                        if ($unggulan->beforeprice_product != $unggulan->price_product) { ?>
-                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($unggulan->beforeprice_product, '0', ',', '.') ?></s></p>
+                                        if ($unggulan->discount != 0) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s></p>
                                      <?php } ?>
-                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($unggulan->price_product, '0', ',', '.') ?></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($unggulan->discount / 100)), '0', ',', '.') ?></p>
                                  <?php } ?>
                                  <!-- <p class="card-text yellow-text mb-3">Coming Soon</p> -->
                                  <div class="text-center btn-foto">
