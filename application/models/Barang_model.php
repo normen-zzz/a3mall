@@ -352,6 +352,7 @@ class Barang_model extends CI_Model
         $this->db->where('kd_product', $where);
         return $this->db->get();
     }
+
     public function getMinPriceFromVariation($where)
     {
         $this->db->select_min('price_variation', 'min_price');

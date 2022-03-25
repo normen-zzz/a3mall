@@ -107,8 +107,8 @@
                             $CI = &get_instance();
                             $CI->load->model('Referal_model');
                             $referal = $CI->Referal_model->getReferal($usergoogle['referal'])->row();
-                            if ($referal->level_referal == 2) { ?>
-                                <li><a class="dropdown-item" href="<?= base_url('Referal') ?>">Status Referal</a></li>
+                            if ($referal->level_referal == 2 || $referal->level_referal != NULL) { ?>
+                                <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Status Referal</a></li>
                             <?php } ?>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>

@@ -35,8 +35,7 @@
                                         <tr>
                                             <th>Code</th>
                                             <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Before Price</th>
+                                            <th>Discount</th>
                                             <th>Describe</th>
                                             <th>Category</th>
                                             <th>Brand</th>
@@ -53,8 +52,7 @@
                                             <tr>
                                                 <td><?= $barang['kd_product'] ?></td>
                                                 <td><?= $barang['name_product'] ?></td>
-                                                <td><?= number_format($barang['price_product'], '0', ',', '.') ?></td>
-                                                <td><?= number_format($barang['beforeprice_product'], '0', ',', '.') ?></td>
+                                                <td><?= $barang['discount'] ?> %</td>
                                                 <td><?= limit_words($barang['describe_product'], 8) ?>.... </td>
                                                 <td><?= $barang['name_category'] ?></td>
                                                 <td><?= $barang['name_brand'] ?></td>
@@ -143,15 +141,11 @@
                         <?= form_error('category', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
-                        <label>Before Price</label>
-                        <input type="text" id="tanpa-rupiah" name="beforeprice" class="form-control">
-                        <?= form_error('beforeprice', '<small class="text-danger">', '</small>'); ?>
+                        <label>Discount (%)</label>
+                        <input type="number" name="discount" class="form-control">
+                        <?= form_error('discount', '<small class="text-danger">', '</small>'); ?>
                     </div>
-                    <div class="form-group">
-                        <label>Price</label>
-                        <input type="text" id="tanpa-rupiah" name="price" class="form-control">
-                        <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
-                    </div>
+
                     <div class="form-group">
                         <label>Brand</label>
                         <select name="brand" class="form-control">
@@ -244,15 +238,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Before Price</label>
-                        <input type="text" id="tanpa-rupiah" name="beforeprice" class="form-control">
-                        <?= form_error('beforeprice', '<small class="text-danger">', '</small>'); ?>
+                        <label>Discount (%)</label>
+                        <input type="number" name="discount" class="form-control">
+                        <?= form_error('discount', '<small class="text-danger">', '</small>'); ?>
                     </div>
-                    <div class="form-group">
-                        <label>Price</label>
-                        <input type="text" id="tanpa-rupiah" name="price" class="form-control">
-                        <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
-                    </div>
+
                     <div class="form-group">
                         <label>Brand</label>
                         <select name="brand" class="form-control" required>
@@ -315,8 +305,7 @@
                 $('input[name=name]').val(data.name_product);
                 CKEDITOR.instances['editor2'].setData(data.describe_product);
                 $('select[name=category]').val(data.category_product);
-                $('input[name=price]').val(data.price_product);
-                $('input[name=beforeprice]').val(data.beforeprice_product);
+                $('input[name=discount]').val(data.discount);
                 $('select[name=brand]').val(data.brand_product);
                 $('select[name=status]').val(data.status_product);
                 $('input[name=date]').val(data.date_arrived);

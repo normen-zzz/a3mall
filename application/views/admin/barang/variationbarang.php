@@ -81,6 +81,11 @@
                         <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
+                        <label>Before Price Variation</label>
+                        <input type="text" id="tanpa-rupiah" name="beforeprice" class="form-control">
+                        <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
                         <label>Price Variation</label>
                         <input type="text" id="tanpa-rupiah" name="price" class="form-control">
                         <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
@@ -134,6 +139,11 @@
                         <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="form-group">
+                        <label>Before Price Variation</label>
+                        <input type="text" id="tanpa-rupiah" name="beforeprice" class="form-control">
+                        <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
                         <label>Price Variation</label>
                         <input type="text" id="tanpa-rupiah" name="price" class="form-control">
                         <?= form_error('price', '<small class="text-danger">', '</small>'); ?>
@@ -183,6 +193,8 @@
                 $('input[name=id]').val(data.id_variation);
                 $('input[name=name]').val(data.name_variation);
                 $('input[name=code]').val(data.kd_product);
+                $('input[name=beforeprice]').val(data.beforeprice_variation);
+                $('input[name=price]').val(data.price_variation);
                 $('input[name=length]').val(data.length_variation);
                 $('input[name=width]').val(data.width_variation);
                 $('input[name=weight]').val(data.weight_variation);

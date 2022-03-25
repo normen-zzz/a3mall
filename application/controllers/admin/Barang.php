@@ -77,14 +77,6 @@ class Barang extends CI_Controller
             'required' => 'Name tidak boleh kosong.'
         ]);
 
-        $this->form_validation->set_rules('price', 'Price', 'required', [
-            'required' => 'Password tidak boleh kosong.'
-        ]);
-
-        $this->form_validation->set_rules('beforeprice', 'Before Price', 'required', [
-            'required' => 'Password tidak boleh kosong.'
-        ]);
-
         $this->form_validation->set_rules('brand', 'Brand', 'required', [
             'required' => 'Brand tidak boleh kosong.'
         ]);
@@ -108,14 +100,13 @@ class Barang extends CI_Controller
                 'kd_product' => $this->input->post('code'),
                 'name_product' => $this->input->post('name'),
                 'slug_product' => ucfirst($brand->name_brand) . "-" . $slug,
-                'price_product' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'describe_product' => $this->input->post('describe'),
                 'brand_product' => $this->input->post('brand'),
                 'category_product' => $this->input->post('category'),
                 'status_product' => $this->input->post('status'),
                 'users' => $user['id'],
                 'date_arrived' => $this->input->post('date'),
-                'beforeprice_product' => preg_replace("/[^0-9]/", "", $this->input->post('beforeprice')),
+                'discount' => $this->input->post('discount'),
                 'subbutton_name' => $this->input->post('subbutton_name'),
                 'subbutton_link' => $this->input->post('subbutton_link'),
 
@@ -159,9 +150,6 @@ class Barang extends CI_Controller
             'required' => 'Password tidak boleh kosong.'
         ]);
 
-        $this->form_validation->set_rules('beforeprice', 'Price', 'required', [
-            'required' => 'Password tidak boleh kosong.'
-        ]);
 
         $this->form_validation->set_rules('brand', 'Brand', 'required', [
             'required' => 'Brand tidak boleh kosong.'
@@ -186,15 +174,14 @@ class Barang extends CI_Controller
                 'kd_product' => $this->input->post('code'),
                 'name_product' => $this->input->post('name'),
                 'slug_product' => $brand->name_brand . '-' . $slug,
-                'price_product' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'describe_product' => $this->input->post('describe'),
                 'brand_product' => $this->input->post('brand'),
                 'category_product' => $this->input->post('category'),
                 'users' => $user['id'],
                 'status_product' => $this->input->post('status'),
                 'date_arrived' => $this->input->post('date'),
-                'beforeprice_product' => $this->input->post('beforeprice'),
                 'subbutton_name' => $this->input->post('subbutton_name'),
+                'discount' => $this->input->post('discount'),
                 'subbutton_link' => $this->input->post('subbutton_link'),
 
             ];
@@ -472,6 +459,7 @@ class Barang extends CI_Controller
             $data = [
                 'kd_product' => $this->input->post('code'),
                 'name_variation' => $this->input->post('name'),
+
                 'price_variation' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
                 'length_variation' => $this->input->post('length'),
                 'width_variation' => $this->input->post('width'),
@@ -499,6 +487,7 @@ class Barang extends CI_Controller
             $data = [
                 'name_variation' => $this->input->post('name'),
                 'price_variation' => preg_replace("/[^0-9]/", "", $this->input->post('price')),
+
                 'length_variation' => $this->input->post('length'),
                 'width_variation' => $this->input->post('width'),
                 'weight_variation' => $this->input->post('weight'),

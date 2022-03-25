@@ -34,6 +34,7 @@ class Product extends CI_Controller
             "usergoogle" => $usergoogle
         ];
 
+
         $this->load->view('user/templates/app', $data, FALSE);
     }
 
@@ -62,6 +63,7 @@ class Product extends CI_Controller
         ];
         $data['max'] = $this->barang->getMaxPriceFromVariation($data['produk']->kd_product)->row();
         $data['min'] = $this->barang->getMinPriceFromVariation($data['produk']->kd_product)->row();
+
 
         $this->load->view('user/templates/app', $data, FALSE);
     }

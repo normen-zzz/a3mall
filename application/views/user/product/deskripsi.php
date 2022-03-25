@@ -30,15 +30,16 @@
                          <?php foreach ($variation as $variation) { ?>
                              <div class="col-6">
                                  <div class="form-check form-check-inline border p-2 bg-white">
-                                     <input class="form-check-input" type="radio" data-beforepriceproduk="<?= $produk->beforeprice_product ?>" data-priceproduk="<?= $produk->price_product ?>" data-pricevariation="<?= $variation->price_variation ?>" data-lengthvariation="<?= $variation->length_variation ?>" data-widthvariation="<?= $variation->width_variation ?>" data-weightvariation="<?= $variation->weight_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" style="cursor: pointer" />
+                                     <input class="form-check-input" type="radio" data-priceproduk="<?= $produk->price_product ?>" data-discount="<?= $produk->discount ?>" data-pricevariation="<?= $variation->price_variation ?>" data-lengthvariation="<?= $variation->length_variation ?>" data-widthvariation="<?= $variation->width_variation ?>" data-weightvariation="<?= $variation->weight_variation ?>" name="variation" value="<?= $variation->id_variation ?>" id="flexRadioDefault1" style="cursor: pointer" />
                                      <label class="form-check-label" for="flexRadioDefault1" style="cursor: pointer"><?= $variation->name_variation ?></label>
                                  </div>
                              </div>
-                             <input class="form-control quantity border-0 text-center" id="pricevariasi" name="pricevariasi" type="number" hidden />
-                             <input class="form-control quantity border-0 text-center" id="beforepricevariasi" name="beforepricevariasi" type="number" hidden />
-                             <input class="form-control quantity border-0 text-center" id="length_variation" name="length_variation" type="number" hidden />
-                             <input class="form-control quantity border-0 text-center" id="width_variation" name="width_variation" type="number" hidden />
-                             <input class="form-control quantity border-0 text-center" id="weight_variation" name="weight_variation" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="priceproduct" name="priceproduct" type="number" />
+                             <input class="form-control quantity border-0 text-center" id="beforepriceproduct" name="beforepriceproduct" type="number" />
+                             <input class="form-control quantity border-0 text-center" id="discount" name="discount" type="number" />
+                             <input class="form-control quantity border-0 text-center" id="length_variation" name="length_variation" type="number" />
+                             <input class="form-control quantity border-0 text-center" id="width_variation" name="width_variation" type="number" />
+                             <input class="form-control quantity border-0 text-center" id="weight_variation" name="weight_variation" type="number" />
                          <?php } ?>
                      </div>
                      <?php if ($unit != FALSE) { ?>
@@ -58,17 +59,19 @@
                      <div class="text mb-3 pt-3">
                          <p class="m-0">Harga:</p>
                          <?php if ($min->min_price != $max->max_price) {
-                                if ($produk->beforeprice_product != $produk->price_product) {  ?>
-                                 <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($produk->beforeprice_product + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($produk->beforeprice_product + $max->max_price, '0', ',', '.') ?></s></h5>
-                             <?php } ?>
-                             <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product + $min->min_price, '0', ',', '.')  ?> ~ <span>Rp. <?= number_format($produk->price_product + $max->max_price, '0', ',', '.')  ?></span></h4>
-                             <?php } else {
-                                if ($produk->beforeprice_product != $produk->price_product) { ?>
-                                 <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($produk->beforeprice_product, '0', ',', '.') ?></s></h5>
-                                 <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h4>
+                                if ($produk->discount != 0) {  ?>
+                                 <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($max->max_price, '0', ',', '.') ?></s></h5>
+                                 <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($min->min_price - ($min->min_price * ($produk->discount / 100)), '0', ',', '.')  ?> ~ <span>Rp. <?= number_format($max->max_price - ($max->max_price * ($produk->discount / 100)), '0', ',', '.')  ?></span></h4>
+                             <?php } else { ?>
+                                 <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($min->min_price, '0', ',', '.')  ?> ~ <span>Rp. <?= number_format($max->max_price, '0', ',', '.')  ?></span></h4>
+                             <?php }
+                            } else {
+                                if ($produk->discount != 0) { ?>
+                                 <h5 class="card-text mb-0 fw-light text-secondary beforetarget" id="beforetarget"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s></h5>
+                                 <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($min->min_price - ($min->min_price * ($produk->discount / 100)), '0', ',', '.')  ?></h4>
 
                              <?php } else { ?>
-                                 <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($produk->price_product, '0', ',', '.')  ?></h4>
+                                 <h4 class="card-text yellow-text mb-2" id="target">Rp. <?= number_format($min->min_price, '0', ',', '.')  ?></h4>
 
                              <?php  } ?>
                          <?php } ?>
@@ -78,13 +81,13 @@
                          <?php if ($produk->status_product == 'active') {  ?>
                              <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>">Masukan Ke Keranjang</button>
                              <?php if ($produk->subbutton_name != '') { ?>
-                                 <h3 style="text-align: center;">Atau</h3>
+                                 <h3 style="text-align: center;">atau</h3>
                                  <a href="<?= $produk->subbutton_link ?>" class="btn yellow-button shadow"><?= $produk->subbutton_name ?></a>
                              <?php } ?>
                          <?php } else { ?>
                              <button id="add_cart" class="btn yellow-button shadow" data-kdproduct="<?php echo $produk->kd_product ?>" data-nameproduct="<?php echo $produk->name_product ?>" data-priceproduct="<?php echo $produk->price_product ?>" data-photoproduct="<?php echo $produk->photo_product ?>" disabled>Masukan Ke Keranjang</button>
                              <?php if ($produk->subbutton_name != '') { ?>
-                                 <h3 style="text-align: center;">Atau</h3>
+                                 <h3 style="text-align: center;">atau</h3>
                                  <a href="<?= $produk->subbutton_link ?>" class="btn yellow-button shadow"><?= $produk->subbutton_name ?></a>
                          <?php }
                             } ?>
@@ -222,27 +225,21 @@
      }
      var html = "";
      var value = "New Text "
-     $("#check-desk").hide();
      $('input:radio[name="variation"]').change(function() {
-         var hargaVariasi = $(this).data("pricevariation");
-         var hargaProduk = $(this).data("priceproduk");
-         var hargaBeforeProduk = $(this).data("beforepriceproduk");
-         var newHarga = hargaVariasi + hargaProduk;
-         var newBeforeHarga = hargaVariasi + hargaBeforeProduk;
+         var price = $(this).data("pricevariation");
+         var discount = $(this).data("discount");
          var panjangVariasi = $(this).data("lengthvariation");
          var lebarVariasi = $(this).data("widthvariation");
          var beratVariasi = $(this).data("weightvariation");
 
 
-         value = convertToRupiah(newHarga);
-         beforeValue = "<s>" + convertToRupiah(newBeforeHarga) + "</s>";
-         $('input[name=pricevariasi]').val(hargaVariasi);
+         value = convertToRupiah(price - (price * (discount / 100)));
+         beforeValue = "<s>" + convertToRupiah(price) + "</s>";
+         $('input[name=priceproduct]').val(price - (price * (discount / 100)));
+         $('input[name=beforepriceproduct]').val(price);
+         $('input[name=discount]').val((discount / 100));
          $("#target").html(value);
          $("#beforetarget").html(beforeValue);
-         if ($('#check-desk').length) {
-             $("#check-desk").show();
-         }
-
          $('input[name=length_variation]').val(panjangVariasi);
          $('input[name=width_variation]').val(lebarVariasi);
          $('input[name=weight_variation]').val(beratVariasi);
@@ -275,49 +272,19 @@
 
      });
  </script>
- <script>
-     $(document).ready(function() {
-         if ($("input[name='variation']:checked").val()) {
-             $("input[name='variation']:checked").val(function() {
-                 var hargaVariasi = $(this).data("pricevariation");
-                 var hargaProduk = $(this).data("priceproduk");
-                 var hargaBeforeProduk = $(this).data("beforepriceproduk");
-                 var newHarga = hargaVariasi + hargaProduk;
-                 var newBeforeHarga = hargaVariasi + hargaBeforeProduk;
-                 var panjangVariasi = $(this).data("lengthvariation");
-                 var lebarVariasi = $(this).data("widthvariation");
-                 var beratVariasi = $(this).data("weightvariation");
 
-                 value = convertToRupiah(newHarga);
-                 beforeValue = "<s>" + convertToRupiah(newBeforeHarga) + "</s>"
-
-                 $('input[name=pricevariasi]').val(hargaVariasi);
-                 $("#target").html(value);
-                 $(".beforetarget").html(beforeValue);
-                 if ($('#check-desk').length) {
-                     $("#check-desk").show();
-                 }
-                 $('input[name=length_variation]').val(panjangVariasi);
-                 $('input[name=width_variation]').val(lebarVariasi);
-                 $('input[name=weight_variation]').val(beratVariasi);
-             })
-
-         }
-     });
- </script>
  <script type="text/javascript">
      $(document).ready(function() {
          $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
          $('#add_cart').click(function() {
 
              if ($("input[name='variation']:checked").val()) {
-                 if ($('#check-desk').length) {
+                 if ($('#pilihHeadboard').length) {
                      if ($("input[name='unit[]']:checked").val()) {
                          var kd_product = $(this).data("kdproduct");
                          var name_product = $(this).data("nameproduct");
-                         var pricevariasi = $('input[name=pricevariasi]').val();
-                         var price_product = $(this).data("priceproduct");
-                         var quantity = 1
+                         var price = $('input[name=priceproduct]').val();
+                         var quantity = 1;
                          var photo_product = $(this).data("photoproduct");
                          var variation = $('input[name="variation"]:checked').val();
                          var weight_product = $('input[name=weight_variation]').val();
@@ -334,7 +301,7 @@
                              data: {
                                  kd_product: kd_product,
                                  name_product: name_product,
-                                 price_product: parseInt(price_product) + parseInt(pricevariasi),
+                                 price_product: parseInt(price),
                                  quantity: quantity,
                                  photo_product: photo_product,
                                  variation: variation,
@@ -349,7 +316,7 @@
                                  $('#detail_cart').html(data);
                                  $('#total_items').load(
                                      "<?php echo base_url(); ?>user/cart/load_items");
-                                 alert(data);
+                                 alert("Sukses");
                              },
                              error: function(error) {
                                  alert(JSON.stringify(error));
@@ -364,8 +331,7 @@
                  } else {
                      var kd_product = $(this).data("kdproduct");
                      var name_product = $(this).data("nameproduct");
-                     var pricevariasi = $('input[name=pricevariasi]').val();
-                     var price_product = $(this).data("priceproduct");
+                     var price = $('input[name=priceproduct]').val();
                      var quantity = 1
                      var photo_product = $(this).data("photoproduct");
                      var variation = $('input[name="variation"]:checked').val();
@@ -383,7 +349,7 @@
                          data: {
                              kd_product: kd_product,
                              name_product: name_product,
-                             price_product: parseInt(price_product) + parseInt(pricevariasi),
+                             price_product: parseInt(price),
                              quantity: quantity,
                              photo_product: photo_product,
                              variation: variation,
@@ -398,7 +364,7 @@
                              $('#detail_cart').html(data);
                              $('#total_items').load(
                                  "<?php echo base_url(); ?>user/cart/load_items");
-                             alert("Sukses");
+                             alert("Suksess");
                          },
                          error: function(error) {
                              alert(JSON.stringify(error));
