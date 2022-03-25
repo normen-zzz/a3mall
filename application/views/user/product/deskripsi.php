@@ -26,6 +26,7 @@
                  <div class="card p-4 bg-transparent">
                      <h5 class="fw-bold"><?= ucfirst($produk->name_brand) . ' ' . $produk->name_product ?></h5>
                      <div class="row mb-3">
+                     <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning">10000</span></p>
                          <p>Pilih Varian :</p>
                          <?php foreach ($variation as $variation) { ?>
                              <div class="col-6">
@@ -156,6 +157,7 @@
                              <img src="<?= base_url('assets/images/produk/' . $sejenis->photo_product) ?>" class="card-img-top p-3" alt="..." />
                              <div class="card-body">
                                  <p class="fw-light text-secondary small"><?= $sejenis->name_category ?></p>
+                                 <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning">10000</span></p>
                                  <h5 class="card-title fw-bold text-dark"><?= ucfirst($sejenis->name_brand) . ' ' . $sejenis->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
                                  <?php if ($min->min_price != $max->max_price) {

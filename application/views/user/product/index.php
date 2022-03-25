@@ -39,6 +39,7 @@
                                          <img src="<?= base_url('assets/images/produk/' . $springbed['photo_product']) ?>" class="card-img-top p-3" alt="..." />
                                          <div class="card-body">
                                              <p class="fw-light text-secondary small">Spring Bed</p>
+                                             <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning">10000</span></p>
                                              <h5 class="card-title fw-bold text-dark"><?= ucfirst($springbed['name_brand']) . ' ' . $springbed['name_product'] ?></h5>
                                              <?php if ($min->min_price != $max->max_price) {
                                                     if ($springbed['discount'] != 0) { ?>
