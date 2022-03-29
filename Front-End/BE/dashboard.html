@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
 
     <!-- Swipper JS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -24,19 +24,19 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-white my-auto" id="navbar">
+    <nav class="navbar navbar-expand-md navbar-light bg-warning my-auto" id="navbar">
       <div class="container">
-        <div class="img">
-          <img src="./assets/img/logo-gradiant_revisi01022022-2.png" height="50" alt="" />
+        <div class="img shadow rounded-circle bg-white">
+          <img src="../assets/img/logo-gradiant_revisi01022022-2.png" height="50" alt="" />
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown my-auto">
-              <a class="nav-link dropdown-toggle small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-white small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="rounded-circle shadow bg-danger" src="./assets/img/profile/img-profile.png" width="30" height="30" alt="" />
+                Hai, Nama BE
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><p class="fw-light text-secondary small text-center">Hai, Nama User</p></li>
                 <li><p class="fw-light text-secondary small text-center">Saldo:</p></li>
                 <hr />
                 <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
@@ -53,22 +53,50 @@
     <!-- Akhir Navbar -->
 
     <!-- BE -->
-    <section class="py-5">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-lg">
-            <h2>Selamat dataang, nama BE</h2>
-            <p class="fw-light text-secondary small">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, natus a. Exercitationem sapiente repellendus fugiat earum officia tenetur dolores vel ullam alias voluptas, molestiae vero magnam nobis ea mollitia saepe?
-            </p>
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row justify-content-around">
+          <div class="col-lg-5">
+            <div class="shadow bg-white p-4">
+              <div class="card-body">
+                <h5 class="card-title border-bottom pb-2">Total Pendapatan</h5>
+                <h4 class="card-subtitle mb-2 text-muted pt-5">Rp. 1000.0000</h4>
+                <p class="card-text text-warning">200 <span class="text-secondary small">orang</span></p>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-4">
-            <h2>Input NPWP</h2>
-            <button type="button" class="btn yellow-button px-5 py-2 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModalnpwp">Input NPWP</button>
+          <div class="col-lg-5">
+            <div class="shadow bg-white p-4">
+              <div class="card-body">
+                <h5 class="card-title border-bottom pb-2">Nilai Omzet</h5>
+                <h4 class="card-subtitle mb-2 text-muted pt-5">Rp. 1000.0000</h4>
+                <p class="card-text text-warning">200 <span class="text-secondary small">orang</span></p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row mt-5 border" style="overflow-x: scroll">
-          <div class="col">
+        <div class="row mt-5" style="overflow-x: scroll">
+          <div class="col shadow bg-white">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Tanggal Daftar</th>
+                  <th scope="col">Keterangan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Asep</td>
+                  <td>13 Januari 2022</td>
+                  <td>Active</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col shadow bg-white">
             <table class="table">
               <thead>
                 <tr>
@@ -98,7 +126,7 @@
       <div class="container">
         <div class="row py-5">
           <div class="col-lg py-2">
-            <h5 class="yellow-text fw-light">A3MALL</h5>
+            <img src="../assets/img/logo-gradiant_revisi01022022-2.png" height="50" alt="" />
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           </div>
           <div class="col-lg py-2">
@@ -134,7 +162,7 @@
           </div>
         </div>
       </div>
-      <div class="container-fluid">
+      <div class="container-fluid bg-warning">
         <div class="row border-top">
           <div class="col text-center">
             <p class="py-3 m-0">Copyright ® 2021 Lorem All rights Rcerved</p>
@@ -168,7 +196,7 @@
     </div>
   </body>
 
-  <script src="./assets/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
 
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -177,5 +205,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   <!-- My JS -->
-  <script src="./assets/js/script.js"></script>
+  <script src="../assets/js/script.js"></script>
 </html>
