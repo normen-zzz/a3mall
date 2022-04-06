@@ -35,125 +35,39 @@
             <hr />
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="mb-5 p-4 bg-white shadow-sm">
-              <div id="stepper1" class="bs-stepper">
-                <div class="bs-stepper-header" role="tablist">
-                  <div class="step" data-target="#test-l-1">
-                    <button type="button" class="step-trigger" role="tab" id="stepper1trigger1" aria-controls="test-l-1">
-                      <span class="bs-stepper-circle">1</span>
-                      <span class="bs-stepper-label">Data Diri</span>
-                    </button>
-                  </div>
-                  <div class="bs-stepper-line"></div>
-                  <div class="step" data-target="#test-l-2">
-                    <button type="button" class="step-trigger" role="tab" id="stepper1trigger2" aria-controls="test-l-2">
-                      <span class="bs-stepper-circle">2</span>
-                      <span class="bs-stepper-label">Upload Foto</span>
-                    </button>
-                  </div>
-                  <div class="bs-stepper-line"></div>
-                  <div class="step" data-target="#test-l-3">
-                    <button type="button" class="step-trigger" role="tab" id="stepper1trigger3" aria-controls="test-l-3">
-                      <span class="bs-stepper-circle">3</span>
-                      <span class="bs-stepper-label">ID</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="bs-stepper-content">
-                  <form onSubmit="return false">
-                    <div id="test-l-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger1">
-                      <div class="form-group">
-                        <div class="container pt-5">
-                          <div class="row justify-content-center">
-                            <div class="col-lg border p-5">
-                              <form>
-                                <div class="mb-3">
-                                  <label class="form-label">Nama Panjang</label>
-                                  <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
-                                </div>
-                                <div class="mb-3">
-                                  <label class="form-label">Nomor KTP</label>
-                                  <input type="number" class="form-control border-0 bg-light" placeholder="Please type here.." />
-                                </div>
-                                <div class="mb-3">
-                                  <label class="form-label">Tempat Lahir</label>
-                                  <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
-                                </div>
-                                <div class="mb-3">
-                                  <label class="form-label">Tanggal Lahir</label>
-                                  <input type="date" class="form-control border-0 bg-light" />
-                                </div>
-                                <div class="mb-3">
-                                  <label class="form-label">Alamat</label>
-                                  <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
-                                </div>
-                                <div class="mb-3">
-                                  <label class="form-label">Nomor Telp / WA</label>
-                                  <input type="number" class="form-control border-0 bg-light" placeholder="Please type here.." />
-                                </div>
-                                <div class="mb-3">
-                                  <label class="form-label">Alamat Email</label>
-                                  <input type="email" class="form-control border-0 bg-light" placeholder="Please type here.." />
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-center pt-3">
-                        <button class="btn yellow-button px-5 py-2" onclick="stepper1.next()">Next</button>
-                      </div>
-                    </div>
-                    <div id="test-l-2" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger2">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-lg border p-5">
-                            <form>
-                              <div class="mb-3">
-                                <label for="formFile" class="form-label">Upload Foto</label>
-                                <input class="form-control" type="file" id="formFile" />
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="pt-3 text-center">
-                        <button class="btn btn-outline-secondary px-5 py-2" onclick="stepper1.previous()">Previous</button>
-                        <button class="btn yellow-button px-5 py-2" onclick="stepper1.next()">Next</button>
-                      </div>
-                    </div>
-                    <div id="test-l-3" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger3">
-                      <div class="container">
-                        <div class="row pt-5">
-                          <div class="col-lg border p-5">
-                            <form>
-                              <div class="mb-3">
-                                <label class="form-label">Ussername</label>
-                                <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
-                              </div>
-                              <div class="mb-3">
-                                <label class="form-label">Email Untuk BE</label>
-                                <input type="number" class="form-control border-0 bg-light" placeholder="Contoh: admin@atigamall.com" />
-                              </div>
-                              <div class="mb-3">
-                                <label class="form-label">Tempat Lahir</label>
-                                <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="pt-3 text-center">
-                        <button class="btn btn-outline-secondary px-5 py-2" onclick="stepper1.previous()">Previous</button>
-                        <button type="submit" class="btn yellow-button px-5 py-2">Submit</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-7 p-5 border">
+            <h2 class="text-center pb-5">FORM DATA DIRI</h2>
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Nama Panjang</label>
+                <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
               </div>
-            </div>
+              <div class="mb-3">
+                <label class="form-label">Tempat Lahir</label>
+                <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Tanggal Lahir</label>
+                <input type="date" class="form-control border-0 bg-light" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Alamat</label>
+                <input type="text" class="form-control border-0 bg-light" placeholder="Please type here.." />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Nomor Telp / WA</label>
+                <input type="number" class="form-control border-0 bg-light" placeholder="Please type here.." />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Alamat Email</label>
+                <input type="email" class="form-control border-0 bg-light" placeholder="Please type here.." />
+              </div>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Upload Foto</label>
+                <input class="form-control" type="file" id="formFile" />
+              </div>
+            </form>
           </div>
         </div>
       </div>
