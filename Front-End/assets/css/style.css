@@ -197,7 +197,7 @@ nav .nav-link.active {
   color: #fff !important;
 }
 
-#links a:hover {
+#links .links:hover {
   background-color: #fff;
 }
 /* Checkout */
