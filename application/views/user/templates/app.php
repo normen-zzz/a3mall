@@ -26,10 +26,17 @@
   <!-- Swipper JS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+  <!-- CSS Steper -->
+  <link rel="stylesheet" href="<?= base_url('assets/user/') ?>css/bs-stepper.min.css" />
+
   <title><?= $title ?></title>
 </head>
 
-
+<style>
+  .click {
+    cursor: pointer
+  }
+</style>
 
 <body>
   <?php $this->load->view('user/templates/navbar') ?>
@@ -49,8 +56,27 @@
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+<!-- JS Stepper -->
+<script src="<?= base_url('assets/user/') ?>js/bs-stepper.min.js"></script>
+<script src="<?= base_url('assets/user/') ?>js/main.js"></script>
+
 <!-- My JS -->
 <script src="<?= base_url('assets/user/') ?>js/script.js"></script>
+<!-- datatables -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
+
+<script>
+  $('.click').click(function() {
+    window.location = $(this).data('href');
+    //use window.open if you want a link to open in a new window
+  });
+</script>
 <script>
   $(document).ready(function() {
     $('#total_items').load("<?php echo base_url(); ?>user/cart/load_items");
@@ -199,6 +225,65 @@
     });
   }
 </script> -->
+<script>
+  $(document).ready(function() {
+    $('#table_id').DataTable({
+      "aaSorting": [],
+      dom: 'Bfrtip',
+      exportOptions: {
+        columns: ':not(:last-child)',
+      }
+    });
+
+  });
+</script>
+
+<script>
+  $(function() {
+    $('.pop').on('click', function() {
+      $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+      $('#imagemodal').modal('show');
+    });
+  });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  function copy() {
+    /* Get the text field */
+    var copyText = document.getElementById('links');
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+
+    /* Alert the copied text */
+    alert('Copied the text: ' + copyText.value);
+  }
+</script>
+
+
+<script>
+  $('#showlink').on('click', '.links', function() {
+    var id = $(this).attr('id');
+    $.ajax({
+      type: 'ajax',
+      method: 'post',
+      url: '<?php echo base_url() ?>user/Referal/generateLinkForm',
+      async: false,
+      dataType: 'json',
+      success: function(data) {
+        $('input[name=links]').val("<?= base_url('FormReferral/') ?>" + data.links);
+      },
+      error: function() {
+        alert('Could not displaying data');
+      }
+    });
+  });
+</script>
 
 
 </html>

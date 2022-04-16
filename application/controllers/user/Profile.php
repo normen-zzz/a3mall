@@ -67,7 +67,7 @@ class Profile extends CI_Controller
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->index("$('#exampleModal').modal('show');");
+            $this->index("$('#modalProfile').modal('show');");
         } else {
             $email = $this->input->post('email');
             $first_name = $this->input->post('first_name');

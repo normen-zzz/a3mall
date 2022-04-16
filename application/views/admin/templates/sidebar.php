@@ -94,6 +94,21 @@
                                 echo "active";
                             } ?>"><a class="nav-link" href="<?= base_url('admin/Referral/pajak') ?>"><i class="fas fa-fire"></i> <span>Pajak</span></a></li>
             <?php } ?>
+            <li class="<?php if ($this->uri->segment(2) == "Referral") {
+                            echo "active";
+                        } ?> nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Form Referral</span></a>
+                <ul class="dropdown-menu">
+                    <li class="<?php if ($this->uri->segment(3) == "formReferralNotConfirmed") {
+                                    echo "active";
+                                } ?>"><a class="nav-link" href="<?= base_url('admin/Referral/formReferralNotConfirmed') ?>">Belum Terkonfirmasi</a></li>
+                    <li class="<?php if ($this->uri->segment(3) == "formReferralConfirmed") {
+                                    echo "active";
+                                } ?>"><a class="nav-link" href="<?= base_url('admin/Referral/formReferralConfirmed') ?>">Terkonfirmasi</a></li>
+                </ul>
+            </li>
+            <br>
+            <br>
 
     </aside>
 </div>

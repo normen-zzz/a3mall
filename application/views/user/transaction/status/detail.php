@@ -18,7 +18,7 @@
                         <div class="col-md py-1">
                             <p><?= $transaksi->name_product ?></p>
                             <p class="fw-light text-secondary">Variasi: <?= $transaksi->name_variation ?></p>
-                            <p>x1</p>
+                            <p>X<?= $transaksi->quantity ?></p>
                         </div>
                         <div class="col-md py-1 text-end my-auto">
                             <p class="my-auto">Rp. <?= number_format($transaksi->price, '0', ',', '.') ?></p>

@@ -43,15 +43,15 @@
                                  <p class="fw-light text-secondary small"><?= $productbrand['name_category'] ?></p>
                                  <h5 class="card-title fw-bold text-dark"><?= ucfirst($productbrand['name_brand'])  . ' ' . $productbrand['name_product'] ?></h5>
                                  <?php if ($min->min_price != $max->max_price) {
-                                        if ($productbrand['beforeprice_product'] != $productbrand['price_product']) { ?>
-                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($productbrand['beforeprice_product'] + $min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($productbrand['beforeprice_product'] + $max->max_price, '0', ',', '.') ?></s></p>
+                                        if ($productbrand['discount'] != 0) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($max->max_price, '0', ',', '.') ?></s></p>
                                      <?php } ?>
-                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($productbrand['price_product'] + $min->min_price, '0', ',', '.') ?> ~ <span>Rp. <?= number_format($productbrand['price_product'] + $max->max_price, '0', ',', '.') ?></span></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($productbrand['discount'] / 100)), '0', ',', '.') ?> ~ <span>Rp. <?= number_format($max->max_price - ($max->max_price * ($productbrand['discount'] / 100)), '0', ',', '.') ?></span></p>
                                      <?php } else {
-                                        if ($productbrand['beforeprice_product'] != $productbrand['price_product']) { ?>
-                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($productbrand['beforeprice_product'], '0', ',', '.') ?></s></p>
+                                        if ($productbrand['discount'] != 0) { ?>
+                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s></p>
                                      <?php } ?>
-                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($productbrand['price_product'], '0', ',', '.') ?></p>
+                                     <p class="card-text yellow-text mb-3">Rp. <?= number_format($min->min_price - ($min->min_price * ($productbrand['discount'] / 100)), '0', ',', '.') ?></p>
                                  <?php } ?><div class="text-center btn-foto">
                                      <a href="<?= base_url('Deskripsi/' . $productbrand['slug_product']) ?>" class="btn rounded-pill px-5 py-2 btn-foto yellow-button">Detail</a>
                                  </div>

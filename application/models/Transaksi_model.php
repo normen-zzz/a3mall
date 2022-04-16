@@ -124,7 +124,7 @@ class Transaksi_model extends CI_Model
 
     public function getTransactionByDetailTransaction($user)
     {
-        $this->db->select('a.*,d.photo_product,c.name_product,c.price_product');
+        $this->db->select('a.*,d.photo_product,c.name_product');
         $this->db->from('transaction a');
         $this->db->join('users b', 'b.email=a.users', 'left');
         $this->db->join('product c', 'c.kd_product=a.code_product', 'left');

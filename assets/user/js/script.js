@@ -65,38 +65,6 @@ function scrollFunction() {
 	}
 }
 
-// document.onreadystatechange = function () {
-// 	var dialogShown = $.cookie('dialogShown');
-// 	if (!dialogShown) {
-// 		$(window).load(function () {
-// 			myModal.show();
-// 			$.cookie('dialogShown', 1);
-// 		});
-// 	}
-// };
-
-// jQuery(document).ready(function ($) {
-// 	/* Pop-up
-//   ================================================= */
-//
-// 	$(function () {
-// 		function showpanel() {
-// 			myModal.show();
-// 		}
-// 	});
-// });
-
-// function setCookie() {
-// 	$.cookie('MyCookie', 'DialogShown', {
-// 		expires: date.getTime() + 24 * 60 * 60 * 1000, // now add 24 hours
-// 	});
-// }
-
-// if ($.cookie('MyCookie') != 'DialogShown') {
-// 	showpanel();
-// 	setCookie();
-// }
-
 $(function () {
 	if (localStorage.getItem('seen') != new Date().getDate()) {
 		setTimeout(showpanel, 4000);

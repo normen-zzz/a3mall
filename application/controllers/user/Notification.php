@@ -32,7 +32,7 @@ class Notification extends CI_Controller
 		if ($result['status_code'] == 200) {
 			$this->db->update('midtrans', $data, array('order_id' => $order_id));
 			$this->db->update('detail_transaction', array('status' => 2), array('order_id' => $order_id));
-			// $this->db->update('users', array('saldo' => ($user->saldo) + ($detail_transaction->total_transaction - $ongkir) * 0.01), array('email' => $detail_transaction->email_users));
+			$this->db->update('users', array('saldo' => 0), array('email' => $detail_transaction->email_users));
 		}
 
 		//notification handler sample

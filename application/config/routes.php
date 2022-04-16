@@ -58,7 +58,7 @@ $route['translate_uri_dashes'] = false;
 $route['Dashboard'] = 'Dashboard';
 
 //Profile
-$route['Profile'] = 'user/Profile';
+$route['Profile'] = 'user/Profile/index';
 $route['Alamat'] = 'user/Profile/alamat';
 
 //Product
@@ -76,9 +76,20 @@ $route['set-referal'] = 'user/Auth/set_referal';
 
 //Cart
 $route['Cart'] = 'user/Cart';
+
 //Referal
 $route['Referral'] = 'user/Referal';
 $route['Referral/income/(:any)'] = 'user/Referal/income';
+$route['Referral/incomeorder'] = 'user/Referal/incomeorder';
+$route['FormReferral/(:any)'] = 'user/Referal/formReferal';
+$route['FormReferral'] = 'user/Referal/formReferal';
+
+//headbe
+$route['Headbe'] = 'user/Referal/headBe';
+$route['Headbe/detailbe/(:any)'] = 'user/Referal/detailBe';
+$route['Headbe/detailbe/income/(:any)/(:any)'] = 'user/Referal/detailBeIncome';
+$route['Headbe/detailbe/incomeorder/(:any)'] = 'user/Referal/detailBeIncomeOrder';
+$route['Headbe/verifikasinpwp'] = 'user/Referal/verifikasiNpwp';
 
 
 //Checkout

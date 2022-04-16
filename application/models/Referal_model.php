@@ -72,6 +72,54 @@ class Referal_model extends CI_Model
         $this->db->order_by('id_income', 'desc');
         return $this->db->get();
     }
+
+    public function getIncomeOrderReferal($users)
+    {
+        $this->db->select('*');
+        $this->db->from('incomeorder_referal');
+        $this->db->where('email', $users);
+        $this->db->order_by('id_incomeorder', 'desc');
+        return $this->db->get();
+    }
+
+
+    public function getSumIncomeReferal($code)
+    {
+        $this->db->select_sum('total_income');
+        $this->db->from('income_referal');
+        $this->db->where('referal', $code);
+        return $this->db->get();
+    }
+
+    public function getCountIncomeReferal($code)
+    {
+        $this->db->select('*');
+        $this->db->from('income_referal');
+        $this->db->where('referal', $code);
+        $q = $this->db->get();
+        $count = $q->result();
+        return count($count);
+    }
+
+
+
+    public function getSumIncomeOrderReferal($users)
+    {
+        $this->db->select_sum('total_income');
+        $this->db->from('incomeorder_referal');
+        $this->db->where('email', $users);
+        return $this->db->get();
+    }
+
+    public function getCountIncomeOrderReferal($users)
+    {
+        $this->db->select('*');
+        $this->db->from('incomeorder_referal');
+        $this->db->where('email', $users);
+        $q = $this->db->get();
+        $count = $q->result();
+        return count($count);
+    }
 }
 
 /* End of file ModelName.php */

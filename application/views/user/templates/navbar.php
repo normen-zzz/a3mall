@@ -27,7 +27,7 @@
                                                         } ?>" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Brand </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php foreach ($brand as $brand) { ?>
-                            <li><a class="dropdown-item" href="<?= base_url('Brand/' . $brand['name_brand']) ?>"><?= $brand['name_brand'] ?></a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Brand/' . $brand['name_brand']) ?>"><?= ucfirst($brand['name_brand']) ?></a></li>
                         <?php } ?>
                     </ul>
                 </li>
@@ -71,15 +71,17 @@
                             <li><a class="dropdown-item" href="<?= base_url('Profile') ?>">Profile</a></li>
                             <li><a class="dropdown-item" href="<?= base_url('Status') ?>">Status Pesanan</a></li>
                             <li><a class="dropdown-item" href="<?= base_url('Alamat') ?>">Alamat</a></li>
-                            <?php $CI = &get_instance();
+                            <?php
+                            $CI = &get_instance();
                             $CI->load->model('Referal_model');
                             if ($user['referal'] != NULL) {
                                 $referal = $CI->Referal_model->getReferal($user['referal'])->row();
-                                if ($referal->level_referal == 2 || $referal->level_referal != NULL) { ?>
-                                    <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Status Referral</a></li>
-                                <?php } ?>
-                            <?php  } ?>
-
+                                if ($referal->level_referal == 2) { ?>
+                                    <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Referral</a></li>
+                                <?php }
+                            } else { ?>
+                                <li><a class="dropdown-item" href="<?= base_url('Headbe') ?>">Head Referral</a></li>
+                            <?php } ?>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>
                         </ul>
@@ -106,9 +108,10 @@
                             <?php
                             $CI = &get_instance();
                             $CI->load->model('Referal_model');
-                            $referal = $CI->Referal_model->getReferal($usergoogle['referal'])->row();
-                            if ($referal->level_referal == 2 || $referal->level_referal != NULL) { ?>
-                                <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Status Referal</a></li>
+                            if ($usergoogle['group'] == 5) { ?>
+                                <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Referral</a></li>
+                            <?php } elseif ($usergoogle['group'] == 4) { ?>
+                                <li><a class="dropdown-item" href="<?= base_url('Headbe') ?>">Head Referral</a></li>
                             <?php } ?>
                             <hr />
                             <li><a class="dropdown-item" href="<?= base_url('user/Auth/logout') ?>">Log Out</a></li>

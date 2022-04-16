@@ -116,8 +116,6 @@ class Referral extends CI_Controller
     {
         $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
-
-
         $data = [
             "title" => "A3Mall|Referral",
             "title2" => "Referral",
@@ -125,6 +123,54 @@ class Referral extends CI_Controller
             "user" => $user,
             "pajak" => $this->referal->getAllPajak()->result_array(),
             "modal" => $modal
+        ];
+
+        $this->load->view('admin/templates/app', $data, FALSE);
+    }
+
+    public function updateFormReferral($id)
+    {
+        $form = $this->db->get_where('form_referal', ['id_formreferal' => $id])->row();
+        if ($this->db->update('form_referal', ['status' => 1], ['id_formreferal' => $id])) {
+            $referal = [
+                'code_referal' => strtoupper(implode(" ", array_slice(explode(" ", $form->name), 0, 1))) . mt_rand(1000, 9999),
+                'users_email_referal' => $form->email,
+                'level_referal' => 3,
+                'describe' => 'Referal Bussines Executive For Customers'
+
+            ];
+            $this->db->insert('referal', $referal);
+            $this->db->update('users', ['group' => 5, 'referal' => ''], ['email' => $form->email]);
+        }
+    }
+
+    public function formReferralNotConfirmed()
+    {
+        $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+
+
+        $data = [
+            "title" => "A3Mall|Form Referral",
+            "title2" => "Referral",
+            "page" => "admin/referal/formreferalnotconfirmed",
+            "user" => $user,
+            "formreferal" => $this->db->get_where('form_referal', ['status' => 0])->result_array(),
+        ];
+
+        $this->load->view('admin/templates/app', $data, FALSE);
+    }
+
+    public function formReferralConfirmed()
+    {
+        $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+
+
+        $data = [
+            "title" => "A3Mall|Form Referral",
+            "title2" => "Referral",
+            "page" => "admin/referal/formreferalnotconfirmed",
+            "user" => $user,
+            "formreferal" => $this->db->get_where('form_referal', ['status' => 1])->result_array(),
         ];
 
         $this->load->view('admin/templates/app', $data, FALSE);

@@ -87,7 +87,7 @@ class Auth extends CI_Controller
 			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
 				//if the login is successful
 				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				// $this->session->set_flashdata('message', $this->ion_auth->messages());
 				redirect('Dashboard', 'refresh');
 			} else {
 				// if the login was un-successful
@@ -210,7 +210,6 @@ class Auth extends CI_Controller
 			$this->load->model('User_model');
 			$session = $this->session->userdata('user_data');
 			$this->User_model->setPassword($session['email'], $data);
-			$this->session->set_flashdata('message', 'swal("Berhasil!", "Password berhasil ditambahkan!", "success");');
 
 			$user = $this->db->get_where('users', array('email' => $session['email']))->row_array();
 			if (empty($user['referal'])) {
@@ -416,8 +415,8 @@ class Auth extends CI_Controller
 					'protocol' => 'smtp',
 					'smtp_host' => 'ssl://mail.atigamall.com',
 					'smtp_port' => 465,
-					'smtp_user' => 'test@atigamall.com',
-					'smtp_pass' => 'Gagap123',
+					'smtp_user' => 'forgot_password@atigamall.com',
+					'smtp_pass' => 'a3;Mall123',
 					'mailtype' => 'html',
 				];
 				$data = array(
@@ -429,7 +428,7 @@ class Auth extends CI_Controller
 				$this->load->helpers('url');
 				$this->email->set_newline("\r\n");
 
-				$this->email->from('test@atigamall.com');
+				$this->email->from('forgot_password@atigamall.com');
 				$this->email->to($this->input->post('identity'));
 				$this->email->subject("forgot password");
 				$body = $this->load->view('auth/email/forgot_password.tpl.php', $data, TRUE);
@@ -666,15 +665,7 @@ class Auth extends CI_Controller
 				'company' => $this->input->post('company'),
 				'phone' => $this->input->post('phone'),
 			];
-			if (!empty($this->input->post('referal'))) {
-				$additional_data['referal'] = $this->input->post('referal');
-				$referal = $this->referal->getReferal($this->input->post('referal'))->row_array();
-				if ($referal['level_referal'] == 2) {
-					$additional_data['group'] = 5;
-				} else {
-					$additional_data['group'] = 2;
-				}
-			} else {
+			if (empty($this->input->post('referal'))) {
 				$additional_data['referal'] = 'abc123';
 				$additional_data['group'] = 2;
 			}
@@ -682,19 +673,7 @@ class Auth extends CI_Controller
 		if ($this->form_validation->run() === TRUE && $this->ion_auth->register($identity, $password, $email, $additional_data)) {
 			// check to see if we are creating the user
 			// redirect them back to the admin page
-			$referal = $this->referal->getReferal($this->input->post('referal'))->row_array();
-			if (!empty($this->input->post('referal')) && $referal['level_referal'] == 2) {
-				$buatreferal = [
-					'code_referal' => strtoupper($this->input->post('first_name')) . mt_rand(1000, 9999),
-					'users_email_referal' => $this->input->post('email'),
-					'level_referal' => 3,
-					'describe' => 'Referal Bussines Executive For Customers'
 
-				];
-
-
-				$this->db->insert('referal', $buatreferal);
-			}
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
 			redirect("Login", 'refresh');
 		} else {

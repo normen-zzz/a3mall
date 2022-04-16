@@ -109,6 +109,7 @@ class Barang extends CI_Controller
                 'discount' => $this->input->post('discount'),
                 'subbutton_name' => $this->input->post('subbutton_name'),
                 'subbutton_link' => $this->input->post('subbutton_link'),
+                'sold' => $this->input->post('sold')
 
             ];
 
@@ -146,9 +147,6 @@ class Barang extends CI_Controller
             'required' => 'Name tidak boleh kosong.'
         ]);
 
-        $this->form_validation->set_rules('price', 'Price', 'required', [
-            'required' => 'Password tidak boleh kosong.'
-        ]);
 
 
         $this->form_validation->set_rules('brand', 'Brand', 'required', [
@@ -183,6 +181,7 @@ class Barang extends CI_Controller
                 'subbutton_name' => $this->input->post('subbutton_name'),
                 'discount' => $this->input->post('discount'),
                 'subbutton_link' => $this->input->post('subbutton_link'),
+                'sold' => $this->input->post('sold')
 
             ];
             $this->barang->editBarang($this->input->post('code'), $data);

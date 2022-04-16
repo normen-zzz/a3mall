@@ -33,6 +33,14 @@
 <!-- Hero -->
 <section class="overflow-hidden" id="hero">
     <div class="container">
+        <?php if ($this->session->flashdata('message')) { ?>
+            <div class="row">
+                <div class="col text-center">
+                    <h2><?= $this->session->flashdata('message') ?></h2>
+                    <p>Selamat Anda telah menjadi Business Executive di AtigaMall</p>
+                </div>
+            </div>
+        <?php } ?>
         <div class="row">
             <div class="col">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -144,6 +152,7 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Sofa</p>
                                 <h5 class="card-title fw-bold text-dark"><?= ucfirst($sofa->name_brand) . ' ' . $sofa->name_product ?></h5>
+                                <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning"><?= $sofa->sold ?></span></p>
                                 <?php if ($min->min_price != $max->max_price) {
                                     if ($sofa->discount != 0) { ?>
                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($max->max_price, '0', ',', '.') ?></s></p>
@@ -180,6 +189,7 @@
                             <div class="card-body">
                                 <p class="fw-light text-secondary small">Spring Bed</p>
                                 <h5 class="card-title fw-bold text-dark"><?= ucfirst($springbed->name_brand) . ' ' . $springbed->name_product ?></h5>
+                                <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning"><?= $springbed->sold ?></span></p>
                                 <?php if ($min->min_price != $max->max_price) {
                                     if ($springbed->discount != 0) { ?>
                                         <p class="card-text mb-0 small fw-light text-secondary"><s>Rp. <?= number_format($min->min_price, '0', ',', '.') ?></s> ~ <s>Rp. <?= number_format($max->max_price, '0', ',', '.') ?></s></p>

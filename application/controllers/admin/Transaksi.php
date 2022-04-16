@@ -77,44 +77,55 @@ class Transaksi extends CI_Controller
         $referal = $this->referal->getReferal($user->referal)->row();
         $businessEx = $this->referal->getBusinessEx($referal->users_email_referal)->row();
         $transaction = $this->db->get_where('transaction', array('kd_transaction' => $detail->kd_transaction))->result();
-        if ($this->referal->getNpwpBe($referal->users_email_referal)->num_rows() != 0) {
-            $npwp = $this->referal->getNpwpBe($referal->users_email_referal)->row();
-            if ($npwp->status == 'active') {
-                $tax = 0.025;
-            } else {
-                $tax = 0.03;
-            }
-        } else {
-            $tax = 0.03;
-        }
         $data = [
             "status" => $detail->status + 1
         ];
 
         if ($data['status'] == 4) {
-            if ($referal->level_referal == 3) {
+            if ($referal->level_referal == 3) { //jika customer menggunakan code referral maka ada income 1% masuk ke BE
                 $income = [
                     'referal' => $referal->code_referal,
                     'kd_transaction' => $detail->kd_transaction,
-                    'income' => (($detail->total_transaction - $detail->ongkir)) * 0.03,
-                    'tax_income' => ((($detail->total_transaction - $detail->ongkir)) * 0.03) * $tax,
-                    'total_income' => ((($detail->total_transaction - $detail->ongkir)) * 0.03) - ((($businessEx->saldo) + (($detail->total_transaction - $detail->ongkir)) * 0.03) * $tax),
+                    'income' => (($detail->total_transaction - $detail->ongkir)) * 0.01,
+                    'total_income' => ((($detail->total_transaction - $detail->ongkir)) * 0.01),
                     'date_income' => date("Y-m-d H:i:s")
                 ];
-                $tax_be = [
+
+                $cashback_user = [
                     'kd_transaction' => $detail->kd_transaction,
-                    'email_be' => $referal->users_email_referal,
-                    'nama_be' => $businessEx->first_name . ' ' . $businessEx->last_name,
-                    'code_referal' => $referal->code_referal,
-                    'amount_tax' => $income['tax_income'],
-                    'date_tax' =>  date("Y-m-d H:i:s")
+                    'total_transaction' => $detail->total_transaction,
+                    'total_cashback' => (($detail->total_transaction - $detail->ongkir)) * 0.02,
+                    'is_referal' => 1
+
                 ];
+
                 $this->db->insert('income_referal', $income);
-                $this->db->insert('tax_be', $tax_be);
+                $this->db->insert('cashback_user', $cashback_user);
+
                 $this->db->update('users', array('saldo' => $businessEx->saldo + $income['total_income']), array('email' => $referal->users_email_referal)); //Update Saldo Be
-                $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $detail->ongkir)) * 0.02), array('email' => $detail->email_users)); //Update Saldo User Referal
+                $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $detail->ongkir)) * 0.02), array('email' => $detail->email_users)); //Update Saldo User Referal dengan menambahkan 2%
             } else {
+                $cashback_user = [
+                    'kd_transaction' => $detail->kd_transaction,
+                    'total_transaction' => $detail->total_transaction,
+                    'total_cashback' => (($detail->total_transaction - $detail->ongkir)) * 0.01,
+                    'is_referal' => 0
+
+                ];
+                $this->db->insert('cashback_user', $cashback_user);
                 $this->db->update('users', array('saldo' => ($user->saldo) + (($detail->total_transaction - $detail->ongkir)) * 0.01), array('email' => $detail->email_users)); //Update Saldo User Default
+            }
+            if ($user->group == 5) { //Jika Yang memesan BE sendiri maka akan mendapatkan 3%
+                $incomeorder = [
+                    'kd_transaction' => $detail->kd_transaction,
+                    'email' => $user->email,
+                    'total_transaction' => $detail->total_transaction - $detail->ongkir,
+                    'income' => ($detail->total_transaction - $detail->ongkir) * 0.03,
+                    'total_income' => ($detail->total_transaction - $detail->ongkir) * 0.03
+                ];
+
+                $this->db->insert('incomeorder_referal', $incomeorder);
+                $this->db->update('users', array('saldo' => ($user->saldo) + ((($detail->total_transaction - $detail->ongkir) * 0.03))), array('email' => $user->email)); //Update Saldo BE + 3%
             }
         }
         $this->transaksi->updateStatus($data, $code);

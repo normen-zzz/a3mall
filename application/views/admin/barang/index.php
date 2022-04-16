@@ -44,6 +44,7 @@
                                             <th>Created At</th>
                                             <th>Button Name</th>
                                             <th>Button Link</th>
+                                            <th>Terjual</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -68,6 +69,7 @@
                                                 <td><?= $barang['created_product'] ?></td>
                                                 <td><?= $barang['subbutton_name'] ?></td>
                                                 <td><?= $barang['subbutton_link'] ?></td>
+                                                <td><?= $barang['sold'] ?></td>
                                                 <td>
                                                     <a href="<?= base_url('admin/Barang/variationBarang/' . $barang['kd_product']) ?>" class="btn btn-secondary mt-1">Variation</a>
                                                     <a href="<?= base_url('admin/Barang/unitProduct/' . $barang['kd_product']) ?>" class="btn btn-secondary mt-1">Unit</a>
@@ -177,6 +179,12 @@
                         <input type="text" name="subbutton_link" class="form-control">
                     </div>
 
+                    <div class="form-group">
+                        <label>Terjual</label>
+                        <input type="number" name="sold" class="form-control">
+                        <?= form_error('sold', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
             </div>
             <div class="modal-footer bg-whitesmoke br">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -275,6 +283,12 @@
                         <input type="text" name="subbutton_link" class="form-control">
                     </div>
 
+                    <div class="form-group">
+                        <label>Terjual</label>
+                        <input type="number" name="sold" class="form-control">
+                        <?= form_error('sold', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+
             </div>
             <div class="modal-footer bg-whitesmoke br">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -306,6 +320,7 @@
                 CKEDITOR.instances['editor2'].setData(data.describe_product);
                 $('select[name=category]').val(data.category_product);
                 $('input[name=discount]').val(data.discount);
+                $('input[name=sold]').val(data.sold);
                 $('select[name=brand]').val(data.brand_product);
                 $('select[name=status]').val(data.status_product);
                 $('input[name=date]').val(data.date_arrived);

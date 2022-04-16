@@ -26,7 +26,7 @@
                  <div class="card p-4 bg-transparent">
                      <h5 class="fw-bold"><?= ucfirst($produk->name_brand) . ' ' . $produk->name_product ?></h5>
                      <div class="row mb-3">
-                     <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning">10000</span></p>
+                         <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning"><?= $produk->sold ?></span></p>
                          <p>Pilih Varian :</p>
                          <?php foreach ($variation as $variation) { ?>
                              <div class="col-6">
@@ -35,12 +35,12 @@
                                      <label class="form-check-label" for="flexRadioDefault1" style="cursor: pointer"><?= $variation->name_variation ?></label>
                                  </div>
                              </div>
-                             <input class="form-control quantity border-0 text-center" id="priceproduct" name="priceproduct" type="number" />
-                             <input class="form-control quantity border-0 text-center" id="beforepriceproduct" name="beforepriceproduct" type="number" />
-                             <input class="form-control quantity border-0 text-center" id="discount" name="discount" type="number" />
-                             <input class="form-control quantity border-0 text-center" id="length_variation" name="length_variation" type="number" />
-                             <input class="form-control quantity border-0 text-center" id="width_variation" name="width_variation" type="number" />
-                             <input class="form-control quantity border-0 text-center" id="weight_variation" name="weight_variation" type="number" />
+                             <input class="form-control quantity border-0 text-center" id="priceproduct" name="priceproduct" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="beforepriceproduct" name="beforepriceproduct" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="discount" name="discount" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="length_variation" name="length_variation" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="width_variation" name="width_variation" type="number" hidden />
+                             <input class="form-control quantity border-0 text-center" id="weight_variation" name="weight_variation" type="number" hidden />
                          <?php } ?>
                      </div>
                      <?php if ($unit != FALSE) { ?>
@@ -157,7 +157,7 @@
                              <img src="<?= base_url('assets/images/produk/' . $sejenis->photo_product) ?>" class="card-img-top p-3" alt="..." />
                              <div class="card-body">
                                  <p class="fw-light text-secondary small"><?= $sejenis->name_category ?></p>
-                                 <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning">10000</span></p>
+                                 <p class="fw-light small text-secondary">Terjual: <span class="fw-bold text-warning"><?= $sejenis->sold ?></span></p>
                                  <h5 class="card-title fw-bold text-dark"><?= ucfirst($sejenis->name_brand) . ' ' . $sejenis->name_product ?></h5>
                                  <!-- <p class="card-text yellow-text mb-3">Rp. <?= $sejenis->price_product ?></p> -->
                                  <?php if ($min->min_price != $max->max_price) {
