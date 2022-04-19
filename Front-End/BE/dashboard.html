@@ -1,411 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
 
-    <!-- Icon Bootstrap 5 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+		<!-- Icon Bootstrap 5 -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+		/>
 
-    <!-- Font Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
+		<!-- Font Google -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 
-    <!-- Datatable -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+		<!-- Datatable -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css"
+		/>
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css" />
+		<!-- My CSS -->
+		<link rel="stylesheet" href="../assets/css/style.css" />
 
-    <!-- Swipper JS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+		<!-- Swipper JS -->
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-warning my-auto" id="navbar">
-      <div class="container">
-        <div class="img shadow rounded-circle bg-white">
-          <img src="../assets/img/logo-gradiant_revisi01022022-2.png" height="50" alt="" />
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown my-auto">
-              <a class="nav-link dropdown-toggle text-white small my-auto" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="rounded-circle shadow bg-danger" src="./assets/img/profile/img-profile.png" width="30" height="30" alt="" />
-                Hai, Nama BE
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><p class="fw-light text-secondary small text-center">Saldo:</p></li>
-                <hr />
-                <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
-                <li><a class="dropdown-item" href="./status.html">Staus Pesanan</a></li>
-                <li><a class="dropdown-item" href="./alamat.html">Alamat</a></li>
-                <hr />
-                <li><a class="dropdown-item" href="#">Log Out</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Akhir Navbar -->
+		<title>Hello, world!</title>
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-md navbar-light bg-warning my-auto" id="navbar">
+			<div class="container">
+				<div class="img shadow rounded-circle bg-white">
+					<img
+						src="../assets/img/logo-gradiant_revisi01022022-2.png"
+						height="50"
+						alt=""
+					/>
+				</div>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item dropdown my-auto">
+							<a
+								class="nav-link dropdown-toggle text-white small my-auto"
+								href="#"
+								id="navbarDropdown"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								<img
+									class="rounded-circle shadow bg-danger"
+									src="./assets/img/profile/img-profile.png"
+									width="30"
+									height="30"
+									alt=""
+								/>
+								Hai, Nama BE
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li>
+									<p class="fw-light text-secondary small text-center">Saldo:</p>
+								</li>
+								<hr />
+								<li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+								<li>
+									<a class="dropdown-item" href="./status.html">Staus Pesanan</a>
+								</li>
+								<li><a class="dropdown-item" href="./alamat.html">Alamat</a></li>
+								<hr />
+								<li><a class="dropdown-item" href="#">Log Out</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- Akhir Navbar -->
 
-    <!-- BE -->
-    <section class="py-5 bg-light">
-      <div class="container">
-        <div class="row mb-5 p-5 shadow bg-white">
-          <div class="col-lg-6">
-            <h2>Selamat dataang, nama BE</h2>
-            <p class="fw-light text-secondary small">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, natus a. Exercitationem sapiente repellendus fugiat earum officia tenetur dolores vel ullam alias voluptas, molestiae vero magnam nobis ea mollitia saepe?
-            </p>
-          </div>
-          <div class="col-lg-5 text-end">
-            <h2>Input NPWP</h2>
-            <button type="button" class="btn yellow-button px-5 py-2 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModalnpwp">Input NPWP</button>
-          </div>
-        </div>
-        <div class="row justify-content-around">
-          <div class="col-lg-5">
-            <a href="" class="text-decoration-none">
-              <div class="shadow bg-white p-4">
-                <div class="card-body">
-                  <h5 class="card-title border-bottom pb-2 text-dark">Total Pendapatan</h5>
-                  <h4 class="card-subtitle mb-2 text-muted pt-5">Rp. 1000.0000</h4>
-                  <p class="card-text text-warning">200 <span class="text-secondary small">orang</span></p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-5">
-            <a href="" class="text-decoration-none">
-              <div class="shadow bg-white p-4">
-                <div class="card-body">
-                  <h5 class="card-title border-bottom pb-2 text-dark">Nilai Omzet</h5>
-                  <h4 class="card-subtitle mb-2 text-muted pt-5">Rp. 1000.0000</h4>
-                  <p class="card-text text-warning">200 <span class="text-secondary small">orang</span></p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-lg-12 mt-3 shadow bg-white py-3">
-            <table id="example" class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                </tr>
-                <tr>
-                  <td>Garrett Winters</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>63</td>
-                  <td>2011/07/25</td>
-                  <td>$170,750</td>
-                </tr>
-                <tr>
-                  <td>Ashton Cox</td>
-                  <td>Junior Technical Author</td>
-                  <td>San Francisco</td>
-                  <td>66</td>
-                  <td>2009/01/12</td>
-                  <td>$86,000</td>
-                </tr>
-                <tr>
-                  <td>Cedric Kelly</td>
-                  <td>Senior Javascript Developer</td>
-                  <td>Edinburgh</td>
-                  <td>22</td>
-                  <td>2012/03/29</td>
-                  <td>$433,060</td>
-                </tr>
-                <tr>
-                  <td>Airi Satou</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>33</td>
-                  <td>2008/11/28</td>
-                  <td>$162,700</td>
-                </tr>
-                <tr>
-                  <td>Brielle Williamson</td>
-                  <td>Integration Specialist</td>
-                  <td>New York</td>
-                  <td>61</td>
-                  <td>2012/12/02</td>
-                  <td>$372,000</td>
-                </tr>
-                <tr>
-                  <td>Herrod Chandler</td>
-                  <td>Sales Assistant</td>
-                  <td>San Francisco</td>
-                  <td>59</td>
-                  <td>2012/08/06</td>
-                  <td>$137,500</td>
-                </tr>
-                <tr>
-                  <td>Rhona Davidson</td>
-                  <td>Integration Specialist</td>
-                  <td>Tokyo</td>
-                  <td>55</td>
-                  <td>2010/10/14</td>
-                  <td>$327,900</td>
-                </tr>
-                <tr>
-                  <td>Colleen Hurst</td>
-                  <td>Javascript Developer</td>
-                  <td>San Francisco</td>
-                  <td>39</td>
-                  <td>2009/09/15</td>
-                  <td>$205,500</td>
-                </tr>
-                <tr>
-                  <td>Sonya Frost</td>
-                  <td>Software Engineer</td>
-                  <td>Edinburgh</td>
-                  <td>23</td>
-                  <td>2008/12/13</td>
-                  <td>$103,600</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          <div class="col-lg-12 mt-3 shadow bg-white py-3">
-            <table id="example" class="table table-striped" style="width: 100%">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                </tr>
-                <tr>
-                  <td>Garrett Winters</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>63</td>
-                  <td>2011/07/25</td>
-                  <td>$170,750</td>
-                </tr>
-                <tr>
-                  <td>Ashton Cox</td>
-                  <td>Junior Technical Author</td>
-                  <td>San Francisco</td>
-                  <td>66</td>
-                  <td>2009/01/12</td>
-                  <td>$86,000</td>
-                </tr>
-                <tr>
-                  <td>Cedric Kelly</td>
-                  <td>Senior Javascript Developer</td>
-                  <td>Edinburgh</td>
-                  <td>22</td>
-                  <td>2012/03/29</td>
-                  <td>$433,060</td>
-                </tr>
-                <tr>
-                  <td>Airi Satou</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>33</td>
-                  <td>2008/11/28</td>
-                  <td>$162,700</td>
-                </tr>
-                <tr>
-                  <td>Brielle Williamson</td>
-                  <td>Integration Specialist</td>
-                  <td>New York</td>
-                  <td>61</td>
-                  <td>2012/12/02</td>
-                  <td>$372,000</td>
-                </tr>
-                <tr>
-                  <td>Herrod Chandler</td>
-                  <td>Sales Assistant</td>
-                  <td>San Francisco</td>
-                  <td>59</td>
-                  <td>2012/08/06</td>
-                  <td>$137,500</td>
-                </tr>
-                <tr>
-                  <td>Rhona Davidson</td>
-                  <td>Integration Specialist</td>
-                  <td>Tokyo</td>
-                  <td>55</td>
-                  <td>2010/10/14</td>
-                  <td>$327,900</td>
-                </tr>
-                <tr>
-                  <td>Colleen Hurst</td>
-                  <td>Javascript Developer</td>
-                  <td>San Francisco</td>
-                  <td>39</td>
-                  <td>2009/09/15</td>
-                  <td>$205,500</td>
-                </tr>
-                <tr>
-                  <td>Sonya Frost</td>
-                  <td>Software Engineer</td>
-                  <td>Edinburgh</td>
-                  <td>23</td>
-                  <td>2008/12/13</td>
-                  <td>$103,600</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- BE End -->
+		<!-- BE -->
+		<section class="py-5 bg-light">
+			<div class="container">
+				<div class="row mb-5 p-5 shadow bg-white">
+					<div class="col-lg-6">
+						<h2>Selamat dataang, nama BE</h2>
+						<p class="fw-light text-secondary small">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, natus
+							a. Exercitationem sapiente repellendus fugiat earum officia tenetur
+							dolores vel ullam alias voluptas, molestiae vero magnam nobis ea
+							mollitia saepe?
+						</p>
+					</div>
+					<div class="col-lg-5 text-end">
+						<h2>Input NPWP</h2>
+						<button
+							type="button"
+							class="btn yellow-button px-5 py-2 mt-2"
+							data-bs-toggle="modal"
+							data-bs-target="#exampleModalnpwp"
+						>
+							Input NPWP
+						</button>
+					</div>
+				</div>
+				<div class="row justify-content-around">
+					<div class="col-lg-5">
+						<a href="" class="text-decoration-none">
+							<div class="shadow bg-white p-4">
+								<div class="card-body">
+									<h5 class="card-title border-bottom pb-2 text-dark">
+										Total Pendapatan
+									</h5>
+									<h4 class="card-subtitle mb-2 text-muted pt-5">
+										Rp. 1000.0000
+									</h4>
+									<p class="card-text text-warning">
+										200 <span class="text-secondary small">orang</span>
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
 
-    <!-- Footer -->
-    <footer class="bg-white">
-      <div class="container">
-        <div class="row py-5">
-          <div class="col-lg py-2">
-            <img src="../assets/img/logo-gradiant_revisi01022022-2.png" height="50" alt="" />
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-          <div class="col-lg py-2">
-            <p class="fw-bold">About Us</p>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link text-dark p-0 my-1 small" href="#">Service</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark p-0 my-1 small" href="#">Portofolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark p-0 my-1 small" href="#">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg py-2">
-            <p class="fw-bold">Contact Us</p>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <p class="small">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
-                <a class="nav-link text-dark p-0 my-1 small" href="#">Phone: +62******</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col text-end mt-auto">
-            <a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a>
-            <a href="#"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
-            <a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid bg-warning">
-        <div class="row border-top">
-          <div class="col text-center">
-            <p class="py-3 m-0">Copyright ® 2021 Lorem All rights Rcerved</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- Akhir Footer -->
+					<div class="col-lg-5">
+						<a href="" class="text-decoration-none">
+							<div class="shadow bg-white p-4">
+								<div class="card-body">
+									<h5 class="card-title border-bottom pb-2 text-dark">
+										Nilai Omzet
+									</h5>
+									<h4 class="card-subtitle mb-2 text-muted pt-5">
+										Rp. 1000.0000
+									</h4>
+									<p class="card-text text-warning">
+										200 <span class="text-secondary small">orang</span>
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-lg-12 mt-3 shadow bg-white py-3">
+						<table id="example" class="table table-striped">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Position</th>
+									<th>Office</th>
+									<th>Age</th>
+									<th>Start date</th>
+									<th>Salary</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+									<td>$320,800</td>
+								</tr>
+								<tr>
+									<td>Garrett Winters</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>63</td>
+									<td>2011/07/25</td>
+									<td>$170,750</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+									<td>$86,000</td>
+								</tr>
+								<tr>
+									<td>Cedric Kelly</td>
+									<td>Senior Javascript Developer</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+									<td>$433,060</td>
+								</tr>
+								<tr>
+									<td>Airi Satou</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>33</td>
+									<td>2008/11/28</td>
+									<td>$162,700</td>
+								</tr>
+								<tr>
+									<td>Brielle Williamson</td>
+									<td>Integration Specialist</td>
+									<td>New York</td>
+									<td>61</td>
+									<td>2012/12/02</td>
+									<td>$372,000</td>
+								</tr>
+								<tr>
+									<td>Herrod Chandler</td>
+									<td>Sales Assistant</td>
+									<td>San Francisco</td>
+									<td>59</td>
+									<td>2012/08/06</td>
+									<td>$137,500</td>
+								</tr>
+								<tr>
+									<td>Rhona Davidson</td>
+									<td>Integration Specialist</td>
+									<td>Tokyo</td>
+									<td>55</td>
+									<td>2010/10/14</td>
+									<td>$327,900</td>
+								</tr>
+								<tr>
+									<td>Colleen Hurst</td>
+									<td>Javascript Developer</td>
+									<td>San Francisco</td>
+									<td>39</td>
+									<td>2009/09/15</td>
+									<td>$205,500</td>
+								</tr>
+								<tr>
+									<td>Sonya Frost</td>
+									<td>Software Engineer</td>
+									<td>Edinburgh</td>
+									<td>23</td>
+									<td>2008/12/13</td>
+									<td>$103,600</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>Name</th>
+									<th>Position</th>
+									<th>Office</th>
+									<th>Age</th>
+									<th>Start date</th>
+									<th>Salary</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<div class="col-lg-12 mt-3 shadow bg-white py-3">
+						<table id="example" class="table table-striped" style="width: 100%">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Position</th>
+									<th>Office</th>
+									<th>Age</th>
+									<th>Start date</th>
+									<th>Salary</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+									<td>61</td>
+									<td>2011/04/25</td>
+									<td>$320,800</td>
+								</tr>
+								<tr>
+									<td>Garrett Winters</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>63</td>
+									<td>2011/07/25</td>
+									<td>$170,750</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+									<td>66</td>
+									<td>2009/01/12</td>
+									<td>$86,000</td>
+								</tr>
+								<tr>
+									<td>Cedric Kelly</td>
+									<td>Senior Javascript Developer</td>
+									<td>Edinburgh</td>
+									<td>22</td>
+									<td>2012/03/29</td>
+									<td>$433,060</td>
+								</tr>
+								<tr>
+									<td>Airi Satou</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+									<td>33</td>
+									<td>2008/11/28</td>
+									<td>$162,700</td>
+								</tr>
+								<tr>
+									<td>Brielle Williamson</td>
+									<td>Integration Specialist</td>
+									<td>New York</td>
+									<td>61</td>
+									<td>2012/12/02</td>
+									<td>$372,000</td>
+								</tr>
+								<tr>
+									<td>Herrod Chandler</td>
+									<td>Sales Assistant</td>
+									<td>San Francisco</td>
+									<td>59</td>
+									<td>2012/08/06</td>
+									<td>$137,500</td>
+								</tr>
+								<tr>
+									<td>Rhona Davidson</td>
+									<td>Integration Specialist</td>
+									<td>Tokyo</td>
+									<td>55</td>
+									<td>2010/10/14</td>
+									<td>$327,900</td>
+								</tr>
+								<tr>
+									<td>Colleen Hurst</td>
+									<td>Javascript Developer</td>
+									<td>San Francisco</td>
+									<td>39</td>
+									<td>2009/09/15</td>
+									<td>$205,500</td>
+								</tr>
+								<tr>
+									<td>Sonya Frost</td>
+									<td>Software Engineer</td>
+									<td>Edinburgh</td>
+									<td>23</td>
+									<td>2008/12/13</td>
+									<td>$103,600</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>Name</th>
+									<th>Position</th>
+									<th>Office</th>
+									<th>Age</th>
+									<th>Start date</th>
+									<th>Salary</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- BE End -->
 
-    <!-- Modal NPWP -->
-    <div class="modal fade" id="exampleModalnpwp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label class="form-label">Input NPWP</label>
-                <input type="number" class="form-control" aria-describedby="emailHelp" />
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+		<!-- Footer -->
+		<footer class="bg-white">
+			<div class="container">
+				<div class="row py-5">
+					<div class="col-lg py-2">
+						<img
+							src="../assets/img/logo-gradiant_revisi01022022-2.png"
+							height="50"
+							alt=""
+						/>
+						<p>
+							Lorem Ipsum is simply dummy text of the printing and typesetting
+							industry.
+						</p>
+					</div>
+					<div class="col-lg py-2">
+						<p class="fw-bold">About Us</p>
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link text-dark p-0 my-1 small" href="#">Service</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-dark p-0 my-1 small" href="#">Portofolio</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-dark p-0 my-1 small" href="#">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg py-2">
+						<p class="fw-bold">Contact Us</p>
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<p class="small">
+									Lorem Ipsum is simply dummy text of the printing and typesetting
+									industry.
+								</p>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-dark p-0 my-1 small" href="#"
+									>Phone: +62******</a
+								>
+								<a class="nav-link text-dark p-0 my-1 small" href="#"
+									>Phone: +62******</a
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="col text-end mt-auto">
+						<a href="#"><i class="h3 mx-2 text-dark bi bi-facebook"></i></a>
+						<a href="#"><i class="h3 mx-2 text-dark bi bi-instagram"></i></a>
+						<a href="#"><i class="h3 mx-2 text-dark bi bi-tiktok"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid bg-warning">
+				<div class="row border-top">
+					<div class="col text-center">
+						<p class="py-3 m-0">Copyright ® 2021 Lorem All rights Rcerved</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Akhir Footer -->
 
-  <script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
+		<!-- Modal NPWP -->
+		<div
+			class="modal fade"
+			id="exampleModalnpwp"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label class="form-label">Input NPWP</label>
+								<input
+									type="number"
+									class="form-control"
+									aria-describedby="emailHelp"
+								/>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+							Close
+						</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<!-- Swiper JS -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-  <!-- My JS -->
-  <script src="../assets/js/script.js"></script>
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"
+	></script>
 
-  <script>
-    $(document).ready(function () {
-      $('#example').DataTable();
-    });
-  </script>
+	<!-- My JS -->
+	<script src="../assets/js/script.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#example').DataTable();
+		});
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 </html>
