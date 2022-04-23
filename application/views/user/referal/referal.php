@@ -9,8 +9,136 @@
                      <button type="submit" data-bs-toggle="modal" data-bs-target="#inputCodeReferal" class="btn yellow-button shadow">Buat Kode Referral</button>
                  <?php } ?>
              </div>
+         </div>
+         <div class="row">
+             <div class="col-xl-3 col-lg-6 mb-4">
+                 <div class="bg-white rounded-lg p-5 shadow">
+                     <h2 class="h6 font-weight-bold text-center mb-2">Omset Per-Bulan <?= date('F, Y'); ?></h2>
+                     <div>
+                         <h2 class="h6 font-weight-bold text-center mb-4">(Customer Order)</h2>
+                     </div>
 
 
+                     <!-- Progress bar 1 -->
+                     <div class="row">
+                         <div class="col text-center">
+                             <canvas width="170" height="150" id="canvas-preview1"></canvas>
+                             <div id="preview-textfield1"></div>
+                         </div>
+                     </div>
+
+                     <!-- END -->
+
+                     <!-- Demo info -->
+                     <!-- <div class="row text-center mt-4">
+                         <div class="col-6 border-right">
+                             <div class="h4 font-weight-bold mb-0">28%</div>
+                             <span class="small text-gray">Last week</span>
+                         </div>
+                         <div class="col-6">
+                             <div class="h4 font-weight-bold mb-0">60%</div>
+                             <span class="small text-gray">Last month</span>
+                         </div>
+                     </div> -->
+                     <!-- END -->
+                 </div>
+             </div>
+
+             <div class="col-xl-3 col-lg-6 mb-4">
+                 <div class="bg-white rounded-lg p-5 shadow">
+                     <h2 class="h6 font-weight-bold text-center mb-2">Omset Per-Bulan <?= date('F, Y'); ?></h2>
+                     <div>
+                         <h2 class="h6 font-weight-bold text-center mb-4">(BE Order)</h2>
+                     </div>
+
+                     <!-- Progress bar 2 -->
+                     <div class="row">
+                         <div class="col text-center">
+                             <canvas width="170" height="150" id="canvas-preview2"></canvas>
+                             <div id="preview-textfield2"></div>
+                         </div>
+                     </div>
+
+                     <!-- END -->
+
+                     <!-- Demo info-->
+                     <!-- <div class="row text-center mt-4">
+                         <div class="col-6 border-right">
+                             <div class="h4 font-weight-bold mb-0">28%</div>
+                             <span class="small text-gray">Last week</span>
+                         </div>
+                         <div class="col-6">
+                             <div class="h4 font-weight-bold mb-0">60%</div>
+                             <span class="small text-gray">Last month</span>
+                         </div>
+                     </div> -->
+                     <!-- END -->
+                 </div>
+             </div>
+
+             <div class="col-xl-3 col-lg-6 mb-4">
+                 <div class="bg-white rounded-lg p-5 shadow">
+                     <h2 class="h6 font-weight-bold text-center mb-2">Omset Per-Tahun <?= date('Y'); ?></h2>
+                     <div>
+                         <h2 class="h6 font-weight-bold text-center mb-4">(Customer Order)</h2>
+                     </div>
+
+                     <!-- Progress bar 3 -->
+                     <div class="row">
+                         <div class="col text-center">
+                             <canvas width="170" height="150" id="canvas-preview3"></canvas>
+                             <div id="preview-textfield3"></div>
+                         </div>
+                     </div>
+
+                     <!-- END -->
+
+                     <!-- Demo info -->
+                     <!-- <div class="row text-center mt-4">
+                         <div class="col-6 border-right">
+                             <div class="h4 font-weight-bold mb-0">28%</div>
+                             <span class="small text-gray">Last week</span>
+                         </div>
+                         <div class="col-6">
+                             <div class="h4 font-weight-bold mb-0">60%</div>
+                             <span class="small text-gray">Last month</span>
+                         </div>
+                     </div> -->
+                     <!-- END -->
+                 </div>
+             </div>
+
+             <div class="col-xl-3 col-lg-6 mb-4">
+                 <div class="bg-white rounded-lg p-5 shadow">
+                     <h2 class="h6 font-weight-bold text-center mb-2">Omset Per-Tahun <?= date('Y'); ?></h2>
+                     <div>
+                         <h2 class="h6 font-weight-bold text-center mb-4">(BE Order)</h2>
+                     </div>
+
+                     <!-- Progress bar 4 -->
+                     <div class="row">
+                         <div class="col text-center">
+                             <canvas width="170" height="150" id="canvas-preview4"></canvas>
+                             <div id="preview-textfield4"></div>
+                         </div>
+                     </div>
+
+                     <!-- END -->
+
+                     <!-- Demo info -->
+                     <!-- <div class="row text-center mt-4">
+                         <div class="col-6 border-right">
+                             <div class="h4 font-weight-bold mb-0">28%</div>
+                             <span class="small text-gray">Last week</span>
+                         </div>
+                         <div class="col-6">
+                             <div class="h4 font-weight-bold mb-0">60%</div>
+                             <span class="small text-gray">Last month</span>
+                         </div>
+                     </div> -->
+                     <!-- END -->
+                 </div>
+             </div>
          </div>
          <div class="row justify-content-around">
              <?php if (isset($referal->code_referal)) { ?>
@@ -18,7 +146,7 @@
                      <a href="<?= base_url('Referral/income/' . $referal->code_referal) ?>" style="text-decoration: none">
                          <div class="shadow bg-white text-dark p-4">
                              <div class="card-body">
-                                 <h5 class="card-title border-bottom pb-2">Total Pendapatan Dari Order Customers</h5>
+                                 <h5 class="card-title border-bottom pb-2">Total Pendapatan Dari Order Customersx</h5>
                                  <h4 class="card-subtitle mb-2 text-muted pt-5">Rp. <?= number_format($sumincome->total_income, '0', ',', '.') ?></h4>
                                  <p class="card-text text-warning"><?= $countincome ?> <span class="text-secondary small">Orders</span></p>
                              </div>

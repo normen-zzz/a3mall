@@ -29,6 +29,14 @@
   <!-- CSS Steper -->
   <link rel="stylesheet" href="<?= base_url('assets/user/') ?>css/bs-stepper.min.css" />
 
+  <!-- gauges -->
+  <!-- gauges -->
+
+  <link href="<?= base_url('assets/user/') ?>gauges/assets/prettify.css" type="text/css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/user/') ?>gauges/assets/fd-slider/fd-slider.css?v=2" />
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/user/') ?>gauges/assets/fd-slider/fd-slider-tooltip.css" />
+
+
   <title><?= $title ?></title>
 </head>
 
@@ -69,6 +77,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
+<!-- gauges  -->
+<!-- gauges -->
+<script type="text/javascript" src="<?= base_url('assets/user/') ?>gauges/assets/prettify.js"></script>
+<script type="text/javascript" src="<?= base_url('assets/user/') ?>gauges/assets/jscolor.js"></script>
+<script src="<?= base_url('assets/user/') ?>gauges/dist/gauge.js"></script>
 
 
 <script>
@@ -283,6 +297,237 @@
       }
     });
   });
+</script>
+
+<!-- gauges script -->
+<script>
+  var opts1 = {
+    angle: -0.25,
+    lineWidth: 0.2,
+    radiusScale: 0.9,
+    pointer: {
+      length: 0.6,
+      strokeWidth: 0.05,
+      color: '#000000',
+    },
+    staticLabels: {
+      font: '10px sans-serif',
+      labels: [3000000, 10000000, 15000000, 20000000],
+      fractionDigits: 0,
+    },
+    staticZones: [{
+        strokeStyle: '#F03E3E',
+        min: 0,
+        max: 3000000
+      },
+      {
+        strokeStyle: '#FFDD00',
+        min: 3000000,
+        max: 10000000
+      },
+      {
+        strokeStyle: '#FFDD00',
+        min: 10000000,
+        max: 15000000
+      },
+      {
+        strokeStyle: '#30B32D',
+        min: 15000000,
+        max: 25000000
+      },
+    ],
+    limitMax: false,
+    limitMin: false,
+    highDpiSupport: true,
+    renderTicks: {
+      divisions: 5,
+      divWidth: 1.1,
+      divLength: 0.79,
+      divColor: '#333333',
+      subDivisions: 6,
+      subLength: 0.5,
+      subWidth: 0.6,
+      subColor: '#666666',
+    },
+  };
+
+  var gauge1 = new Gauge(document.getElementById('canvas-preview1')).setOptions(opts1); // create sexy gauge!
+  gauge1.maxValue = 25000000; // set max gauge value
+  gauge1.setMinValue(0); // Prefer setter over gauge.minValue = 0
+  gauge1.animationSpeed = 32; // set animation speed (32 is default value)
+  gauge1.setTextField(document.getElementById('preview-textfield1'));
+  gauge1.set(<?= $incomemonth->total_income ?>); // set actual value
+
+  var opts2 = {
+    angle: -0.25,
+    lineWidth: 0.2,
+    radiusScale: 0.9,
+    pointer: {
+      length: 0.6,
+      strokeWidth: 0.05,
+      color: '#000000',
+    },
+    staticLabels: {
+      font: '10px sans-serif',
+      labels: [3000000, 10000000, 15000000, 20000000],
+      fractionDigits: 0,
+    },
+    staticZones: [{
+        strokeStyle: '#F03E3E',
+        min: 0,
+        max: 3000000
+      },
+      {
+        strokeStyle: '#FFDD00',
+        min: 3000000,
+        max: 10000000
+      },
+      {
+        strokeStyle: '#FFDD00',
+        min: 10000000,
+        max: 15000000
+      },
+      {
+        strokeStyle: '#30B32D',
+        min: 15000000,
+        max: 25000000
+      },
+    ],
+    limitMax: false,
+    limitMin: false,
+    highDpiSupport: true,
+    renderTicks: {
+      divisions: 5,
+      divWidth: 1.1,
+      divLength: 0.79,
+      divColor: '#333333',
+      subDivisions: 6,
+      subLength: 0.5,
+      subWidth: 0.6,
+      subColor: '#666666',
+    },
+  };
+
+  var gauge2 = new Gauge(document.getElementById('canvas-preview2')).setOptions(opts1); // create sexy gauge!
+  gauge2.maxValue = 25000000; // set max gauge value
+  gauge2.setMinValue(0); // Prefer setter over gauge.minValue = 0
+  gauge2.animationSpeed = 32; // set animation speed (32 is default value)
+  gauge2.setTextField(document.getElementById('preview-textfield2'));
+  gauge2.set(<?= $incomeordermonth->total_income ?>); // set actual value
+
+  var opts3 = {
+    angle: -0.25,
+    lineWidth: 0.2,
+    radiusScale: 0.9,
+    pointer: {
+      length: 0.6,
+      strokeWidth: 0.05,
+      color: '#000000',
+    },
+    staticLabels: {
+      font: '10px sans-serif',
+      labels: [3000000, 10000000, 15000000, 20000000],
+      fractionDigits: 0,
+    },
+    staticZones: [{
+        strokeStyle: '#F03E3E',
+        min: 0,
+        max: 3000000
+      },
+      {
+        strokeStyle: '#FFDD00',
+        min: 3000000,
+        max: 10000000
+      },
+      {
+        strokeStyle: '#FFDD00',
+        min: 10000000,
+        max: 15000000
+      },
+      {
+        strokeStyle: '#30B32D',
+        min: 15000000,
+        max: 25000000
+      },
+    ],
+    limitMax: false,
+    limitMin: false,
+    highDpiSupport: true,
+    renderTicks: {
+      divisions: 5,
+      divWidth: 1.1,
+      divLength: 0.79,
+      divColor: '#333333',
+      subDivisions: 6,
+      subLength: 0.5,
+      subWidth: 0.6,
+      subColor: '#666666',
+    },
+  };
+
+  var gauge3 = new Gauge(document.getElementById('canvas-preview3')).setOptions(opts1); // create sexy gauge!
+  gauge3.maxValue = 25000000; // set max gauge value
+  gauge3.setMinValue(0); // Prefer setter over gauge.minValue = 0
+  gauge3.animationSpeed = 32; // set animation speed (32 is default value)
+  gauge3.setTextField(document.getElementById('preview-textfield3'));
+  gauge3.set(<?= $incomemonth->total_income ?>); // set actual value
+
+  var opts4 = {
+    angle: -0.25,
+    lineWidth: 0.2,
+    radiusScale: 0.9,
+    pointer: {
+      length: 0.6,
+      strokeWidth: 0.05,
+      color: '#000000',
+    },
+    staticLabels: {
+      font: '10px sans-serif',
+      labels: [3000000, 10000000, 15000000, 20000000],
+      fractionDigits: 0,
+    },
+    staticZones: [{
+        strokeStyle: '#F03E3E',
+        min: 0,
+        max: 3000000
+      },
+      {
+        strokeStyle: '#FFDD00',
+        min: 3000000,
+        max: 10000000
+      },
+      {
+        strokeStyle: '#FFDD00',
+        min: 10000000,
+        max: 15000000
+      },
+      {
+        strokeStyle: '#30B32D',
+        min: 15000000,
+        max: 25000000
+      },
+    ],
+    limitMax: false,
+    limitMin: false,
+    highDpiSupport: true,
+    renderTicks: {
+      divisions: 5,
+      divWidth: 1.1,
+      divLength: 0.79,
+      divColor: '#333333',
+      subDivisions: 6,
+      subLength: 0.5,
+      subWidth: 0.6,
+      subColor: '#666666',
+    },
+  };
+
+  var gauge4 = new Gauge(document.getElementById('canvas-preview4')).setOptions(opts1); // create sexy gauge!
+  gauge4.maxValue = 25000000; // set max gauge value
+  gauge4.setMinValue(0); // Prefer setter over gauge.minValue = 0
+  gauge4.animationSpeed = 32; // set animation speed (32 is default value)
+  gauge4.setTextField(document.getElementById('preview-textfield4'));
+  gauge4.set(<?= $incomeorderyear->total_income ?>); // set actual value
 </script>
 
 

@@ -120,6 +120,45 @@ class Referal_model extends CI_Model
         $count = $q->result();
         return count($count);
     }
+
+    //Gauges
+    public function getCountIncomeMonthReferal()
+    {
+
+        $this->db->select_sum('total_income');
+        $this->db->from('income_referal');
+        $this->db->where('MONTH(date_income)', date('m')); //For current month
+        $this->db->where('YEAR(date_income)', date('Y')); // For current year
+        return $this->db->get();
+    }
+
+    public function getCountIncomeYearReferal()
+    {
+
+        $this->db->select_sum('total_income');
+        $this->db->from('income_referal');
+        $this->db->where('YEAR(date_income)', date('Y')); // For current year
+        return $this->db->get();
+    }
+
+    public function getCountIncomeOrderMonthReferal()
+    {
+
+        $this->db->select_sum('total_income');
+        $this->db->from('incomeorder_referal');
+        $this->db->where('MONTH(date_incomeorder)', date('m')); //For current month
+        $this->db->where('YEAR(date_incomeorder)', date('Y')); // For current year
+        return $this->db->get();
+    }
+
+    public function getCountIncomeOrderYearReferal()
+    {
+
+        $this->db->select_sum('total_income');
+        $this->db->from('incomeorder_referal');
+        $this->db->where('YEAR(date_incomeorder)', date('Y')); // For current year
+        return $this->db->get();
+    }
 }
 
 /* End of file ModelName.php */

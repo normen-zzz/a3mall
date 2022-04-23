@@ -24,6 +24,12 @@
         <!-- dynameter -->
         <link rel="stylesheet" type="text/css" href="../assets/css/dynameter/jquery.dynameter.css" />
 
+        <!-- gauges -->
+
+        <link href="../assets/gauges/assets/prettify.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="../assets/gauges/assets/fd-slider/fd-slider.css?v=2" />
+        <link rel="stylesheet" type="text/css" href="../assets/gauges/assets/fd-slider/fd-slider-tooltip.css" />
+
         <title>Hello, world!</title>
     </head>
     <body>
@@ -87,8 +93,9 @@
 
                             <!-- Progress bar 1 -->
                             <div class="row">
-                                <div class="col">
-                                    <div id="payloadMeterDiv"></div>
+                                <div class="col text-center">
+                                    <canvas width="170" height="150" id="canvas-preview1"></canvas>
+                                    <div id="preview-textfield1"></div>
                                 </div>
                             </div>
 
@@ -114,9 +121,10 @@
                             <h2 class="h6 font-weight-bold text-center mb-4">Work hours</h2>
 
                             <!-- Progress bar 2 -->
-                            <div class="row text-center">
-                                <div class="col">
-                                    <div id="payloadMeterDiv"></div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <canvas width="170" height="150" id="canvas-preview2"></canvas>
+                                    <div id="preview-textfield2"></div>
                                 </div>
                             </div>
 
@@ -142,9 +150,10 @@
                             <h2 class="h6 font-weight-bold text-center mb-4">Server time</h2>
 
                             <!-- Progress bar 3 -->
-                            <div class="row text-center">
-                                <div class="col">
-                                    <div id="payloadMeterDiv"></div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <canvas width="170" height="150" id="canvas-preview3"></canvas>
+                                    <div id="preview-textfield3"></div>
                                 </div>
                             </div>
 
@@ -171,8 +180,9 @@
 
                             <!-- Progress bar 4 -->
                             <div class="row">
-                                <div class="col">
-                                    <div id="payloadMeterDiv"></div>
+                                <div class="col text-center">
+                                    <canvas width="170" height="150" id="canvas-preview4"></canvas>
+                                    <div id="preview-textfield4"></div>
                                 </div>
                             </div>
 
@@ -252,16 +262,16 @@
 
     <script>
         $(document).ready(function () {
-            $(".progress-value > span").each(function () {
+            $('.progress-value > span').each(function () {
                 $(this)
-                    .prop("Counter", 0)
+                    .prop('Counter', 0)
                     .animate(
                         {
                             Counter: $(this).text(),
                         },
                         {
                             duration: 3500,
-                            easing: "swing",
+                            easing: 'swing',
                             step: function (now) {
                                 $(this).text(Math.ceil(now));
                             },
@@ -285,21 +295,197 @@
     <!-- dynameter -->
     <script type="text/javascript" src="../assets/js/dynameter/jquery.dynameter.js"></script>
 
+    <!-- gauges -->
+    <script type="text/javascript" src="../assets/gauges/assets/prettify.js"></script>
+    <script type="text/javascript" src="../assets/gauges/assets/jscolor.js"></script>
+    <script src="../assets/gauges/dist/gauge.js"></script>
+
     <script type="text/javascript">
         var $payloadMeter = null;
         $(function () {
-            $payloadMeter = $("div#payloadMeterDiv").dynameter({
+            $payloadMeter = $('div#payloadMeterDiv').dynameter({
                 // REQUIRED.
-                label: "Omset",
+                label: 'Omset',
                 value: 500,
                 min: 0,
                 max: 1000,
                 regions: {
-                    0: "error", // 'warn' if 850 pounds or more, but less than 950 pounds.
-                    400: "warn", // 'error' if 950 pounds or more.
-                    1000: "normal",
+                    0: 'error', // 'warn' if 850 pounds or more, but less than 950 pounds.
+                    400: 'warn', // 'error' if 950 pounds or more.
+                    1000: 'normal',
                 },
             });
         });
+    </script>
+
+    <script>
+        var opts1 = {
+            angle: -0.25,
+            lineWidth: 0.2,
+            radiusScale: 0.9,
+            pointer: {
+                length: 0.6,
+                strokeWidth: 0.05,
+                color: '#000000',
+            },
+            staticLabels: {
+                font: '10px sans-serif',
+                labels: [200, 500, 2100, 2800],
+                fractionDigits: 0,
+            },
+            staticZones: [
+                { strokeStyle: '#F03E3E', min: 0, max: 200 },
+                { strokeStyle: '#FFDD00', min: 200, max: 500 },
+                { strokeStyle: '#FFDD00', min: 500, max: 2100 },
+                { strokeStyle: '#FFDD00', min: 2100, max: 2800 },
+                { strokeStyle: '#30B32D', min: 2800, max: 3000 },
+            ],
+            limitMax: false,
+            limitMin: false,
+            highDpiSupport: true,
+            renderTicks: {
+                divisions: 5,
+                divWidth: 1.1,
+                divLength: 0.79,
+                divColor: '#333333',
+                subDivisions: 6,
+                subLength: 0.5,
+                subWidth: 0.6,
+                subColor: '#666666',
+            },
+        };
+
+        var gauge1 = new Gauge(document.getElementById('canvas-preview1')).setOptions(opts1); // create sexy gauge!
+        gauge1.maxValue = 3000; // set max gauge value
+        gauge1.setMinValue(0); // Prefer setter over gauge.minValue = 0
+        gauge1.animationSpeed = 32; // set animation speed (32 is default value)
+        gauge1.setTextField(document.getElementById('preview-textfield1'));
+        gauge1.set(200); // set actual value
+
+        var opts2 = {
+            angle: -0.25,
+            lineWidth: 0.2,
+            radiusScale: 0.9,
+            pointer: {
+                length: 0.6,
+                strokeWidth: 0.05,
+                color: '#000000',
+            },
+            staticLabels: {
+                font: '10px sans-serif',
+                labels: [200, 500, 2100, 2800],
+                fractionDigits: 0,
+            },
+            staticZones: [
+                { strokeStyle: '#F03E3E', min: 0, max: 200 },
+                { strokeStyle: '#FFDD00', min: 200, max: 500 },
+                { strokeStyle: '#FFDD00', min: 500, max: 2100 },
+                { strokeStyle: '#FFDD00', min: 2100, max: 2800 },
+                { strokeStyle: '#30B32D', min: 2800, max: 3000 },
+            ],
+            limitMax: false,
+            limitMin: false,
+            highDpiSupport: true,
+            renderTicks: {
+                divisions: 5,
+                divWidth: 1.1,
+                divLength: 0.79,
+                divColor: '#333333',
+                subDivisions: 6,
+                subLength: 0.5,
+                subWidth: 0.6,
+                subColor: '#666666',
+            },
+        };
+        var gauge2 = new Gauge(document.getElementById('canvas-preview2')).setOptions(opts2); // create sexy gauge!
+        gauge2.maxValue = 3000; // set max gauge value
+        gauge2.setMinValue(0); // Prefer setter over gauge.minValue = 0
+        gauge2.animationSpeed = 32; // set animation speed (32 is default value)
+        gauge2.setTextField(document.getElementById('preview-textfield2'));
+        gauge2.set(200); // set actual value
+
+        var opts3 = {
+            angle: -0.25,
+            lineWidth: 0.2,
+            radiusScale: 0.9,
+            pointer: {
+                length: 0.6,
+                strokeWidth: 0.05,
+                color: '#000000',
+            },
+            staticLabels: {
+                font: '10px sans-serif',
+                labels: [200, 500, 2100, 2800],
+                fractionDigits: 0,
+            },
+            staticZones: [
+                { strokeStyle: '#F03E3E', min: 0, max: 200 },
+                { strokeStyle: '#FFDD00', min: 200, max: 500 },
+                { strokeStyle: '#FFDD00', min: 500, max: 2100 },
+                { strokeStyle: '#FFDD00', min: 2100, max: 2800 },
+                { strokeStyle: '#30B32D', min: 2800, max: 3000 },
+            ],
+            limitMax: false,
+            limitMin: false,
+            highDpiSupport: true,
+            renderTicks: {
+                divisions: 5,
+                divWidth: 1.1,
+                divLength: 0.79,
+                divColor: '#333333',
+                subDivisions: 6,
+                subLength: 0.5,
+                subWidth: 0.6,
+                subColor: '#666666',
+            },
+        };
+        var gauge3 = new Gauge(document.getElementById('canvas-preview3')).setOptions(opts3); // create sexy gauge!
+        gauge3.maxValue = 3000; // set max gauge value
+        gauge3.setMinValue(0); // Prefer setter over gauge.minValue = 0
+        gauge3.animationSpeed = 32; // set animation speed (32 is default value)
+        gauge3.setTextField(document.getElementById('preview-textfield3'));
+        gauge3.set(200); // set actual value
+
+        var opts4 = {
+            angle: -0.25,
+            lineWidth: 0.2,
+            radiusScale: 0.9,
+            pointer: {
+                length: 0.6,
+                strokeWidth: 0.05,
+                color: '#000000',
+            },
+            staticLabels: {
+                font: '10px sans-serif',
+                labels: [200, 500, 2100, 2800],
+                fractionDigits: 0,
+            },
+            staticZones: [
+                { strokeStyle: '#F03E3E', min: 0, max: 200 },
+                { strokeStyle: '#FFDD00', min: 200, max: 500 },
+                { strokeStyle: '#FFDD00', min: 500, max: 2100 },
+                { strokeStyle: '#FFDD00', min: 2100, max: 2800 },
+                { strokeStyle: '#30B32D', min: 2800, max: 3000 },
+            ],
+            limitMax: false,
+            limitMin: false,
+            highDpiSupport: true,
+            renderTicks: {
+                divisions: 5,
+                divWidth: 1.1,
+                divLength: 0.79,
+                divColor: '#333333',
+                subDivisions: 6,
+                subLength: 0.5,
+                subWidth: 0.6,
+                subColor: '#666666',
+            },
+        };
+        var gauge4 = new Gauge(document.getElementById('canvas-preview4')).setOptions(opts4); // create sexy gauge!
+        gauge4.maxValue = 3000; // set max gauge value
+        gauge4.setMinValue(0); // Prefer setter over gauge.minValue = 0
+        gauge4.animationSpeed = 32; // set animation speed (32 is default value)
+        gauge4.setTextField(document.getElementById('preview-textfield4'));
+        gauge4.set(200); // set actual value
     </script>
 </html>

@@ -47,6 +47,10 @@ class Referal extends CI_Controller
             "countincome" => $this->referal->getCountIncomeReferal($referalbe->code_referal),
             "sumorder" => $this->referal->getSumIncomeOrderReferal($referalbe->users_email_referal)->row(),
             "countincomeorder" => $this->referal->getCountIncomeOrderReferal($referalbe->users_email_referal),
+            "incomemonth" => $this->referal->getCountIncomeMonthReferal()->row(),
+            "incomeyear" => $this->referal->getCountIncomeYearReferal()->row(),
+            "incomeordermonth" => $this->referal->getCountIncomeOrderMonthReferal()->row(),
+            "incomeorderyear" => $this->referal->getCountIncomeOrderYearReferal()->row(),
             "modal" => $modal,
 
         ];
