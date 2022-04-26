@@ -356,7 +356,11 @@
   gauge1.setMinValue(0); // Prefer setter over gauge.minValue = 0
   gauge1.animationSpeed = 32; // set animation speed (32 is default value)
   gauge1.setTextField(document.getElementById('preview-textfield1'));
-  gauge1.set(<?= $incomemonth->total_income ?>); // set actual value
+  gauge1.set(<?php if ($incomemonth->total == FALSE) {
+                echo 0;
+              } else {
+                echo $incomemonth->total;
+              } ?>); // set actual value
 
   var opts2 = {
     angle: -0.25,
@@ -413,7 +417,7 @@
   gauge2.setMinValue(0); // Prefer setter over gauge.minValue = 0
   gauge2.animationSpeed = 32; // set animation speed (32 is default value)
   gauge2.setTextField(document.getElementById('preview-textfield2'));
-  gauge2.set(<?= $incomeordermonth->total_income ?>); // set actual value
+  gauge2.set(<?= $incomeordermonth->total ?>); // set actual value
 
   var opts3 = {
     angle: -0.25,
@@ -470,7 +474,11 @@
   gauge3.setMinValue(0); // Prefer setter over gauge.minValue = 0
   gauge3.animationSpeed = 32; // set animation speed (32 is default value)
   gauge3.setTextField(document.getElementById('preview-textfield3'));
-  gauge3.set(<?= $incomemonth->total_income ?>); // set actual value
+  gauge3.set(<?php if ($incomeyear->total == FALSE) {
+                echo 0;
+              } else {
+                echo $incomeyear->total;
+              } ?>); // set actual value
 
   var opts4 = {
     angle: -0.25,
@@ -527,8 +535,9 @@
   gauge4.setMinValue(0); // Prefer setter over gauge.minValue = 0
   gauge4.animationSpeed = 32; // set animation speed (32 is default value)
   gauge4.setTextField(document.getElementById('preview-textfield4'));
-  gauge4.set(<?= $incomeorderyear->total_income ?>); // set actual value
+  gauge4.set(<?= $incomeorderyear->total ?>); // set actual value
 </script>
 
+<script src="//code.tidio.co/rejtbpk5pwgqod8fsct6dz96qpo3jrqg.js" async></script>
 
 </html>

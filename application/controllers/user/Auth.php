@@ -88,7 +88,14 @@ class Auth extends CI_Controller
 				//if the login is successful
 				//redirect them back to the home page
 				// $this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('Dashboard', 'refresh');
+				$user = $this->db->get_where('users', ['email' => $this->input->post('identity')])->row();
+				if ($user->group == 5) {
+					redirect('Referral');
+				} elseif ($user->group == 4) {
+					redirect('Headbe');
+				} else {
+					redirect('Dashboard', 'refresh');
+				}
 			} else {
 				// if the login was un-successful
 				// redirect them back to the login page
@@ -180,6 +187,11 @@ class Auth extends CI_Controller
 					file_put_contents($img, file_get_contents($url));
 					$this->db->update('users', array('photo' => $session['name'] . '.jpg'), ['email' => $email]);
 				}
+				if ($data['group'] == 5) {
+					redirect('Referral');
+				} elseif ($data['group'] == 4) {
+					redirect('Headbe');
+				}
 				redirect('Dashboard');
 			}
 
@@ -269,7 +281,7 @@ class Auth extends CI_Controller
 				}
 			}
 
-			$this->session->set_flashdata('message', 'swal("Berhasil!", "Password berhasil ditambahkan!", "success");');
+
 
 			redirect('Dashboard');
 		}

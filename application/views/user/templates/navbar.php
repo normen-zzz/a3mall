@@ -74,12 +74,9 @@
                             <?php
                             $CI = &get_instance();
                             $CI->load->model('Referal_model');
-                            if ($user['referal'] != NULL) {
-                                $referal = $CI->Referal_model->getReferal($user['referal'])->row();
-                                if ($referal->level_referal == 2) { ?>
-                                    <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Referral</a></li>
-                                <?php }
-                            } else { ?>
+                            if ($user['group'] == 5) { ?>
+                                <li><a class="dropdown-item" href="<?= base_url('Referral') ?>">Referral</a></li>
+                            <?php } elseif ($user['group'] == 4) { ?>
                                 <li><a class="dropdown-item" href="<?= base_url('Headbe') ?>">Head Referral</a></li>
                             <?php } ?>
                             <hr />

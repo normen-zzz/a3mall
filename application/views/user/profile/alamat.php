@@ -48,7 +48,7 @@
     <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ubah Alamat</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Alamat</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -57,10 +57,12 @@
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Nama</label>
                         <input type="text" name="name" class="form-control" id="validationCustom01" required />
+                        <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustomUsername" class="form-label">No Telepon</label>
                         <input type="number" name="phone" class="form-control" required />
+                        <?= form_error('number', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom03" class="form-label">Provinsi</label>
@@ -72,6 +74,7 @@
                             }
                             ?>
                         </select>
+                        <?= form_error('provinsi', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="col-md-3">
                         <label for="validationCustom04" class="form-label">Kabupaten</label>
@@ -81,6 +84,7 @@
 
                             ?>
                         </select>
+                        <?= form_error('kabupaten', '<small class="text-danger">', '</small>'); ?>
                         <div class="invalid-feedback">Please select a valid state.</div>
                     </div>
                     <div class="col-md-3">
@@ -90,6 +94,7 @@
                             <?php
                             ?>
                         </select>
+                        <?= form_error('kecamatan', '<small class="text-danger">', '</small>'); ?>
                         <div class="invalid-feedback">Please select a valid state.</div>
                     </div>
                     <!-- <div class="col-md-3">
@@ -103,12 +108,14 @@
                     <div class="col-md-3">
                         <label for="validationCustom05" class="form-label">Kode Pos</label>
                         <input type="text" name="pos" class="form-control" id="validationCustom05" required />
+                        <?= form_error('pos', '<small class="text-danger">', '</small>'); ?>
                         <div class="invalid-feedback">Please provide a valid zip.</div>
                     </div>
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label"> Detail Alamat </label>
                             <textarea class="form-control" name="detail" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <?= form_error('detail', '<small class="text-danger">', '</small>'); ?>
                         </div>
                     </div>
                     <div class="col-12">
@@ -134,17 +141,20 @@
                     <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Nama</label>
-                        <input type="text" name="name" class="form-control" id="validationCustom01" required />
+                        <input type="text" name="name" class="form-control" id="validationCustom01" />
+                        <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustomUsername" class="form-label">No Telepon</label>
                         <input type="number" name="phone" class="form-control" required />
+                        <?= form_error('phone', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom03" class="form-label">Provinsi</label>
                         <select class="form-select" name="provinsi" id="provinsi1" required>
                             <option selected disabled value="">Choose...</option>
                         </select>
+                        <?= form_error('provinsi', '<small class="text-danger">', '</small>'); ?>
                     </div>
                     <div class="col-md-3">
                         <label for="validationCustom04" class="form-label">Kabupaten</label>
@@ -152,6 +162,7 @@
                             <option selected disabled value="">Choose...</option>
                             <option>...</option>
                         </select>
+                        <?= form_error('kabupaten', '<small class="text-danger">', '</small>'); ?>
                         <div class="invalid-feedback">Please select a valid state.</div>
                     </div>
                     <div class="col-md-3">
@@ -160,6 +171,7 @@
                             <option selected disabled value="">Choose...</option>
                             <option>...</option>
                         </select>
+                        <?= form_error('kecamatan', '<small class="text-danger">', '</small>'); ?>
                         <div class="invalid-feedback">Please select a valid state.</div>
                     </div>
                     <div class="col-md-3">
@@ -168,17 +180,20 @@
                             <option selected disabled value="">Choose...</option>
                             <option>...</option>
                         </select>
+                        <?= form_error('kelurahan', '<small class="text-danger">', '</small>'); ?>
                         <div class="invalid-feedback">Please select a valid state.</div>
                     </div>
                     <div class="col-md-3">
                         <label for="validationCustom05" class="form-label">Kode Pos</label>
                         <input type="text" name="pos" class="form-control" id="validationCustom05" required />
+                        <?= form_error('pos', '<small class="text-danger">', '</small>'); ?>
                         <div class="invalid-feedback">Please provide a valid zip.</div>
                     </div>
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label"> Detail Alamat </label>
                             <textarea class="form-control" name="detail" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <?= form_error('detail', '<small class="text-danger">', '</small>'); ?>
                         </div>
                     </div>
                     <div class="col-12">

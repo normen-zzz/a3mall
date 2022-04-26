@@ -162,7 +162,7 @@ class Profile extends CI_Controller
             'required' => 'Name tidak boleh kosong.'
         ]);
 
-        $this->form_validation->set_rules('phone', 'Phone', 'required', [
+        $this->form_validation->set_rules('number', 'Number', 'required', [
             'required' => 'Phone tidak boleh kosong.'
         ]);
 

@@ -122,42 +122,67 @@ class Referal_model extends CI_Model
     }
 
     //Gauges
-    public function getCountIncomeMonthReferal()
+    public function getOmsetIncomeMonthReferal($referal)
     {
 
-        $this->db->select_sum('total_income');
-        $this->db->from('income_referal');
-        $this->db->where('MONTH(date_income)', date('m')); //For current month
-        $this->db->where('YEAR(date_income)', date('Y')); // For current year
-        return $this->db->get();
+        $this->db->select('SUM(total_transaction - ongkir) As total');
+        $this->db->from('detail_transaction');
+        $this->db->join('income_referal', 'income_referal.kd_transaction=detail_transaction.kd_transaction', 'left');
+        $this->db->where('MONTH(date_transaction)', date('m')); //For current month
+        $this->db->where('YEAR(date_transaction)', date('Y')); // For current year
+        $this->db->where('income_referal.referal', $referal); // For current year
+        $query = $this->db->get();
+        if ($query->num_rows() != 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
     }
 
-    public function getCountIncomeYearReferal()
+    public function getOmsetIncomeYearReferal($referal)
     {
 
-        $this->db->select_sum('total_income');
-        $this->db->from('income_referal');
-        $this->db->where('YEAR(date_income)', date('Y')); // For current year
-        return $this->db->get();
+        $this->db->select('SUM(total_transaction - ongkir) As total');
+        $this->db->from('detail_transaction');
+        $this->db->join('income_referal', 'income_referal.kd_transaction=detail_transaction.kd_transaction', 'left');
+        $this->db->where('YEAR(date_transaction)', date('Y')); // For current year
+        $this->db->where('income_referal.referal', $referal); // For current year
+        $query = $this->db->get();
+        if ($query->num_rows() != 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
     }
 
-    public function getCountIncomeOrderMonthReferal()
+    public function getOmsetIncomeOrderMonthReferal($email)
     {
 
-        $this->db->select_sum('total_income');
-        $this->db->from('incomeorder_referal');
-        $this->db->where('MONTH(date_incomeorder)', date('m')); //For current month
-        $this->db->where('YEAR(date_incomeorder)', date('Y')); // For current year
-        return $this->db->get();
+        $this->db->select('SUM(total_transaction - ongkir) As total');
+        $this->db->from('detail_transaction');
+        $this->db->where('MONTH(date_transaction)', date('m')); //For current month
+        $this->db->where('YEAR(date_transaction)', date('Y')); // For current year
+        $this->db->where('email_users', $email); // For current year
+        $query = $this->db->get();
+        if ($query->num_rows() != 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
     }
 
-    public function getCountIncomeOrderYearReferal()
+    public function getOmsetIncomeOrderYearReferal($email)
     {
-
-        $this->db->select_sum('total_income');
-        $this->db->from('incomeorder_referal');
-        $this->db->where('YEAR(date_incomeorder)', date('Y')); // For current year
-        return $this->db->get();
+        $this->db->select('SUM(total_transaction - ongkir) As total');
+        $this->db->from('detail_transaction');
+        $this->db->where('YEAR(date_transaction)', date('Y')); // For current year
+        $this->db->where('email_users', $email); // For current year
+        $query = $this->db->get();
+        if ($query->num_rows() != 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
     }
 }
 

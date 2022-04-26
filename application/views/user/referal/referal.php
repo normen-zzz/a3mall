@@ -146,7 +146,7 @@
                      <a href="<?= base_url('Referral/income/' . $referal->code_referal) ?>" style="text-decoration: none">
                          <div class="shadow bg-white text-dark p-4">
                              <div class="card-body">
-                                 <h5 class="card-title border-bottom pb-2">Total Pendapatan Dari Order Customersx</h5>
+                                 <h5 class="card-title border-bottom pb-2">Total Pendapatan Dari Order Customers</h5>
                                  <h4 class="card-subtitle mb-2 text-muted pt-5">Rp. <?= number_format($sumincome->total_income, '0', ',', '.') ?></h4>
                                  <p class="card-text text-warning"><?= $countincome ?> <span class="text-secondary small">Orders</span></p>
                              </div>

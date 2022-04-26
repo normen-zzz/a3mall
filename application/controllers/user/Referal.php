@@ -22,15 +22,17 @@ class Referal extends CI_Controller
             $usergoogle = $this->db->get_where('users', ['email' => $google['email']])->row_array();
             $referalbe = $this->referal->getReferalEmail($google['email'])->row();
             $userreferal = $this->referal->getCustomerOnReferal($referalbe->code_referal)->result_array();
+            $email = $google['email'];
         } else {
             $usergoogle = '';
             $user = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
             $referalbe = $this->referal->getReferalEmail($user['email'])->row();
             $userreferal = $this->referal->getCustomerOnReferal($referalbe->code_referal)->result_array();
+            $email = $user['email'];
         }
 
 
-        if ($referalbe->level_referal != 3) {
+        if ($user['group'] != 5) {
             redirect('Dashboard');
         }
 
@@ -47,10 +49,11 @@ class Referal extends CI_Controller
             "countincome" => $this->referal->getCountIncomeReferal($referalbe->code_referal),
             "sumorder" => $this->referal->getSumIncomeOrderReferal($referalbe->users_email_referal)->row(),
             "countincomeorder" => $this->referal->getCountIncomeOrderReferal($referalbe->users_email_referal),
-            "incomemonth" => $this->referal->getCountIncomeMonthReferal()->row(),
-            "incomeyear" => $this->referal->getCountIncomeYearReferal()->row(),
-            "incomeordermonth" => $this->referal->getCountIncomeOrderMonthReferal()->row(),
-            "incomeorderyear" => $this->referal->getCountIncomeOrderYearReferal()->row(),
+
+            "incomemonth" => $this->referal->getOmsetIncomeMonthReferal($referalbe->code_referal)->row(),
+            "incomeyear" => $this->referal->getOmsetIncomeYearReferal($referalbe->code_referal)->row(),
+            "incomeordermonth" => $this->referal->getOmsetIncomeOrderMonthReferal($email)->row(),
+            "incomeorderyear" => $this->referal->getOmsetIncomeOrderYearReferal($email)->row(),
             "modal" => $modal,
 
         ];
@@ -197,7 +200,7 @@ class Referal extends CI_Controller
             $group = $user['group'];
         }
         $be = $this->db->get_where('users', ['group' => 5])->row();
-        $referalbe = $this->referal->getReferalEmail($be->email)->row();
+
 
         if ($group != 4) {
             redirect('Dashboard');
