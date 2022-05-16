@@ -65,46 +65,28 @@ function scrollFunction() {
 	}
 }
 
-// document.onreadystatechange = function () {
-// 	var dialogShown = $.cookie('dialogShown');
-// 	if (!dialogShown) {
-// 		$(window).load(function () {
-// 			myModal.show();
-// 			$.cookie('dialogShown', 1);
-// 		});
-// 	}
-// };
-
-// jQuery(document).ready(function ($) {
-// 	/* Pop-up
-//   ================================================= */
-//
-// 	$(function () {
-// 		function showpanel() {
-// 			myModal.show();
-// 		}
-// 	});
-// });
-
-// function setCookie() {
-// 	$.cookie('MyCookie', 'DialogShown', {
-// 		expires: date.getTime() + 24 * 60 * 60 * 1000, // now add 24 hours
-// 	});
-// }
-
-// if ($.cookie('MyCookie') != 'DialogShown') {
-// 	showpanel();
-// 	setCookie();
-// }
+var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+document.onreadystatechange = function () {
+	myModal.show();
+};
 
 $(function () {
-	if (localStorage.getItem('seen') != new Date().getDate()) {
-		setTimeout(showpanel, 4000);
+	$('.progress').each(function () {
+		var value = $(this).attr('data-value');
+		var left = $(this).find('.progress-left .progress-bar');
+		var right = $(this).find('.progress-right .progress-bar');
+
+		if (value > 0) {
+			if (value <= 50) {
+				right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)');
+			} else {
+				right.css('transform', 'rotate(180deg)');
+				left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)');
+			}
+		}
+	});
+
+	function percentageToDegrees(percentage) {
+		return (percentage / 100) * 360;
 	}
 });
-function showpanel() {
-	var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
-	myModal.show();
-
-	localStorage.setItem('seen', new Date().getDate());
-}

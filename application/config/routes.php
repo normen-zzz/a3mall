@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = false;
 
 //Dashboard
 $route['Dashboard'] = 'Dashboard';
+$route['Links'] = 'user/Links';
 
 //Profile
 $route['Profile'] = 'user/Profile/index';
